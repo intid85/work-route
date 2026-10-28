@@ -122,10 +122,10 @@ def main() -> int:
             return load(live, name, default)
         return load(sample, name, default)
 
-    us_live = not force_sample and (live / "meta.json").exists()
-    meta = dict(data("meta"))
+    us_live = not force_sample and (live / "perm.json").exists()
+    meta = dict(data("meta") or {})
     meta["sample"] = not us_live
-    meta["sample_parts"] = [n for n, f in (("US", "meta"), ("Canada", "ca"), ("UK", "uk"))
+    meta["sample_parts"] = [n for n, f in (("US", "perm"), ("Canada", "ca"), ("UK", "uk"))
                             if force_sample or not (live / f"{f}.json").exists()]
     lca, perm, sc = data("lca", {}), data("perm", {}), data("scorecard", {})
     vb = data("visa_bulletin", {"current": None, "history": []})

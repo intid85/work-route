@@ -396,53 +396,95 @@ def load_scorecard(path: Path, cip4s: set[str]) -> dict:
 
 
 # ---------------------------------------------------------------- 실행
-def main() -> int:
+def local_dol_file(folder: Path | None, prefix: str) -> tuple[Path, str] | None:
+    """Newest DOL disclosure file already downloaded into a folder (for runs from a home PC)."""
+    if not folder or not folder.exists():
+        return None
+    best = None
+    for f in folder.glob(f"{prefix}*.xlsx"):
+        m = re.search(r"FY(\d{4})_Q([1-4])", f.name)
+        if m and "new_form" not in f.name.lower():
+            key = (int(m.group(1)), int(m.group(2)))
+            if best is None or key > best[0]:
+                best = (key, f)
+    return (best[1], f"FY{best[0][0]} Q{best[0][1]}") if best else None
+
+
+def save(name: str, obj, compact=False):
+    (OUT / f"{name}.json").write_text(
+        json.dumps(obj, ensure_ascii=False, separators=(",", ":") if compact else None), encoding="utf-8")
+
+
+def main(argv: list[str]) -> int:
+    """Each part is collected on its own, so one blocked site doesn't stop the rest.
+
+    --dol-dir DIR   use LCA/PERM xlsx files already downloaded into DIR (dol.gov blocks cloud servers)
+    """
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     src = cfg["sources"]
     RAW.mkdir(exist_ok=True)
     OUT.mkdir(parents=True, exist_ok=True)
+    dol_dir = Path(argv[argv.index("--dol-dir") + 1]).expanduser() if "--dol-dir" in argv else None
 
-    socs = {s for m in cfg["majors"] for s in m["soc"]}
-    job_socs = {j["soc"] for j in cfg.get("jobs", [])}
+    socs = {s for m in cfg["majors"] for s in m["soc"]} | {j["soc"] for j in cfg.get("jobs", [])}
     cip4s = {m["cip4"] for m in cfg["majors"]}
+    meta_path = OUT / "meta.json"
+    meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {}
+    failed = []
 
-    log("1/3 H-1B 데이터")
-    lca_url, lca_period = find_latest(src["dol_base"], src["lca_pattern"])
-    lca = load_lca(download(lca_url, RAW / Path(lca_url).name), socs | job_socs)
+    def dol_source(prefix, pattern):
+        local = local_dol_file(dol_dir, prefix)
+        if local:
+            log(f"  using local file {local[0]}")
+            return local
+        url, period = find_latest(src["dol_base"], pattern)
+        return download(url, RAW / Path(url).name), period
 
-    log("2/3 영주권 데이터")
-    perm_url, perm_period = find_latest(src["dol_base"], src["perm_pattern"])
-    perm, employers = load_perm(download(perm_url, RAW / Path(perm_url).name), socs | job_socs)
+    log("1/4 H-1B (LCA)")
+    try:
+        path, period = dol_source("LCA_Disclosure_Data_FY", src["lca_pattern"])
+        save("lca", load_lca(path, socs))
+        meta["lca"] = {"period": period, "file": path.name}
+    except Exception as e:  # noqa: BLE001
+        log(f"  H-1B failed: {e}")
+        failed.append("lca")
 
-    log("+ 비자 블루틴")
+    log("2/4 Green card (PERM)")
+    try:
+        path, period = dol_source("PERM_Disclosure_Data_FY", src["perm_pattern"])
+        perm, employers = load_perm(path, socs)
+        save("perm", perm)
+        save("employers", employers, compact=True)
+        meta["perm"] = {"period": period, "file": path.name}
+    except Exception as e:  # noqa: BLE001
+        log(f"  PERM failed: {e}")
+        failed.append("perm")
+
+    log("3/4 Visa Bulletin")
     try:
         vb = fetch_visa_bulletin(src["visa_bulletin_pattern"], OUT / "visa_bulletin.json")
-    except Exception as e:  # 블루틴 실패가 전체 갱신을 막지 않도록
-        log(f"  비자 블루틴 오류: {e}")
-        p = OUT / "visa_bulletin.json"
-        vb = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {"current": None, "history": []}
+        if vb.get("current"):
+            save("visa_bulletin", vb)
+        else:
+            failed.append("visa_bulletin")
+    except Exception as e:  # noqa: BLE001
+        log(f"  Visa Bulletin failed: {e}")
+        failed.append("visa_bulletin")
 
-    log("3/3 College Scorecard")
-    sc_url = src["scorecard_fos_zip"]
-    scorecard = load_scorecard(download(sc_url, RAW / Path(sc_url).name), cip4s)
+    log("4/4 College Scorecard")
+    try:
+        sc_url = src["scorecard_fos_zip"]
+        save("scorecard", load_scorecard(download(sc_url, RAW / Path(sc_url).name), cip4s))
+        meta["scorecard"] = {"url": sc_url}
+    except Exception as e:  # noqa: BLE001
+        log(f"  Scorecard failed: {e}")
+        failed.append("scorecard")
 
-    meta = {
-        "sample": False,
-        "generated": dt.date.today().isoformat(),
-        "lca": {"url": lca_url, "period": lca_period},
-        "perm": {"url": perm_url, "period": perm_period},
-        "scorecard": {"url": sc_url},
-    }
-    (OUT / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
-    (OUT / "lca.json").write_text(json.dumps(lca, ensure_ascii=False), encoding="utf-8")
-    (OUT / "perm.json").write_text(json.dumps(perm, ensure_ascii=False), encoding="utf-8")
-    (OUT / "employers.json").write_text(json.dumps(employers, ensure_ascii=False, separators=(",", ":")),
-                                        encoding="utf-8")
-    (OUT / "visa_bulletin.json").write_text(json.dumps(vb, ensure_ascii=False, indent=1), encoding="utf-8")
-    (OUT / "scorecard.json").write_text(json.dumps(scorecard, ensure_ascii=False), encoding="utf-8")
-    log(f"완료: 직종 {len(lca)}개, 영주권 {len(perm)}개, 학과 {len(scorecard)}개")
-    return 0
+    meta["generated"] = dt.date.today().isoformat()
+    meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+    log(f"Done. Failed parts: {', '.join(failed) or 'none'}")
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))
