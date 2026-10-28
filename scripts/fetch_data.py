@@ -55,7 +55,8 @@ def download(url: str, dest: Path) -> Path:
         log(f"  캐시 사용: {dest.name}")
         return dest
     log(f"  다운로드: {url}")
-    with requests.get(url, headers=HEADERS, stream=True, timeout=300) as r:
+    hdrs = DOL_HEADERS if "dol.gov" in url else HEADERS
+    with requests.get(url, headers=hdrs, stream=True, timeout=600) as r:
         r.raise_for_status()
         tmp = dest.with_suffix(dest.suffix + ".part")
         with open(tmp, "wb") as f:
@@ -65,20 +66,48 @@ def download(url: str, dest: Path) -> Path:
     return dest
 
 
+DOL_PAGE = "https://www.dol.gov/agencies/eta/foreign-labor/performance"
+# dol.gov rejects some non-browser clients, so identify as a normal browser for those requests
+DOL_HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                             "Chrome/124.0 Safari/537.36", "Accept": "*/*"}
+
+
 def find_latest(base: str, pattern: str) -> tuple[str, str]:
-    """가장 최근 분기 파일 URL을 찾습니다 (미 회계연도는 10월 시작)."""
+    """Find the newest quarterly disclosure file.
+
+    Reads the links on the DOL performance page first (files move between folders),
+    then falls back to guessing URLs in the known folders.
+    """
+    prefix = pattern.split("{fy}")[0]          # e.g. "LCA_Disclosure_Data_FY"
+    rx = re.compile(re.escape(prefix) + r"(\d{4})_Q([1-4])\.xlsx", re.I)
+    try:
+        html = requests.get(DOL_PAGE, headers=DOL_HEADERS, timeout=60).text
+        found = {}
+        for href in re.findall(r'href="([^"]+)"', html):
+            m = rx.search(href)
+            if m and "new_form" not in href.lower():
+                url = href if href.startswith("http") else "https://www.dol.gov" + "/" + href.lstrip("/")
+                found[(int(m.group(1)), int(m.group(2)))] = url
+        if found:
+            fy, q = max(found)
+            return found[(fy, q)], f"FY{fy} Q{q}"
+        log("  DOL page had no matching links; guessing file locations")
+    except requests.RequestException as e:
+        log(f"  DOL page not reachable ({e}); guessing file locations")
+
     today = dt.date.today()
     fy_now = today.year + (1 if today.month >= 10 else 0)
     for fy in range(fy_now, fy_now - 3, -1):
         for q in (4, 3, 2, 1):
             name = pattern.format(fy=fy, q=q)
-            try:
-                r = requests.head(base + name, headers=HEADERS, timeout=30, allow_redirects=True)
-                if r.status_code == 200:
-                    return base + name, f"FY{fy} Q{q}"
-            except requests.RequestException:
-                continue
-    raise RuntimeError(f"최신 파일을 찾지 못했습니다: {pattern}")
+            for folder in ("https://www.dol.gov/media/", base):
+                try:
+                    with requests.get(folder + name, headers=DOL_HEADERS, timeout=30, stream=True) as r:
+                        if r.status_code == 200:
+                            return folder + name, f"FY{fy} Q{q}"
+                except requests.RequestException:
+                    continue
+    raise RuntimeError(f"Could not find the latest file for {pattern}")
 
 
 def pct(values: list[float], p: float) -> float | None:
@@ -93,7 +122,10 @@ def pct(values: list[float], p: float) -> float | None:
 # ---------------------------------------------------------------- H-1B (LCA)
 def load_lca(path: Path, socs: set[str]) -> dict:
     log("  LCA 파일 읽는 중 (수 분 걸립니다)")
-    df = pd.read_excel(path, dtype=str, engine="openpyxl")
+    keep = ("CASE_STATUS", "VISA_CLASS", "SOC_CODE", "EMPLOYER_NAME", "WORKSITE_STATE",
+            "WAGE_RATE_OF_PAY_FROM", "WAGE_UNIT_OF_PAY", "FULL_TIME_POSITION")
+    df = pd.read_excel(path, dtype=str, engine="openpyxl",
+                       usecols=lambda c: any(str(c).upper().strip().startswith(k) for k in keep))
     c_status = pick(df, "CASE_STATUS")
     c_visa = pick(df, "VISA_CLASS")
     c_soc = pick(df, "SOC_CODE")
@@ -166,7 +198,9 @@ def annualize(wage: pd.Series, unit: pd.Series | None) -> pd.Series:
 
 def load_perm(path: Path, socs: set[str]) -> tuple[dict, list]:
     log("  PERM 파일 읽는 중")
-    df = pd.read_excel(path, dtype=str, engine="openpyxl")
+    words = ("STATUS", "SOC", "EMP", "DATE", "WAGE", "STATE", "CITIZEN", "COUNTRY")
+    df = pd.read_excel(path, dtype=str, engine="openpyxl",
+                       usecols=lambda c: any(w in str(c).upper() for w in words))
     c_status = pick(df, "CASE_STATUS")
     c_soc = pick(df, "PW_SOC_CODE", "PWD_SOC_CODE", "SOC_CODE", "PW_SOC", "JOB_SOC_CODE") \
         or pick_like(df, ("SOC", "CODE"))

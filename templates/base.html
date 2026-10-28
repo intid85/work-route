@@ -24,8 +24,8 @@
 {% block head %}{% endblock %}
 </head>
 <body>
-{% if meta.sample %}
-<div class="sample-bar" role="note">Design preview with sample data. Numbers and employer names are not real statistics.</div>
+{% if meta.sample_parts %}
+<div class="sample-bar" role="note">{{ meta.sample_parts|join(", ") }} figures are placeholders until the first data update finishes. They are not real statistics.</div>
 {% endif %}
 <header class="masthead">
   <a class="brand" href="{{ rel }}index.html">

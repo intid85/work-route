@@ -110,19 +110,29 @@ def build_major(m: dict, lca: dict, perm: dict, sc: dict) -> dict:
 
 def main() -> int:
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
-    live = ROOT / "data" / "live"
-    use_sample = "--sample" in sys.argv or not (live / "meta.json").exists()
-    d = ROOT / "data" / ("sample" if use_sample else "live")
-    if use_sample and not (d / "meta.json").exists():
+    live, sample = ROOT / "data" / "live", ROOT / "data" / "sample"
+    if not (sample / "meta.json").exists():
         import make_sample
         make_sample.main()
+    force_sample = "--sample" in sys.argv
 
-    meta = load(d, "meta")
-    lca, perm, sc = load(d, "lca", {}), load(d, "perm", {}), load(d, "scorecard", {})
-    vb = load(d, "visa_bulletin", {"current": None, "history": []})
-    ca = load(d, "ca")
-    uk = load(d, "uk")
-    korea_e9 = load(d, "korea_e9") or load(ROOT / "data", "korea_e9")
+    def data(name, default=None):
+        """Live data when it has been collected, otherwise the sample file."""
+        if not force_sample and (live / f"{name}.json").exists():
+            return load(live, name, default)
+        return load(sample, name, default)
+
+    us_live = not force_sample and (live / "meta.json").exists()
+    meta = dict(data("meta"))
+    meta["sample"] = not us_live
+    meta["sample_parts"] = [n for n, f in (("US", "meta"), ("Canada", "ca"), ("UK", "uk"))
+                            if force_sample or not (live / f"{f}.json").exists()]
+    lca, perm, sc = data("lca", {}), data("perm", {}), data("scorecard", {})
+    vb = data("visa_bulletin", {"current": None, "history": []})
+    ca = data("ca")
+    uk = data("uk")
+    d = live
+    korea_e9 = load(ROOT / "data", "korea_e9") or load(sample, "korea_e9")
     korea = yaml.safe_load((ROOT / "data" / "korea.yaml").read_text(encoding="utf-8"))
 
     majors = [build_major(m, lca, perm, sc) for m in cfg["majors"]]
@@ -182,7 +192,7 @@ def main() -> int:
         render("us/major.html", f"us/majors/{m['slug']}/index.html", country="us", m=m)
     render("us/employers.html", "us/employers/index.html", country="us")
     render("us/bulletin.html", "us/visa-bulletin/index.html", country="us")
-    emp = load(d, "employers")
+    emp = data("employers")
     if emp:
         write_json("static/us-employers.json", {"names": soc_names, "states": STATES, "rows": emp})
 
@@ -193,14 +203,14 @@ def main() -> int:
             if j.get("noc"):
                 render("ca/job.html", f"ca/jobs/{j['slug']}/index.html", country="ca", j=j)
         render("ca/employers.html", "ca/employers/index.html", country="ca")
-        ca_emp = load(d, "ca_employers")
+        ca_emp = data("ca_employers")
         if ca_emp:
             write_json("static/ca-employers.json", {"names": noc_names, "rows": ca_emp})
 
     # United Kingdom
     if uk:
         render("uk/index.html", "uk/index.html", country="uk")
-        uk_idx = load(d, "uk_sponsors")
+        uk_idx = data("uk_sponsors")
         if uk_idx:
             write_json("static/uk-sponsors.json", {"rows": uk_idx})
 
@@ -218,7 +228,7 @@ def main() -> int:
     if site.get("domain"):
         (SITE / "CNAME").write_text(site["domain"] + "\n")
 
-    print(f"Built {len(pages)} pages ({'sample' if use_sample else 'live'} data) -> {SITE}")
+    print(f"Built {len(pages)} pages; sample data used for: {', '.join(meta['sample_parts']) or 'nothing'} -> {SITE}")
     return 0
 
 
