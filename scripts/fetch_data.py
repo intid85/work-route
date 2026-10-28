@@ -55,6 +55,12 @@ def download(url: str, dest: Path) -> Path:
         log(f"  캐시 사용: {dest.name}")
         return dest
     log(f"  다운로드: {url}")
+    if "dol.gov" in url:
+        code, _ = curl(url, dest)
+        log(f"  curl download -> {code}")
+        if code == 200 and dest.exists() and dest.stat().st_size > 100_000:
+            return dest
+        dest.unlink(missing_ok=True)
     hdrs = DOL_HEADERS if "dol.gov" in url else HEADERS
     with requests.get(url, headers=hdrs, stream=True, timeout=600) as r:
         r.raise_for_status()
@@ -67,6 +73,30 @@ def download(url: str, dest: Path) -> Path:
 
 
 DOL_PAGE = "https://www.dol.gov/agencies/eta/foreign-labor/performance"
+
+
+def curl(url: str, out: Path | None = None) -> tuple[int, bytes]:
+    """curl with browser-like headers; some sites accept it when python-requests is refused."""
+    import subprocess
+    cmd = ["curl", "-sSL", "--compressed", "--max-time", "900", "-A", DOL_HEADERS["User-Agent"],
+           "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+           "-H", "Accept-Language: en-US,en;q=0.9", "-w", "%{http_code}"]
+    if out:
+        cmd += ["-o", str(out)]
+    r = subprocess.run(cmd + [url], capture_output=True, timeout=1000)
+    body = r.stdout
+    code = int(body[-3:] or 0) if body[-3:].isdigit() else 0
+    return code, (b"" if out else body[:-3])
+
+
+def dol_get_text(url: str) -> str:
+    r = requests.get(url, headers=DOL_HEADERS, timeout=60)
+    log(f"  {url} -> requests {r.status_code}")
+    if r.status_code == 200 and "Disclosure" in r.text:
+        return r.text
+    code, body = curl(url)
+    log(f"  {url} -> curl {code}")
+    return body.decode("utf-8", "ignore") if code == 200 else ""
 # dol.gov rejects some non-browser clients, so identify as a normal browser for those requests
 DOL_HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
                              "Chrome/124.0 Safari/537.36", "Accept": "*/*"}
@@ -81,7 +111,7 @@ def find_latest(base: str, pattern: str) -> tuple[str, str]:
     prefix = pattern.split("{fy}")[0]          # e.g. "LCA_Disclosure_Data_FY"
     rx = re.compile(re.escape(prefix) + r"(\d{4})_Q([1-4])\.xlsx", re.I)
     try:
-        html = requests.get(DOL_PAGE, headers=DOL_HEADERS, timeout=60).text
+        html = dol_get_text(DOL_PAGE)
         found = {}
         for href in re.findall(r'href="([^"]+)"', html):
             m = rx.search(href)
