@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}{{ j.name }} jobs in Canada for foreign workers: LMIA employers | {{ site.name }}{% endblock %}
+{% block description %}{{ j.ca.positions|num }} positions approved for foreign {{ j.name|lower }}s through Canada's LMIA process in {{ ca.period }}, with the employers, provinces and program streams, from Government of Canada open data.{% endblock %}
+{% block main %}
+{% set c = j.ca %}
+<nav class="crumbs"><a href="../../index.html#jobs">Canada jobs</a> / {{ j.group }}</nav>
+<section class="hero hero--major">
+  <h1>{{ j.name }}: Canadian employers hiring foreign workers</h1>
+  <p class="en-title">NOC {{ j.noc }} · {{ ca.period }}</p>
+</section>
+
+{% if c %}
+<div class="stat-row">
+  <div><b>Positions approved</b><strong class="fig">{{ c.positions|num }}</strong></div>
+  <div><b>Employers</b><strong class="fig">{{ c.employers|num }}</strong></div>
+  <div><b>For permanent residence</b><strong class="fig">{{ c.pr_positions|num }}</strong></div>
+</div>
+
+<section>
+  <h2>Employers with the most approved positions</h2>
+  <div class="table-wrap">
+  <table class="rank">
+    <thead><tr><th scope="col">Employer</th><th scope="col">Positions</th><th scope="col">Province</th></tr></thead>
+    <tbody>
+    {% for e in c.top_employers %}
+    <tr><th scope="row">{{ e.name }}</th><td>{{ e.positions|num }}</td><td>{{ e.province }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <h2>Provinces</h2>
+    <ul class="bars">
+    {% set top = c.top_provinces[0].positions or 1 %}
+    {% for p in c.top_provinces %}
+      <li><span class="label">{{ p.province }}</span><span class="bar" style="--w: {{ (p.positions / top * 100)|round(1) }}%"></span><span class="val">{{ p.positions|num }}</span></li>
+    {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Program streams</h2>
+    <ul class="bars">
+    {% set top = c.streams[0].positions or 1 %}
+    {% for s in c.streams %}
+      <li class="bars-wide"><span class="label">{{ s.stream }}</span><span class="bar bar--alt" style="--w: {{ (s.positions / top * 100)|round(1) }}%"></span><span class="val">{{ s.positions|num }}</span></li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% else %}
+<section><p class="hint">No approved positions for this job in {{ ca.period }}.</p></section>
+{% endif %}
+
+{% if j.perm %}
+<aside class="elsewhere">
+  <h2>{{ j.name }} in the United States</h2>
+  <p>{{ j.perm.certified|num }} US green card labor certifications were certified for {{ j.name|lower }}s, at a median offered wage of {{ j.perm.wage_median|hourly }} an hour.</p>
+  <a href="../../../us/jobs/{{ j.slug }}/index.html">See US sponsors</a>
+</aside>
+{% endif %}
+
+<aside class="caution">
+  <h2>Before you pay anyone</h2>
+  <ul>
+    <li>Employers in Canada may not charge workers for the cost of an LMIA.</li>
+    <li>An LMIA is a work permit route. Permanent residence usually comes later through Express Entry or a provincial nominee program.</li>
+  </ul>
+</aside>
+
+<section class="others">
+  <h2>Other jobs in Canada</h2>
+  <ul>
+  {% for o in jobs if o.slug != j.slug and o.noc %}
+    <li><a href="../{{ o.slug }}/index.html">{{ o.name }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}

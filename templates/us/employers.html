@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}US green card sponsor search: PERM records by employer | {{ site.name }}{% endblock %}
+{% block description %}Search US employers by name to see how many green card labor certifications (PERM) they filed and how many were certified, for the jobs covered on this site.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>US green card sponsor search</h1>
+  <p class="lede">Type part of a company name to see its labor certification record for the jobs on this site. Use it to check an employer before you sign with an agency.</p>
+</section>
+{% set source = rel ~ 'static/us-employers.json' %}
+{% set mode = 'us' %}
+{% set cols = [('Employer', 'n'), ('Filed', 'd'), ('Certified', 'c'), ('Main jobs', 's'), ('State', 'st')] %}
+{% include "_search.html" %}
+<p class="hint">No record doesn't mean an employer can't sponsor, and a record doesn't mean they are hiring now. Names are the legal entity on the application, so subsidiaries can appear separately.</p>
+{% endblock %}

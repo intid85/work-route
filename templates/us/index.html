@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}US green card sponsorship by job: employers, wages and wait times | {{ site.name }}{% endblock %}
+{% block description %}How many US green cards each job gets through employer sponsorship (PERM), what employers offer to pay, which companies sponsor, and the current EB-3 wait, from US Department of Labor and State Department data.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>US green cards through an employer, by job</h1>
+  <p class="lede">A US employer can sponsor a foreign worker for permanent residence through the PERM labor certification. These pages show how often that happens in each job, what the employer offered to pay, and who the sponsors are.</p>
+</section>
+
+{% if vb.current %}
+<section class="vb-now" aria-labelledby="vb-h">
+  <div>
+    <h2 id="vb-h">This month's green card wait</h2>
+    <p class="hint">{{ vb.current.month|month_name }} Visa Bulletin, "all chargeability areas" column, which covers most countries. India, China, Mexico and the Philippines have their own columns.</p>
+  </div>
+  <div class="vb-cards">
+    <div>
+      <b>EB-3 Skilled Worker and Professional</b>
+      <strong class="fig">{{ vb.current.eb3_final|vbdate }}</strong>
+      <small>Cases filed before this date can be approved now{% set g = wait_gap(vb.current.month, vb.current.eb3_final) %}{% if g %}, a wait of {{ g }}{% endif %}.</small>
+    </div>
+    <div>
+      <b>EB-3 Other Workers</b>
+      <strong class="fig">{{ vb.current.ew_final|vbdate }}</strong>
+      <small>Cases filed before this date can be approved now{% set g = wait_gap(vb.current.month, vb.current.ew_final) %}{% if g %}, a wait of {{ g }}{% endif %}.</small>
+    </div>
+  </div>
+  <p><a href="visa-bulletin/index.html">See how the wait has moved</a></p>
+</section>
+{% endif %}
+
+<section id="jobs" aria-labelledby="jobs-h">
+  <h2 id="jobs-h">Jobs that don't need a degree</h2>
+  <p class="hint">The employer files for labor certification, then an immigrant petition, and the worker gets the green card from abroad when their date comes up. The wage shown is the median the employer offered on certified applications.</p>
+  {% for g, items in groups.items() %}
+  <h3 class="group-h">{{ g }}</h3>
+  <ul class="job-grid">
+    {% for j in items %}
+    <li>
+      <a href="jobs/{{ j.slug }}/index.html">
+        <span class="job-name">{{ j.name }}</span>
+        <span class="job-stat"><em>{{ j.perm.wage_median|hourly }}</em>/hr</span>
+        <span class="job-stat"><em>{{ j.perm.certified|num }}</em> certified</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+  <p class="cta-line"><a class="btn" href="employers/index.html">Search sponsoring employers</a> Check whether a company you were offered has actually sponsored green cards before.</p>
+</section>
+
+<section id="majors" aria-labelledby="majors-h">
+  <h2 id="majors-h">After a US degree</h2>
+  <p class="hint">The student route runs from a US degree to OPT work authorization, then an H-1B visa, then a green card. H-1B and green card figures add up the main jobs graduates of each major go into. Select a column heading to sort.</p>
+  <div class="table-wrap">
+  <table class="compare" id="compare">
+    <thead><tr>
+      <th scope="col" data-sort="text">Major</th>
+      <th scope="col" data-sort="num">OPT</th>
+      <th scope="col" data-sort="num">Bachelor's earnings, year 1</th>
+      <th scope="col" data-sort="num">H-1B certified</th>
+      <th scope="col" data-sort="num">H-1B median salary</th>
+      <th scope="col" data-sort="num">Green cards certified</th>
+    </tr></thead>
+    <tbody>
+    {% for m in majors %}
+    <tr>
+      <th scope="row"><a href="majors/{{ m.slug }}/index.html">{{ m.name }}</a></th>
+      <td data-v="{{ m.opt_months }}"><span class="opt {{ 'opt--stem' if m.stem }}">{{ m.opt_months }} months</span></td>
+      <td data-v="{{ m.ba.median_earn_1yr or 0 }}">{{ m.ba.median_earn_1yr|money }}</td>
+      <td data-v="{{ m.h1b_total }}">{{ m.h1b_total|num }}</td>
+      <td data-v="{{ m.h1b_median or 0 }}">{{ m.h1b_median|money }}</td>
+      <td data-v="{{ m.perm_cert }}">{{ m.perm_cert|num }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <p class="hint">36 months of OPT includes the 24-month extension for STEM-designated majors.</p>
+</section>
+<script src="../static/sort.js" defer></script>
+{% endblock %}

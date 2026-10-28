@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}{{ j.name }} green card sponsorship in the US: employers and wages | {{ site.name }}{% endblock %}
+{% block description %}{% set p = j.perm %}{{ p.certified|num }} certified PERM labor certifications for {{ j.name|lower }}s ({{ j.title }}), median offered wage {{ p.wage_median|hourly }} an hour, top sponsoring employers, states and the current EB-3 wait, from US Department of Labor data.{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset","name":"{{ j.name }} US green card sponsorship statistics","description":"{{ self.description() }}","url":"{{ site.base_url }}{{ page_path }}","isBasedOn":["https://www.dol.gov/agencies/eta/foreign-labor/performance","https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"]}
+</script>
+{% endblock %}
+{% block main %}
+{% set p = j.perm %}
+<nav class="crumbs"><a href="../../index.html#jobs">US jobs</a> / {{ j.group }}</nav>
+<section class="hero hero--major">
+  <h1>{{ j.name }}: US green card sponsorship</h1>
+  <p class="en-title">{{ j.title }} · SOC {{ j.soc }}</p>
+  <p class="lede">{{ j.hint }}</p>
+</section>
+
+<ol class="route route--five" aria-label="Steps to a green card for {{ j.name|lower }}s">
+  <li>
+    <span class="dot"></span>
+    <b>Job offer</b>
+    <strong class="fig">{{ p.wage_median|hourly }}</strong>
+    <small>Median offered hourly wage<br>{{ p.wage_median|money }} a year</small>
+  </li>
+  <li>
+    <span class="dot"></span>
+    <b>Labor certification</b>
+    <strong class="fig">{{ p.certified|num }}</strong>
+    <small>Certified{% if p.cert_rate %}, {{ p.cert_rate }}% of decisions{% endif %}{% if p.days_median %}<br>Median processing about {{ p.days_median }} days{% endif %}</small>
+  </li>
+  <li>
+    <span class="dot"></span>
+    <b>Immigrant petition</b>
+    <strong class="fig fig--text">I-140 at USCIS</strong>
+    <small>The labor certification filing date becomes your priority date</small>
+  </li>
+  <li>
+    <span class="dot"></span>
+    <b>Waiting line</b>
+    {% if vb.current %}
+    <strong class="fig fig--text">{{ wait_gap(vb.current.month, vb.current.ew_final) or (vb.current.ew_final|vbdate) }}</strong>
+    <small>For EB-3 Other Workers ({{ wait_gap(vb.current.month, vb.current.eb3_final) or (vb.current.eb3_final|vbdate) }} for Skilled Worker)</small>
+    {% else %}
+    <strong class="fig fig--text">No data</strong>
+    {% endif %}
+  </li>
+  <li>
+    <span class="dot"></span>
+    <b>Green card</b>
+    <strong class="fig fig--text">Immigrant visa</strong>
+    <small>Interview at a US embassy, then entry as a permanent resident</small>
+  </li>
+</ol>
+
+{% if site.adsense_client %}<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="{{ site.adsense_client }}" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>{% endif %}
+
+<section>
+  <h2>Employers with the most certified cases</h2>
+  <p class="hint">Ranked by certified labor certifications. If a company you were offered isn't here, look it up in the <a href="../../employers/index.html">employer search</a>.</p>
+  <div class="table-wrap">
+  <table class="rank">
+    <thead><tr><th scope="col">Employer</th><th scope="col">Certified</th><th scope="col">Offered hourly</th><th scope="col">Per year</th></tr></thead>
+    <tbody>
+    {% for e in p.top_employers or [] %}
+    <tr><th scope="row">{{ e.name }}</th><td>{{ e.certified|num }}</td><td>{{ e.wage_median|hourly }}</td><td>{{ e.wage_median|money }}</td></tr>
+    {% else %}
+    <tr><td colspan="4">No certified cases in this period.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <h2>Where the jobs are</h2>
+    {% if p.top_states %}
+    <ul class="bars">
+    {% set top = p.top_states[0].certified or 1 %}
+    {% for s in p.top_states %}
+      <li><span class="label">{{ s.state|state }}</span><span class="bar" style="--w: {{ (s.certified / top * 100)|round(1) }}%"></span><span class="val">{{ s.certified|num }}</span></li>
+    {% endfor %}
+    </ul>
+    {% else %}<p class="hint">No location data.</p>{% endif %}
+  </div>
+  <div>
+    <h2>Workers' nationalities</h2>
+    {% if p.top_countries %}
+    <ul class="bars">
+    {% set top = p.top_countries[0].certified or 1 %}
+    {% for c in p.top_countries %}
+      <li><span class="label">{{ c.country }}</span><span class="bar bar--alt" style="--w: {{ (c.certified / top * 100)|round(1) }}%"></span><span class="val">{{ c.certified|num }}</span></li>
+    {% endfor %}
+    </ul>
+    {% else %}<p class="hint">Nationality is not published for this period.</p>{% endif %}
+  </div>
+</section>
+
+<section>
+  <h2>Wage range</h2>
+  <dl class="kv">
+    <div><dt>Lower quarter</dt><dd>{{ p.wage_p25|hourly }}</dd></div>
+    <div><dt>Median</dt><dd>{{ p.wage_median|hourly }}</dd></div>
+    <div><dt>Upper quarter</dt><dd>{{ p.wage_p75|hourly }}</dd></div>
+  </dl>
+  <p class="hint">Hourly figures divide the annual offered wage by 2,080 hours (40 hours × 52 weeks). Overtime is not included.</p>
+</section>
+
+{% if j.ca %}
+<aside class="elsewhere">
+  <h2>{{ j.name }} in Canada</h2>
+  <p>{{ j.ca.positions|num }} positions were approved for foreign {{ j.name|lower }}s through Canada's LMIA process in {{ ca.period }}, {{ j.ca.pr_positions|num }} of them to support permanent residence.</p>
+  <a href="../../../ca/jobs/{{ j.slug }}/index.html">See Canadian employers</a>
+</aside>
+{% endif %}
+
+<aside class="caution">
+  <h2>Before you pay an agency</h2>
+  <ul>
+    <li>Check that the employer you were offered has recent certified cases in the <a href="../../employers/index.html">employer search</a>.</li>
+    <li>US rules require the employer to pay all costs of the labor certification. An agency or employer may not charge you for it.</li>
+    <li>The wait changes every month. Look at <a href="../../visa-bulletin/index.html">recent movement</a> before you sign anything.</li>
+  </ul>
+</aside>
+
+{% if site.consult_url %}
+<aside class="consult">
+  <h2>Ask whether your experience qualifies</h2>
+  <p>The visa category and timeline depend on the job requirements and your work history. An immigration lawyer can tell you where you stand.</p>
+  <a class="btn" href="{{ site.consult_url }}" rel="sponsored noopener" target="_blank">Book a consultation</a>
+</aside>
+{% endif %}
+
+<section class="others">
+  <h2>Other jobs</h2>
+  <ul>
+  {% for o in jobs if o.slug != j.slug %}
+    <li><a href="../{{ o.slug }}/index.html">{{ o.name }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}

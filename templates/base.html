@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ site.name }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ site.tagline }}{% endblock %}">
+<link rel="canonical" href="{{ site.base_url }}{{ page_path }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:description" content="{{ self.description() }}">
+<meta property="og:url" content="{{ site.base_url }}{{ page_path }}">
+<meta name="twitter:card" content="summary">
+{% if site.google_site_verification %}<meta name="google-site-verification" content="{{ site.google_site_verification }}">{% endif %}
+<link rel="icon" href="{{ rel }}static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="{{ rel }}static/style.css">
+{% if site.adsense_client %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
+{% endif %}
+{% block head %}{% endblock %}
+</head>
+<body>
+{% if meta.sample %}
+<div class="sample-bar" role="note">Design preview with sample data. Numbers and employer names are not real statistics.</div>
+{% endif %}
+<header class="masthead">
+  <a class="brand" href="{{ rel }}index.html">
+    <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="4" cy="11" r="3"/><circle cx="18" cy="11" r="3"/><path d="M7 11h8"/></svg>
+    {{ site.name }}
+  </a>
+  <nav class="countries" aria-label="Countries">
+    <a href="{{ rel }}us/index.html" {{ 'aria-current="page"'|safe if country == 'us' }}>United States</a>
+    {% if ca %}<a href="{{ rel }}ca/index.html" {{ 'aria-current="page"'|safe if country == 'ca' }}>Canada</a>{% endif %}
+    {% if uk %}<a href="{{ rel }}uk/index.html" {{ 'aria-current="page"'|safe if country == 'uk' }}>United Kingdom</a>{% endif %}
+    <a href="{{ rel }}korea/index.html" {{ 'aria-current="page"'|safe if country == 'kr' }}>South Korea</a>
+  </nav>
+</header>
+{% if country == 'us' %}
+<nav class="subnav" aria-label="United States sections">
+  <a href="{{ rel }}us/index.html#jobs">Jobs without a degree</a>
+  <a href="{{ rel }}us/index.html#majors">After a US degree</a>
+  <a href="{{ rel }}us/employers/index.html">Employer search</a>
+  <a href="{{ rel }}us/visa-bulletin/index.html">Green card wait</a>
+</nav>
+{% elif country == 'ca' %}
+<nav class="subnav" aria-label="Canada sections">
+  <a href="{{ rel }}ca/index.html#jobs">Jobs</a>
+  <a href="{{ rel }}ca/employers/index.html">Employer search</a>
+  <a href="{{ rel }}ca/index.html#draws">Express Entry draws</a>
+</nav>
+{% endif %}
+<main>
+{% block main %}{% endblock %}
+</main>
+<footer class="foot">
+  <p>Built from public data published by the US Department of Labor, US Department of State, US Department of Education, Employment and Social Development Canada, Immigration, Refugees and Citizenship Canada, the UK Home Office and Korean government agencies. <a href="{{ rel }}about/index.html">Sources and methods</a></p>
+  <p>{{ site.name }} is an independent statistics site, not a government service, and nothing here is legal advice. Speak to a licensed immigration lawyer or adviser before making decisions.</p>
+</footer>
+</body>
+</html>

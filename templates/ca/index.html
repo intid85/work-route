@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Canada work permits and PR by job: LMIA employers and Express Entry | {{ site.name }}{% endblock %}
+{% block description %}Which Canadian employers are approved to hire foreign workers in each job (LMIA), how many positions support permanent residence, and recent Express Entry draw scores, from Government of Canada open data.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Canada: jobs employers are approved to fill with foreign workers</h1>
+  <p class="lede">Before most employers in Canada can hire a foreign worker, they need a positive Labour Market Impact Assessment (LMIA). The government publishes every approved employer each quarter. Figures here are for {{ ca.period }}.</p>
+</section>
+
+<section id="jobs" aria-labelledby="jobs-h">
+  <h2 id="jobs-h">Approved positions by job</h2>
+  <p class="hint">An LMIA leads to a work permit. Positions in the permanent residence stream are LMIAs issued only to support a PR application, usually through Express Entry.</p>
+  {% for g, items in groups.items() %}
+  {% set shown = items|selectattr('ca')|list %}
+  {% if shown %}
+  <h3 class="group-h">{{ g }}</h3>
+  <ul class="job-grid">
+    {% for j in shown %}
+    <li>
+      <a href="jobs/{{ j.slug }}/index.html">
+        <span class="job-name">{{ j.name }}</span>
+        <span class="job-stat"><em>{{ j.ca.positions|num }}</em> positions</span>
+        <span class="job-stat"><em>{{ j.ca.pr_positions|num }}</em> for PR</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endfor %}
+  <p class="cta-line"><a class="btn" href="employers/index.html">Search approved employers</a> Check whether a company has been approved to hire foreign workers.</p>
+</section>
+
+{% if ca.ee %}
+<section id="draws" aria-labelledby="draws-h">
+  <h2 id="draws-h">Recent Express Entry draws</h2>
+  <p class="hint">Express Entry invites candidates to apply for permanent residence. The score is the lowest Comprehensive Ranking System (CRS) score that received an invitation in that draw.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">Draw</th><th scope="col">Date</th><th scope="col" class="left">Type</th><th scope="col">Invitations</th><th scope="col">Lowest CRS score</th></tr></thead>
+    <tbody>
+    {% for r in ca.ee[:15] %}
+      <tr><th scope="row">#{{ r.no }}</th><td>{{ r.date }}</td><td class="wrap">{{ r.name }}</td><td>{{ r.size|num }}</td><td>{{ r.crs|num }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+{% endif %}
+<script src="../static/sort.js" defer></script>
+{% endblock %}

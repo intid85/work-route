@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %}{{ m.name }} in the US: OPT, H-1B salary and green card data | {{ site.name }}{% endblock %}
+{% block description %}What happens after a US {{ m.name }} degree: first-year earnings by school, {{ 'STEM OPT of up to 36 months' if m.stem else '12 months of OPT' }}, H-1B salaries and sponsoring employers, and green card (PERM) certifications.{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset","name":"{{ m.name }} US work visa and green card statistics","description":"{{ self.description() }}","url":"{{ site.base_url }}{{ page_path }}","isBasedOn":["https://www.dol.gov/agencies/eta/foreign-labor/performance","https://collegescorecard.ed.gov/data/"]}
+</script>
+{% endblock %}
+{% block main %}
+<nav class="crumbs"><a href="../../index.html#majors">US majors</a></nav>
+<section class="hero hero--major">
+  <h1>{{ m.name }}: from a US degree to a green card</h1>
+  <p class="en-title">CIP {{ m.cip6 }}</p>
+  <p class="lede">
+    {% if m.stem %}This is a STEM-designated major, so graduates can work on OPT for up to 36 months. That allows up to three tries in the H-1B lottery.
+    {% else %}This major is not STEM-designated, so OPT lasts 12 months. Graduates usually get one H-1B lottery try before their work authorization ends.{% endif %}
+  </p>
+  {% if m.note %}<p class="note">{{ m.note }}</p>{% endif %}
+</section>
+
+<ol class="route" aria-label="Route after a {{ m.name }} degree">
+  <li>
+    <span class="dot"></span>
+    <b>Degree</b>
+    <strong class="fig">{{ m.ba.median_earn_1yr|money }}</strong>
+    <small>Median bachelor's earnings, year 1<br>Across {{ m.ba.programs|num }} programs</small>
+  </li>
+  <li class="{{ 'is-stem' if m.stem }}">
+    <span class="dot"></span>
+    <b>OPT</b>
+    <strong class="fig">{{ m.opt_months }} months</strong>
+    <small>{{ '12 months plus a 24-month STEM extension' if m.stem else '12 months, no extension' }}</small>
+  </li>
+  <li>
+    <span class="dot"></span>
+    <b>H-1B</b>
+    <strong class="fig">{{ m.h1b_median|money }}</strong>
+    <small>Median salary for {{ m.primary.name|lower }}<br>{{ m.h1b_total|num }} certified across the main jobs</small>
+  </li>
+  <li>
+    <span class="dot"></span>
+    <b>Green card</b>
+    <strong class="fig">{{ m.perm_cert|num }}</strong>
+    <small>PERM labor certifications{% if m.perm_rate %}, {{ m.perm_rate }}% certified{% endif %}{% if m.perm_days %}<br>Median processing about {{ m.perm_days }} days{% endif %}</small>
+  </li>
+</ol>
+
+{% if site.adsense_client %}<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="{{ site.adsense_client }}" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>{% endif %}
+
+<section>
+  <h2>Jobs graduates go into</h2>
+  <p class="hint">Grouped by US Standard Occupational Classification. Salaries are the wages offered on H-1B applications and exclude bonuses and stock.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">Job</th><th scope="col">H-1B certified</th><th scope="col">Median salary</th><th scope="col">Middle half of salaries</th><th scope="col">Green cards certified</th></tr></thead>
+    <tbody>
+    {% for o in m.occs %}
+    <tr>
+      <th scope="row">{{ o.name }}<span class="en">SOC {{ o.soc }}</span></th>
+      <td>{{ o.lca.filings|num }}</td>
+      <td>{{ o.lca.wage_median|money }}</td>
+      <td>{{ o.lca.wage_p25|money }} – {{ o.lca.wage_p75|money }}</td>
+      <td>{{ o.perm.certified|num }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <h2>Top H-1B employers</h2>
+    <p class="hint">{{ m.primary.name }}</p>
+    <table class="rank">
+      <thead><tr><th scope="col">Employer</th><th scope="col">Certified</th><th scope="col">Median</th></tr></thead>
+      <tbody>
+      {% for e in m.primary.lca.top_employers or [] %}
+      <tr><th scope="row">{{ e.name }}</th><td>{{ e.filings|num }}</td><td>{{ e.wage_median|money }}</td></tr>
+      {% else %}
+      <tr><td colspan="3">No certified cases in this period.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h2>Top green card sponsors</h2>
+    <p class="hint">{{ m.primary.name }}</p>
+    <table class="rank">
+      <thead><tr><th scope="col">Employer</th><th scope="col">Certified</th></tr></thead>
+      <tbody>
+      {% for e in m.primary.perm.top_employers or [] %}
+      <tr><th scope="row">{{ e.name }}</th><td>{{ e.certified|num }}</td></tr>
+      {% else %}
+      <tr><td colspan="2">No certified cases in this period.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% if m.primary.lca.top_states %}
+<section>
+  <h2>Where the jobs are</h2>
+  <ul class="bars">
+  {% set top = m.primary.lca.top_states[0].filings or 1 %}
+  {% for s in m.primary.lca.top_states %}
+    <li><span class="label">{{ s.state|state }}</span><span class="bar" style="--w: {{ (s.filings / top * 100)|round(1) }}%"></span><span class="val">{{ s.filings|num }}</span></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section>
+  <h2>Schools with the highest graduate earnings</h2>
+  <p class="hint">Median earnings one year after graduation, from US Department of Education tax records for students who received federal aid. International students are not included in these figures.</p>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" aria-controls="lv-ba" id="t-ba">Bachelor's</button>
+    <button role="tab" aria-selected="false" aria-controls="lv-ma" id="t-ma">Master's</button>
+  </div>
+  {% for key, lv in [('ba', m.ba), ('ma', m.ma)] %}
+  <div class="table-wrap" role="tabpanel" id="lv-{{ key }}" aria-labelledby="t-{{ key }}" {{ 'hidden' if key == 'ma' }}>
+    <table class="rank">
+      <thead><tr><th scope="col">School</th><th scope="col">Year 1</th><th scope="col">Later years</th></tr></thead>
+      <tbody>
+      {% for s in (lv.top or [])[:12] %}
+      <tr><th scope="row">{{ s.school }}</th><td>{{ s.earn_1yr|money }}</td><td>{{ s.earn_later|money }}</td></tr>
+      {% else %}
+      <tr><td colspan="3">No programs with published earnings.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endfor %}
+</section>
+
+{% if site.consult_url %}
+<aside class="consult">
+  <h2>Plan your visa timeline</h2>
+  <p>School choice and visa timing depend on your situation. An immigration lawyer can map out your options.</p>
+  <a class="btn" href="{{ site.consult_url }}" rel="sponsored noopener" target="_blank">Book a consultation</a>
+</aside>
+{% endif %}
+
+<section class="others">
+  <h2>Other majors</h2>
+  <ul>
+  {% for o in majors if o.slug != m.slug %}
+    <li><a href="../{{ o.slug }}/index.html">{{ o.name }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+<script src="../../../static/tabs.js" defer></script>
+{% endblock %}

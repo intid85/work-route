@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Canada LMIA employer search: companies approved to hire foreign workers | {{ site.name }}{% endblock %}
+{% block description %}Search Canadian employers that received a positive Labour Market Impact Assessment (LMIA) to see how many positions they were approved for and in which jobs.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Canada LMIA employer search</h1>
+  <p class="lede">Every employer that received a positive LMIA in {{ ca.period }}. Type part of a company name to see its approved positions.</p>
+</section>
+{% set source = rel ~ 'static/ca-employers.json' %}
+{% set mode = 'ca' %}
+{% set placeholder = 'e.g. CARGILL, OLYMEL, MAPLE LEAF' %}
+{% set cols = [('Employer', 'n'), ('Positions', 'p'), ('Main jobs', 'o'), ('Province', 'pv')] %}
+{% include "_search.html" %}
+<p class="hint">Main jobs lists only the jobs covered on this site. An approval in a past quarter doesn't mean the employer is hiring now.</p>
+{% endblock %}

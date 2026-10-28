@@ -1,0 +1,58 @@
+# South Korea section — maintained by hand.
+# Korea publishes these figures as yearly announcements and reports rather than machine-readable feeds,
+# so update this file when a new figure is announced, and keep each source link next to it.
+as_of: "October 2026"
+
+key_figures:
+  - label: "E-9 work permit quota for 2026"
+    value: "80,000"
+    note: "70,000 allocated by industry plus 10,000 held back for flexible allocation. Down 38% from 2025."
+    source: "Newsis, reporting the Foreign Workforce Policy Committee decision (Dec 22, 2025)"
+    url: "https://mobile.newsis.com/view/NISX20251222_0003451086"
+  - label: "Seasonal worker (E-8) quota for 2026"
+    value: "109,000"
+    note: "Up 13,000 from 2025. Farm and fishing work arranged through local governments."
+    source: "Newsis (Dec 22, 2025)"
+    url: "https://mobile.newsis.com/view/NISX20251222_0003451086"
+  - label: "Minimum wage in 2026"
+    value: "₩10,320 per hour"
+    note: "₩2,156,880 per month at 209 paid hours (40 hours a week plus paid weekly rest). Applies to E-9 workers too."
+    source: "Minimum Wage Commission, 2026 decision"
+    url: "https://www.minimumwage.go.kr/"
+  - label: "E-7-4 skilled worker quota for 2026"
+    value: "33,000"
+    note: "The visa E-9 workers can move to for long-term stay. Down from 35,000 in 2025."
+    source: "SeoulStart E-7-4 guide (summarising the Ministry of Justice notice)"
+    url: "https://seoulstart.com/guides/e-7-4-visa-guide"
+
+e74:
+  requirements:
+    - "At least 4 years on E-9, E-10 or H-2 within the last 10 years, currently employed and registered"
+    - "A recommendation from an employer you have worked for at least 1 year"
+    - "A contract of 2 years or more paying at least ₩26,000,000 a year (₩25,890,000 in farming, livestock, fishing and coastal shipping)"
+    - "200 points or more out of 300, including at least 50 for income and at least 50 for Korean language"
+  points:
+    - factor: "Average income, last 2 years"
+      max: 120
+      detail: "₩25–30M: 50 · ₩30–35M: 65 · ₩35–40M: 80 · ₩40–45M: 95 · ₩45–50M: 110 · ₩50M+: 120"
+    - factor: "Korean language"
+      max: 120
+      detail: "TOPIK 2 or KIIP stage 2: 50 · TOPIK 3: 80 · TOPIK 4 or higher: 120"
+    - factor: "Age"
+      max: 60
+      detail: "19–26: 40 · 27–33: 60 · 34–40: 30 · 41+: 10"
+    - factor: "Bonus items"
+      max: null
+      detail: "Employer recommendation 50 · government recommendation 30 · 3+ years at current workplace 20 · 3+ years in a population-decline or rural area 20 · Korean certificate or degree 20 · Korean driver's licence 10"
+  source: "SeoulStart E-7-4 guide, citing the Ministry of Justice notice of June 1, 2026"
+  url: "https://seoulstart.com/guides/e-7-4-visa-guide"
+
+official_links:
+  - name: "EPS — Employment Permit System (HRD Korea)"
+    url: "https://www.eps.go.kr/"
+  - name: "HiKorea — visa and residence applications"
+    url: "https://www.hikorea.go.kr/"
+  - name: "Ministry of Justice immigration statistics (monthly)"
+    url: "https://www.moj.go.kr/bbs/immigration/227/artclList.do"
+  - name: "E-9 workers by nationality and region (data.go.kr)"
+    url: "https://www.data.go.kr/data/15143177/fileData.do"

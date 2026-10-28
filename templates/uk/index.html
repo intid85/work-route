@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}UK visa sponsor search: licensed Skilled Worker sponsors | {{ site.name }}{% endblock %}
+{% block description %}Search the UK Home Office register of licensed sponsors to check whether a company can sponsor a Skilled Worker or other work visa, with counts by visa route and town.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>UK visa sponsor search</h1>
+  <p class="lede">A UK employer needs a sponsor licence before it can hire someone on a Skilled Worker visa. The Home Office publishes every licensed sponsor. This copy is from {{ uk.date }}.</p>
+</section>
+
+<div class="stat-row">
+  <div><b>Licensed sponsors</b><strong class="fig">{{ uk.organisations|num }}</strong></div>
+  <div><b>Licensed for Skilled Worker</b><strong class="fig">{{ uk.skilled_worker|num }}</strong></div>
+</div>
+
+{% set source = rel ~ 'static/uk-sponsors.json' %}
+{% set mode = 'uk' %}
+{% set placeholder = 'e.g. NHS, CARE, TESCO' %}
+{% set cols = [('Sponsor', 'n'), ('Town', 't'), ('Visa routes', 'r')] %}
+{% include "_search.html" %}
+<p class="hint">A licence means the company can sponsor; it doesn't mean it has a vacancy. Check that the role you were offered is eligible for the visa route.</p>
+
+<section class="split">
+  <div>
+    <h2>Licences by visa route</h2>
+    <ul class="bars">
+    {% set top = uk.routes[0].count or 1 %}
+    {% for r in uk.routes %}
+      <li class="bars-wide"><span class="label">{{ r.route }}</span><span class="bar" style="--w: {{ (r.count / top * 100)|round(1) }}%"></span><span class="val">{{ r.count|num }}</span></li>
+    {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Towns with the most sponsors</h2>
+    <ul class="bars">
+    {% set top = uk.top_towns[0].count or 1 %}
+    {% for t in uk.top_towns %}
+      <li><span class="label">{{ t.town }}</span><span class="bar bar--alt" style="--w: {{ (t.count / top * 100)|round(1) }}%"></span><span class="val">{{ t.count|num }}</span></li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="prose">
+  <h2>Source</h2>
+  <p><a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" rel="noopener">Register of licensed sponsors: workers</a>, UK Home Office. The register is updated on working days; this site refreshes it monthly.</p>
+</section>
+{% endblock %}

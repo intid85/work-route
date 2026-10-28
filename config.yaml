@@ -1,0 +1,260 @@
+# Work Route site configuration
+# site.domain: your custom domain (e.g. workroute.com). Leave empty until DNS is set up; a CNAME file is generated when set.
+# site.google_site_verification: the content value of the Google Search Console HTML tag.
+# site.adsense_client: ca-pub-XXXXXXXX once AdSense is approved.
+# site.consult_url: affiliate link for an immigration lawyer or agency. The consult box is hidden when empty.
+# majors[].soc / jobs[].soc: 2018 SOC codes. jobs[].noc: Canada NOC 2021 code for the same job.
+site:
+  name: Work Route
+  tagline: Government data on the jobs, employers and waiting times behind work visas and permanent residence in the US, Canada, the UK and Korea.
+  domain: ''
+  base_url: https://intid85.github.io/work-route
+  google_site_verification: ''
+  adsense_client: ''
+  consult_url: ''
+sources:
+  dol_base: https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/
+  lca_pattern: LCA_Disclosure_Data_FY{fy}_Q{q}.xlsx
+  perm_pattern: PERM_Disclosure_Data_FY{fy}_Q{q}.xlsx
+  visa_bulletin_pattern: https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/{fy}/visa-bulletin-for-{month}-{year}.html
+  ca_lmia_package: https://open.canada.ca/data/api/3/action/package_show?id=90fed587-1364-4f33-a9ee-208181dc0b97
+  ca_ee_rounds: https://www.canada.ca/content/dam/ircc/documents/json/ee_rounds_123_en.json
+  uk_sponsor_api: https://www.gov.uk/api/content/government/publications/register-of-licensed-sponsors-workers
+  scorecard_fos_zip: https://ed-public-download.scorecard.network/downloads/Most-Recent-Cohorts-Field-of-Study_10152026.zip
+majors:
+- slug: computer-science
+  name: Computer Science
+  cip4: '1107'
+  cip6: '11.0701'
+  stem: true
+  soc:
+    15-1252: Software developers
+    15-1211: Computer systems analysts
+    15-1221: Computer and information research scientists
+    15-1253: Software QA analysts and testers
+- slug: computer-engineering
+  name: Computer Engineering
+  cip4: '1409'
+  cip6: '14.0901'
+  stem: true
+  soc:
+    17-2061: Computer hardware engineers
+    15-1252: Software developers
+- slug: electrical-engineering
+  name: Electrical Engineering
+  cip4: '1410'
+  cip6: '14.1001'
+  stem: true
+  soc:
+    17-2071: Electrical engineers
+    17-2072: Electronics engineers
+- slug: mechanical-engineering
+  name: Mechanical Engineering
+  cip4: '1419'
+  cip6: '14.1901'
+  stem: true
+  soc:
+    17-2141: Mechanical engineers
+- slug: chemical-engineering
+  name: Chemical Engineering
+  cip4: '1407'
+  cip6: '14.0701'
+  stem: true
+  soc:
+    17-2041: Chemical engineers
+- slug: industrial-engineering
+  name: Industrial Engineering
+  cip4: '1435'
+  cip6: '14.3501'
+  stem: true
+  soc:
+    17-2112: Industrial engineers
+- slug: civil-engineering
+  name: Civil Engineering
+  cip4: '1408'
+  cip6: '14.0801'
+  stem: true
+  soc:
+    17-2051: Civil engineers
+- slug: data-science
+  name: Data Science
+  cip4: '3070'
+  cip6: '30.7001'
+  stem: true
+  soc:
+    15-2051: Data scientists
+- slug: statistics
+  name: Statistics
+  cip4: '2705'
+  cip6: '27.0501'
+  stem: true
+  soc:
+    15-2041: Statisticians
+    15-2051: Data scientists
+- slug: information-systems
+  name: Management Information Systems
+  cip4: '5212'
+  cip6: '52.1201'
+  stem: true
+  soc:
+    15-1211: Computer systems analysts
+    11-3021: IT managers
+- slug: biology
+  name: Biology
+  cip4: '2601'
+  cip6: '26.0101'
+  stem: true
+  soc:
+    19-1042: Medical scientists
+    19-1021: Biochemists and biophysicists
+- slug: nursing
+  name: Nursing
+  cip4: '5138'
+  cip6: '51.3801'
+  stem: false
+  soc:
+    29-1141: Registered nurses
+- slug: finance
+  name: Finance
+  cip4: '5208'
+  cip6: '52.0801'
+  stem: false
+  soc:
+    13-2051: Financial analysts
+- slug: accounting
+  name: Accounting
+  cip4: '5203'
+  cip6: '52.0301'
+  stem: false
+  soc:
+    13-2011: Accountants and auditors
+- slug: economics
+  name: Economics
+  cip4: '4506'
+  cip6: '45.0601'
+  stem: false
+  soc:
+    19-3011: Economists
+    13-1161: Market research analysts
+  note: General economics is not STEM-designated, but programs registered as econometrics (CIP 45.0603) are.
+- slug: marketing
+  name: Marketing
+  cip4: '5214'
+  cip6: '52.1401'
+  stem: false
+  soc:
+    13-1161: Market research analysts
+    11-2021: Marketing managers
+jobs:
+- slug: welder
+  name: Welder
+  title: Welders, Cutters, Solderers, and Brazers
+  group: Manufacturing
+  soc: 51-4121
+  noc: '72106'
+  hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
+- slug: assembler
+  name: Assembly line worker
+  title: Team Assemblers
+  group: Manufacturing
+  soc: 51-2092
+  noc: '94219'
+  hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+- slug: machinery-mechanic
+  name: Industrial machinery mechanic
+  title: Industrial Machinery Mechanics
+  group: Manufacturing
+  soc: 49-9041
+  noc: '72400'
+  hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
+- slug: meat-trimmer
+  name: Meat and poultry trimmer
+  title: Meat, Poultry, and Fish Cutters and Trimmers
+  group: Food processing and farms
+  soc: 51-3022
+  noc: '94141'
+  hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+- slug: meat-packer
+  name: Meat packer
+  title: Slaughterers and Meat Packers
+  group: Food processing and farms
+  soc: 51-3023
+  noc: '95106'
+  hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+- slug: butcher
+  name: Butcher
+  title: Butchers and Meat Cutters
+  group: Food processing and farms
+  soc: 51-3021
+  noc: '63201'
+  hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
+- slug: farmworker
+  name: Livestock and poultry farmworker
+  title: Farmworkers, Farm, Ranch, and Aquacultural Animals
+  group: Food processing and farms
+  soc: 45-2093
+  noc: '85100'
+  hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+- slug: electrician
+  name: Electrician
+  title: Electricians
+  group: Construction and repair
+  soc: 47-2111
+  noc: '72200'
+  hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
+- slug: plumber
+  name: Plumber
+  title: Plumbers, Pipefitters, and Steamfitters
+  group: Construction and repair
+  soc: 47-2152
+  noc: '72300'
+  hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
+- slug: construction-laborer
+  name: Construction laborer
+  title: Construction Laborers
+  group: Construction and repair
+  soc: 47-2061
+  noc: '75110'
+  hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+- slug: auto-mechanic
+  name: Auto mechanic
+  title: Automotive Service Technicians and Mechanics
+  group: Construction and repair
+  soc: 49-3023
+  noc: '72410'
+  hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
+- slug: cook
+  name: Cook
+  title: Cooks, Restaurant
+  group: Hospitality and logistics
+  soc: 35-2014
+  noc: '63200'
+  hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
+- slug: housekeeper
+  name: Hotel housekeeper
+  title: Maids and Housekeeping Cleaners
+  group: Hospitality and logistics
+  soc: 37-2012
+  noc: '65310'
+  hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+- slug: warehouse
+  name: Warehouse worker
+  title: Laborers and Freight, Stock, and Material Movers
+  group: Hospitality and logistics
+  soc: 53-7062
+  noc: '75101'
+  hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+- slug: registered-nurse
+  name: Registered nurse
+  title: Registered Nurses
+  group: Healthcare
+  soc: 29-1141
+  noc: '31301'
+  hint: Registered nurses are a Schedule A shortage occupation, so the labor certification step is simplified. A U.S. nursing license (NCLEX) is required.
+- slug: nursing-assistant
+  name: Nursing assistant
+  title: Nursing Assistants
+  group: Healthcare
+  soc: 31-1131
+  noc: '33102'
+  hint: A state nurse aide certification (CNA) is required. Most cases are filed as EB-3 Other Workers.

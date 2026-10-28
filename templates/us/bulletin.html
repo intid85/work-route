@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}EB-3 green card wait: Visa Bulletin dates by month | {{ site.name }}{% endblock %}
+{% block description %}The current EB-3 Skilled Worker and Other Workers cutoff dates from the US Visa Bulletin, how long people now being approved have waited, and how the dates have moved month by month.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>EB-3 green card wait</h1>
+  <p class="lede">Every month the US State Department publishes the Visa Bulletin, which says how far back the line has moved. If your labor certification was filed before the cutoff date, your green card can be issued now.</p>
+</section>
+
+{% if vb.current %}
+<section>
+  <h2>{{ vb.current.month|month_name }}</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">Category</th><th scope="col">Final action date</th><th scope="col">Date for filing</th><th scope="col">Wait</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">EB-3 Skilled Worker and Professional</th><td>{{ vb.current.eb3_final|vbdate }}</td><td>{{ vb.current.eb3_filing|vbdate }}</td><td>{{ wait_gap(vb.current.month, vb.current.eb3_final) or '–' }}</td></tr>
+      <tr><th scope="row">EB-3 Other Workers</th><td>{{ vb.current.ew_final|vbdate }}</td><td>{{ vb.current.ew_filing|vbdate }}</td><td>{{ wait_gap(vb.current.month, vb.current.ew_final) or '–' }}</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="hint">Figures are for "all chargeability areas except those listed", which covers most countries. The date for filing lets you submit paperwork early; the final action date is when the green card can be issued.</p>
+</section>
+
+{% if vb.history|length > 1 %}
+<section>
+  <h2>Past months</h2>
+  <p class="hint">A big jump forward means the line moved quickly that month.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">Bulletin</th><th scope="col">Skilled Worker final action date</th><th scope="col">Other Workers final action date</th></tr></thead>
+    <tbody>
+    {% for h in vb.history|reverse %}
+      <tr><th scope="row">{{ h.month|month_name }}</th><td>{{ h.eb3_final|vbdate }}</td><td>{{ h.ew_final|vbdate }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+{% endif %}
+{% else %}
+<section><p class="hint">The Visa Bulletin hasn't been collected yet. It will appear after the next update.</p></section>
+{% endif %}
+<section class="prose">
+  <h2>Source</h2>
+  <p>The employment-based tables of the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" rel="noopener">US Visa Bulletin</a>, "All Chargeability Areas Except Those Listed" column.</p>
+</section>
+{% endblock %}

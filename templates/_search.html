@@ -1,0 +1,14 @@
+<section class="search" data-search data-src="{{ source }}" data-mode="{{ mode }}">
+  <label for="q" class="search-label">Company name</label>
+  <input id="q" type="search" placeholder="{{ placeholder or 'e.g. TYSON, PILGRIM, HYUNDAI' }}" autocomplete="off" spellcheck="false">
+  <p class="hint" data-status aria-live="polite">Loading employers…</p>
+  <div class="table-wrap">
+    <table class="rank">
+      <thead><tr>
+      {% for label, key in cols %}<th scope="col"{% if key in ('s', 'o', 'r') %} class="left"{% endif %}>{{ label }}</th>{% endfor %}
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+<script src="{{ rel }}static/search.js" defer></script>

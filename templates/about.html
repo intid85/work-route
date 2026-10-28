@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Sources and methods | {{ site.name }}{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Sources and methods</h1>
+  <p class="lede">Every figure comes from data published by a government. The site collects the latest files each month and rebuilds itself automatically.</p>
+</section>
+<section class="prose">
+  <h2>United States</h2>
+  <p><b>Green card labor certifications (PERM).</b> From the US Department of Labor's Office of Foreign Labor Certification disclosure files. We count decisions and certified cases by Standard Occupational Classification code. Offered wages are the lower bound of the wage on certified applications, converted to a yearly figure; hourly figures divide by 2,080 hours.</p>
+  <p><b>H-1B salaries.</b> From the same office's Labor Condition Application files, counting certified full-time H-1B applications. A certified application is not the same as an approved visa: some people are filed more than once, and many are not selected in the lottery.</p>
+  <p><b>Green card wait.</b> From the State Department's monthly Visa Bulletin, EB-3 rows, "all chargeability areas" column. The wait shown is the gap between the bulletin month and the cutoff date, which is roughly how long people now getting green cards waited. It is not a forecast.</p>
+  <p><b>Earnings by school.</b> From the Department of Education's College Scorecard field-of-study file. It covers graduates who received federal student aid, so international students are not included.</p>
+  <p><b>STEM and OPT.</b> Based on the Department of Homeland Security's STEM Designated Degree Program List. Check the CIP code of the exact program with the school before you enrol.</p>
+  <h2>Canada</h2>
+  <p><b>Approved employers (LMIA).</b> From Employment and Social Development Canada's quarterly list of employers that received a positive Labour Market Impact Assessment, matched to jobs by NOC 2021 code. Positions are approved positions, not people hired.</p>
+  <p><b>Express Entry draws.</b> From Immigration, Refugees and Citizenship Canada's published rounds of invitations.</p>
+  <h2>United Kingdom</h2>
+  <p><b>Licensed sponsors.</b> From the Home Office register of licensed sponsors for workers. The register does not list occupations or vacancies.</p>
+  <h2>South Korea</h2>
+  <p>Korea publishes quotas and rules as announcements and yearly reports rather than regular data files, so this section is updated by hand. Each figure links to where it came from.</p>
+  <h2>Corrections</h2>
+  <p>Governments change file formats from time to time. If a number looks wrong, check the linked source; the official figure always takes precedence.</p>
+</section>
+{% endblock %}

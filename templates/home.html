@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Work visas and green cards by job and country | {{ site.name }}{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Which country will sponsor your job?</h1>
+  <p class="lede">Employer records, offered wages and waiting times for work-based immigration, taken from government data in the United States, Canada, the United Kingdom and South Korea. Updated every month.</p>
+</section>
+
+<section aria-labelledby="c-h">
+  <h2 id="c-h" class="visually-hidden">Countries</h2>
+  <ul class="country-grid">
+    <li>
+      <a href="us/index.html">
+        <span class="c-name">United States</span>
+        <span class="c-what">Green card (PERM) records by job and employer, offered wages, and the monthly EB-3 wait.</span>
+        <span class="c-tag">Employer names</span>
+      </a>
+    </li>
+    {% if ca %}
+    <li>
+      <a href="ca/index.html">
+        <span class="c-name">Canada</span>
+        <span class="c-what">Employers approved to hire foreign workers (LMIA) by job and province, and Express Entry draw scores.</span>
+        <span class="c-tag">Employer names</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if uk %}
+    <li>
+      <a href="uk/index.html">
+        <span class="c-name">United Kingdom</span>
+        <span class="c-what">Every company licensed to sponsor Skilled Worker and other work visas, searchable by name and town.</span>
+        <span class="c-tag">Employer names</span>
+      </a>
+    </li>
+    {% endif %}
+    <li>
+      <a href="korea/index.html">
+        <span class="c-name">South Korea</span>
+        <span class="c-what">The E-9 work permit route, this year's quotas and minimum wage, and the path to the E-7-4 long-term visa.</span>
+        <span class="c-tag c-tag--plain">Quotas and rules</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section aria-labelledby="cmp-h">
+  <h2 id="cmp-h">Compare by job</h2>
+  <p class="hint">US figures are certified green card labor certifications (PERM). Canada figures are positions approved through LMIAs, which are work permits; the permanent residence column counts LMIAs issued only to support a PR application.</p>
+  <div class="table-wrap">
+  <table class="compare" id="compare">
+    <thead><tr>
+      <th scope="col" data-sort="text">Job</th>
+      <th scope="col" data-sort="num">US green cards certified</th>
+      <th scope="col" data-sort="num">US offered wage</th>
+      {% if ca %}<th scope="col" data-sort="num">Canada positions approved</th>
+      <th scope="col" data-sort="num">Canada for permanent residence</th>{% endif %}
+    </tr></thead>
+    <tbody>
+    {% for j in jobs %}
+    <tr>
+      <th scope="row"><a href="us/jobs/{{ j.slug }}/index.html">{{ j.name }}</a></th>
+      <td data-v="{{ j.perm.certified or 0 }}">{{ j.perm.certified|num }}</td>
+      <td data-v="{{ j.perm.wage_median or 0 }}">{{ j.perm.wage_median|hourly }}/hr</td>
+      {% if ca %}<td data-v="{{ j.ca.positions or 0 }}">{% if j.ca %}<a href="ca/jobs/{{ j.slug }}/index.html">{{ j.ca.positions|num }}</a>{% else %}–{% endif %}</td>
+      <td data-v="{{ j.ca.pr_positions or 0 }}">{{ j.ca.pr_positions|num }}</td>{% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+<script src="static/sort.js" defer></script>
+{% endblock %}

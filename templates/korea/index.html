@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Working in South Korea: E-9 work permit, 2026 quota and E-7-4 path | {{ site.name }}{% endblock %}
+{% block description %}How foreign workers come to South Korea through the Employment Permit System (E-9): this year's quota, the minimum wage, which countries send workers, and how to move to the E-7-4 skilled worker visa for long-term stay.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Working in South Korea through the Employment Permit System</h1>
+  <p class="lede">Most foreign factory, farm, fishing and construction workers come to Korea on the E-9 visa, arranged government to government through the Employment Permit System (EPS). After years of work, some move to the E-7-4 skilled worker visa and can stay long term. Figures as of {{ korea.as_of }}.</p>
+</section>
+
+<ol class="route route--five" aria-label="Route to long-term stay in Korea">
+  <li><span class="dot"></span><b>EPS-TOPIK</b><strong class="fig fig--text">Korean test</strong><small>Taken in your home country, plus a skills test in some industries</small></li>
+  <li><span class="dot"></span><b>Job match</b><strong class="fig fig--text">Employer picks you</strong><small>Korean employers choose from the registered job seeker roster</small></li>
+  <li><span class="dot"></span><b>E-9 visa</b><strong class="fig fig--text">Up to 4 yr 10 mo</strong><small>3 years, extendable by 1 year 10 months with the same employer's request</small></li>
+  <li class="is-stem"><span class="dot"></span><b>E-7-4</b><strong class="fig fig--text">Skilled worker</strong><small>After 4+ years of work, by points; renewable, family can join</small></li>
+  <li><span class="dot"></span><b>Long-term residence</b><strong class="fig fig--text">F-2, F-5</strong><small>Possible later; requirements are set by the Ministry of Justice</small></li>
+</ol>
+
+<section aria-labelledby="kf-h">
+  <h2 id="kf-h">Key numbers</h2>
+  <ul class="facts">
+  {% for f in korea.key_figures %}
+    <li>
+      <b>{{ f.label }}</b>
+      <strong class="fig">{{ f.value }}</strong>
+      <small>{{ f.note }} <a href="{{ f.url }}" rel="noopener">Source: {{ f.source }}</a></small>
+    </li>
+  {% endfor %}
+  </ul>
+</section>
+
+{% if korea_e9 %}
+<section class="split">
+  <div>
+    <h2>E-9 workers by nationality</h2>
+    <p class="hint">Workers at EPS employers, {{ korea_e9.year }}.</p>
+    <ul class="bars">
+    {% set top = korea_e9.by_nationality[0].workers or 1 %}
+    {% for c in korea_e9.by_nationality %}
+      <li><span class="label">{{ c.country }}</span><span class="bar" style="--w: {{ (c.workers / top * 100)|round(1) }}%"></span><span class="val">{{ c.workers|num }}</span></li>
+    {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Where they work</h2>
+    <p class="hint">By province, {{ korea_e9.year }}.</p>
+    <ul class="bars">
+    {% set top = korea_e9.by_region[0].workers or 1 %}
+    {% for r in korea_e9.by_region %}
+      <li><span class="label">{{ r.region }}</span><span class="bar bar--alt" style="--w: {{ (r.workers / top * 100)|round(1) }}%"></span><span class="val">{{ r.workers|num }}</span></li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<section aria-labelledby="e74-h">
+  <h2 id="e74-h">Moving from E-9 to E-7-4</h2>
+  <p class="hint">The E-7-4 visa lets experienced workers stay without the E-9 time limit. You need all of the following.</p>
+  <ul class="checklist">
+  {% for r in korea.e74.requirements %}<li>{{ r }}</li>{% endfor %}
+  </ul>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">Points factor</th><th scope="col">Maximum</th><th scope="col" class="left">How points are given</th></tr></thead>
+    <tbody>
+    {% for p in korea.e74.points %}
+      <tr><th scope="row">{{ p.factor }}</th><td>{{ p.max or '–' }}</td><td class="wrap">{{ p.detail }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <p class="hint">Source: <a href="{{ korea.e74.url }}" rel="noopener">{{ korea.e74.source }}</a>. Rules change often, so confirm on HiKorea before applying.</p>
+</section>
+
+<aside class="caution">
+  <h2>Avoid illegal brokers</h2>
+  <ul>
+    <li>E-9 recruitment runs through government agencies in each sending country. You don't need a private broker to get on the EPS roster.</li>
+    <li>Book the EPS-TOPIK only through your country's official EPS centre.</li>
+  </ul>
+</aside>
+
+<section class="prose">
+  <h2>Official links</h2>
+  <ul>
+  {% for l in korea.official_links %}<li><a href="{{ l.url }}" rel="noopener">{{ l.name }}</a></li>{% endfor %}
+  </ul>
+</section>
+{% endblock %}
