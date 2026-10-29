@@ -1,7 +1,7 @@
 <section class="search" data-search data-src="{{ source }}" data-mode="{{ mode }}">
-  <label for="q" class="search-label">Company name</label>
+  <label for="q" class="search-label">{{ "회사 이름" if lang == "ko" else "Company name" }}</label>
   <input id="q" type="search" placeholder="{{ placeholder or 'e.g. TYSON, PILGRIM, HYUNDAI' }}" autocomplete="off" spellcheck="false">
-  <p class="hint" data-status aria-live="polite">Loading employers…</p>
+  <p class="hint" data-status aria-live="polite">{{ "회사 목록을 불러오는 중…" if lang == "ko" else "Loading employers…" }}</p>
   <div class="table-wrap">
     <table class="rank">
       <thead><tr>

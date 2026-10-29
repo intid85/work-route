@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}캐나다 외국인 고용 승인(LMIA) 회사 검색 | {{ site.name }}{% endblock %}
+{% block description %}캐나다에서 외국인 고용 승인(LMIA)을 받은 회사를 이름으로 검색해 승인 인원과 직종을 확인합니다.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>캐나다 고용 승인 회사 검색</h1>
+  <p class="lede">{{ ca.period }}에 외국인 고용 승인(LMIA)을 받은 모든 회사입니다. 회사 이름 일부를 영어로 입력하세요.</p>
+</section>
+{% set source = rel ~ 'static/ca-employers.json' %}
+{% set mode = 'ca' %}
+{% set placeholder = '예: CARGILL, OLYMEL, MAPLE LEAF' %}
+{% set cols = [('회사', 'n'), ('승인 인원', 'p'), ('주요 직종', 'o'), ('주', 'pv')] %}
+{% include "_search.html" %}
+<p class="hint">주요 직종은 이 사이트가 다루는 직종만 표시합니다. 과거 분기에 승인받았다고 지금 채용 중이라는 뜻은 아닙니다.</p>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% block title %}미국 취업이민 영주권 직종별 데이터: 스폰서 회사·시급·대기 기간 | {{ site.name }}{% endblock %}
+{% block description %}미국 회사 스폰서로 받는 영주권(PERM)을 직종별로 정리했습니다. 인증 건수, 제시 시급, 스폰서 회사, 한국인 인증 건수, EB-3 대기 순번을 미국 정부 데이터로 보여드립니다.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>미국 회사 스폰서 영주권, 직종별로 보기</h1>
+  <p class="lede">미국 회사는 노동허가(PERM)를 거쳐 외국인 근로자의 영주권을 스폰서할 수 있습니다. 직종마다 얼마나 자주 인증되는지, 회사가 얼마를 제시했는지, 어떤 회사가 스폰서했는지 보여드립니다.</p>
+</section>
+
+<section aria-label="영주권 경로">
+  {{ draw(pw_path) }}
+</section>
+
+{% if vb.current %}
+<section class="vb-now" aria-labelledby="vb-h">
+  <div>
+    <h2 id="vb-h">이번 달 영주권 대기 순번</h2>
+    <p class="hint">{{ vb.current.month|kmonth }} 국무부 비자 블루틴, 한국 국적 기준(그 외 모든 국가 열)</p>
+  </div>
+  <div class="vb-cards">
+    <div>
+      <b>숙련공·학사 (EB-3)</b>
+      <strong class="fig">{{ vb.current.eb3_final|kdate }}</strong>
+      <small>이전에 노동허가를 신청한 사람까지 발급 중{% set g = vb.current.eb3_final|kgap(vb.current.month) %}{% if g %}, 대기 {{ g }}{% endif %}</small>
+    </div>
+    <div>
+      <b>비숙련 (EB-3 Other Workers)</b>
+      <strong class="fig">{{ vb.current.ew_final|kdate }}</strong>
+      <small>이전에 노동허가를 신청한 사람까지 발급 중{% set g = vb.current.ew_final|kgap(vb.current.month) %}{% if g %}, 대기 {{ g }}{% endif %}</small>
+    </div>
+  </div>
+  <p><a href="visa-bulletin/index.html">대기 순번 변화 보기</a></p>
+</section>
+{% endif %}
+
+<section id="jobs" aria-labelledby="jobs-h">
+  <h2 id="jobs-h">학위 없이 가는 직종</h2>
+  <p class="hint">미국 회사가 노동허가와 이민청원을 진행하면, 한국에서 영주권을 받아 바로 입국합니다. 시급은 인증된 신청서에 회사가 적은 제시 임금의 중앙값입니다.</p>
+  {% for g, items in groups_ko.items() %}
+  <h3 class="group-h">{{ g }}</h3>
+  <ul class="job-grid">
+    {% for j in items %}
+    <li>
+      <a href="jobs/{{ j.slug }}/index.html">
+        <span class="job-name">{{ j.ko }}</span>
+        <span class="job-stat">시급 <em>{{ j.perm.wage_median|hourly }}</em></span>
+        <span class="job-stat"><em>{{ j.perm.certified|num }}</em>건 인증</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+  <p class="cta-line"><a class="btn" href="employers/index.html">스폰서 회사 검색하기</a> 수속 업체가 소개한 회사가 실제로 영주권을 진행한 기록이 있는지 확인해 보세요.</p>
+</section>
+
+<section id="majors" aria-labelledby="majors-h">
+  <h2 id="majors-h">유학 후 취업하는 길</h2>
+  <p class="hint">미국 학위 → OPT → H-1B → 영주권 순서입니다. H-1B와 영주권 수치는 전공에서 이어지는 대표 직종들의 합계이며, 머리글을 누르면 정렬됩니다.</p>
+  <div class="table-wrap">
+  <table class="compare" id="compare">
+    <thead><tr>
+      <th scope="col" data-sort="text">전공</th>
+      <th scope="col" data-sort="num">OPT</th>
+      <th scope="col" data-sort="num">학사 졸업 1년 차 소득</th>
+      <th scope="col" data-sort="num">H-1B 인증</th>
+      <th scope="col" data-sort="num">H-1B 연봉 중앙값</th>
+      <th scope="col" data-sort="num">영주권 인증</th>
+    </tr></thead>
+    <tbody>
+    {% for m in majors %}
+    <tr>
+      <th scope="row"><a href="majors/{{ m.slug }}/index.html">{{ m.ko }}</a><span class="en">{{ m.name }}</span></th>
+      <td data-v="{{ m.opt_months }}"><span class="opt {{ 'opt--stem' if m.stem }}">{{ m.opt_months }}개월</span></td>
+      <td data-v="{{ m.ba.median_earn_1yr or 0 }}">{{ m.ba.median_earn_1yr|money }}</td>
+      <td data-v="{{ m.h1b_total }}">{{ m.h1b_total|num }}</td>
+      <td data-v="{{ m.h1b_median or 0 }}">{{ m.h1b_median|money }}</td>
+      <td data-v="{{ m.perm_cert }}">{{ m.perm_cert|num }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <p class="hint">OPT 36개월은 STEM 지정 전공의 24개월 연장을 포함한 최대 기간입니다.</p>
+</section>
+<script src="../../static/sort.js" defer></script>
+{% endblock %}

@@ -300,6 +300,8 @@ def fetch_au(cfg: dict) -> dict:
             "top_states": top(a["state"], 6),
             "subtypes": top(a["subtype"], 5),
             "industries": top(a["industry"], 3),
+            "korea": int(sum(n for (p, name), n in a["country"].items()
+                             if p in last4 and name and name.startswith("Korea, South"))),
         }
     total = int(sum(n for p, n in by_period.items() if p in last4))
     log(f"  Australia: {total} primary grants in {window}, {len(out)} jobs matched")

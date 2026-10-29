@@ -283,6 +283,8 @@ def load_perm(path: Path, socs: set[str]) -> tuple[dict, list]:
         if c_country:
             countries = Counter(cert[c_country].dropna().str.strip().str.title())
             item["top_countries"] = [{"country": k, "certified": n} for k, n in countries.most_common(6)]
+            item["korea_certified"] = int(sum(n for k, n in countries.items() if "KOREA" in k.upper()
+                                              and "NORTH" not in k.upper() and "DEMOCRATIC" not in k.upper()))
         out[soc] = item
 
     # 회사 색인: 이 사이트가 다루는 직종에서 영주권을 진행한 회사 전체

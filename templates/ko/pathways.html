@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% block title %}미국·캐나다·영국·호주 영주권 경로 한눈에 비교 | {{ site.name }}{% endblock %}
+{% block description %}미국, 캐나다, 영국, 호주의 영주권까지 가는 길을 학위 라인과 학위 없는 라인으로 나눠 단계별로 비교합니다.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>영주권까지 가는 길, 나라별 한눈에 비교</h1>
+  <p class="lede">나라마다 그 나라에서 학위를 받고 가는 길(청록색)과, 학위 없이 취업으로 가는 길(주황색)이 있습니다.</p>
+</section>
+{% for p in pathways %}
+<section class="country-block" id="{{ p.code }}">
+  <h2>{{ p.name }} <a href="{{ p.link }}">직종·회사 보기</a></h2>
+  {{ draw(p) }}
+</section>
+{% endfor %}
+{% endblock %}

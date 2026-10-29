@@ -1,20 +1,21 @@
 {% macro pathways(p, heading_level=3) %}
 <div class="paths">
-  {% for key, tag, cls in [('degree', 'With a degree', ''), ('no_degree', 'Without a degree', 'path--trade')] %}
+  {% set ko = (lang == 'ko') %}
+  {% for key, tag, cls in [('degree', '학위 라인' if ko else 'With a degree', ''), ('no_degree', '학위 없는 라인' if ko else 'Without a degree', 'path--trade')] %}
   {% set line = p[key] %}
   <div class="path {{ cls }}">
     <div class="path-head">
       <span class="path-tag">{{ tag }}</span>
-      <h{{ heading_level }}>{{ p.name }}: route to {{ 'a green card' if p.pr_name == 'Green card' else (p.pr_name[0]|lower ~ p.pr_name[1:]) }}</h{{ heading_level }}>
+      <h{{ heading_level }}>{% if ko %}{{ p.name }} {{ p.pr_name }}까지{% else %}{{ p.name }}: route to {{ 'a green card' if p.pr_name == 'Green card' else (p.pr_name[0]|lower ~ p.pr_name[1:]) }}{% endif %}</h{{ heading_level }}>
     </div>
     <p>{{ line.summary }}</p>
-    <ol class="route route--n" style="--n: {{ line.steps|length }}" aria-label="{{ tag }} route in {{ p.name }}">
+    <ol class="route route--n" style="--n: {{ line.steps|length }}" aria-label="{{ p.name }} {{ tag }}">
       {% for s in line.steps %}
       <li><span class="dot"></span><b>{{ s.label }}</b><strong class="fig fig--text">{{ s.title }}</strong>{% if s.note %}<small>{{ s.note }}</small>{% endif %}</li>
       {% endfor %}
     </ol>
   </div>
   {% endfor %}
-  <p class="path-src">Rules as of {{ pathways_as_of }}. Sources: {% for s in p.sources %}<a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>{{ ', ' if not loop.last }}{% endfor %}. Always confirm with the official immigration authority.</p>
+  <p class="path-src">{% if ko %}{{ pathways_as_of }} 기준. 출처: {% else %}Rules as of {{ pathways_as_of }}. Sources: {% endif %}{% for s in p.sources %}<a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>{{ ', ' if not loop.last }}{% endfor %}. {{ '신청 전에 각국 이민청 공식 자료로 확인하세요.' if ko else 'Always confirm with the official immigration authority.' }}</p>
 </div>
 {% endmacro %}

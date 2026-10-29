@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}캐나다 {{ j.ko }} 취업비자: 외국인 고용 승인 회사 | {{ site.name }}{% endblock %}
+{% block description %}{{ ca.period }} 캐나다 {{ j.ko }} 직종의 외국인 고용 승인(LMIA) {{ j.ca.positions|num }}명, 승인 회사, 주, 프로그램 유형을 캐나다 정부 데이터로 정리했습니다.{% endblock %}
+{% block main %}
+{% set c = j.ca %}
+<nav class="crumbs"><a href="../../index.html#jobs">캐나다 직종</a> / {{ j.group_ko }}</nav>
+<section class="hero hero--major">
+  <h1>{{ j.ko }}: 외국인을 고용하는 캐나다 회사</h1>
+  <p class="en-title">NOC {{ j.noc }} · {{ ca.period }}</p>
+</section>
+<div class="stat-row">
+  <div><b>고용 승인 인원</b><strong class="fig">{{ c.positions|num }}</strong></div>
+  <div><b>회사 수</b><strong class="fig">{{ c.employers|num }}</strong></div>
+  <div><b>영주권용</b><strong class="fig">{{ c.pr_positions|num }}</strong></div>
+</div>
+<section>
+  <h2>승인 인원이 많은 회사</h2>
+  <div class="table-wrap">
+  <table class="rank">
+    <thead><tr><th scope="col">회사</th><th scope="col">인원</th><th scope="col">주</th></tr></thead>
+    <tbody>{% for e in c.top_employers %}<tr><th scope="row">{{ e.name }}</th><td>{{ e.positions|num }}</td><td>{{ e.province|kprov }}</td></tr>{% endfor %}</tbody>
+  </table>
+  </div>
+</section>
+<section class="split">
+  <div>
+    <h2>주별</h2>
+    <ul class="bars">
+    {% set top = c.top_provinces[0].positions or 1 %}
+    {% for p in c.top_provinces %}<li><span class="label">{{ p.province|kprov }}</span><span class="bar" style="--w: {{ (p.positions / top * 100)|round(1) }}%"></span><span class="val">{{ p.positions|num }}</span></li>{% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>프로그램 유형</h2>
+    <ul class="bars">
+    {% set top = c.streams[0].positions or 1 %}
+    {% for s in c.streams %}<li class="bars-wide"><span class="label">{{ s.stream|kstream }}</span><span class="bar bar--alt" style="--w: {{ (s.positions / top * 100)|round(1) }}%"></span><span class="val">{{ s.positions|num }}</span></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{% if j.perm or j.au %}
+<aside class="elsewhere">
+  <h2>다른 나라의 {{ j.ko }}</h2>
+  <p>{% if j.perm %}미국: 영주권 노동허가 {{ j.perm.certified|num }}건 인증, 제시 시급 {{ j.perm.wage_median|hourly }}. {% endif %}{% if j.au %}호주: 회사 스폰서 취업비자 {{ j.au.grants|num }}건.{% endif %}</p>
+  <a href="../../../us/jobs/{{ j.slug }}/index.html">미국 스폰서 보기</a>{% if j.au %} · <a href="../../../au/jobs/{{ j.slug }}/index.html">호주 데이터 보기</a>{% endif %}
+</aside>
+{% endif %}
+<aside class="caution">
+  <h2>돈을 내기 전에 확인할 것</h2>
+  <ul>
+    <li>캐나다 회사는 LMIA 비용을 근로자에게 청구할 수 없습니다.</li>
+    <li>LMIA는 취업비자 경로입니다. 영주권은 보통 그 뒤에 Express Entry나 주정부 추천으로 따로 신청합니다.</li>
+  </ul>
+</aside>
+<section class="others">
+  <h2>캐나다의 다른 직종</h2>
+  <ul>{% for o in jobs if o.slug != j.slug and o.ca %}<li><a href="../{{ o.slug }}/index.html">{{ o.ko }}</a></li>{% endfor %}</ul>
+</section>
+{% endblock %}

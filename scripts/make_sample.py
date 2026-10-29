@@ -60,6 +60,7 @@ def main():
             "decisions": dec, "certified": cert, "cert_rate": round(cert / dec * 100, 1),
             "wage_p25": int(base * 0.9), "wage_median": base, "wage_p75": int(base * 1.12),
             "days_median": rnd.randint(430, 600),
+            "korea_certified": int(cert * rnd.uniform(0.005, 0.04)),
             "top_countries": [{"country": c, "certified": int(cert * w)} for c, w in
                               zip(rnd.sample(countries, 6), [0.3, 0.18, 0.12, 0.08, 0.05, 0.03])],
             "top_employers": [{"name": emp(i), "certified": int(cert * (0.12 - i * 0.007)),
@@ -129,6 +130,7 @@ def main():
                            zip(rnd.sample(au_states, 6), [0.3, 0.25, 0.2, 0.1, 0.06, 0.03])],
             "subtypes": [{"name": "Core Skills", "grants": int(g * 0.7)}, {"name": "Labour Agreement", "grants": int(g * 0.2)}],
             "industries": [{"name": "Manufacturing", "grants": int(g * 0.4)}, {"name": "Accommodation and Food Services", "grants": int(g * 0.2)}],
+            "korea": int(g * rnd.uniform(0.01, 0.05)),
         }
     au = {"as_at": "sample", "window": "Oct 2025 – Sep 2026", "total_grants": 60000, "by_job": au_jobs}
 

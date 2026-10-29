@@ -1,22 +1,30 @@
+{% set ko = (lang == 'ko') %}
+{% set home = rel ~ ('ko/' if ko else '') %}
 <!doctype html>
-<html lang="en">
+<html lang="{{ 'ko' if ko else 'en' }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %}{{ site.name }}{% endblock %}</title>
-<meta name="description" content="{% block description %}{{ site.tagline }}{% endblock %}">
+<meta name="description" content="{% block description %}{{ site.tagline_ko if ko else site.tagline }}{% endblock %}">
 <link rel="canonical" href="{{ site.base_url }}{{ page_path }}">
+{% if alt_path %}
+<link rel="alternate" hreflang="{{ 'ko' if ko else 'en' }}" href="{{ site.base_url }}{{ page_path }}">
+<link rel="alternate" hreflang="{{ 'en' if ko else 'ko' }}" href="{{ site.base_url }}{{ alt_path }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.base_url }}{{ alt_path if ko else page_path }}">
+{% endif %}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.name }}">
 <meta property="og:title" content="{{ self.title() }}">
 <meta property="og:description" content="{{ self.description() }}">
 <meta property="og:url" content="{{ site.base_url }}{{ page_path }}">
+<meta property="og:locale" content="{{ 'ko_KR' if ko else 'en_US' }}">
 <meta name="twitter:card" content="summary">
 {% if site.google_site_verification %}<meta name="google-site-verification" content="{{ site.google_site_verification }}">{% endif %}
 <link rel="icon" href="{{ rel }}static/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400{{ '&family=Noto+Sans+KR:wght@400;500;600;700;800' if ko }}&display=swap">
 <link rel="stylesheet" href="{{ rel }}static/style.css">
 {% if site.adsense_client %}
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
@@ -24,43 +32,49 @@
 {% block head %}{% endblock %}
 </head>
 <body>
-{% if meta.sample_parts %}
-<div class="sample-bar" role="note">{{ meta.sample_parts|join(", ") }} figures are placeholders until the first data update finishes. They are not real statistics.</div>
+{% if sample_parts %}
+<div class="sample-bar" role="note">{% if ko %}{{ sample_parts|join(", ") }} 수치는 첫 데이터 갱신 전까지 임시 값입니다. 실제 통계가 아닙니다.{% else %}{{ sample_parts|join(", ") }} figures are placeholders until the first data update finishes. They are not real statistics.{% endif %}</div>
 {% endif %}
 <header class="masthead">
-  <a class="brand" href="{{ rel }}index.html">
+  <a class="brand" href="{{ home }}index.html">
     <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="4" cy="11" r="3"/><circle cx="18" cy="11" r="3"/><path d="M7 11h8"/></svg>
     {{ site.name }}
   </a>
-  <nav class="countries" aria-label="Countries">
-    <a href="{{ rel }}us/index.html" {{ 'aria-current="page"'|safe if country == 'us' }}>United States</a>
-    {% if ca %}<a href="{{ rel }}ca/index.html" {{ 'aria-current="page"'|safe if country == 'ca' }}>Canada</a>{% endif %}
-    {% if uk %}<a href="{{ rel }}uk/index.html" {{ 'aria-current="page"'|safe if country == 'uk' }}>United Kingdom</a>{% endif %}
-    {% if au %}<a href="{{ rel }}au/index.html" {{ 'aria-current="page"'|safe if country == 'au' }}>Australia</a>{% endif %}
-    <a href="{{ rel }}korea/index.html" {{ 'aria-current="page"'|safe if country == 'kr' }}>South Korea</a>
-    <a href="{{ rel }}pathways/index.html" {{ 'aria-current="page"'|safe if country == 'paths' }}>All routes</a>
+  <nav class="countries" aria-label="{{ '나라' if ko else 'Countries' }}">
+    <a href="{{ home }}us/index.html" {{ 'aria-current="page"'|safe if country == 'us' }}>{{ '미국' if ko else 'United States' }}</a>
+    {% if ca %}<a href="{{ home }}ca/index.html" {{ 'aria-current="page"'|safe if country == 'ca' }}>{{ '캐나다' if ko else 'Canada' }}</a>{% endif %}
+    {% if uk %}<a href="{{ home }}uk/index.html" {{ 'aria-current="page"'|safe if country == 'uk' }}>{{ '영국' if ko else 'United Kingdom' }}</a>{% endif %}
+    {% if au %}<a href="{{ home }}au/index.html" {{ 'aria-current="page"'|safe if country == 'au' }}>{{ '호주' if ko else 'Australia' }}</a>{% endif %}
+    {% if not ko %}<a href="{{ rel }}korea/index.html" {{ 'aria-current="page"'|safe if country == 'kr' }}>South Korea</a>{% endif %}
+    <a href="{{ home }}pathways/index.html" {{ 'aria-current="page"'|safe if country == 'paths' }}>{{ '전체 경로' if ko else 'All routes' }}</a>
+    {% if alt_href %}<a class="lang-switch" href="{{ alt_href }}" hreflang="{{ 'en' if ko else 'ko' }}" lang="{{ 'en' if ko else 'ko' }}">{{ 'English' if ko else '한국어' }}</a>{% endif %}
   </nav>
 </header>
 {% if country == 'us' %}
-<nav class="subnav" aria-label="United States sections">
-  <a href="{{ rel }}us/index.html#jobs">Jobs without a degree</a>
-  <a href="{{ rel }}us/index.html#majors">After a US degree</a>
-  <a href="{{ rel }}us/employers/index.html">Employer search</a>
-  <a href="{{ rel }}us/visa-bulletin/index.html">Green card wait</a>
+<nav class="subnav" aria-label="{{ '미국 메뉴' if ko else 'United States sections' }}">
+  <a href="{{ home }}us/index.html#jobs">{{ '학위 없이 가는 직종' if ko else 'Jobs without a degree' }}</a>
+  <a href="{{ home }}us/index.html#majors">{{ '유학 후 취업' if ko else 'After a US degree' }}</a>
+  <a href="{{ home }}us/employers/index.html">{{ '스폰서 회사 검색' if ko else 'Employer search' }}</a>
+  <a href="{{ home }}us/visa-bulletin/index.html">{{ '영주권 대기 순번' if ko else 'Green card wait' }}</a>
 </nav>
 {% elif country == 'ca' %}
-<nav class="subnav" aria-label="Canada sections">
-  <a href="{{ rel }}ca/index.html#jobs">Jobs</a>
-  <a href="{{ rel }}ca/employers/index.html">Employer search</a>
-  <a href="{{ rel }}ca/index.html#draws">Express Entry draws</a>
+<nav class="subnav" aria-label="{{ '캐나다 메뉴' if ko else 'Canada sections' }}">
+  <a href="{{ home }}ca/index.html#jobs">{{ '직종' if ko else 'Jobs' }}</a>
+  <a href="{{ home }}ca/employers/index.html">{{ '고용 승인 회사 검색' if ko else 'Employer search' }}</a>
+  <a href="{{ home }}ca/index.html#draws">{{ 'Express Entry 추첨' if ko else 'Express Entry draws' }}</a>
 </nav>
 {% endif %}
 <main>
 {% block main %}{% endblock %}
 </main>
 <footer class="foot">
+  {% if ko %}
+  <p>미국 노동부·국무부·교육부, 캐나다 고용사회개발부·이민부, 영국 내무부, 호주 내무부가 공개한 데이터를 가공했습니다. <a href="{{ rel }}about/index.html">데이터 출처와 계산 방법(영문)</a></p>
+  <p>{{ site.name }}은 정부 서비스가 아닌 독립 통계 사이트이며, 이 사이트의 내용은 법률 자문이 아닙니다. 결정 전에 이민 전문 변호사나 행정사와 상담하세요.</p>
+  {% else %}
   <p>Built from public data published by the US Department of Labor, US Department of State, US Department of Education, Employment and Social Development Canada, Immigration, Refugees and Citizenship Canada, the UK Home Office, the Australian Department of Home Affairs and Korean government agencies. <a href="{{ rel }}about/index.html">Sources and methods</a></p>
   <p>{{ site.name }} is an independent statistics site, not a government service, and nothing here is legal advice. Speak to a licensed immigration lawyer or adviser before making decisions.</p>
+  {% endif %}
 </footer>
 </body>
 </html>

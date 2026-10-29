@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% block title %}호주 회사 스폰서 취업비자(482) 직종별 데이터 | {{ site.name }}{% endblock %}
+{% block description %}호주가 직종별로 발급한 회사 스폰서 취업비자(482) 건수, 한국인 발급 건수, 국적·주별 분포와 영주권 경로를 호주 내무부 데이터로 보여드립니다.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>호주: 회사 스폰서 취업비자, 직종별로 보기</h1>
+  <p class="lede">호주 회사는 Skills in Demand 비자(482)로 외국인을 스폰서할 수 있고, 같은 회사에서 3년 일하면 회사가 영주권(186)을 추천할 수 있습니다. {{ au.window }} 주 신청자 발급 기준입니다.</p>
+</section>
+<section aria-label="영주권 경로">{{ draw(pw_path) }}</section>
+<section id="jobs" aria-labelledby="jobs-h">
+  <h2 id="jobs-h">직종별 발급 건수</h2>
+  <p class="hint">호주는 스폰서 회사 이름을 공개하지 않아 회사 목록 대신 건수, 국적, 지역을 보여드립니다. 이 기간 전체 직종 발급은 {{ au.total_grants|num }}건입니다.</p>
+  {% for g, items in groups_ko.items() %}
+  {% set shown = items|selectattr('au')|list %}
+  {% if shown %}
+  <h3 class="group-h">{{ g }}</h3>
+  <ul class="job-grid">
+    {% for j in shown %}
+    <li><a href="jobs/{{ j.slug }}/index.html"><span class="job-name">{{ j.ko }}</span><span class="job-stat"><em>{{ j.au.grants|num }}</em>건 발급</span><span class="job-stat">한국인 <em>{{ j.au.korea|num }}</em></span></a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endfor %}
+</section>
+{% endblock %}

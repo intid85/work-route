@@ -34,16 +34,20 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
 
 
 # ---------------------------------------------------------------- filters
+def _isnum(v):
+    return isinstance(v, (int, float)) and not isinstance(v, bool)
+
+
 def money(v):
-    return "No data" if v in (None, "") else f"${int(v):,}"
+    return f"${int(v):,}" if _isnum(v) else "–"
 
 
 def num(v):
-    return "–" if v in (None, "") else f"{int(v):,}"
+    return f"{int(v):,}" if _isnum(v) else "–"
 
 
 def hourly(v):
-    return "No data" if v in (None, "") else f"${v / 2080:,.2f}"
+    return f"${v / 2080:,.2f}" if _isnum(v) else "–"
 
 
 def vbdate(v):
@@ -81,6 +85,84 @@ def wait_gap(bulletin_month, v):
     if yrs == 0:
         return f"about {mos} months"
     return f"about {yrs} yr {mos} mo" if mos else f"about {yrs} years"
+
+
+# ---------------------------------------------------------------- Korean edition
+STATES_KO = {
+    "AL": "앨라배마", "AK": "알래스카", "AZ": "애리조나", "AR": "아칸소", "CA": "캘리포니아", "CO": "콜로라도",
+    "CT": "코네티컷", "DE": "델라웨어", "DC": "워싱턴 D.C.", "FL": "플로리다", "GA": "조지아", "HI": "하와이",
+    "ID": "아이다호", "IL": "일리노이", "IN": "인디애나", "IA": "아이오와", "KS": "캔자스", "KY": "켄터키",
+    "LA": "루이지애나", "ME": "메인", "MD": "메릴랜드", "MA": "매사추세츠", "MI": "미시간", "MN": "미네소타",
+    "MS": "미시시피", "MO": "미주리", "MT": "몬태나", "NE": "네브래스카", "NV": "네바다", "NH": "뉴햄프셔",
+    "NJ": "뉴저지", "NM": "뉴멕시코", "NY": "뉴욕", "NC": "노스캐롤라이나", "ND": "노스다코타", "OH": "오하이오",
+    "OK": "오클라호마", "OR": "오리건", "PA": "펜실베이니아", "RI": "로드아일랜드", "SC": "사우스캐롤라이나",
+    "SD": "사우스다코타", "TN": "테네시", "TX": "텍사스", "UT": "유타", "VT": "버몬트", "VA": "버지니아",
+    "WA": "워싱턴", "WV": "웨스트버지니아", "WI": "위스콘신", "WY": "와이오밍", "PR": "푸에르토리코", "GU": "괌",
+}
+PROV_KO = {
+    "Alberta": "앨버타", "British Columbia": "브리티시컬럼비아", "Manitoba": "매니토바", "New Brunswick": "뉴브런즈윅",
+    "Newfoundland and Labrador": "뉴펀들랜드 래브라도", "Northwest Territories": "노스웨스트 준주", "Nova Scotia": "노바스코샤",
+    "Nunavut": "누나부트", "Ontario": "온타리오", "Prince Edward Island": "프린스에드워드아일랜드", "Quebec": "퀘벡",
+    "Saskatchewan": "서스캐처원", "Yukon": "유콘",
+    "Employers carrying on business in Canada with Head Office outside of Canada": "본사가 해외인 회사",
+}
+AU_STATES_KO = {
+    "New South Wales": "뉴사우스웨일스", "Victoria": "빅토리아", "Queensland": "퀸즐랜드", "Western Australia": "서호주",
+    "South Australia": "남호주", "Tasmania": "태즈메이니아", "Northern Territory": "노던 준주",
+    "Australian Capital Territory": "수도 준주",
+}
+COUNTRIES_KO = {
+    "India": "인도", "Mexico": "멕시코", "Philippines": "필리핀", "China": "중국", "Guatemala": "과테말라",
+    "South Korea": "한국", "Korea, South": "한국", "Korea, Republic Of": "한국", "Republic Of Korea": "한국",
+    "Vietnam": "베트남", "Brazil": "브라질", "United Kingdom": "영국", "South Africa": "남아공",
+    "Ireland, Republic of": "아일랜드", "Ireland": "아일랜드", "Nepal": "네팔", "Sri Lanka": "스리랑카",
+    "China, Peoples Republic of (excl SARs)": "중국", "Japan": "일본", "Fiji": "피지", "Indonesia": "인도네시아",
+    "Thailand": "태국", "Pakistan": "파키스탄", "Bangladesh": "방글라데시", "Colombia": "콜롬비아",
+    "Zimbabwe": "짐바브웨", "New Zealand": "뉴질랜드", "Canada": "캐나다", "France": "프랑스", "Germany": "독일",
+    "Honduras": "온두라스", "El Salvador": "엘살바도르", "Jamaica": "자메이카", "Nigeria": "나이지리아",
+    "Kenya": "케냐", "Ghana": "가나", "Malaysia": "말레이시아", "Taiwan": "대만", "Myanmar": "미얀마",
+}
+STREAMS_KO = {"Low Wage": "저임금", "High Wage": "고임금", "Primary Agriculture": "1차 농업",
+              "Permanent Resident Only": "영주권 전용", "Global Talent": "글로벌 인재"}
+AU_STREAMS_KO = {"Core Skills": "Core Skills(핵심 기술)", "Labour Agreement": "노동 협약", "Medium-term": "중기(구 TSS)",
+                 "Short-term": "단기(구 TSS)", "Specialist Skills": "Specialist Skills(전문 기술)"}
+INDUSTRY_KO = {"Manufacturing": "제조업", "Construction": "건설업", "Mining": "광업",
+               "Accommodation and Food Services": "숙박·음식업", "Health Care and Social Assistance": "보건·사회복지",
+               "Agriculture, Forestry and Fishing": "농림어업", "Other Services": "기타 서비스",
+               "Transport, Postal and Warehousing": "운송·창고", "Retail Trade": "소매업",
+               "Wholesale Trade": "도매업", "Administrative and Support Services": "사업 지원 서비스"}
+
+
+def kdate(v):
+    if not v:
+        return "자료 없음"
+    if v == "C":
+        return "대기 없음"
+    if v == "U":
+        return "발급 중단"
+    try:
+        d = dt.date.fromisoformat(v)
+        return f"{d.year}년 {d.month}월 {d.day}일"
+    except ValueError:
+        return v
+
+
+def kmonth(ym):
+    try:
+        y, m = ym.split("-")
+        return f"{y}년 {int(m)}월"
+    except (ValueError, AttributeError):
+        return ym
+
+
+def kgap(v, bulletin_month):
+    try:
+        y, m = map(int, bulletin_month.split("-"))
+        d = dt.date.fromisoformat(v)
+    except (ValueError, AttributeError, TypeError):
+        return None
+    months = (y - d.year) * 12 + (m - d.month)
+    return f"약 {months // 12}년 {months % 12}개월" if months >= 12 else f"약 {months}개월"
 
 
 # ---------------------------------------------------------------- page data
@@ -144,6 +226,11 @@ def main() -> int:
             continue
         pathways.append({**p, "link": links[p["code"]]})
     path_by = {p["code"]: p for p in pathways}
+    pw_ko = yaml.safe_load((ROOT / "data" / "pathways_ko.yaml").read_text(encoding="utf-8"))
+    pathways_ko = [{**p, "link": links[p["code"]]} for p in pw_ko["countries"]
+                   if not ((p["code"] == "ca" and not ca) or (p["code"] == "uk" and not uk) or (p["code"] == "au" and not au))]
+    path_ko = {p["code"]: p for p in pathways_ko}
+    names_ko = {"US": "미국", "Canada": "캐나다", "UK": "영국", "Australia": "호주"}
 
     majors = [build_major(m, lca, perm, sc) for m in cfg["majors"]]
     jobs = []
@@ -154,6 +241,10 @@ def main() -> int:
     groups: dict[str, list] = {}
     for j in jobs:
         groups.setdefault(j["group"], []).append(j)
+
+    groups_ko: dict[str, list] = {}
+    for j in jobs:
+        groups_ko.setdefault(j.get("group_ko", j["group"]), []).append(j)
 
     soc_names = {j["soc"]: j["name"] for j in jobs}
     for m in cfg["majors"]:
@@ -169,24 +260,45 @@ def main() -> int:
     env = Environment(loader=FileSystemLoader(ROOT / "templates"),
                       autoescape=select_autoescape(["html", "xml"]), trim_blocks=True, lstrip_blocks=True)
     env.filters.update(money=money, num=num, hourly=hourly, vbdate=vbdate, month_name=month_name,
-                       state=lambda s: STATES.get(s, s))
+                       state=lambda s: STATES.get(s, s), kdate=kdate, kmonth=kmonth, kgap=kgap,
+                       kstate=lambda s: STATES_KO.get(s, s), kprov=lambda s: PROV_KO.get(s, s),
+                       kaustate=lambda s: AU_STATES_KO.get(s, s), kcountry=lambda s: COUNTRIES_KO.get(s, s),
+                       kstream=lambda s: STREAMS_KO.get(s, s), kaustream=lambda s: AU_STREAMS_KO.get(s, s),
+                       kindustry=lambda s: INDUSTRY_KO.get(s, s))
     env.globals["wait_gap"] = wait_gap
     ctx = {"site": site, "meta": meta, "majors": majors, "jobs": jobs, "groups": groups, "vb": vb,
-           "ca": ca, "uk": uk, "au": au, "pathways": pathways, "pathways_as_of": pw["as_of"], "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
+           "ca": ca, "uk": uk, "au": au, "groups_ko": groups_ko, "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
 
     if SITE.exists():
         shutil.rmtree(SITE)
     shutil.copytree(ROOT / "static", SITE / "static")
     pages = []
 
-    def render(tpl: str, path: str, **extra):
+    ko_pages = {"index.html", "pathways/index.html", "us/index.html", "us/employers/index.html",
+                "us/visa-bulletin/index.html", "ca/index.html", "ca/employers/index.html", "uk/index.html", "au/index.html"}
+    ko_pages |= {f"us/jobs/{j['slug']}/index.html" for j in jobs} | {f"us/majors/{m['slug']}/index.html" for m in majors}
+    ko_pages |= {f"ca/jobs/{j['slug']}/index.html" for j in jobs if j.get("noc") and ca}
+    ko_pages |= {f"au/jobs/{j['slug']}/index.html" for j in jobs if j["au"]}
+
+    def render(tpl: str, path: str, lang: str = "en", **extra):
         out = SITE / path
         out.parent.mkdir(parents=True, exist_ok=True)
         rel = "../" * path.count("/")
         if tpl == "404.html":
             rel = site["base_url"] + "/"
         page_path = "/" + path.removesuffix("index.html")
-        out.write_text(env.get_template(tpl).render(**ctx, **extra, rel=rel, page_path=page_path), encoding="utf-8")
+        if lang == "ko":
+            twin = path.removeprefix("ko/")
+            alt_path, alt_href = "/" + twin.removesuffix("index.html"), rel + twin
+        elif path in ko_pages:
+            alt_path, alt_href = "/ko/" + path.removesuffix("index.html"), rel + "ko/" + path
+        else:
+            alt_path = alt_href = None
+        local = {"lang": lang, "page_path": page_path, "alt_path": alt_path, "alt_href": alt_href, "rel": rel,
+                 "pathways": pathways_ko if lang == "ko" else pathways,
+                 "pathways_as_of": pw_ko["as_of"] if lang == "ko" else pw["as_of"],
+                 "sample_parts": [names_ko[n] for n in meta["sample_parts"]] if lang == "ko" else meta["sample_parts"]}
+        out.write_text(env.get_template(tpl).render(**ctx, **local, **extra), encoding="utf-8")
         if path.endswith("index.html"):
             pages.append(page_path)
 
@@ -235,6 +347,30 @@ def main() -> int:
 
     # South Korea
     render("korea/index.html", "korea/index.html", country="kr", pw_path=path_by["kr"])
+
+    # Korean edition (Koreans going abroad; the Korea section is English only)
+    render("ko/home.html", "ko/index.html", lang="ko", country=None)
+    render("ko/pathways.html", "ko/pathways/index.html", lang="ko", country="paths")
+    render("ko/us/index.html", "ko/us/index.html", lang="ko", country="us", pw_path=path_ko["us"])
+    for j in jobs:
+        render("ko/us/job.html", f"ko/us/jobs/{j['slug']}/index.html", lang="ko", country="us", j=j)
+    for m in majors:
+        render("ko/us/major.html", f"ko/us/majors/{m['slug']}/index.html", lang="ko", country="us", m=m)
+    render("ko/us/employers.html", "ko/us/employers/index.html", lang="ko", country="us")
+    render("ko/us/bulletin.html", "ko/us/visa-bulletin/index.html", lang="ko", country="us")
+    if ca:
+        render("ko/ca/index.html", "ko/ca/index.html", lang="ko", country="ca", pw_path=path_ko["ca"])
+        for j in jobs:
+            if j.get("noc"):
+                render("ko/ca/job.html", f"ko/ca/jobs/{j['slug']}/index.html", lang="ko", country="ca", j=j)
+        render("ko/ca/employers.html", "ko/ca/employers/index.html", lang="ko", country="ca")
+    if uk:
+        render("ko/uk/index.html", "ko/uk/index.html", lang="ko", country="uk", pw_path=path_ko["uk"])
+    if au:
+        render("ko/au/index.html", "ko/au/index.html", lang="ko", country="au", pw_path=path_ko["au"])
+        for j in jobs:
+            if j["au"]:
+                render("ko/au/job.html", f"ko/au/jobs/{j['slug']}/index.html", lang="ko", country="au", j=j)
 
     render("about.html", "about/index.html", country=None)
     render("404.html", "404.html", country=None)

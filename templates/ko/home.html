@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}해외 취업이민·영주권 직종별 데이터: 미국·캐나다·영국·호주 | {{ site.name }}{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>내 직업으로 영주권까지 갈 수 있는 나라는 어디일까요?</h1>
+  <p class="lede">미국·캐나다·영국·호주 정부가 공개한 데이터로 직종별 비자 발급 건수, 제시 임금, 스폰서 회사, 영주권 대기 기간을 한국어로 보여드립니다. 매달 자동으로 갱신됩니다.</p>
+</section>
+
+<section aria-label="나라 선택">
+  <ul class="country-grid">
+    <li><a href="us/index.html"><span class="c-name">미국</span><span class="c-what">직종·회사별 영주권(PERM) 인증 기록, 제시 시급, 매달 바뀌는 EB-3 대기 순번.</span><span class="c-tag">회사 이름 공개</span></a></li>
+    {% if ca %}<li><a href="ca/index.html"><span class="c-name">캐나다</span><span class="c-what">외국인 고용 승인(LMIA)을 받은 회사를 직종·주별로, Express Entry 추첨 점수까지.</span><span class="c-tag">회사 이름 공개</span></a></li>{% endif %}
+    {% if uk %}<li><a href="uk/index.html"><span class="c-name">영국</span><span class="c-what">취업비자 스폰서 자격이 있는 모든 회사를 이름과 도시로 검색.</span><span class="c-tag">회사 이름 공개</span></a></li>{% endif %}
+    {% if au %}<li><a href="au/index.html"><span class="c-name">호주</span><span class="c-what">회사 스폰서 취업비자(482)를 직종·국적·주별로, 3년 뒤 영주권 경로까지.</span><span class="c-tag c-tag--plain">직종별 건수</span></a></li>{% endif %}
+  </ul>
+</section>
+
+<section aria-labelledby="routes-h">
+  <h2 id="routes-h">나라마다 두 갈래 길</h2>
+  <p class="hint">영주권까지는 보통 그 나라에서 학위를 받는 길과, 학위 없이 취업으로 가는 길이 있습니다. <a href="pathways/index.html">단계별로 비교하기</a></p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">나라</th><th scope="col" class="left">학위 라인</th><th scope="col" class="left">학위 없는 라인</th></tr></thead>
+    <tbody>
+    {% for p in pathways %}
+      <tr><th scope="row"><a href="pathways/index.html#{{ p.code }}">{{ p.name }}</a></th>
+      <td class="wrap">{{ p.degree.steps|map(attribute='label')|join(' → ') }}</td>
+      <td class="wrap">{{ p.no_degree.steps|map(attribute='label')|join(' → ') }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section aria-labelledby="cmp-h">
+  <h2 id="cmp-h">직종별 나라 비교</h2>
+  <p class="hint">미국은 영주권 노동허가(PERM) 인증 건수, 캐나다는 외국인 고용 승인(LMIA) 인원(취업비자), 호주는 회사 스폰서 취업비자(482) 발급 건수입니다. 머리글을 누르면 정렬됩니다.</p>
+  <div class="table-wrap">
+  <table class="compare" id="compare">
+    <thead><tr>
+      <th scope="col" data-sort="text">직종</th>
+      <th scope="col" data-sort="num">미국 영주권 인증</th>
+      <th scope="col" data-sort="num">미국 제시 시급</th>
+      <th scope="col" data-sort="num">미국 한국인 인증</th>
+      {% if ca %}<th scope="col" data-sort="num">캐나다 고용 승인</th>{% endif %}
+      {% if au %}<th scope="col" data-sort="num">호주 482 발급</th>
+      <th scope="col" data-sort="num">호주 한국인 발급</th>{% endif %}
+    </tr></thead>
+    <tbody>
+    {% for j in jobs %}
+    <tr>
+      <th scope="row"><a href="us/jobs/{{ j.slug }}/index.html">{{ j.ko }}</a></th>
+      <td data-v="{{ j.perm.certified or 0 }}">{{ j.perm.certified|num }}</td>
+      <td data-v="{{ j.perm.wage_median or 0 }}">{{ j.perm.wage_median|hourly }}</td>
+      <td data-v="{{ j.perm.korea_certified or 0 }}">{{ j.perm.korea_certified|num }}</td>
+      {% if ca %}<td data-v="{{ j.ca.positions or 0 }}">{% if j.ca %}<a href="ca/jobs/{{ j.slug }}/index.html">{{ j.ca.positions|num }}</a>{% else %}–{% endif %}</td>{% endif %}
+      {% if au %}<td data-v="{{ j.au.grants or 0 }}">{% if j.au %}<a href="au/jobs/{{ j.slug }}/index.html">{{ j.au.grants|num }}</a>{% else %}–{% endif %}</td>
+      <td data-v="{{ j.au.korea or 0 }}">{{ j.au.korea|num }}</td>{% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+<script src="../static/sort.js" defer></script>
+{% endblock %}

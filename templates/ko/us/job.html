@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}{{ j.ko }} 미국 취업이민 영주권: 스폰서 회사·시급 | {{ site.name }}{% endblock %}
+{% block description %}{% set p = j.perm %}미국 {{ j.ko }}({{ j.title }}) 영주권 노동허가(PERM) 인증 {{ p.certified|num }}건, 제시 시급 중앙값 {{ p.wage_median|hourly }}, 스폰서 회사, 지역, 한국인 인증 건수와 EB-3 대기 순번을 미국 노동부 데이터로 정리했습니다.{% endblock %}
+{% block main %}
+{% set p = j.perm %}
+<nav class="crumbs"><a href="../../index.html#jobs">미국 직종</a> / {{ j.group_ko }}</nav>
+<section class="hero hero--major">
+  <h1>{{ j.ko }}: 미국 영주권 스폰서 데이터</h1>
+  <p class="en-title">{{ j.title }} · SOC {{ j.soc }}</p>
+  <p class="lede">{{ j.hint_ko }}</p>
+</section>
+
+<ol class="route route--five" aria-label="{{ j.ko }} 영주권 절차">
+  <li><span class="dot"></span><b>회사 채용</b><strong class="fig">{{ p.wage_median|hourly }}</strong><small>제시 시급 중앙값<br>연 {{ p.wage_median|money }}</small></li>
+  <li><span class="dot"></span><b>노동허가 (PERM)</b><strong class="fig">{{ p.certified|num }}건</strong><small>인증{% if p.cert_rate %}, 인증률 {{ p.cert_rate }}%{% endif %}{% if p.days_median %}<br>처리 기간 중앙값 약 {{ p.days_median }}일{% endif %}</small></li>
+  <li><span class="dot"></span><b>이민청원 (I-140)</b><strong class="fig fig--text">이민국 심사</strong><small>노동허가 신청일이 우선일자가 됩니다</small></li>
+  <li><span class="dot"></span><b>대기 순번</b>{% if vb.current %}<strong class="fig fig--text">{{ vb.current.ew_final|kgap(vb.current.month) or (vb.current.ew_final|kdate) }}</strong><small>비숙련 기준 (숙련공 {{ vb.current.eb3_final|kgap(vb.current.month) or (vb.current.eb3_final|kdate) }})</small>{% else %}<strong class="fig fig--text">자료 없음</strong>{% endif %}</li>
+  <li><span class="dot"></span><b>영주권</b><strong class="fig fig--text">이민비자 입국</strong><small>주한 미국대사관 인터뷰 후 영주권자로 입국</small></li>
+</ol>
+
+{% if p.korea_certified is defined %}
+<p class="korea-line">이 기간 한국 국적자의 {{ j.ko }} 노동허가 인증은 <strong>{{ p.korea_certified|num }}건</strong>입니다.</p>
+{% endif %}
+
+{% if site.adsense_client %}<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="{{ site.adsense_client }}" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>{% endif %}
+
+<section>
+  <h2>영주권을 많이 진행한 회사</h2>
+  <p class="hint">노동허가가 인증된 건수 순입니다. 소개받은 회사가 없다면 <a href="../../employers/index.html">회사 검색</a>에서 확인해 보세요.</p>
+  <div class="table-wrap">
+  <table class="rank">
+    <thead><tr><th scope="col">회사</th><th scope="col">인증</th><th scope="col">제시 시급</th><th scope="col">연봉 환산</th></tr></thead>
+    <tbody>
+    {% for e in p.top_employers or [] %}
+    <tr><th scope="row">{{ e.name }}</th><td>{{ e.certified|num }}</td><td>{{ e.wage_median|hourly }}</td><td>{{ e.wage_median|money }}</td></tr>
+    {% else %}
+    <tr><td colspan="4">이 기간에 인증된 신청이 없습니다.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <h2>일자리가 있는 주</h2>
+    <ul class="bars">
+    {% set top = (p.top_states[0].certified if p.top_states else 1) or 1 %}
+    {% for s in p.top_states or [] %}
+      <li><span class="label">{{ s.state|kstate }}</span><span class="bar" style="--w: {{ (s.certified / top * 100)|round(1) }}%"></span><span class="val">{{ s.certified|num }}건</span></li>
+    {% else %}<li>지역 자료가 없습니다.</li>{% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>근로자 국적</h2>
+    <ul class="bars">
+    {% set top = (p.top_countries[0].certified if p.top_countries else 1) or 1 %}
+    {% for c in p.top_countries or [] %}
+      <li><span class="label">{{ c.country|kcountry }}</span><span class="bar bar--alt" style="--w: {{ (c.certified / top * 100)|round(1) }}%"></span><span class="val">{{ c.certified|num }}건</span></li>
+    {% else %}<li>국적 자료가 공개되지 않았습니다.</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>임금 범위</h2>
+  <dl class="kv">
+    <div><dt>하위 25%</dt><dd>{{ p.wage_p25|hourly }}</dd></div>
+    <div><dt>중앙값</dt><dd>{{ p.wage_median|hourly }}</dd></div>
+    <div><dt>상위 25%</dt><dd>{{ p.wage_p75|hourly }}</dd></div>
+  </dl>
+  <p class="hint">시급은 연봉을 2,080시간(주 40시간 × 52주)으로 나눈 값이며 초과근무 수당은 빠져 있습니다.</p>
+</section>
+
+{% if j.ca or j.au %}
+<aside class="elsewhere">
+  <h2>다른 나라의 {{ j.ko }}</h2>
+  <p>{% if j.ca %}캐나다: 외국인 고용 승인 {{ j.ca.positions|num }}명. {% endif %}{% if j.au %}호주: 회사 스폰서 취업비자 {{ j.au.grants|num }}건 발급{% if j.au.korea %}, 그중 한국인 {{ j.au.korea|num }}건{% endif %}.{% endif %}</p>
+  {% if j.ca %}<a href="../../../ca/jobs/{{ j.slug }}/index.html">캐나다 회사 보기</a>{% endif %}{% if j.ca and j.au %} · {% endif %}{% if j.au %}<a href="../../../au/jobs/{{ j.slug }}/index.html">호주 데이터 보기</a>{% endif %}
+</aside>
+{% endif %}
+
+<aside class="caution">
+  <h2>수속 업체에 돈을 내기 전에</h2>
+  <ul>
+    <li>소개받은 회사가 최근 노동허가 인증 기록이 있는지 <a href="../../employers/index.html">회사 검색</a>에서 확인하세요.</li>
+    <li>미국 규정상 노동허가 비용은 회사가 모두 부담해야 합니다. 업체나 회사가 이 비용을 신청자에게 청구할 수 없습니다.</li>
+    <li>대기 순번은 매달 바뀝니다. 계약 전에 <a href="../../visa-bulletin/index.html">최근 변화</a>를 확인하세요.</li>
+  </ul>
+</aside>
+
+{% if site.consult_url %}
+<aside class="consult">
+  <h2>내 경력으로 가능한지 상담받기</h2>
+  <p>신청 유형과 기간은 회사 조건과 경력에 따라 달라집니다. 이민 전문 변호사와 상담해 보세요.</p>
+  <a class="btn" href="{{ site.consult_url }}" rel="sponsored noopener" target="_blank">상담 신청하기</a>
+</aside>
+{% endif %}
+
+<section class="others">
+  <h2>다른 직종</h2>
+  <ul>{% for o in jobs if o.slug != j.slug %}<li><a href="../{{ o.slug }}/index.html">{{ o.ko }}</a></li>{% endfor %}</ul>
+</section>
+{% endblock %}

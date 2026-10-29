@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}호주 {{ j.ko }} 취업비자(482)와 영주권 경로 | {{ site.name }}{% endblock %}
+{% block description %}{{ au.window }} 호주 {{ j.ko }} 직종의 회사 스폰서 취업비자(482) {{ j.au.grants|num }}건, 한국인 발급 건수, 국적·주·비자 유형·스폰서 업종을 호주 내무부 데이터로 정리했습니다.{% endblock %}
+{% block main %}
+{% set a = j.au %}
+<nav class="crumbs"><a href="../../index.html#jobs">호주 직종</a> / {{ j.group_ko }}</nav>
+<section class="hero hero--major">
+  <h1>{{ j.ko }}: 호주 회사 스폰서 취업비자</h1>
+  <p class="en-title">ANZSCO {{ j.anzsco|join(', ') }} · {{ au.window }}</p>
+</section>
+<div class="stat-row">
+  <div><b>482 비자 발급</b><strong class="fig">{{ a.grants|num }}</strong></div>
+  <div><b>한국인 발급</b><strong class="fig">{{ a.korea|num }}</strong></div>
+  <div><b>전년 같은 기간</b><strong class="fig">{{ a.grants_prev|num }}</strong></div>
+</div>
+<section class="split">
+  <div>
+    <h2>근로자 국적</h2>
+    <ul class="bars">
+    {% set top = (a.top_countries[0].grants if a.top_countries else 1) or 1 %}
+    {% for c in a.top_countries %}<li><span class="label">{{ c.name|kcountry }}</span><span class="bar" style="--w: {{ (c.grants / top * 100)|round(1) }}%"></span><span class="val">{{ c.grants|num }}</span></li>{% else %}<li>자료 없음</li>{% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>일자리가 있는 주</h2>
+    <ul class="bars">
+    {% set top = (a.top_states[0].grants if a.top_states else 1) or 1 %}
+    {% for s in a.top_states %}<li><span class="label">{{ s.name|kaustate }}</span><span class="bar bar--alt" style="--w: {{ (s.grants / top * 100)|round(1) }}%"></span><span class="val">{{ s.grants|num }}</span></li>{% else %}<li>자료 없음</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+<section class="split">
+  <div>
+    <h2>비자 유형</h2>
+    <ul class="bars">
+    {% set top = (a.subtypes[0].grants if a.subtypes else 1) or 1 %}
+    {% for s in a.subtypes %}<li class="bars-wide"><span class="label">{{ s.name|kaustream }}</span><span class="bar" style="--w: {{ (s.grants / top * 100)|round(1) }}%"></span><span class="val">{{ s.grants|num }}</span></li>{% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>스폰서 회사 업종</h2>
+    <ul class="bars">
+    {% set top = (a.industries[0].grants if a.industries else 1) or 1 %}
+    {% for s in a.industries %}<li class="bars-wide"><span class="label">{{ s.name|kindustry }}</span><span class="bar bar--alt" style="--w: {{ (s.grants / top * 100)|round(1) }}%"></span><span class="val">{{ s.grants|num }}</span></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+<aside class="elsewhere">
+  <h2>영주권까지</h2>
+  <p>Core Skills 유형으로 같은 스폰서 회사에서 3년 연속 일하면, 회사가 영주권(186 비자)을 추천할 수 있습니다. <a href="../../../pathways/index.html#au">호주의 두 경로 보기</a></p>
+</aside>
+{% if j.perm or j.ca %}
+<aside class="elsewhere">
+  <h2>다른 나라의 {{ j.ko }}</h2>
+  <p>{% if j.perm %}미국: 영주권 노동허가 {{ j.perm.certified|num }}건 인증. {% endif %}{% if j.ca %}캐나다: 외국인 고용 승인 {{ j.ca.positions|num }}명.{% endif %}</p>
+  <a href="../../../us/jobs/{{ j.slug }}/index.html">미국 스폰서 보기</a>{% if j.ca %} · <a href="../../../ca/jobs/{{ j.slug }}/index.html">캐나다 회사 보기</a>{% endif %}
+</aside>
+{% endif %}
+<section class="others">
+  <h2>호주의 다른 직종</h2>
+  <ul>{% for o in jobs if o.slug != j.slug and o.au %}<li><a href="../{{ o.slug }}/index.html">{{ o.ko }}</a></li>{% endfor %}</ul>
+</section>
+{% endblock %}

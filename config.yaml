@@ -2,6 +2,7 @@
 # site.domain: your custom domain (e.g. workroute.com). Leave empty until DNS is set up; a CNAME file is generated when set.
 # site.google_site_verification: the content value of the Google Search Console HTML tag.
 # site.adsense_client: ca-pub-XXXXXXXX once AdSense is approved.
+# *_ko fields are used by the Korean edition under /ko/.
 # site.consult_url: affiliate link for an immigration lawyer or agency. The consult box is hidden when empty.
 # majors[].soc / jobs[].soc: 2018 SOC codes. jobs[].noc: Canada NOC 2021 code. jobs[].anzsco: Australian ANZSCO unit groups (or exact labels) for the same job.
 site:
@@ -12,6 +13,7 @@ site:
   google_site_verification: ''
   adsense_client: ''
   consult_url: ''
+  tagline_ko: 미국·캐나다·영국·호주의 취업비자와 영주권을 직종별·회사별 정부 데이터로 보여드립니다.
 sources:
   dol_base: https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/
   lca_pattern: LCA_Disclosure_Data_FY{fy}_Q{q}.xlsx
@@ -33,6 +35,12 @@ majors:
     15-1211: Computer systems analysts
     15-1221: Computer and information research scientists
     15-1253: Software QA analysts and testers
+  ko: 컴퓨터공학
+  soc_ko:
+    15-1252: 소프트웨어 개발자
+    15-1211: 컴퓨터 시스템 분석가
+    15-1221: 컴퓨터·정보 연구원
+    15-1253: 소프트웨어 QA 엔지니어
 - slug: computer-engineering
   name: Computer Engineering
   cip4: '1409'
@@ -41,6 +49,10 @@ majors:
   soc:
     17-2061: Computer hardware engineers
     15-1252: Software developers
+  ko: 컴퓨터 하드웨어공학
+  soc_ko:
+    17-2061: 컴퓨터 하드웨어 엔지니어
+    15-1252: 소프트웨어 개발자
 - slug: electrical-engineering
   name: Electrical Engineering
   cip4: '1410'
@@ -49,6 +61,10 @@ majors:
   soc:
     17-2071: Electrical engineers
     17-2072: Electronics engineers
+  ko: 전기전자공학
+  soc_ko:
+    17-2071: 전기 엔지니어
+    17-2072: 전자 엔지니어
 - slug: mechanical-engineering
   name: Mechanical Engineering
   cip4: '1419'
@@ -56,6 +72,9 @@ majors:
   stem: true
   soc:
     17-2141: Mechanical engineers
+  ko: 기계공학
+  soc_ko:
+    17-2141: 기계 엔지니어
 - slug: chemical-engineering
   name: Chemical Engineering
   cip4: '1407'
@@ -63,6 +82,9 @@ majors:
   stem: true
   soc:
     17-2041: Chemical engineers
+  ko: 화학공학
+  soc_ko:
+    17-2041: 화학 엔지니어
 - slug: industrial-engineering
   name: Industrial Engineering
   cip4: '1435'
@@ -70,6 +92,9 @@ majors:
   stem: true
   soc:
     17-2112: Industrial engineers
+  ko: 산업공학
+  soc_ko:
+    17-2112: 산업 엔지니어
 - slug: civil-engineering
   name: Civil Engineering
   cip4: '1408'
@@ -77,6 +102,9 @@ majors:
   stem: true
   soc:
     17-2051: Civil engineers
+  ko: 토목공학
+  soc_ko:
+    17-2051: 토목 엔지니어
 - slug: data-science
   name: Data Science
   cip4: '3070'
@@ -84,6 +112,9 @@ majors:
   stem: true
   soc:
     15-2051: Data scientists
+  ko: 데이터사이언스
+  soc_ko:
+    15-2051: 데이터 사이언티스트
 - slug: statistics
   name: Statistics
   cip4: '2705'
@@ -92,6 +123,10 @@ majors:
   soc:
     15-2041: Statisticians
     15-2051: Data scientists
+  ko: 통계학
+  soc_ko:
+    15-2041: 통계학자
+    15-2051: 데이터 사이언티스트
 - slug: information-systems
   name: Management Information Systems
   cip4: '5212'
@@ -100,6 +135,10 @@ majors:
   soc:
     15-1211: Computer systems analysts
     11-3021: IT managers
+  ko: 경영정보학(MIS)
+  soc_ko:
+    15-1211: 컴퓨터 시스템 분석가
+    11-3021: IT 관리자
 - slug: biology
   name: Biology
   cip4: '2601'
@@ -108,6 +147,10 @@ majors:
   soc:
     19-1042: Medical scientists
     19-1021: Biochemists and biophysicists
+  ko: 생명과학
+  soc_ko:
+    19-1042: 의학 연구원
+    19-1021: 생화학자
 - slug: nursing
   name: Nursing
   cip4: '5138'
@@ -115,6 +158,9 @@ majors:
   stem: false
   soc:
     29-1141: Registered nurses
+  ko: 간호학
+  soc_ko:
+    29-1141: 간호사(RN)
 - slug: finance
   name: Finance
   cip4: '5208'
@@ -122,6 +168,9 @@ majors:
   stem: false
   soc:
     13-2051: Financial analysts
+  ko: 재무·금융
+  soc_ko:
+    13-2051: 재무 분석가
 - slug: accounting
   name: Accounting
   cip4: '5203'
@@ -129,6 +178,9 @@ majors:
   stem: false
   soc:
     13-2011: Accountants and auditors
+  ko: 회계학
+  soc_ko:
+    13-2011: 회계사·감사인
 - slug: economics
   name: Economics
   cip4: '4506'
@@ -138,6 +190,11 @@ majors:
     19-3011: Economists
     13-1161: Market research analysts
   note: General economics is not STEM-designated, but programs registered as econometrics (CIP 45.0603) are.
+  ko: 경제학
+  soc_ko:
+    19-3011: 경제학자
+    13-1161: 시장조사 분석가
+  note_ko: 일반 경제학은 STEM이 아니지만, 계량경제학(45.0603)으로 등록된 과정은 STEM입니다.
 - slug: marketing
   name: Marketing
   cip4: '5214'
@@ -146,6 +203,10 @@ majors:
   soc:
     13-1161: Market research analysts
     11-2021: Marketing managers
+  ko: 마케팅
+  soc_ko:
+    13-1161: 시장조사 분석가
+    11-2021: 마케팅 관리자
 jobs:
 - slug: welder
   name: Welder
@@ -156,6 +217,9 @@ jobs:
   hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
   anzsco:
   - '3223'
+  ko: 용접공
+  group_ko: 제조·생산
+  hint_ko: 회사가 2년 이상 경력을 요구하면 숙련공(EB-3 Skilled), 경력 요건이 짧으면 비숙련(EB-3 Other Workers)으로 신청합니다.
 - slug: assembler
   name: Assembly line worker
   title: Team Assemblers
@@ -165,6 +229,9 @@ jobs:
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
   anzsco:
   - '8391'
+  ko: 조립 생산직
+  group_ko: 제조·생산
+  hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
 - slug: machinery-mechanic
   name: Industrial machinery mechanic
   title: Industrial Machinery Mechanics
@@ -174,6 +241,9 @@ jobs:
   hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
   anzsco:
   - '3232'
+  ko: 산업기계 정비공
+  group_ko: 제조·생산
+  hint_ko: 경력 2년 이상을 요구하는 경우가 많아 숙련공(EB-3 Skilled) 신청이 흔합니다.
 - slug: meat-trimmer
   name: Meat and poultry trimmer
   title: Meat, Poultry, and Fish Cutters and Trimmers
@@ -184,6 +254,9 @@ jobs:
   anzsco:
   - '8312'
   - Skilled Meat Worker
+  ko: 육가공 작업자
+  group_ko: 식품가공·농장
+  hint_ko: 한국 이민 수속 업체가 많이 알선하는 직종으로, 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
 - slug: meat-packer
   name: Meat packer
   title: Slaughterers and Meat Packers
@@ -193,6 +266,9 @@ jobs:
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
   anzsco:
   - '8313'
+  ko: 도축·포장 작업자
+  group_ko: 식품가공·농장
+  hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
 - slug: butcher
   name: Butcher
   title: Butchers and Meat Cutters
@@ -202,6 +278,9 @@ jobs:
   hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
   anzsco:
   - '3512'
+  ko: 정육사
+  group_ko: 식품가공·농장
+  hint_ko: 회사가 2년 이상 경력을 요구하면 숙련공(EB-3 Skilled), 경력 요건이 짧으면 비숙련(EB-3 Other Workers)으로 신청합니다.
 - slug: farmworker
   name: Livestock and poultry farmworker
   title: Farmworkers, Farm, Ranch, and Aquacultural Animals
@@ -214,6 +293,9 @@ jobs:
   - '8423'
   - '8416'
   - '3632'
+  ko: 축산·양계 농장 작업자
+  group_ko: 식품가공·농장
+  hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
 - slug: electrician
   name: Electrician
   title: Electricians
@@ -223,6 +305,9 @@ jobs:
   hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
   anzsco:
   - '3411'
+  ko: 전기 기술자
+  group_ko: 건설·정비
+  hint_ko: 경력 2년 이상을 요구하는 경우가 많아 숙련공(EB-3 Skilled) 신청이 흔합니다.
 - slug: plumber
   name: Plumber
   title: Plumbers, Pipefitters, and Steamfitters
@@ -232,6 +317,9 @@ jobs:
   hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
   anzsco:
   - '3341'
+  ko: 배관공
+  group_ko: 건설·정비
+  hint_ko: 경력 2년 이상을 요구하는 경우가 많아 숙련공(EB-3 Skilled) 신청이 흔합니다.
 - slug: construction-laborer
   name: Construction laborer
   title: Construction Laborers
@@ -243,6 +331,9 @@ jobs:
   - '8211'
   - '8217'
   - '8219'
+  ko: 건설 노동자
+  group_ko: 건설·정비
+  hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
 - slug: auto-mechanic
   name: Auto mechanic
   title: Automotive Service Technicians and Mechanics
@@ -252,6 +343,9 @@ jobs:
   hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
   anzsco:
   - '3212'
+  ko: 자동차 정비사
+  group_ko: 건설·정비
+  hint_ko: 회사가 2년 이상 경력을 요구하면 숙련공(EB-3 Skilled), 경력 요건이 짧으면 비숙련(EB-3 Other Workers)으로 신청합니다.
 - slug: cook
   name: Cook
   title: Cooks, Restaurant
@@ -262,6 +356,9 @@ jobs:
   anzsco:
   - '3514'
   - '3513'
+  ko: 요리사
+  group_ko: 외식·호텔·물류
+  hint_ko: 회사가 2년 이상 경력을 요구하면 숙련공(EB-3 Skilled), 경력 요건이 짧으면 비숙련(EB-3 Other Workers)으로 신청합니다.
 - slug: housekeeper
   name: Hotel housekeeper
   title: Maids and Housekeeping Cleaners
@@ -271,6 +368,9 @@ jobs:
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
   anzsco:
   - '8114'
+  ko: 호텔 객실 관리
+  group_ko: 외식·호텔·물류
+  hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
 - slug: warehouse
   name: Warehouse worker
   title: Laborers and Freight, Stock, and Material Movers
@@ -280,6 +380,9 @@ jobs:
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
   anzsco:
   - '7411'
+  ko: 물류 창고 작업자
+  group_ko: 외식·호텔·물류
+  hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
 - slug: registered-nurse
   name: Registered nurse
   title: Registered Nurses
@@ -289,6 +392,9 @@ jobs:
   hint: Registered nurses are a Schedule A shortage occupation, so the labor certification step is simplified. A U.S. nursing license (NCLEX) is required.
   anzsco:
   - '2544'
+  ko: 간호사
+  group_ko: 돌봄·의료
+  hint_ko: 간호사는 노동부 인력 부족 직종(Schedule A)이라 노동허가 절차가 간소화됩니다. 미국 간호사 면허(NCLEX)가 필요합니다.
 - slug: nursing-assistant
   name: Nursing assistant
   title: Nursing Assistants
@@ -299,3 +405,6 @@ jobs:
   anzsco:
   - '4233'
   - '4231'
+  ko: 요양 보조원
+  group_ko: 돌봄·의료
+  hint_ko: 주 자격증(CNA)이 필요하며, 대부분 비숙련(EB-3 Other Workers)으로 신청합니다.
