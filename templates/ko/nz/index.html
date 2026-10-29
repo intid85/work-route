@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
+{% block title %}뉴질랜드 취업이민: AEWV 취업비자·숙련이민·그린리스트 영주권 | {{ site.name }}{% endblock %}
+{% block description %}뉴질랜드 인증 고용주 취업비자(AEWV), 졸업 후 취업비자, 숙련이민 점수, 2026년 8월 신설된 기술직 영주권 경로, 그린리스트를 한눈에 정리했습니다.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>뉴질랜드: 취업비자와 영주권까지 가는 길</h1>
+  <p class="lede">외국인 근로자 대부분은 정부 인증을 받은 회사에 묶인 인증 고용주 취업비자(AEWV)로 일합니다. 영주권은 숙련이민(SMC) 점수제로 받거나, 그린리스트 직종이면 더 빨리 받을 수 있습니다. 2026년 8월부터는 학위 없는 기술직과 경력자를 위한 경로 두 개가 새로 생겼습니다.</p>
+</section>
+<section aria-label="영주권 경로">{{ draw(pw_path) }}</section>
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">비자 종류와 자격 요건</h2>
+  <p class="hint">비자를 고르면 어학·학위·경력 요건과 체류 기간, 다음 단계를 보여드립니다.</p>
+  {{ visa_tabs(visas_by["nz"], "ko") }}
+</section>
+<section aria-labelledby="emp-h">
+  <h2 id="emp-h">이 회사가 비자 스폰서를 할 수 있을까</h2>
+  <p>AEWV는 인증받은 회사만 신청할 수 있습니다. 뉴질랜드 이민성이 매일 갱신하는 <a href="https://www.immigration.govt.nz/work/requirements-for-work-visas/approved-employers/accredited-employer-list/" rel="noopener" target="_blank">인증 고용주 검색 ↗</a>에서 회사 이름으로 확인하세요. 영주권이 빠른 직종은 <a href="https://www.immigration.govt.nz/work/requirements-for-work-visas/green-list-occupations-qualifications-and-skills/green-list-roles-jobs-we-need-people-for-in-new-zealand/" rel="noopener" target="_blank">그린리스트 목록 ↗</a>에 있습니다.</p>
+  <p class="hint">만 18~30세라면 한국-뉴질랜드 워킹홀리데이로 먼저 현지 경험을 쌓는 사람도 많습니다.</p>
+</section>
+{% endblock %}

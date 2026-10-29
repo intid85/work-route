@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
+{% block title %}Working in Germany: EU Blue Card, Opportunity Card, Ausbildung and settlement | {{ site.name }}{% endblock %}
+{% block description %}Germany's work and residence routes compared: 2026 EU Blue Card salaries, the Opportunity Card job-seeker visa, skilled worker permits, paid vocational training and the settlement permit.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Germany: work permits and the route to settlement</h1>
+  <p class="lede">Graduates usually come on an EU Blue Card and can settle in under two years with good German. Without a degree, the main route is a paid vocational training (Ausbildung) or getting a trade qualification recognised, then working as a skilled worker. German is the deciding skill on almost every route.</p>
+</section>
+<section aria-label="Routes to settlement">{{ draw(pw_path) }}</section>
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">Permit types and requirements</h2>
+  <p class="hint">Pick a permit to see its language, education and experience requirements, how long it lasts and where it leads.</p>
+  {{ visa_tabs(visas_by["de"], "en") }}
+</section>
+<section aria-labelledby="rec-h">
+  <h2 id="rec-h">Get your qualification recognised first</h2>
+  <p>Skilled worker permits and regulated jobs such as nursing or electrical work need a German recognition decision. The federal <a href="https://www.anerkennung-in-deutschland.de/html/en/index.php" rel="noopener" target="_blank">Recognition in Germany ↗</a> portal shows which office handles your profession.</p>
+</section>
+{% endblock %}

@@ -165,3 +165,50 @@ countries:
       - {name: "Immigration Services Agency SSW statistics", url: "https://www.moj.go.jp/isa/applications/ssw/nyuukokukanri07_00215.html"}
       - {name: "Office Tree SSW guide (Japanese)", url: "https://office-tree.jp/blog/immigration/tokutei-ginou-guide/"}
       - {name: "Coto Academy PR guide", url: "https://cotoacademy.com/permanent-resident-visa-japan-apply-guide-explanation-highly-skilled-foreign-professional-point-system/"}
+
+  - code: nz
+    name: New Zealand
+    pr_name: Residence (resident visa)
+    degree:
+      summary: Study in New Zealand, work on a post-study work visa, then qualify for residence through the Skilled Migrant Category points or a Green List job.
+      steps:
+        - {label: "Student visa", title: "New Zealand qualification", note: "NZ qualifications earn an extra point toward residence"}
+        - {label: "Post-study work", title: "Open work visa", note: "Up to 3 years after a bachelor's or higher"}
+        - {label: "Skilled job", title: "Skilled job at the median wage", note: "NZ$35 an hour from March 2026"}
+        - {label: "SMC / Green List", title: "Skilled Migrant points or Green List", note: "6 points, or a Green List straight-to-residence job"}
+        - {label: "Residence", title: "Resident visa", note: "Permanent resident visa after 2 more years"}
+    no_degree:
+      summary: An accredited employer hires you on an AEWV. From August 2026 tradespeople with a Level 4 trade qualification and 4 years' experience can apply for residence after 18 months in New Zealand.
+      steps:
+        - {label: "Experience", title: "2 years' experience or a trade qualification", note: "Level 4 qualification counts instead of experience"}
+        - {label: "AEWV", title: "Accredited Employer Work Visa", note: "Market-rate pay; English test for many skill level 3–5 roles"}
+        - {label: "NZ work", title: "Work in New Zealand", note: "18 months at the median wage for trades and technicians"}
+        - {label: "SMC trades", title: "Trades and Technician pathway", note: "Level 4+ qualification and 4 years' experience, from August 2026"}
+        - {label: "Residence", title: "Resident visa", note: ""}
+    sources:
+      - {name: "Immigration New Zealand, AEWV", url: "https://www.immigration.govt.nz/visas/accredited-employer-work-visa"}
+      - {name: "Lane Neave on the 2026 SMC changes", url: "https://www.laneneave.co.nz/news-events/2026-smc-overhaul/"}
+      - {name: "PathwaysNZ on the 2025 AEWV changes", url: "https://www.pathwaysnz.com/news-item/further-changes-to-the-accredited-employer-work-visa"}
+
+  - code: de
+    name: Germany
+    pr_name: Settlement permit (Niederlassungserlaubnis)
+    degree:
+      summary: Study in Germany or come with a recognised degree, work on an EU Blue Card, and get a settlement permit after 21 to 27 months.
+      steps:
+        - {label: "Study / degree", title: "German degree or recognised foreign degree", note: "Korean degrees are checked in the anabin database"}
+        - {label: "Job search", title: "18-month job seeker permit", note: "For German graduates; others can use the Opportunity Card"}
+        - {label: "EU Blue Card", title: "Skilled job offer", note: "€50,700 a year in 2026 (€45,934 in shortage fields)"}
+        - {label: "Residence", title: "Live and work in Germany", note: "21 months with B1 German, 27 months with A1"}
+        - {label: "Settlement", title: "Settlement permit", note: "Pension contributions for the same period"}
+    no_degree:
+      summary: Learn German, do a paid vocational training (Ausbildung) or get a foreign trade qualification recognised, then work as a skilled worker and settle after 3 years.
+      steps:
+        - {label: "German", title: "German to B1", note: "Most training places expect B1"}
+        - {label: "Ausbildung", title: "Paid vocational training", note: "2–3.5 years, with a monthly training wage"}
+        - {label: "Skilled worker", title: "Skilled worker residence permit", note: "Or recognise an existing trade qualification"}
+        - {label: "3 years", title: "Work and pay into pension", note: "36 months of contributions and B1 German"}
+        - {label: "Settlement", title: "Settlement permit", note: "German training graduates can apply after 2 years"}
+    sources:
+      - {name: "Make it in Germany (federal government)", url: "https://www.make-it-in-germany.com/en/"}
+      - {name: "The Local on 2026 Blue Card salaries", url: "https://www.thelocal.de/20251217/the-salary-you-need-in-germany-in-2026-to-get-an-eu-blue-card"}

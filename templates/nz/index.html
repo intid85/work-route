@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
+{% block title %}Working in New Zealand: AEWV, Skilled Migrant and Green List residence | {{ site.name }}{% endblock %}
+{% block description %}New Zealand work visas and residence routes compared: the Accredited Employer Work Visa, post-study work, Skilled Migrant points, the August 2026 trades pathway and the Green List.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>New Zealand: work visas and the route to residence</h1>
+  <p class="lede">Most foreign workers come on an Accredited Employer Work Visa (AEWV) tied to an approved employer. Residence then comes through the Skilled Migrant Category, which gained two new pathways for tradespeople and experienced workers in August 2026, or through a Green List job.</p>
+</section>
+<section aria-label="Routes to residence">{{ draw(pw_path) }}</section>
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">Visa types and requirements</h2>
+  <p class="hint">Pick a visa to see its language, education and experience requirements, how long it lasts and where it leads.</p>
+  {{ visa_tabs(visas_by["nz"], "en") }}
+</section>
+<section aria-labelledby="emp-h">
+  <h2 id="emp-h">Check whether an employer can sponsor you</h2>
+  <p>Only accredited employers can hire on an AEWV. Immigration New Zealand keeps a searchable list, updated daily: <a href="https://www.immigration.govt.nz/work/requirements-for-work-visas/approved-employers/accredited-employer-list/" rel="noopener" target="_blank">Accredited employer list ↗</a>. Green List occupations are listed on the <a href="https://www.immigration.govt.nz/work/requirements-for-work-visas/green-list-occupations-qualifications-and-skills/green-list-roles-jobs-we-need-people-for-in-new-zealand/" rel="noopener" target="_blank">Green List page ↗</a>.</p>
+</section>
+{% endblock %}

@@ -224,8 +224,8 @@ def main() -> int:
     korea = yaml.safe_load((ROOT / "data" / "korea.yaml").read_text(encoding="utf-8"))
     pw = yaml.safe_load((ROOT / "data" / "pathways.yaml").read_text(encoding="utf-8"))
     links = {"us": "../us/index.html", "ca": "../ca/index.html", "uk": "../uk/index.html",
-             "au": "../au/index.html", "jp": "../jp/index.html", "sg": "../sg/index.html", "kr": "../korea/index.html"}
-    order = ["us", "ca", "uk", "au", "jp", "sg", "kr"]
+             "au": "../au/index.html", "jp": "../jp/index.html", "sg": "../sg/index.html", "nz": "../nz/index.html", "de": "../de/index.html", "kr": "../korea/index.html"}
+    order = ["us", "ca", "uk", "au", "nz", "de", "jp", "sg", "kr"]
     pw["countries"].sort(key=lambda p: order.index(p["code"]))
     pathways = []
     for p in pw["countries"]:
@@ -286,7 +286,7 @@ def main() -> int:
     shutil.copytree(ROOT / "static", SITE / "static")
     pages = []
 
-    ko_pages = {"index.html", "pathways/index.html", "us/index.html", "us/employers/index.html", "jp/index.html", "sg/index.html",
+    ko_pages = {"index.html", "pathways/index.html", "us/index.html", "us/employers/index.html", "jp/index.html", "sg/index.html", "nz/index.html", "de/index.html",
                 "us/visa-bulletin/index.html", "ca/index.html", "ca/employers/index.html", "uk/index.html", "au/index.html"}
     ko_pages |= {f"us/jobs/{j['slug']}/index.html" for j in jobs} | {f"us/majors/{m['slug']}/index.html" for m in majors}
     ko_pages |= {f"ca/jobs/{j['slug']}/index.html" for j in jobs if j.get("noc") and ca}
@@ -363,6 +363,9 @@ def main() -> int:
         render("ko/jp/index.html", "ko/jp/index.html", lang="ko", country="jp", pw_path=path_ko["jp"])
     render("sg/index.html", "sg/index.html", country="sg", pw_path=path_by["sg"])
     render("ko/sg/index.html", "ko/sg/index.html", lang="ko", country="sg", pw_path=path_ko["sg"])
+    for c in ("nz", "de"):
+        render(f"{c}/index.html", f"{c}/index.html", country=c, pw_path=path_by[c])
+        render(f"ko/{c}/index.html", f"ko/{c}/index.html", lang="ko", country=c, pw_path=path_ko[c])
 
     # South Korea
     render("korea/index.html", "korea/index.html", country="kr", pw_path=path_by["kr"])

@@ -58,3 +58,20 @@ jp:
     ssw2: https://www.moj.go.jp/isa/applications/ssw/index.html
     ikusei: https://www.moj.go.jp/isa/applications/index_00005.html
     pr: https://www.moj.go.jp/isa/applications/procedures/16-4.html
+nz:
+  authority: {en: "Immigration New Zealand", ko: "뉴질랜드 이민성(INZ)", url: "https://www.immigration.govt.nz/"}
+  visas:
+    student: https://www.immigration.govt.nz/study/
+    pswv: https://www.immigration.govt.nz/study/
+    aewv: https://www.immigration.govt.nz/visas/accredited-employer-work-visa
+    smc: https://www.immigration.govt.nz/live/resident-visas-to-live-in-new-zealand/skilled-residence-pathways-in-new-zealand/getting-new-zealand-residence-based-on-your-skills/
+    green: https://www.immigration.govt.nz/work/requirements-for-work-visas/green-list-occupations-qualifications-and-skills/green-list-roles-jobs-we-need-people-for-in-new-zealand/
+de:
+  authority: {en: "Make it in Germany (federal government portal)", ko: "Make it in Germany(독일 연방정부 이민 포털)", url: "https://www.make-it-in-germany.com/en/"}
+  visas:
+    study: https://www.make-it-in-germany.com/en/visa-recognition/visa-types
+    chance: https://www.make-it-in-germany.com/en/visa-recognition/visa-types
+    blue: https://www.make-it-in-germany.com/en/visa-residence/types/eu-blue-card
+    skilled: https://www.make-it-in-germany.com/en/visa-recognition/visa-types
+    ausbildung: https://www.make-it-in-germany.com/en/visa-recognition/visa-types
+    settle: https://www.make-it-in-germany.com/en/visa-recognition/visa-types
