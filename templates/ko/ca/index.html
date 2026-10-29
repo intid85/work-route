@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
 {% block title %}캐나다 취업비자·영주권 직종별 데이터: LMIA 회사·Express Entry | {{ site.name }}{% endblock %}
 {% block description %}캐나다에서 외국인 고용 승인(LMIA)을 받은 회사를 직종·주별로 정리하고, Express Entry 추첨 점수와 영주권 경로를 보여드립니다.{% endblock %}
 {% block main %}
@@ -8,6 +9,12 @@
   <p class="lede">캐나다 회사가 외국인을 고용하려면 대부분 노동시장영향평가(LMIA) 승인을 받아야 하고, 정부가 승인 회사 명단을 분기마다 공개합니다. {{ ca.period }} 자료입니다.</p>
 </section>
 <section aria-label="영주권 경로">{{ draw(pw_path) }}</section>
+
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">비자 종류와 자격 요건</h2>
+  <p class="hint">비자를 고르면 어학, 학위, 경력 요건과 체류 기간을 보여드립니다.</p>
+  {{ visa_tabs(visas_by["ca"], "ko") }}
+</section>
 
 <section id="jobs" aria-labelledby="jobs-h">
   <h2 id="jobs-h">직종별 고용 승인 인원</h2>

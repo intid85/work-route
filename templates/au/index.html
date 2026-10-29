@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 {% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
 {% block title %}Australia employer-sponsored visas by job: Skills in Demand (482) grants | {{ site.name }}{% endblock %}
 {% block description %}How many employer-sponsored Skills in Demand (subclass 482) visas Australia granted for each job, where the workers come from and which states they work in, from Department of Home Affairs data, plus the route to permanent residence.{% endblock %}
 {% block main %}
 <section class="hero">
   <h1>Australia: employer-sponsored visas by job</h1>
-  <p class="lede">Australian employers sponsor foreign workers on the Skills in Demand visa (subclass 482), and after three years the same employer can nominate them for permanent residence. Figures are primary applicants granted from {{ au.window }}.</p>
+  <p class="lede">Australian employers sponsor foreign workers on the Skills in Demand visa (subclass 482), and after two years the same employer can nominate them for permanent residence. Figures are primary applicants granted from {{ au.window }}.</p>
 </section>
 
 <section aria-labelledby="route-h">
   <h2 id="route-h" class="visually-hidden">Routes to permanent residence</h2>
   {{ draw(pw_path) }}
+</section>
+
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">Visa types and requirements</h2>
+  <p class="hint">Pick a visa to see its language, education and experience requirements, how long it lasts and where it leads.</p>
+  {{ visa_tabs(visas_by["au"], "en") }}
 </section>
 
 <section id="jobs" aria-labelledby="jobs-h">

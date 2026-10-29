@@ -231,6 +231,8 @@ def main() -> int:
                    if not ((p["code"] == "ca" and not ca) or (p["code"] == "uk" and not uk) or (p["code"] == "au" and not au))]
     path_ko = {p["code"]: p for p in pathways_ko}
     names_ko = {"US": "미국", "Canada": "캐나다", "UK": "영국", "Australia": "호주"}
+    visas_meta = yaml.safe_load((ROOT / "data" / "visas.yaml").read_text(encoding="utf-8"))
+    visas_by = {code: {**v, "code": code} for code, v in visas_meta["countries"].items()}
 
     majors = [build_major(m, lca, perm, sc) for m in cfg["majors"]]
     jobs = []
@@ -267,7 +269,7 @@ def main() -> int:
                        kindustry=lambda s: INDUSTRY_KO.get(s, s))
     env.globals["wait_gap"] = wait_gap
     ctx = {"site": site, "meta": meta, "majors": majors, "jobs": jobs, "groups": groups, "vb": vb,
-           "ca": ca, "uk": uk, "au": au, "groups_ko": groups_ko, "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
+           "ca": ca, "uk": uk, "au": au, "groups_ko": groups_ko, "visas_meta": visas_meta, "visas_by": visas_by, "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
 
     if SITE.exists():
         shutil.rmtree(SITE)

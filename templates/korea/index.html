@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
 {% block title %}Working in South Korea: E-9 work permit, 2026 quota and E-7-4 path | {{ site.name }}{% endblock %}
 {% block description %}How foreign workers come to South Korea through the Employment Permit System (E-9): this year's quota, the minimum wage, which countries send workers, and how to move to the E-7-4 skilled worker visa for long-term stay.{% endblock %}
 {% block main %}
@@ -10,6 +11,12 @@
 
 <section aria-label="Routes to permanent residence">
   {{ draw(pw_path) }}
+</section>
+
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">Visa types and requirements</h2>
+  <p class="hint">Pick a visa to see its language, education and experience requirements, how long it lasts and where it leads.</p>
+  {{ visa_tabs(visas_by["kr"], "en") }}
 </section>
 
 <section aria-labelledby="kf-h">

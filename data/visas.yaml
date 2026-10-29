@@ -1,0 +1,311 @@
+# Visa types by country with key requirements. Maintained by hand; check sources when rules change.
+# category: study | work | pr.  Each text field has en and ko (Korea is English only).
+as_of: {en: "October 2026", ko: "2026년 10월"}
+
+categories:
+  study: {en: "Study", ko: "학생"}
+  work: {en: "Temporary work", ko: "임시 취업"}
+  pr: {en: "Permanent residence", ko: "영주권"}
+
+fields:
+  language: {en: "Language", ko: "어학"}
+  education: {en: "Education", ko: "학위"}
+  experience: {en: "Experience", ko: "경력"}
+  other: {en: "Other conditions", ko: "기타 조건"}
+  stay: {en: "Length of stay", ko: "체류 기간"}
+  next: {en: "Leads to", ko: "다음 단계"}
+
+countries:
+  us:
+    sources:
+      - {name: "USCIS", url: "https://www.uscis.gov/working-in-the-united-states"}
+      - {name: "Vorys on the FY2027 H-1B lottery and fee", url: "https://www.vorys.com/publication-fy-2027-h-1b-visa-lottery-updates-wage-based-weighted-selection-process-and-100-000-fee"}
+    visas:
+      - id: f1
+        code: F-1
+        category: study
+        name: {en: "Student visa", ko: "학생 비자"}
+        language: {en: "Set by the school, usually a TOEFL or IELTS score", ko: "학교별 기준, 보통 TOEFL·IELTS 점수"}
+        education: {en: "Admission to a SEVP-certified school", ko: "미국 인증 학교(SEVP) 입학 허가"}
+        experience: {en: "None", ko: "필요 없음"}
+        other: {en: "Proof of funds for tuition and living costs", ko: "학비와 생활비 재정 증명"}
+        stay: {en: "Length of the program", ko: "학업 기간"}
+        next: {en: "OPT", ko: "OPT"}
+      - id: opt
+        code: OPT
+        category: work
+        name: {en: "Optional Practical Training", ko: "졸업 후 실습 취업(OPT)"}
+        language: {en: "None", ko: "없음"}
+        education: {en: "F-1 degree program; job must relate to the major", ko: "F-1 학위 과정, 전공 관련 직무"}
+        experience: {en: "None", ko: "필요 없음"}
+        other: {en: "STEM extension needs an E-Verify employer", ko: "STEM 연장은 E-Verify 가입 회사여야 함"}
+        stay: {en: "12 months; plus 24 months for STEM majors", ko: "12개월, STEM 전공은 24개월 추가"}
+        next: {en: "H-1B", ko: "H-1B"}
+      - id: h1b
+        code: H-1B
+        category: work
+        name: {en: "Specialty occupation visa", ko: "전문직 취업비자"}
+        language: {en: "No test", ko: "시험 없음"}
+        education: {en: "Bachelor's degree in a related field, or equivalent experience", ko: "관련 분야 학사 또는 동등한 경력"}
+        experience: {en: "Not required with a degree", ko: "학위가 있으면 불필요"}
+        other: {en: "Annual lottery weighted by wage level from FY2027 (higher pay, more entries). Petitions for people abroad may face a $100,000 fee, under litigation", ko: "2027 회계연도부터 임금 수준별 가중 추첨(연봉이 높을수록 당첨 확률↑). 해외 대기자 신청에는 10만 달러 수수료가 붙을 수 있음(소송 중)"}
+        stay: {en: "3 years, renewable to 6", ko: "3년, 최대 6년"}
+        next: {en: "EB-2 or EB-3 green card", ko: "EB-2·EB-3 영주권"}
+      - id: eb2
+        code: EB-2
+        category: pr
+        name: {en: "Advanced degree green card", ko: "석사급 취업 영주권"}
+        language: {en: "No test", ko: "시험 없음"}
+        education: {en: "Master's degree, or bachelor's plus 5 years of progressive experience", ko: "석사, 또는 학사 + 5년 이상 경력"}
+        experience: {en: "As the job requires", ko: "직무 요건에 따름"}
+        other: {en: "Employer files PERM and I-140 (the NIW route skips the employer)", ko: "회사가 PERM·I-140 진행(국익면제 NIW는 회사 없이 가능)"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship after 5 years", ko: "5년 후 시민권 신청 가능"}
+      - id: eb3s
+        code: EB-3
+        category: pr
+        name: {en: "Skilled worker or professional green card", ko: "숙련공·학사 취업 영주권"}
+        language: {en: "No test", ko: "시험 없음"}
+        education: {en: "Bachelor's for the professional track; none for skilled workers", ko: "학사 트랙은 학사, 숙련공 트랙은 불필요"}
+        experience: {en: "Skilled workers: at least 2 years of training or experience", ko: "숙련공: 2년 이상 교육·경력"}
+        other: {en: "Employer files PERM and I-140 and pays labor certification costs", ko: "회사가 PERM·I-140 진행, 노동허가 비용 부담"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship after 5 years", ko: "5년 후 시민권 신청 가능"}
+      - id: eb3o
+        code: EB-3 EW
+        category: pr
+        name: {en: "Other Workers green card", ko: "비숙련 취업 영주권"}
+        language: {en: "No test", ko: "시험 없음"}
+        education: {en: "None", ko: "필요 없음"}
+        experience: {en: "Less than 2 years required by the job", ko: "직무 요건 2년 미만"}
+        other: {en: "Employer files PERM and I-140; usually the longest wait", ko: "회사가 PERM·I-140 진행, 보통 대기가 가장 김"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship after 5 years", ko: "5년 후 시민권 신청 가능"}
+
+  ca:
+    sources:
+      - {name: "IRCC Express Entry", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html"}
+      - {name: "BridgePoint Law PGWP guide", url: "https://bridgepointlaw.ca/post-graduation-work-permit-pgwp-guide/"}
+      - {name: "immigration.ca on Federal Skilled Trades", url: "https://immigration.ca/federal-skilled-trades-program/"}
+    visas:
+      - id: study
+        code: Study permit
+        category: study
+        name: {en: "Study permit", ko: "학생 비자"}
+        language: {en: "Set by the school", ko: "학교별 기준"}
+        education: {en: "Acceptance at a designated learning institution", ko: "지정 교육기관 입학 허가"}
+        experience: {en: "None", ko: "필요 없음"}
+        other: {en: "Proof of funds; provincial attestation letter in most cases", ko: "재정 증명, 대부분 주정부 확인서 필요"}
+        stay: {en: "Length of the program", ko: "학업 기간"}
+        next: {en: "PGWP", ko: "PGWP"}
+      - id: pgwp
+        code: PGWP
+        category: work
+        name: {en: "Post-graduation work permit", ko: "졸업 후 취업허가"}
+        language: {en: "CLB 7 for university graduates, CLB 5 for college graduates", ko: "대학 졸업 CLB 7, 칼리지 졸업 CLB 5"}
+        education: {en: "Eligible program of 8 months or more; college programs must be in a shortage field", ko: "8개월 이상 과정, 칼리지는 부족 직종 분야여야 함"}
+        experience: {en: "None", ko: "필요 없음"}
+        other: {en: "Open work permit, any employer", ko: "고용주 제한 없는 자유 취업허가"}
+        stay: {en: "Up to 3 years; 3 years for programs of 2 years or more", ko: "최대 3년, 2년 이상 과정은 3년"}
+        next: {en: "Canadian Experience Class", ko: "캐나다 경력 이민(CEC)"}
+      - id: lmia
+        code: LMIA work permit
+        category: work
+        name: {en: "Employer-specific work permit", ko: "회사 지정 취업비자"}
+        language: {en: "No federal test; set by the employer", ko: "연방 시험 없음, 회사 요건"}
+        education: {en: "As the job requires", ko: "직무 요건에 따름"}
+        experience: {en: "As the job requires", ko: "직무 요건에 따름"}
+        other: {en: "Employer needs a positive LMIA and may not charge you for it", ko: "회사가 LMIA 승인 필요, 비용을 근로자에게 청구 불가"}
+        stay: {en: "Usually up to the LMIA period", ko: "보통 LMIA 승인 기간"}
+        next: {en: "Provincial nomination or Express Entry", ko: "주정부 추천 또는 Express Entry"}
+      - id: cec
+        code: CEC
+        category: pr
+        name: {en: "Canadian Experience Class (Express Entry)", ko: "캐나다 경력 이민(Express Entry)"}
+        language: {en: "CLB 7 for TEER 0–1 jobs, CLB 5 for TEER 2–3", ko: "TEER 0~1 직종 CLB 7, TEER 2~3 직종 CLB 5"}
+        education: {en: "Not required (earns points)", ko: "필수 아님(점수 가산)"}
+        experience: {en: "1 year of skilled work in Canada within the last 3 years", ko: "최근 3년 내 캐나다 숙련직 1년"}
+        other: {en: "Invited by CRS score or category draw", ko: "CRS 점수나 직종별 추첨으로 초청"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship after 3 years of residence in 5", ko: "5년 중 3년 거주 후 시민권"}
+      - id: fst
+        code: FST
+        category: pr
+        name: {en: "Federal Skilled Trades (Express Entry)", ko: "연방 기술직 이민(Express Entry)"}
+        language: {en: "CLB 5 speaking and listening, CLB 4 reading and writing", ko: "말하기·듣기 CLB 5, 읽기·쓰기 CLB 4"}
+        education: {en: "No minimum", ko: "최소 학력 없음"}
+        experience: {en: "2 years in the trade within the last 5 years", ko: "최근 5년 내 해당 기술직 2년"}
+        other: {en: "A 1-year job offer or a Canadian certificate of qualification", ko: "1년 이상 채용 제안 또는 캐나다 기술 자격증"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship after 3 years of residence in 5", ko: "5년 중 3년 거주 후 시민권"}
+      - id: pnp
+        code: PNP
+        category: pr
+        name: {en: "Provincial Nominee Program", ko: "주정부 추천 이민"}
+        language: {en: "Set by each province; semi-skilled streams often ask CLB 4–5", ko: "주마다 다름, 반숙련 프로그램은 보통 CLB 4~5"}
+        education: {en: "Set by each province", ko: "주마다 다름"}
+        experience: {en: "Usually work for an employer in that province", ko: "보통 해당 주 회사 근무 경력"}
+        other: {en: "Main route for TEER 4–5 jobs", ko: "TEER 4~5 직종의 주된 영주권 경로"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship after 3 years of residence in 5", ko: "5년 중 3년 거주 후 시민권"}
+
+  uk:
+    sources:
+      - {name: "DavidsonMorris on Skilled Worker English", url: "https://www.davidsonmorris.com/skilled-worker-english-language/"}
+      - {name: "Burness Paull on the Temporary Shortage List", url: "https://www.burnesspaull.com/legal-insights-news-events/insights/understanding-the-new-skilled-worker-visa-rules-temporary-shortage-list-tsl-and-immigration-salary-list-isl"}
+      - {name: "Paragon Law, Graduate visa 2026", url: "https://www.paragonlaw.co.uk/resources/uk-graduate-visa-2026-guide"}
+    visas:
+      - id: student
+        code: Student
+        category: study
+        name: {en: "Student visa", ko: "학생 비자"}
+        language: {en: "CEFR B2 for degree-level study", ko: "학위 과정 CEFR B2"}
+        education: {en: "Confirmation of Acceptance for Studies from a licensed sponsor", ko: "인가 학교의 입학 확인서(CAS)"}
+        experience: {en: "None", ko: "필요 없음"}
+        other: {en: "Proof of funds", ko: "재정 증명"}
+        stay: {en: "Length of the course", ko: "학업 기간"}
+        next: {en: "Graduate visa", ko: "졸업생 비자"}
+      - id: graduate
+        code: Graduate
+        category: work
+        name: {en: "Graduate visa", ko: "졸업생 비자"}
+        language: {en: "No new test", ko: "추가 시험 없음"}
+        education: {en: "UK bachelor's, master's or PhD completed on a Student visa", ko: "학생 비자로 영국 학위 취득"}
+        experience: {en: "None", ko: "필요 없음"}
+        other: {en: "No sponsor needed; time does not count towards settlement", ko: "스폰서 불필요, 영주권 체류 기간에 포함 안 됨"}
+        stay: {en: "2 years (PhD 3); 18 months for applications from Jan 1, 2027", ko: "2년(박사 3년), 2027년 1월 1일 신청부터 18개월"}
+        next: {en: "Skilled Worker", ko: "Skilled Worker"}
+      - id: skilled
+        code: Skilled Worker
+        category: work
+        name: {en: "Skilled Worker visa", ko: "숙련 취업비자"}
+        language: {en: "CEFR B2 for new applications from Jan 8, 2026", ko: "2026년 1월 8일 이후 신규 신청 CEFR B2"}
+        education: {en: "Job at degree level (RQF 6); below that only Temporary Shortage List roles until Dec 31, 2026", ko: "학사 수준 직무(RQF 6), 그 아래는 2026년 말까지 임시 부족직종만"}
+        experience: {en: "As the job requires", ko: "직무 요건에 따름"}
+        other: {en: "Licensed sponsor and a salary of at least £41,700 or the going rate", ko: "스폰서 회사, 연봉 £41,700 이상 또는 직종 기준 임금"}
+        stay: {en: "Up to 5 years, renewable", ko: "최대 5년, 연장 가능"}
+        next: {en: "Indefinite leave to remain", ko: "영주권(ILR)"}
+      - id: ilr
+        code: ILR
+        category: pr
+        name: {en: "Indefinite leave to remain", ko: "영주권(ILR)"}
+        language: {en: "English requirement and the Life in the UK test", ko: "영어 요건과 영국 생활 시험"}
+        education: {en: "None", ko: "없음"}
+        experience: {en: "Qualifying years on Skilled Worker", ko: "Skilled Worker로 체류한 기간"}
+        other: {en: "5 years today; a 10-year baseline has been proposed but not yet in force", ko: "현재 5년, 10년으로 늘리는 안은 아직 시행 전"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship, usually 12 months later", ko: "보통 12개월 후 시민권"}
+
+  au:
+    sources:
+      - {name: "MyVisa Skills in Demand 2026 guide", url: "https://myvisa.com.au/immigration-guides/skills-in-demand-visa-482-australia-guide-2026"}
+      - {name: "Magpie Consultants on 482 to 186 in 2026", url: "https://magpieconsultants.com.au/482-visa-to-permanent-residency-ens-186-transition-period-australia-2026/"}
+      - {name: "IELTS Australia on the 485 visa", url: "https://ielts.com.au/australia/prepare/article-temporary-graduate-visa-subclass-485-application"}
+    visas:
+      - id: student
+        code: Subclass 500
+        category: study
+        name: {en: "Student visa", ko: "학생 비자"}
+        language: {en: "Set by the course; a visa minimum also applies", ko: "과정별 기준, 비자 최소 점수도 있음"}
+        education: {en: "Enrolment in a registered (CRICOS) course", ko: "등록 과정(CRICOS) 입학"}
+        experience: {en: "None", ko: "필요 없음"}
+        other: {en: "Proof of funds and health insurance", ko: "재정 증명, 유학생 보험"}
+        stay: {en: "Length of the course", ko: "학업 기간"}
+        next: {en: "Subclass 485", ko: "485 비자"}
+      - id: grad485
+        code: Subclass 485
+        category: work
+        name: {en: "Temporary graduate visa", ko: "졸업생 임시 비자"}
+        language: {en: "IELTS 6.5 overall, at least 5.5 in each band", ko: "IELTS 전체 6.5, 영역별 5.5 이상"}
+        education: {en: "Australian course of at least 2 academic years, finished in the last 6 months", ko: "호주에서 2학년 이상 과정, 6개월 내 졸업"}
+        experience: {en: "None", ko: "필요 없음"}
+        other: {en: "Age 35 or under (under 50 for research master's or PhD)", ko: "35세 이하(연구석사·박사는 50세 미만)"}
+        stay: {en: "Usually 2 to 3 years, by qualification", ko: "학위에 따라 보통 2~3년"}
+        next: {en: "Skilled visa (189/190) or employer sponsorship", ko: "점수제(189·190) 또는 회사 스폰서"}
+      - id: sid482
+        code: Subclass 482
+        category: work
+        name: {en: "Skills in Demand visa (Core Skills)", ko: "회사 스폰서 취업비자(Core Skills)"}
+        language: {en: "IELTS 5.0 overall", ko: "IELTS 전체 5.0"}
+        education: {en: "Qualification or skills assessment as the occupation requires", ko: "직업별 자격 또는 기술 심사"}
+        experience: {en: "At least 1 year in the occupation", ko: "해당 직업 1년 이상"}
+        other: {en: "Occupation on the Core Skills list; salary at least A$79,423 from Jul 1, 2026", ko: "부족직종 목록 직업, 2026년 7월부터 연봉 A$79,423 이상"}
+        stay: {en: "Up to 4 years", ko: "최대 4년"}
+        next: {en: "Subclass 186 after 2 years with the sponsor", ko: "스폰서 회사 2년 근무 후 186"}
+      - id: ens186
+        code: Subclass 186
+        category: pr
+        name: {en: "Employer Nomination Scheme (transition stream)", ko: "회사 추천 영주권(전환 유형)"}
+        language: {en: "IELTS 6.0 in each band (competent English)", ko: "IELTS 영역별 6.0(일반 영어 수준)"}
+        education: {en: "None beyond the 482", ko: "482 요건 외 없음"}
+        experience: {en: "2 years full time with the sponsoring employer", ko: "스폰서 회사에서 풀타임 2년"}
+        other: {en: "Under 45 when nominated (some health jobs exempt)", ko: "추천 시 45세 미만(일부 의료직 예외)"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship after 4 years of residence", ko: "4년 거주 후 시민권"}
+      - id: sk189
+        code: Subclass 189
+        category: pr
+        name: {en: "Skilled Independent (points tested)", ko: "독립 기술 이민(점수제)"}
+        language: {en: "At least competent English (IELTS 6.0 each); more earns points", ko: "최소 IELTS 영역별 6.0, 높을수록 가점"}
+        education: {en: "Positive skills assessment in a listed occupation", ko: "목록 직업의 기술 심사 통과"}
+        experience: {en: "Earns points; not always required", ko: "점수 가산, 필수는 아닌 경우도 있음"}
+        other: {en: "Under 45; at least 65 points and an invitation through SkillSelect", ko: "45세 미만, 65점 이상 후 SkillSelect 초청"}
+        stay: {en: "Permanent", ko: "영구"}
+        next: {en: "Citizenship after 4 years of residence", ko: "4년 거주 후 시민권"}
+
+  kr:
+    sources:
+      - {name: "HiKorea", url: "https://www.hikorea.go.kr/"}
+      - {name: "EPS", url: "https://www.eps.go.kr/"}
+      - {name: "SeoulStart E-7-4 guide", url: "https://seoulstart.com/guides/e-7-4-visa-guide"}
+    visas:
+      - id: d2
+        code: D-2
+        category: study
+        name: {en: "Student visa"}
+        language: {en: "Set by the university, often TOPIK level 3 or an English score"}
+        education: {en: "Admission to a Korean university"}
+        experience: {en: "None"}
+        other: {en: "Proof of funds"}
+        stay: {en: "Length of the program"}
+        next: {en: "D-10 job seeker or E-7"}
+      - id: e9
+        code: E-9
+        category: work
+        name: {en: "Non-professional employment (EPS)"}
+        language: {en: "Pass the EPS-TOPIK Korean test"}
+        education: {en: "None"}
+        experience: {en: "Skills test in some industries"}
+        other: {en: "From a country with an EPS agreement; usually aged 18–39; no serious criminal record"}
+        stay: {en: "3 years, extendable to 4 years 10 months"}
+        next: {en: "E-7-4"}
+      - id: e7
+        code: E-7
+        category: work
+        name: {en: "Professional employment"}
+        language: {en: "As the job requires"}
+        education: {en: "Usually a related degree, or long experience in the field"}
+        experience: {en: "Depends on degree level"}
+        other: {en: "Job must be on the eligible occupation list; salary floor applies"}
+        stay: {en: "Up to 3 years per grant, renewable"}
+        next: {en: "F-2-7 points-based residence"}
+      - id: e74
+        code: E-7-4
+        category: work
+        name: {en: "Skilled worker (from E-9)"}
+        language: {en: "At least 50 points for Korean (TOPIK 2 or KIIP stage 2)"}
+        education: {en: "None required; adds points"}
+        experience: {en: "4+ years on E-9, E-10 or H-2 in the last 10 years"}
+        other: {en: "200 of 300 points; employer recommendation; contract of ₩26M+ a year"}
+        stay: {en: "Renewable; family can join"}
+        next: {en: "F-2 or F-5 if requirements are met"}
+      - id: f5
+        code: F-5
+        category: pr
+        name: {en: "Permanent residence"}
+        language: {en: "Korean ability, often KIIP completion"}
+        education: {en: "Depends on the route"}
+        experience: {en: "Years of lawful stay on qualifying visas"}
+        other: {en: "Income and character requirements set by the Ministry of Justice"}
+        stay: {en: "Permanent"}
+        next: {en: "Naturalisation possible later"}

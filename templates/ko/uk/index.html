@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
 {% block title %}영국 취업비자 스폰서 회사 검색 | {{ site.name }}{% endblock %}
 {% block description %}영국 내무부의 취업비자 스폰서 등록 회사 명단을 검색해, 회사가 Skilled Worker 비자를 스폰서할 수 있는지 확인합니다.{% endblock %}
 {% block main %}
@@ -8,6 +9,12 @@
   <p class="lede">영국 회사가 Skilled Worker 비자로 외국인을 고용하려면 스폰서 자격이 있어야 하고, 내무부가 모든 자격 회사를 공개합니다. {{ uk.date }} 자 명단입니다.</p>
 </section>
 <section aria-label="영주권 경로">{{ draw(pw_path) }}</section>
+
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">비자 종류와 자격 요건</h2>
+  <p class="hint">비자를 고르면 어학, 학위, 경력 요건과 체류 기간을 보여드립니다.</p>
+  {{ visa_tabs(visas_by["uk"], "ko") }}
+</section>
 <div class="stat-row">
   <div><b>스폰서 자격 회사</b><strong class="fig">{{ uk.organisations|num }}</strong></div>
   <div><b>Skilled Worker 스폰서</b><strong class="fig">{{ uk.skilled_worker|num }}</strong></div>

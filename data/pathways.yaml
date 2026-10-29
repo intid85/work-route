@@ -84,15 +84,16 @@ countries:
         - {label: "189 / 190 / 186", title: "Points-tested or employer PR visa", note: "Invitation through SkillSelect, or employer nomination"}
         - {label: "PR", title: "Permanent residence", note: ""}
     no_degree:
-      summary: Trades and many other jobs can be sponsored on the Skills in Demand visa, then the same employer nominates you for PR.
+      summary: Trades and many other jobs can be sponsored on the Skills in Demand visa, then after two years the same employer can nominate you for PR.
       steps:
         - {label: "Experience", title: "Show your trade skills", note: "At least 1 year of relevant experience; some trades need a formal skills assessment"}
         - {label: "Subclass 482", title: "Skills in Demand, Core Skills stream", note: "Occupation on the Core Skills list; salary at least A$79,423 from Jul 1, 2026"}
-        - {label: "Work", title: "Stay with your sponsor", note: "3 years of continuous employment"}
+        - {label: "Work", title: "Stay with your sponsor", note: "2 years full time"}
         - {label: "Subclass 186", title: "Employer nomination, transition stream", note: "Generally under 45"}
         - {label: "PR", title: "Permanent residence", note: ""}
     sources:
       - {name: "MyVisa, Skills in Demand 2026 guide", url: "https://myvisa.com.au/immigration-guides/skills-in-demand-visa-482-australia-guide-2026"}
+      - {name: "Magpie on 482 to 186 in 2026", url: "https://magpieconsultants.com.au/482-visa-to-permanent-residency-ens-186-transition-period-australia-2026/"}
       - {name: "Home Affairs visa listing", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing"}
 
   - code: kr

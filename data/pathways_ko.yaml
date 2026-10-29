@@ -82,13 +82,14 @@ countries:
         - {label: "189 / 190 / 186", title: "점수제 또는 회사 추천 영주권", note: "SkillSelect 초청 또는 회사 추천"}
         - {label: "영주권", title: "영주권", note: ""}
     no_degree:
-      summary: 기술직을 포함한 여러 직종이 회사 스폰서 취업비자(482)로 갈 수 있고, 같은 회사에서 3년 일하면 회사가 영주권을 추천합니다.
+      summary: 기술직을 포함한 여러 직종이 회사 스폰서 취업비자(482)로 갈 수 있고, 같은 회사에서 2년 일하면 회사가 영주권을 추천할 수 있습니다.
       steps:
         - {label: "경력", title: "기술 경력 증명", note: "관련 경력 1년 이상, 일부 기술직은 기술 심사"}
         - {label: "482 비자", title: "Skills in Demand, Core Skills", note: "부족직종 목록 직업, 2026년 7월부터 연봉 A$79,423 이상"}
-        - {label: "근무", title: "스폰서 회사에서 근무", note: "3년 연속 근무"}
+        - {label: "근무", title: "스폰서 회사에서 근무", note: "풀타임 2년"}
         - {label: "186 비자", title: "회사 추천 영주권", note: "보통 45세 미만"}
         - {label: "영주권", title: "영주권", note: ""}
     sources:
       - {name: "MyVisa, 482 비자 2026 가이드", url: "https://myvisa.com.au/immigration-guides/skills-in-demand-visa-482-australia-guide-2026"}
+      - {name: "Magpie, 482에서 186 전환 2026", url: "https://magpieconsultants.com.au/482-visa-to-permanent-residency-ens-186-transition-period-australia-2026/"}
       - {name: "호주 내무부 비자 목록", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing"}

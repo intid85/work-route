@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
 {% block title %}US green card sponsorship by job: employers, wages and wait times | {{ site.name }}{% endblock %}
 {% block description %}How many US green cards each job gets through employer sponsorship (PERM), what employers offer to pay, which companies sponsor, and the current EB-3 wait, from US Department of Labor and State Department data.{% endblock %}
 {% block main %}
@@ -10,6 +11,12 @@
 
 <section aria-label="Routes to permanent residence">
   {{ draw(pw_path) }}
+</section>
+
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">Visa types and requirements</h2>
+  <p class="hint">Pick a visa to see its language, education and experience requirements, how long it lasts and where it leads.</p>
+  {{ visa_tabs(visas_by["us"], "en") }}
 </section>
 
 {% if vb.current %}
