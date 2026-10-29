@@ -340,11 +340,15 @@ def _reiwa(text: str) -> str:
 
 
 def fetch_jp(cfg: dict) -> dict:
-    html = get(JP_PAGE).text
-    # Table 4 of the detailed SSW (i) release: nationality x industry field
+    resp = get(JP_PAGE)
+    html = resp.content.decode("utf-8", "ignore")
+    if "特定技能" not in html:
+        html = resp.content.decode(resp.apparent_encoding or "shift_jis", "ignore")
+    # Table 4 of the detailed SSW (i) release: nationality x industry field.
+    # It is the first Excel link on the page (the newest period is listed first).
     links = re.findall(r'href="([^"]+\.xlsx)"[^>]*>([^<]*)', html)
     url = None
-    for href, text in links:
+    for href, text in links + [(links[0][0], "第４表")] if links else []:
         if "第４表" in text or "第4表" in text:
             url = href if href.startswith("http") else "https://www.moj.go.jp" + href
             break
