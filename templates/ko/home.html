@@ -20,16 +20,17 @@
 </section>
 
 <section aria-labelledby="routes-h">
-  <h2 id="routes-h">나라마다 두 갈래 길</h2>
-  <p class="hint">영주권까지는 보통 그 나라에서 학위를 받는 길과, 학위 없이 취업으로 가는 길이 있습니다. <a href="pathways/index.html">단계별로 비교하기</a></p>
+  <h2 id="routes-h">나라마다 세 갈래 길</h2>
+  <p class="hint">영주권까지는 보통 그 나라에서 학위를 받는 길과, 학위 없이 취업으로 가는 길, 그리고 워킹홀리데이로 시작하는 길이 있습니다. <a href="pathways/index.html">단계별로 비교하기</a></p>
   <div class="table-wrap">
   <table>
-    <thead><tr><th scope="col">나라</th><th scope="col" class="left">학위 라인</th><th scope="col" class="left">학위 없는 라인</th></tr></thead>
+    <thead><tr><th scope="col">나라</th><th scope="col" class="left">학위 라인</th><th scope="col" class="left">학위 없는 라인</th><th scope="col" class="left">워킹홀리데이</th></tr></thead>
     <tbody>
     {% for p in pathways %}
       <tr><th scope="row"><a href="pathways/index.html#{{ p.code }}">{{ p.name }}</a></th>
       <td class="wrap">{{ p.degree.steps|map(attribute='label')|join(' → ') }}</td>
-      <td class="wrap">{{ p.no_degree.steps|map(attribute='label')|join(' → ') }}</td></tr>
+      <td class="wrap">{{ p.no_degree.steps|map(attribute='label')|join(' → ') }}</td>
+      <td class="wrap">{{ p.wh.steps|map(attribute='label')|join(' → ') if p.wh and p.wh.steps else '한국인 대상 없음' }}</td></tr>
     {% endfor %}
     </tbody>
   </table>

@@ -313,3 +313,9 @@ th.left { text-align: left; }
 .visa-head h3{margin-right:auto}
 .visa-link{flex:none;font-size:.9rem;font-weight:600;padding:.3rem .7rem;border:1px solid currentColor;border-radius:999px;text-decoration:none;white-space:nowrap}
 .visa-link:hover{background:rgba(0,0,0,.05)}
+.path--wh .path-tag { background: rgba(79, 70, 229, .12); color: #4338ca; }
+.path--wh .route::before { background: #6366f1; }
+.path--wh .route .dot { border-color: #6366f1; }
+.path--wh .route li:last-child .dot { background: #6366f1; }
+.path--wh .route b { color: #4338ca; }
+@media (prefers-color-scheme: dark) { .path--wh .path-tag, .path--wh .route b { color: #a5b4fc; } }

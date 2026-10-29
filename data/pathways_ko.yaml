@@ -5,6 +5,25 @@ countries:
   - code: us
     name: 미국
     pr_name: 영주권(그린카드)
+    wh:
+      title: 워홀 대신 WEST(J-1)
+      summary: 미국은 한국과 워킹홀리데이 협정이 없습니다. 대신 대학생·졸업생 대상 한미 연수취업 프로그램(WEST, J-1 비자)으로 최대 18개월 미국 회사에서 일할 수 있습니다.
+      steps:
+      - label: 자격
+        title: 대학 재학생·졸업 1년 이내
+        note: 영어 인터뷰, 스폰서 기관 통해 신청
+      - label: J-1 WEST
+        title: 미국 회사 인턴·연수
+        note: 최대 18개월
+      - label: 취업 제안
+        title: 회사가 H-1B 신청
+        note: J-1 기간 중 전환은 추첨 필요
+      - label: H-1B
+        title: 전문직 취업비자
+        note: 일부 J-1은 귀국 의무(2년) 확인
+      - label: 영주권
+        title: 회사 스폰서 영주권
+        note: EB-2·EB-3
     degree:
       summary: 미국에서 학위를 받고 OPT로 일하다가 H-1B를 받고, 회사가 영주권을 스폰서합니다.
       steps:
@@ -28,6 +47,24 @@ countries:
   - code: ca
     name: 캐나다
     pr_name: 영주권
+    wh:
+      summary: 워홀(IEC)로 캐나다에서 일하며 숙련직 경력을 1년 쌓으면 Express Entry 캐나다 경력 이민(CEC)으로 영주권을 신청할 수 있습니다. 워홀에서 영주권으로 가는 가장 대표적인 길입니다.
+      steps:
+      - label: IEC 워홀
+        title: 만 18~35세, 추첨
+        note: 2026년 1만 명, 회당 최대 2년·평생 2회
+      - label: 오픈 워크
+        title: 고용주 제한 없이 근무
+        note: 숙련직(TEER 0~3)으로 취업
+      - label: 경력 1년
+        title: 캐나다 숙련직 경력
+        note: 워홀 기간 경력도 인정
+      - label: Express Entry
+        title: 캐나다 경력 이민(CEC)
+        note: 영어 점수 필요, 점수·직종별 추첨
+      - label: 영주권
+        title: 영주권
+        note: ''
     degree:
       summary: 캐나다에서 졸업하고 졸업 후 취업허가로 1년 이상 일한 뒤 Express Entry로 영주권을 신청합니다.
       steps:
@@ -51,6 +88,24 @@ countries:
   - code: uk
     name: 영국
     pr_name: 영주권(ILR)
+    wh:
+      summary: 청년 이동 제도(YMS)로 영국에서 2년간 자유롭게 일하며 스폰서 회사를 찾아 숙련 취업비자로 바꾸면 영주권(ILR)으로 이어집니다. YMS 기간 자체는 영주권 체류 기간에 들어가지 않습니다.
+      steps:
+      - label: YMS
+        title: 만 18~35세, 연 5,000명
+        note: 추첨 없이 쿼터 내 상시 신청
+      - label: 2년 근무
+        title: 고용주 제한 없이 근무
+        note: £2,530 잔고 증명, 건강부담금 선납
+      - label: Skilled Worker
+        title: 스폰서 회사 취업비자로 전환
+        note: 학사 수준 직무와 연봉 기준
+      - label: 체류 기간
+        title: 영국 거주·근무
+        note: Skilled Worker 기간부터 계산
+      - label: 영주권
+        title: ILR
+        note: ''
     degree:
       summary: 영국에서 졸업하고 졸업생 비자로 스폰서 회사에 취업한 뒤, 취업비자로 일정 기간 일해 영주권을 받습니다.
       steps:
@@ -73,6 +128,24 @@ countries:
   - code: au
     name: 호주
     pr_name: 영주권
+    wh:
+      summary: 워홀(417)로 호주에서 일하고, 지정 업무를 채워 최대 3년까지 머물며 일하는 회사의 스폰서를 받으면 482 취업비자를 거쳐 186 영주권으로 갈 수 있습니다.
+      steps:
+      - label: 417 워홀
+        title: 만 18~35세(2026년 7월부터), 인원 제한 없음
+        note: 잔고 A$5,000, 1년
+      - label: 지정 업무
+        title: 농장·건설 등 지정 업무
+        note: 88일이면 2년차, 6개월이면 3년차
+      - label: 482 비자
+        title: 회사 스폰서 취업비자
+        note: 같은 회사 최대 6개월 제한은 워홀에만 적용
+      - label: 근무 2년
+        title: 스폰서 회사에서 근무
+        note: ''
+      - label: 186 비자
+        title: 회사 추천 영주권
+        note: ''
     degree:
       summary: 호주에서 졸업하고 졸업생 비자로 일한 뒤, 점수제나 회사 추천으로 영주권을 받습니다.
       steps:
@@ -97,6 +170,9 @@ countries:
   - code: sg
     name: 싱가포르
     pr_name: 영주권(PR)
+    wh:
+      summary: 싱가포르의 워킹홀리데이(Work Holiday Programme)는 한국인이 신청할 수 없습니다. 바로 EP나 S Pass로 취업하는 길만 있습니다.
+      steps: []
     degree:
       summary: 싱가포르에서 졸업하고 회사 스폰서로 EP나 S Pass를 받은 뒤, 몇 년 일하고 영주권을 신청합니다. 졸업생 취업비자는 없고 영주권은 재량 심사입니다.
       steps:
@@ -121,6 +197,24 @@ countries:
   - code: jp
     name: 일본
     pr_name: 영주권
+    wh:
+      summary: 워홀로 일본에서 1년간 생활하며 일본 회사에 취업하면 전문직 취업비자(기술·인문지식·국제업무)나 특정기능으로 체류 자격을 바꿔 영주권까지 갈 수 있습니다.
+      steps:
+      - label: 워홀
+        title: 만 18~30세, 연 1만 명
+        note: 분기별 접수, 이유서·계획서 심사
+      - label: 현지 생활
+        title: 1년 근무·일본어
+        note: 일본어 실력이 취업을 좌우
+      - label: 취업비자
+        title: 기술·인문지식·국제업무 또는 특정기능
+        note: 학위 있으면 기술·인문, 없으면 특정기능 시험
+      - label: 체류 기간
+        title: 일본 거주
+        note: 10년 중 취업비자 5년
+      - label: 영주권
+        title: 영주권
+        note: ''
     degree:
       summary: 일본에서 공부하고 '기술·인문지식·국제업무' 비자로 일한 뒤 10년 체류로 영주권을 받거나, 고도전문직이면 1~3년 만에 신청할 수 있습니다.
       steps:
@@ -145,6 +239,24 @@ countries:
   - code: nz
     name: 뉴질랜드
     pr_name: 영주권(영주 비자)
+    wh:
+      summary: 워홀로 뉴질랜드에서 일하며 인증 고용주를 찾아 AEWV 취업비자로 바꾸고, 숙련이민이나 그린리스트로 영주권을 받습니다.
+      steps:
+      - label: 워홀
+        title: 만 18~30세, 연 3,000명 선착순
+        note: 1년, 조건 충족 시 3개월 연장
+      - label: 현지 근무
+        title: 고용주 제한 없이 근무
+        note: 인증 고용주 회사에서 일해 보기
+      - label: AEWV
+        title: 인증 고용주 취업비자
+        note: 경력 2년 또는 레벨 4 자격
+      - label: SMC / 그린리스트
+        title: 숙련이민 또는 그린리스트
+        note: 기술직은 현지 18개월 경로
+      - label: 영주권
+        title: 영주 비자
+        note: ''
     degree:
       summary: 뉴질랜드에서 공부하고 졸업 후 취업비자로 일한 뒤, 숙련이민(SMC) 점수나 그린리스트 직종으로 영주권을 받습니다.
       steps:
@@ -169,6 +281,24 @@ countries:
   - code: de
     name: 독일
     pr_name: 영주권(정착 허가)
+    wh:
+      summary: 워홀로 독일에서 1년간 일하며 독일어와 현지 일자리를 구하면, 독일 안에서 숙련공·블루카드 체류 허가로 바꾸고 정착 허가(영주권)로 이어갈 수 있습니다.
+      steps:
+      - label: 워홀
+        title: 독일 워킹홀리데이 비자
+        note: 1년, 잔고 €3,500 이상, 연령은 주한독일대사관 공지 확인
+      - label: 독일어
+        title: 현지에서 독일어 B1까지
+        note: 한 고용주 최대 6개월 근무
+      - label: 취업 허가
+        title: 블루카드·숙련공 허가로 전환
+        note: 한국인은 독일 현지에서 신청 가능
+      - label: 체류
+        title: 독일 거주·근무
+        note: 블루카드 21~27개월, 숙련공 3년
+      - label: 정착 허가
+        title: 영주권
+        note: ''
     degree:
       summary: 독일에서 공부하거나 인정받은 학위로 EU 블루카드를 받아 일하고, 21~27개월 뒤 정착 허가(영주권)를 받습니다.
       steps:
