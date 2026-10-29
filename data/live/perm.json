@@ -1,0 +1,3975 @@
+{
+ "17-2072": {
+  "decisions": 1453,
+  "certified": 1350,
+  "cert_rate": 92.9,
+  "wage_p25": 123786,
+  "wage_median": 150733,
+  "wage_p75": 175000,
+  "top_employers": [
+   {
+    "name": "NVIDIA CORPORATION",
+    "certified": 254,
+    "wage_median": 162523
+   },
+   {
+    "name": "INTEL CORPORATION",
+    "certified": 92,
+    "wage_median": 121498
+   },
+   {
+    "name": "ADVANCED MICRO DEVICES, INC.",
+    "certified": 68,
+    "wage_median": 147880
+   },
+   {
+    "name": "SYNOPSYS, INC.",
+    "certified": 53,
+    "wage_median": 168000
+   },
+   {
+    "name": "CIRRUS LOGIC INTERNATIONAL SEMICONDUCTOR LTD.",
+    "certified": 48,
+    "wage_median": 126000
+   },
+   {
+    "name": "ARM, INC.",
+    "certified": 38,
+    "wage_median": 172000
+   },
+   {
+    "name": "ANALOG DEVICES, INC.",
+    "certified": 35,
+    "wage_median": 123280
+   },
+   {
+    "name": "CISCO SYSTEMS, INC.",
+    "certified": 35,
+    "wage_median": 158771
+   },
+   {
+    "name": "QUALCOMM TECHNOLOGIES, INC.",
+    "certified": 34,
+    "wage_median": 159702
+   },
+   {
+    "name": "CADENCE DESIGN SYSTEMS, INC.",
+    "certified": 34,
+    "wage_median": 163177
+   },
+   {
+    "name": "NXP USA, INC.",
+    "certified": 33,
+    "wage_median": 151091
+   },
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "certified": 26,
+    "wage_median": 121580
+   },
+   {
+    "name": "SAMSUNG AUSTIN SEMICONDUCTOR, L.L.C.",
+    "certified": 22,
+    "wage_median": 146434
+   },
+   {
+    "name": "MARVELL SEMICONDUCTOR, INC.",
+    "certified": 21,
+    "wage_median": 151100
+   },
+   {
+    "name": "MEDIATEK USA INC.",
+    "certified": 18,
+    "wage_median": 155000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 758
+   },
+   {
+    "state": "TX",
+    "certified": 243
+   },
+   {
+    "state": "AZ",
+    "certified": 49
+   },
+   {
+    "state": "MA",
+    "certified": 49
+   },
+   {
+    "state": "MI",
+    "certified": 46
+   },
+   {
+    "state": "NC",
+    "certified": 35
+   }
+  ],
+  "days_median": 490
+ },
+ "15-1252": {
+  "decisions": 24838,
+  "certified": 23499,
+  "cert_rate": 94.6,
+  "wage_p25": 122699,
+  "wage_median": 142002,
+  "wage_p75": 165173,
+  "top_employers": [
+   {
+    "name": "MICROSOFT CORPORATION",
+    "certified": 1115,
+    "wage_median": 138968
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 446,
+    "wage_median": 151200
+   },
+   {
+    "name": "NVIDIA CORPORATION",
+    "certified": 336,
+    "wage_median": 184662
+   },
+   {
+    "name": "WAL-MART ASSOCIATES, INC.",
+    "certified": 305,
+    "wage_median": 147481
+   },
+   {
+    "name": "CISCO SYSTEMS, INC.",
+    "certified": 289,
+    "wage_median": 154482
+   },
+   {
+    "name": "BLOOMBERG L.P.",
+    "certified": 288,
+    "wage_median": 169500
+   },
+   {
+    "name": "FMR LLC",
+    "certified": 287,
+    "wage_median": 144375
+   },
+   {
+    "name": "DELOITTE CONSULTING LLP",
+    "certified": 268,
+    "wage_median": 102877
+   },
+   {
+    "name": "SALESFORCE, INC.",
+    "certified": 245,
+    "wage_median": 160700
+   },
+   {
+    "name": "ORACLE AMERICA, INC.",
+    "certified": 241,
+    "wage_median": 147368
+   },
+   {
+    "name": "SAPPHIRE SOFTWARE SOLUTIONS, INC.",
+    "certified": 227,
+    "wage_median": 148221
+   },
+   {
+    "name": "COMPUNNEL SOFTWARE GROUP INC.",
+    "certified": 182,
+    "wage_median": 95500
+   },
+   {
+    "name": "CHARLES SCHWAB & COMPANY, INC.",
+    "certified": 159,
+    "wage_median": 150051
+   },
+   {
+    "name": "BYTEDANCE INC.",
+    "certified": 157,
+    "wage_median": 184662
+   },
+   {
+    "name": "GOVERNMENT EMPLOYEES INSURANCE COMPANY (GEICO)",
+    "certified": 153,
+    "wage_median": 123960
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 4907
+   },
+   {
+    "state": "TX",
+    "certified": 3717
+   },
+   {
+    "state": "WA",
+    "certified": 1813
+   },
+   {
+    "state": "NJ",
+    "certified": 1624
+   },
+   {
+    "state": "NY",
+    "certified": 1396
+   },
+   {
+    "state": "VA",
+    "certified": 1010
+   }
+  ],
+  "days_median": 487
+ },
+ "13-2011": {
+  "decisions": 1620,
+  "certified": 1527,
+  "cert_rate": 94.3,
+  "wage_p25": 68180,
+  "wage_median": 91031,
+  "wage_p75": 119000,
+  "top_employers": [
+   {
+    "name": "ERNST & YOUNG U.S. LLP",
+    "certified": 246,
+    "wage_median": 121400
+   },
+   {
+    "name": "DELOITTE TAX LLP",
+    "certified": 67,
+    "wage_median": 79498
+   },
+   {
+    "name": "KPMG LLP",
+    "certified": 31,
+    "wage_median": 125100
+   },
+   {
+    "name": "PRICEWATERHOUSECOOPERS LLP",
+    "certified": 29,
+    "wage_median": 135000
+   },
+   {
+    "name": "PWC US TAX LLP",
+    "certified": 25,
+    "wage_median": 149000
+   },
+   {
+    "name": "BDO USA, P.C.",
+    "certified": 19,
+    "wage_median": 135000
+   },
+   {
+    "name": "GOLDMAN SACHS & CO. LLC",
+    "certified": 13,
+    "wage_median": 95000
+   },
+   {
+    "name": "RSM US LLP",
+    "certified": 13,
+    "wage_median": 93000
+   },
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "certified": 9,
+    "wage_median": 78957
+   },
+   {
+    "name": "BAKER TILLY ADVISORY GROUP, LP",
+    "certified": 9,
+    "wage_median": 90000
+   },
+   {
+    "name": "KLICHS LLP",
+    "certified": 7,
+    "wage_median": 74818
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 6,
+    "wage_median": 157650
+   },
+   {
+    "name": "THE SIEGFRIED GROUP LLP",
+    "certified": 6,
+    "wage_median": 132500
+   },
+   {
+    "name": "CHAN & CHEN LLP",
+    "certified": 5,
+    "wage_median": 75088
+   },
+   {
+    "name": "ERNST & YOUNG LLP (EY GUAM)",
+    "certified": 5,
+    "wage_median": 55037
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 386
+   },
+   {
+    "state": "NY",
+    "certified": 208
+   },
+   {
+    "state": "TX",
+    "certified": 154
+   },
+   {
+    "state": "FL",
+    "certified": 88
+   },
+   {
+    "state": "IL",
+    "certified": 86
+   },
+   {
+    "state": "NJ",
+    "certified": 84
+   }
+  ],
+  "days_median": 487
+ },
+ "13-1161": {
+  "decisions": 1187,
+  "certified": 1069,
+  "cert_rate": 90.1,
+  "wage_p25": 47195,
+  "wage_median": 61693,
+  "wage_p75": 95513,
+  "top_employers": [
+   {
+    "name": "MICROSOFT CORPORATION",
+    "certified": 32,
+    "wage_median": 145913
+   },
+   {
+    "name": "COMPUNNEL SOFTWARE GROUP INC.",
+    "certified": 13,
+    "wage_median": 80000
+   },
+   {
+    "name": "BYTEDANCE INC.",
+    "certified": 12,
+    "wage_median": 148698
+   },
+   {
+    "name": "UBER TECHNOLOGIES, INC.",
+    "certified": 7,
+    "wage_median": 129000
+   },
+   {
+    "name": "CITIBANK, N.A.",
+    "certified": 6,
+    "wage_median": 143550
+   },
+   {
+    "name": "POSCO AAPC, LLC",
+    "certified": 6,
+    "wage_median": 45000
+   },
+   {
+    "name": "COWAY USA INC",
+    "certified": 4,
+    "wage_median": 49347
+   },
+   {
+    "name": "FEDERAL EXPRESS CORPORATION",
+    "certified": 4,
+    "wage_median": 107151
+   },
+   {
+    "name": "ADOBE INC.",
+    "certified": 4,
+    "wage_median": 164500
+   },
+   {
+    "name": "NATIONWIDE CLEANING 1 LLC",
+    "certified": 3,
+    "wage_median": 42099
+   },
+   {
+    "name": "POSCO INTERNATIONAL AMERICA CORP.",
+    "certified": 3,
+    "wage_median": 48693
+   },
+   {
+    "name": "SCOPELY, INC.",
+    "certified": 3,
+    "wage_median": 110000
+   },
+   {
+    "name": "JACOB EMRANI, A PROFESSIONAL CORPORATION",
+    "certified": 3,
+    "wage_median": 48693
+   },
+   {
+    "name": "MAPLEBEAR INC.",
+    "certified": 3,
+    "wage_median": 100000
+   },
+   {
+    "name": "WILLIAM VELIE ATTORNEYS AT LAW",
+    "certified": 3,
+    "wage_median": 36296
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 347
+   },
+   {
+    "state": "NY",
+    "certified": 130
+   },
+   {
+    "state": "FL",
+    "certified": 109
+   },
+   {
+    "state": "TX",
+    "certified": 96
+   },
+   {
+    "state": "NJ",
+    "certified": 69
+   },
+   {
+    "state": "GA",
+    "certified": 54
+   }
+  ],
+  "days_median": 489
+ },
+ "17-2051": {
+  "decisions": 1143,
+  "certified": 1052,
+  "cert_rate": 92,
+  "wage_p25": 77022,
+  "wage_median": 90147,
+  "wage_p75": 106933,
+  "top_employers": [
+   {
+    "name": "WSP USA INC.",
+    "certified": 34,
+    "wage_median": 91146
+   },
+   {
+    "name": "CLAYCO, INC.",
+    "certified": 28,
+    "wage_median": 107162
+   },
+   {
+    "name": "JACOBS ENGINEERING GROUP, INC.",
+    "certified": 27,
+    "wage_median": 98316
+   },
+   {
+    "name": "TERRACON CONSULTANTS, INC.",
+    "certified": 16,
+    "wage_median": 89750
+   },
+   {
+    "name": "AECOM TECHNICAL SERVICES INC",
+    "certified": 16,
+    "wage_median": 79539
+   },
+   {
+    "name": "ARCADIS U.S., INC.",
+    "certified": 10,
+    "wage_median": 103115
+   },
+   {
+    "name": "STANTEC CONSULTING SERVICES, INC.",
+    "certified": 10,
+    "wage_median": 107973
+   },
+   {
+    "name": "HDR ENGINEERING, INC.",
+    "certified": 9,
+    "wage_median": 113568
+   },
+   {
+    "name": "WALTER P. MOORE & ASSOCIATES, INC.",
+    "certified": 9,
+    "wage_median": 100298
+   },
+   {
+    "name": "THORNTON TOMASETTI, INC.",
+    "certified": 8,
+    "wage_median": 94750
+   },
+   {
+    "name": "TURNER CONSTRUCTION COMPANY",
+    "certified": 7,
+    "wage_median": 104998
+   },
+   {
+    "name": "MOTT MACDONALD GROUP INC.",
+    "certified": 7,
+    "wage_median": 120765
+   },
+   {
+    "name": "JACOBS PROJECT MANAGEMENT COMPANY",
+    "certified": 7,
+    "wage_median": 110855
+   },
+   {
+    "name": "WEBBER, LLC",
+    "certified": 7,
+    "wage_median": 82326
+   },
+   {
+    "name": "CONSOR ENGINEERS, LLC",
+    "certified": 6,
+    "wage_median": 93475
+   }
+  ],
+  "top_states": [
+   {
+    "state": "TX",
+    "certified": 171
+   },
+   {
+    "state": "CA",
+    "certified": 147
+   },
+   {
+    "state": "NY",
+    "certified": 107
+   },
+   {
+    "state": "FL",
+    "certified": 84
+   },
+   {
+    "state": "IL",
+    "certified": 49
+   },
+   {
+    "state": "MO",
+    "certified": 37
+   }
+  ],
+  "days_median": 490
+ },
+ "11-3021": {
+  "decisions": 1581,
+  "certified": 1491,
+  "cert_rate": 94.3,
+  "wage_p25": 167921,
+  "wage_median": 193357,
+  "wage_p75": 223600,
+  "top_employers": [
+   {
+    "name": "DELOITTE CONSULTING LLP",
+    "certified": 62,
+    "wage_median": 192858
+   },
+   {
+    "name": "SALESFORCE, INC.",
+    "certified": 31,
+    "wage_median": 211401
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 26,
+    "wage_median": 187907
+   },
+   {
+    "name": "FMR LLC",
+    "certified": 23,
+    "wage_median": 170775
+   },
+   {
+    "name": "CISCO SYSTEMS, INC.",
+    "certified": 20,
+    "wage_median": 205359
+   },
+   {
+    "name": "COMCAST CABLE COMMUNICATIONS, LLC",
+    "certified": 19,
+    "wage_median": 144278
+   },
+   {
+    "name": "SERVICENOW, INC.",
+    "certified": 19,
+    "wage_median": 232305
+   },
+   {
+    "name": "EXPEDIA, INC.",
+    "certified": 19,
+    "wage_median": 207381
+   },
+   {
+    "name": "NORDSTROM, INC.",
+    "certified": 18,
+    "wage_median": 229986
+   },
+   {
+    "name": "DFS CORPORATE SERVICES LLC",
+    "certified": 18,
+    "wage_median": 164986
+   },
+   {
+    "name": "WAL-MART ASSOCIATES, INC.",
+    "certified": 14,
+    "wage_median": 203152
+   },
+   {
+    "name": "GILEAD SCIENCES, INC.",
+    "certified": 13,
+    "wage_median": 185557
+   },
+   {
+    "name": "CAPGEMINI AMERICA, INC.",
+    "certified": 12,
+    "wage_median": 193419
+   },
+   {
+    "name": "FORD MOTOR COMPANY",
+    "certified": 12,
+    "wage_median": 106912
+   },
+   {
+    "name": "ACCENTURE LLP",
+    "certified": 12,
+    "wage_median": 193409
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 364
+   },
+   {
+    "state": "TX",
+    "certified": 207
+   },
+   {
+    "state": "NY",
+    "certified": 99
+   },
+   {
+    "state": "IL",
+    "certified": 95
+   },
+   {
+    "state": "WA",
+    "certified": 89
+   },
+   {
+    "state": "MA",
+    "certified": 68
+   }
+  ],
+  "days_median": 489
+ },
+ "17-2112": {
+  "decisions": 2141,
+  "certified": 2015,
+  "cert_rate": 94.1,
+  "wage_p25": 90000,
+  "wage_median": 107078,
+  "wage_p75": 125000,
+  "top_employers": [
+   {
+    "name": "TESLA, INC.",
+    "certified": 125,
+    "wage_median": 135670
+   },
+   {
+    "name": "INTELLECTT, INC.",
+    "certified": 48,
+    "wage_median": 91894
+   },
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "certified": 30,
+    "wage_median": 106358
+   },
+   {
+    "name": "RIVIAN AUTOMOTIVE, LLC",
+    "certified": 29,
+    "wage_median": 111000
+   },
+   {
+    "name": "CUMMINS INC.",
+    "certified": 26,
+    "wage_median": 120765
+   },
+   {
+    "name": "ASML US, LP",
+    "certified": 23,
+    "wage_median": 103000
+   },
+   {
+    "name": "MEDTRONIC, INC.",
+    "certified": 20,
+    "wage_median": 117900
+   },
+   {
+    "name": "FORD MOTOR COMPANY",
+    "certified": 20,
+    "wage_median": 86137
+   },
+   {
+    "name": "TSMC ARIZONA CORPORATION",
+    "certified": 19,
+    "wage_median": 113550
+   },
+   {
+    "name": "APPLIED MATERIALS, INC",
+    "certified": 18,
+    "wage_median": 126256
+   },
+   {
+    "name": "SAMSUNG AUSTIN SEMICONDUCTOR, L.L.C.",
+    "certified": 18,
+    "wage_median": 108941
+   },
+   {
+    "name": "BECTON, DICKINSON AND COMPANY",
+    "certified": 17,
+    "wage_median": 123115
+   },
+   {
+    "name": "NVIDIA CORPORATION",
+    "certified": 16,
+    "wage_median": 156787
+   },
+   {
+    "name": "INTUITIVE SURGICAL OPERATIONS, INC.",
+    "certified": 16,
+    "wage_median": 142293
+   },
+   {
+    "name": "INTEL CORPORATION",
+    "certified": 15,
+    "wage_median": 101928
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 439
+   },
+   {
+    "state": "TX",
+    "certified": 210
+   },
+   {
+    "state": "NJ",
+    "certified": 178
+   },
+   {
+    "state": "MI",
+    "certified": 169
+   },
+   {
+    "state": "IL",
+    "certified": 86
+   },
+   {
+    "state": "MA",
+    "certified": 80
+   }
+  ],
+  "days_median": 487
+ },
+ "11-2021": {
+  "decisions": 547,
+  "certified": 475,
+  "cert_rate": 86.8,
+  "wage_p25": 125018,
+  "wage_median": 165464,
+  "wage_p75": 196539,
+  "top_employers": [
+   {
+    "name": "BYTEDANCE INC.",
+    "certified": 11,
+    "wage_median": 280987
+   },
+   {
+    "name": "NIKE, INC.",
+    "certified": 8,
+    "wage_median": 180250
+   },
+   {
+    "name": "SERVICENOW, INC.",
+    "certified": 7,
+    "wage_median": 236600
+   },
+   {
+    "name": "HEWLETT PACKARD ENTERPRISE COMPANY",
+    "certified": 6,
+    "wage_median": 189769
+   },
+   {
+    "name": "UBER TECHNOLOGIES, INC.",
+    "certified": 6,
+    "wage_median": 167400
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 4,
+    "wage_median": 265167
+   },
+   {
+    "name": "BETFAIR INTERACTIVE US LLC",
+    "certified": 4,
+    "wage_median": 157500
+   },
+   {
+    "name": "WAL-MART ASSOCIATES, INC.",
+    "certified": 4,
+    "wage_median": 159668
+   },
+   {
+    "name": "DELOITTE CONSULTING LLP",
+    "certified": 4,
+    "wage_median": 131325
+   },
+   {
+    "name": "NVIDIA CORPORATION",
+    "certified": 4,
+    "wage_median": 187866
+   },
+   {
+    "name": "PURE STORAGE, INC.",
+    "certified": 4,
+    "wage_median": 187866
+   },
+   {
+    "name": "CUMMINS INC.",
+    "certified": 4,
+    "wage_median": 168210
+   },
+   {
+    "name": "THERMO FISHER SCIENTIFIC, INC.",
+    "certified": 3,
+    "wage_median": 201594
+   },
+   {
+    "name": "BRIGHTCOVE INC.",
+    "certified": 3,
+    "wage_median": 201594
+   },
+   {
+    "name": "STRIPE, INC.",
+    "certified": 3,
+    "wage_median": 241110
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 148
+   },
+   {
+    "state": "NY",
+    "certified": 70
+   },
+   {
+    "state": "TX",
+    "certified": 38
+   },
+   {
+    "state": "FL",
+    "certified": 34
+   },
+   {
+    "state": "MA",
+    "certified": 24
+   },
+   {
+    "state": "IL",
+    "certified": 16
+   }
+  ],
+  "days_median": 489
+ },
+ "15-2051": {
+  "decisions": 4240,
+  "certified": 3969,
+  "cert_rate": 93.6,
+  "wage_p25": 108306,
+  "wage_median": 131498,
+  "wage_p75": 161470,
+  "top_employers": [
+   {
+    "name": "WAL-MART ASSOCIATES, INC.",
+    "certified": 130,
+    "wage_median": 145375
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "certified": 106,
+    "wage_median": 163419
+   },
+   {
+    "name": "CAREMARK LLC",
+    "certified": 59,
+    "wage_median": 100000
+   },
+   {
+    "name": "AETNA RESOURCES LLC",
+    "certified": 58,
+    "wage_median": 108306
+   },
+   {
+    "name": "TIKTOK INC.",
+    "certified": 43,
+    "wage_median": 194000
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 38,
+    "wage_median": 142750
+   },
+   {
+    "name": "BYTEDANCE INC.",
+    "certified": 36,
+    "wage_median": 175237
+   },
+   {
+    "name": "DISCOVER PRODUCTS, INC.",
+    "certified": 34,
+    "wage_median": 110594
+   },
+   {
+    "name": "CITIBANK, N.A.",
+    "certified": 32,
+    "wage_median": 156950
+   },
+   {
+    "name": "ADOBE INC.",
+    "certified": 32,
+    "wage_median": 166000
+   },
+   {
+    "name": "UBER TECHNOLOGIES, INC.",
+    "certified": 32,
+    "wage_median": 151736
+   },
+   {
+    "name": "MCKINSEY & COMPANY, INC. UNITED STATES",
+    "certified": 30,
+    "wage_median": 175750
+   },
+   {
+    "name": "WAYFAIR LLC",
+    "certified": 29,
+    "wage_median": 144040
+   },
+   {
+    "name": "TIGER ANALYTICS, INC.",
+    "certified": 23,
+    "wage_median": 130270
+   },
+   {
+    "name": "VERIZON COMMUNICATIONS, INC. AND ALL ITS SUBSIDIARIES AND AFFILIATES",
+    "certified": 22,
+    "wage_median": 140858
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 970
+   },
+   {
+    "state": "NY",
+    "certified": 455
+   },
+   {
+    "state": "TX",
+    "certified": 427
+   },
+   {
+    "state": "NJ",
+    "certified": 246
+   },
+   {
+    "state": "WA",
+    "certified": 230
+   },
+   {
+    "state": "MA",
+    "certified": 220
+   }
+  ],
+  "days_median": 489
+ },
+ "19-1021": {
+  "decisions": 84,
+  "certified": 75,
+  "cert_rate": 89.3,
+  "wage_p25": 82348,
+  "wage_median": 109200,
+  "wage_p75": 127875,
+  "top_employers": [
+   {
+    "name": "AMGEN INC.",
+    "certified": 5,
+    "wage_median": 87192
+   },
+   {
+    "name": "GILEAD SCIENCES, INC.",
+    "certified": 5,
+    "wage_median": 147000
+   },
+   {
+    "name": "GENOMATICA, INC.",
+    "certified": 2,
+    "wage_median": 116415
+   },
+   {
+    "name": "MRL SAN FRANCISCO, LLC",
+    "certified": 2,
+    "wage_median": 125000
+   },
+   {
+    "name": "ZOETIS, INC.",
+    "certified": 2,
+    "wage_median": 99860
+   },
+   {
+    "name": "KITE PHARMA INC.",
+    "certified": 2,
+    "wage_median": 132038
+   },
+   {
+    "name": "NOVARTIS INSTITUTES FOR BIOMEDICAL RESEARCH, INC.",
+    "certified": 2,
+    "wage_median": 101474
+   },
+   {
+    "name": "BAYER RESEARCH AND DEVELOPMENT SERVICES LLC",
+    "certified": 1,
+    "wage_median": 66000
+   },
+   {
+    "name": "ARCHER DANIELS MIDLAND COMPANY",
+    "certified": 1,
+    "wage_median": 148704
+   },
+   {
+    "name": "DIAGNOSTIC HYBRIDS, INC.",
+    "certified": 1,
+    "wage_median": 50898
+   },
+   {
+    "name": "BOEHRINGER INGELHEIM PHARMACEUTICALS, INC.",
+    "certified": 1,
+    "wage_median": 120000
+   },
+   {
+    "name": "EXELIXIS, INC.",
+    "certified": 1,
+    "wage_median": 110000
+   },
+   {
+    "name": "PINETREE THERAPEUTICS, INC.",
+    "certified": 1,
+    "wage_median": 74152
+   },
+   {
+    "name": "THE WASHINGTON UNIVERSITY",
+    "certified": 1,
+    "wage_median": 72100
+   },
+   {
+    "name": "SEISMIC THERAPEUTIC INC.",
+    "certified": 1,
+    "wage_median": 74152
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 29
+   },
+   {
+    "state": "MA",
+    "certified": 15
+   },
+   {
+    "state": "NJ",
+    "certified": 4
+   },
+   {
+    "state": "NY",
+    "certified": 3
+   },
+   {
+    "state": "MO",
+    "certified": 2
+   },
+   {
+    "state": "IL",
+    "certified": 2
+   }
+  ],
+  "days_median": 496
+ },
+ "37-2012": {
+  "decisions": 1025,
+  "certified": 926,
+  "cert_rate": 90.3,
+  "wage_p25": 27560,
+  "wage_median": 30971,
+  "wage_p75": 34320,
+  "top_employers": [
+   {
+    "name": "CRESTLINE HOTELS & RESORT, LLC",
+    "certified": 210,
+    "wage_median": 32240
+   },
+   {
+    "name": "FH MIAMI OPERATIONS LLC",
+    "certified": 81,
+    "wage_median": 27560
+   },
+   {
+    "name": "OMNI HOTELS MANAGEMENT CORP.",
+    "certified": 80,
+    "wage_median": 31200
+   },
+   {
+    "name": "CHULA VISTA INC",
+    "certified": 77,
+    "wage_median": 22880
+   },
+   {
+    "name": "MERRITT HOSPITALITY LLC",
+    "certified": 62,
+    "wage_median": 31200
+   },
+   {
+    "name": "TORGERSON PROPERTIES INC",
+    "certified": 41,
+    "wage_median": 34320
+   },
+   {
+    "name": "STF PRO, LLC",
+    "certified": 35,
+    "wage_median": 24502
+   },
+   {
+    "name": "CUMBERLAND CARE AND REHAB, INC.",
+    "certified": 34,
+    "wage_median": 30971
+   },
+   {
+    "name": "WHITE LODGING SERVICES CORPORATION",
+    "certified": 27,
+    "wage_median": 35360
+   },
+   {
+    "name": "SAFARI HOSPITALITY, INC.",
+    "certified": 26,
+    "wage_median": 23982
+   },
+   {
+    "name": "SPACE COAST SERVICES MANAGEMENT, INC.",
+    "certified": 18,
+    "wage_median": 23338
+   },
+   {
+    "name": "NASH ORGANIZATION, INC",
+    "certified": 15,
+    "wage_median": 24960
+   },
+   {
+    "name": "AYRES MANAGEMENT, L.P.",
+    "certified": 15,
+    "wage_median": 35090
+   },
+   {
+    "name": "AKHAPPYTIME LLC",
+    "certified": 14,
+    "wage_median": 30410
+   },
+   {
+    "name": "COOK COUNTY HOSPITAL DISTRICT",
+    "certified": 11,
+    "wage_median": 35714
+   }
+  ],
+  "top_states": [
+   {
+    "state": "FL",
+    "certified": 159
+   },
+   {
+    "state": "WI",
+    "certified": 111
+   },
+   {
+    "state": "VA",
+    "certified": 96
+   },
+   {
+    "state": "",
+    "certified": 91
+   },
+   {
+    "state": "TX",
+    "certified": 49
+   },
+   {
+    "state": "GA",
+    "certified": 48
+   }
+  ],
+  "days_median": 493
+ },
+ "17-2071": {
+  "decisions": 1020,
+  "certified": 953,
+  "cert_rate": 93.4,
+  "wage_p25": 95000,
+  "wage_median": 115000,
+  "wage_p75": 134911,
+  "top_employers": [
+   {
+    "name": "SEL ENGINEERING SERVICES, INC.",
+    "certified": 21,
+    "wage_median": 104000
+   },
+   {
+    "name": "BURNS & MCDONNELL ENGINEERING COMPANY, INC.",
+    "certified": 19,
+    "wage_median": 116085
+   },
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "certified": 19,
+    "wage_median": 102820
+   },
+   {
+    "name": "CUMMINS INC.",
+    "certified": 16,
+    "wage_median": 120328
+   },
+   {
+    "name": "DC GROUP, INC.",
+    "certified": 15,
+    "wage_median": 120702
+   },
+   {
+    "name": "BLACK & VEATCH CORPORATION",
+    "certified": 12,
+    "wage_median": 111166
+   },
+   {
+    "name": "SCHWEITZER ENGINEERING LABORATORIES, INC.",
+    "certified": 11,
+    "wage_median": 98000
+   },
+   {
+    "name": "CATERPILLAR INC.",
+    "certified": 11,
+    "wage_median": 103293
+   },
+   {
+    "name": "ASML US, LP",
+    "certified": 10,
+    "wage_median": 145979
+   },
+   {
+    "name": "FORD MOTOR COMPANY",
+    "certified": 9,
+    "wage_median": 90355
+   },
+   {
+    "name": "MILWAUKEE ELECTRIC TOOL CORPORATION",
+    "certified": 9,
+    "wage_median": 120000
+   },
+   {
+    "name": "TESLA, INC.",
+    "certified": 9,
+    "wage_median": 163363
+   },
+   {
+    "name": "KLA CORPORATION",
+    "certified": 8,
+    "wage_median": 146870
+   },
+   {
+    "name": "MEDIATEK USA INC.",
+    "certified": 8,
+    "wage_median": 129813
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "certified": 8,
+    "wage_median": 153050
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 184
+   },
+   {
+    "state": "TX",
+    "certified": 124
+   },
+   {
+    "state": "MI",
+    "certified": 79
+   },
+   {
+    "state": "NY",
+    "certified": 51
+   },
+   {
+    "state": "IL",
+    "certified": 45
+   },
+   {
+    "state": "PA",
+    "certified": 42
+   }
+  ],
+  "days_median": 488
+ },
+ "15-1253": {
+  "decisions": 1972,
+  "certified": 1862,
+  "cert_rate": 94.4,
+  "wage_p25": 103418,
+  "wage_median": 122297,
+  "wage_p75": 141107,
+  "top_employers": [
+   {
+    "name": "DELOITTE CONSULTING LLP",
+    "certified": 46,
+    "wage_median": 113663
+   },
+   {
+    "name": "NOKIA OF AMERICA CORPORATION",
+    "certified": 26,
+    "wage_median": 154293
+   },
+   {
+    "name": "SERVICENOW, INC.",
+    "certified": 25,
+    "wage_median": 151400
+   },
+   {
+    "name": "CHARLES SCHWAB & COMPANY, INC.",
+    "certified": 17,
+    "wage_median": 132500
+   },
+   {
+    "name": "BYTEDANCE INC.",
+    "certified": 16,
+    "wage_median": 226325
+   },
+   {
+    "name": "CGI TECHNOLOGIES AND SOLUTIONS INC.",
+    "certified": 15,
+    "wage_median": 135054
+   },
+   {
+    "name": "FORTINET, INC.",
+    "certified": 15,
+    "wage_median": 143658
+   },
+   {
+    "name": "CISCO SYSTEMS, INC.",
+    "certified": 15,
+    "wage_median": 144200
+   },
+   {
+    "name": "MPHASIS CORPORATION",
+    "certified": 15,
+    "wage_median": 126900
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 13,
+    "wage_median": 137800
+   },
+   {
+    "name": "COMCAST CABLE COMMUNICATIONS, LLC",
+    "certified": 13,
+    "wage_median": 115086
+   },
+   {
+    "name": "LTIMINDTREE LIMITED",
+    "certified": 13,
+    "wage_median": 105630
+   },
+   {
+    "name": "HEXAWARE TECHNOLOGIES, INC.",
+    "certified": 13,
+    "wage_median": 126838
+   },
+   {
+    "name": "HEWLETT PACKARD ENTERPRISE COMPANY",
+    "certified": 12,
+    "wage_median": 175689
+   },
+   {
+    "name": "AUDIBLE, INC.",
+    "certified": 12,
+    "wage_median": 125300
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 440
+   },
+   {
+    "state": "TX",
+    "certified": 277
+   },
+   {
+    "state": "NJ",
+    "certified": 146
+   },
+   {
+    "state": "MA",
+    "certified": 111
+   },
+   {
+    "state": "NY",
+    "certified": 98
+   },
+   {
+    "state": "IL",
+    "certified": 81
+   }
+  ],
+  "days_median": 488
+ },
+ "17-2141": {
+  "decisions": 1574,
+  "certified": 1447,
+  "cert_rate": 91.9,
+  "wage_p25": 89419,
+  "wage_median": 108150,
+  "wage_p75": 126506,
+  "top_employers": [
+   {
+    "name": "LUCID USA, INC.",
+    "certified": 36,
+    "wage_median": 158550
+   },
+   {
+    "name": "ASML US, LLC",
+    "certified": 31,
+    "wage_median": 105876
+   },
+   {
+    "name": "TESLA, INC.",
+    "certified": 29,
+    "wage_median": 154000
+   },
+   {
+    "name": "FORD MOTOR COMPANY",
+    "certified": 26,
+    "wage_median": 70158
+   },
+   {
+    "name": "KLA CORPORATION",
+    "certified": 25,
+    "wage_median": 127500
+   },
+   {
+    "name": "CUMMINS INC.",
+    "certified": 21,
+    "wage_median": 121930
+   },
+   {
+    "name": "RIVIAN AUTOMOTIVE, LLC",
+    "certified": 21,
+    "wage_median": 134000
+   },
+   {
+    "name": "KPIT TECHNOLOGIES INC.",
+    "certified": 19,
+    "wage_median": 112570
+   },
+   {
+    "name": "HONDA DEVELOPMENT & MANUFACTURING OF AMERICA, LLC",
+    "certified": 16,
+    "wage_median": 91763
+   },
+   {
+    "name": "CATERPILLAR INC.",
+    "certified": 16,
+    "wage_median": 126506
+   },
+   {
+    "name": "LER TECHFORCE, LLC",
+    "certified": 16,
+    "wage_median": 121930
+   },
+   {
+    "name": "ASM AMERICA INC.",
+    "certified": 15,
+    "wage_median": 97781
+   },
+   {
+    "name": "AXISCADES, INC.",
+    "certified": 10,
+    "wage_median": 126506
+   },
+   {
+    "name": "SOLIZE USA CORPORATION",
+    "certified": 9,
+    "wage_median": 112570
+   },
+   {
+    "name": "ROBERT BOSCH LLC",
+    "certified": 9,
+    "wage_median": 112570
+   }
+  ],
+  "top_states": [
+   {
+    "state": "MI",
+    "certified": 283
+   },
+   {
+    "state": "CA",
+    "certified": 278
+   },
+   {
+    "state": "TX",
+    "certified": 125
+   },
+   {
+    "state": "IL",
+    "certified": 74
+   },
+   {
+    "state": "AZ",
+    "certified": 65
+   },
+   {
+    "state": "OH",
+    "certified": 63
+   }
+  ],
+  "days_median": 487
+ },
+ "15-1211": {
+  "decisions": 4938,
+  "certified": 4594,
+  "cert_rate": 93,
+  "wage_p25": 109500,
+  "wage_median": 131331,
+  "wage_p75": 147500,
+  "top_employers": [
+   {
+    "name": "ERNST & YOUNG U.S. LLP",
+    "certified": 109,
+    "wage_median": 148875
+   },
+   {
+    "name": "LTIMINDTREE LIMITED",
+    "certified": 95,
+    "wage_median": 106232
+   },
+   {
+    "name": "GLOBALLOGIC INC.",
+    "certified": 92,
+    "wage_median": 140031
+   },
+   {
+    "name": "DELOITTE CONSULTING LLP",
+    "certified": 91,
+    "wage_median": 113325
+   },
+   {
+    "name": "SALESFORCE, INC.",
+    "certified": 70,
+    "wage_median": 168397
+   },
+   {
+    "name": "ACCENTURE LLP",
+    "certified": 54,
+    "wage_median": 161000
+   },
+   {
+    "name": "ORACLE AMERICA, INC.",
+    "certified": 39,
+    "wage_median": 130000
+   },
+   {
+    "name": "VIRTUSA CORPORATION",
+    "certified": 39,
+    "wage_median": 121638
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "certified": 36,
+    "wage_median": 145990
+   },
+   {
+    "name": "IBM CORPORATION",
+    "certified": 35,
+    "wage_median": 147285
+   },
+   {
+    "name": "COMPUNNEL SOFTWARE GROUP INC.",
+    "certified": 34,
+    "wage_median": 147500
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 34,
+    "wage_median": 155500
+   },
+   {
+    "name": "HCL AMERICA, INC.",
+    "certified": 30,
+    "wage_median": 132933
+   },
+   {
+    "name": "SAPPHIRE SOFTWARE SOLUTIONS, INC.",
+    "certified": 30,
+    "wage_median": 82098
+   },
+   {
+    "name": "CISCO SYSTEMS, INC.",
+    "certified": 29,
+    "wage_median": 130682
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 782
+   },
+   {
+    "state": "TX",
+    "certified": 656
+   },
+   {
+    "state": "NJ",
+    "certified": 586
+   },
+   {
+    "state": "IL",
+    "certified": 243
+   },
+   {
+    "state": "NY",
+    "certified": 238
+   },
+   {
+    "state": "NC",
+    "certified": 210
+   }
+  ],
+  "days_median": 488
+ },
+ "15-2041": {
+  "decisions": 467,
+  "certified": 426,
+  "cert_rate": 91.2,
+  "wage_p25": 91977,
+  "wage_median": 120000,
+  "wage_p75": 145000,
+  "top_employers": [
+   {
+    "name": "RADIX TRADING LLC",
+    "certified": 18,
+    "wage_median": 145000
+   },
+   {
+    "name": "BRISTOL-MYERS SQUIBB COMPANY",
+    "certified": 13,
+    "wage_median": 136219
+   },
+   {
+    "name": "U.S. BANK NATIONAL ASSOCIATION",
+    "certified": 11,
+    "wage_median": 58614
+   },
+   {
+    "name": "TECHDATA SERVICE COMPANY LLC",
+    "certified": 10,
+    "wage_median": 70000
+   },
+   {
+    "name": "ERNST & YOUNG U.S. LLP",
+    "certified": 9,
+    "wage_median": 167980
+   },
+   {
+    "name": "DELTAMED SOLUTIONS, INC.",
+    "certified": 8,
+    "wage_median": 78947
+   },
+   {
+    "name": "GILEAD SCIENCES, INC.",
+    "certified": 8,
+    "wage_median": 144696
+   },
+   {
+    "name": "MEDPACE, INC.",
+    "certified": 8,
+    "wage_median": 153000
+   },
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "certified": 7,
+    "wage_median": 94600
+   },
+   {
+    "name": "CITIBANK, N.A.",
+    "certified": 6,
+    "wage_median": 159374
+   },
+   {
+    "name": "CAREMARK LLC",
+    "certified": 6,
+    "wage_median": 99000
+   },
+   {
+    "name": "ABBVIE INC.",
+    "certified": 6,
+    "wage_median": 143020
+   },
+   {
+    "name": "CLINCHOICE INC.",
+    "certified": 6,
+    "wage_median": 103261
+   },
+   {
+    "name": "KEYBANK NATIONAL ASSOCIATION",
+    "certified": 5,
+    "wage_median": 108500
+   },
+   {
+    "name": "FORTREA INC.",
+    "certified": 5,
+    "wage_median": 124758
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 63
+   },
+   {
+    "state": "NY",
+    "certified": 55
+   },
+   {
+    "state": "NJ",
+    "certified": 55
+   },
+   {
+    "state": "IL",
+    "certified": 40
+   },
+   {
+    "state": "PA",
+    "certified": 32
+   },
+   {
+    "state": "TX",
+    "certified": 32
+   }
+  ],
+  "days_median": 491
+ },
+ "45-2093": {
+  "decisions": 153,
+  "certified": 144,
+  "cert_rate": 94.1,
+  "wage_p25": 26645,
+  "wage_median": 33987,
+  "wage_p75": 39530,
+  "top_employers": [
+   {
+    "name": "EMP SERV, LLC",
+    "certified": 26,
+    "wage_median": 50000
+   },
+   {
+    "name": "OAK VIEW FARMS LLC",
+    "certified": 15,
+    "wage_median": 23317
+   },
+   {
+    "name": "LINCOLN COUNTY FEEDYARD, LLC",
+    "certified": 8,
+    "wage_median": 28912
+   },
+   {
+    "name": "BANCROFT CUSTOM FEEDERS LLC",
+    "certified": 7,
+    "wage_median": 30285
+   },
+   {
+    "name": "CEDAR VIEW DAIRY, LLC",
+    "certified": 5,
+    "wage_median": 36400
+   },
+   {
+    "name": "DON STEWART STABLES",
+    "certified": 4,
+    "wage_median": 27373
+   },
+   {
+    "name": "GREENTOP ACRES, LLC.",
+    "certified": 3,
+    "wage_median": 36254
+   },
+   {
+    "name": "BRUBAKER FARMS, LLC",
+    "certified": 2,
+    "wage_median": 26582
+   },
+   {
+    "name": "TROY FARM LLC",
+    "certified": 2,
+    "wage_median": 18741
+   },
+   {
+    "name": "ROBERT K. HEINEN",
+    "certified": 2,
+    "wage_median": 21694
+   },
+   {
+    "name": "PARK RANGE LLC",
+    "certified": 2,
+    "wage_median": 33987
+   },
+   {
+    "name": "DETAR LIVESTOCK, INC.",
+    "certified": 2,
+    "wage_median": 46215
+   },
+   {
+    "name": "JAX DAIRY FARM, INC.",
+    "certified": 2,
+    "wage_median": 208480
+   },
+   {
+    "name": "RICKETTS FARM SERVICE, INC.",
+    "certified": 2,
+    "wage_median": 24877
+   },
+   {
+    "name": "SPARTANWOOD, LLC",
+    "certified": 2,
+    "wage_median": 26645
+   }
+  ],
+  "top_states": [
+   {
+    "state": "MN",
+    "certified": 33
+   },
+   {
+    "state": "NE",
+    "certified": 17
+   },
+   {
+    "state": "IA",
+    "certified": 17
+   },
+   {
+    "state": "TX",
+    "certified": 11
+   },
+   {
+    "state": "LA",
+    "certified": 8
+   },
+   {
+    "state": "UT",
+    "certified": 6
+   }
+  ],
+  "days_median": 493
+ },
+ "51-3023": {
+  "decisions": 271,
+  "certified": 266,
+  "cert_rate": 98.2,
+  "wage_p25": 30680,
+  "wage_median": 30680,
+  "wage_p75": 30680,
+  "top_employers": [
+   {
+    "name": "CASE FARMS PROCESSING, INC",
+    "certified": 217,
+    "wage_median": 30680
+   },
+   {
+    "name": "GANADEROS BORGES, INC.",
+    "certified": 22,
+    "wage_median": 21840
+   },
+   {
+    "name": "CLEMENS FOOD GROUP LLC",
+    "certified": 19,
+    "wage_median": 36712
+   },
+   {
+    "name": "MIDWAY FOOD MARKET, INC.",
+    "certified": 4,
+    "wage_median": 26374
+   },
+   {
+    "name": "MIDWAY FOOD MARKET",
+    "certified": 2,
+    "wage_median": 26374
+   },
+   {
+    "name": "ASAKRA INC",
+    "certified": 1,
+    "wage_median": 37500
+   },
+   {
+    "name": "BRAGGS CORNER MEAT  CORPORATION",
+    "certified": 1,
+    "wage_median": 33238
+   }
+  ],
+  "top_states": [
+   {
+    "state": "OH",
+    "certified": 217
+   },
+   {
+    "state": "PR",
+    "certified": 22
+   },
+   {
+    "state": "MI",
+    "certified": 19
+   },
+   {
+    "state": "TX",
+    "certified": 6
+   },
+   {
+    "state": "WA",
+    "certified": 1
+   },
+   {
+    "state": "VA",
+    "certified": 1
+   }
+  ],
+  "days_median": 486
+ },
+ "17-2041": {
+  "decisions": 139,
+  "certified": 128,
+  "cert_rate": 92.1,
+  "wage_p25": 96861,
+  "wage_median": 113381,
+  "wage_p75": 134467,
+  "top_employers": [
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "certified": 9,
+    "wage_median": 105403
+   },
+   {
+    "name": "THE DOW CHEMICAL COMPANY",
+    "certified": 4,
+    "wage_median": 117843
+   },
+   {
+    "name": "AMGEN INC.",
+    "certified": 4,
+    "wage_median": 97506
+   },
+   {
+    "name": "FORMOSA PLASTICS CORPORATION, TEXAS",
+    "certified": 4,
+    "wage_median": 110988
+   },
+   {
+    "name": "WORLEY GROUP, INC.",
+    "certified": 3,
+    "wage_median": 145392
+   },
+   {
+    "name": "BAYER CROPSCIENCE LP",
+    "certified": 2,
+    "wage_median": 111800
+   },
+   {
+    "name": "AM BATTERIES, INC.",
+    "certified": 2,
+    "wage_median": 92891
+   },
+   {
+    "name": "NORTH AMERICAN STAINLESS",
+    "certified": 2,
+    "wage_median": 84893
+   },
+   {
+    "name": "TECHNIP ENERGIES USA, INC.",
+    "certified": 2,
+    "wage_median": 129106
+   },
+   {
+    "name": "BERKSHIRE STERILE MANUFACTURING, INC.",
+    "certified": 2,
+    "wage_median": 113131
+   },
+   {
+    "name": "APPLIED MATERIALS, INC.",
+    "certified": 2,
+    "wage_median": 100949
+   },
+   {
+    "name": "LINDE INC.",
+    "certified": 2,
+    "wage_median": 136253
+   },
+   {
+    "name": "PYRAN, INC.",
+    "certified": 2,
+    "wage_median": 75000
+   },
+   {
+    "name": "DURR SYSTEMS, INC.",
+    "certified": 2,
+    "wage_median": 112070
+   },
+   {
+    "name": "WESTERN DIGITAL TECHNOLOGIES, INC.",
+    "certified": 2,
+    "wage_median": 124041
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 20
+   },
+   {
+    "state": "TX",
+    "certified": 20
+   },
+   {
+    "state": "MA",
+    "certified": 16
+   },
+   {
+    "state": "MI",
+    "certified": 9
+   },
+   {
+    "state": "ID",
+    "certified": 7
+   },
+   {
+    "state": "NJ",
+    "certified": 6
+   }
+  ],
+  "days_median": 489
+ },
+ "19-3011": {
+  "decisions": 117,
+  "certified": 111,
+  "cert_rate": 94.9,
+  "wage_p25": 126192,
+  "wage_median": 152500,
+  "wage_p75": 180000,
+  "top_employers": [
+   {
+    "name": "CORNERSTONE RESEARCH, INC.",
+    "certified": 24,
+    "wage_median": 180000
+   },
+   {
+    "name": "ANALYSIS GROUP, INC.",
+    "certified": 8,
+    "wage_median": 180000
+   },
+   {
+    "name": "COMPASS LEXECON LLC",
+    "certified": 7,
+    "wage_median": 150000
+   },
+   {
+    "name": "THE BRATTLE GROUP",
+    "certified": 6,
+    "wage_median": 150000
+   },
+   {
+    "name": "BATES WHITE, LLC",
+    "certified": 5,
+    "wage_median": 215000
+   },
+   {
+    "name": "GOLDMAN SACHS & CO. LLC",
+    "certified": 3,
+    "wage_median": 150000
+   },
+   {
+    "name": "BOARD OF GOVERNORS OF THE FEDERAL RESERVE SYSTEM",
+    "certified": 3,
+    "wage_median": 175000
+   },
+   {
+    "name": "COMPETITION DYNAMICS, INC.",
+    "certified": 2,
+    "wage_median": 202500
+   },
+   {
+    "name": "CRA INTERNATIONAL, INC.",
+    "certified": 2,
+    "wage_median": 222500
+   },
+   {
+    "name": "FEDERAL EXPRESS CORPORATION",
+    "certified": 2,
+    "wage_median": 111203
+   },
+   {
+    "name": "NATIONAL ECONOMIC RESEARCH ASSOCIATES, INC.",
+    "certified": 2,
+    "wage_median": 145500
+   },
+   {
+    "name": "T. ROWE PRICE ASSOCIATES, INC.",
+    "certified": 1,
+    "wage_median": 93995
+   },
+   {
+    "name": "LUFTHANSA TECHNIK AG",
+    "certified": 1,
+    "wage_median": 119981
+   },
+   {
+    "name": "NUTRIBAND, INC.",
+    "certified": 1,
+    "wage_median": 58469
+   },
+   {
+    "name": "NOMURA SECURITIES INTERNATIONAL, INC.",
+    "certified": 1,
+    "wage_median": 300000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "NY",
+    "certified": 26
+   },
+   {
+    "state": "DC",
+    "certified": 19
+   },
+   {
+    "state": "MA",
+    "certified": 19
+   },
+   {
+    "state": "CA",
+    "certified": 16
+   },
+   {
+    "state": "FL",
+    "certified": 6
+   },
+   {
+    "state": "TX",
+    "certified": 5
+   }
+  ],
+  "days_median": 476
+ },
+ "31-1131": {
+  "decisions": 1519,
+  "certified": 1289,
+  "cert_rate": 84.9,
+  "wage_p25": 35131,
+  "wage_median": 37003,
+  "wage_p75": 41600,
+  "top_employers": [
+   {
+    "name": "MANAGEMENT HEALTH SYSTEMS, LLC",
+    "certified": 413,
+    "wage_median": 41600
+   },
+   {
+    "name": "UNITED METHODIST HOMES & SERVICES",
+    "certified": 198,
+    "wage_median": 37003
+   },
+   {
+    "name": "SKILLED IN MANAGEMENT CO LLC",
+    "certified": 137,
+    "wage_median": 33613
+   },
+   {
+    "name": "RUNNELLS OPERATING, LLC.",
+    "certified": 103,
+    "wage_median": 36899
+   },
+   {
+    "name": "NORTH CAPE POST ACUTE NURSING AND REHABILITATION, INC.",
+    "certified": 63,
+    "wage_median": 35131
+   },
+   {
+    "name": "PRUITTHEALTH",
+    "certified": 37,
+    "wage_median": 33280
+   },
+   {
+    "name": "APERION CARE ELGIN, LLC",
+    "certified": 30,
+    "wage_median": 37003
+   },
+   {
+    "name": "APERION CARE PLUM GROVE",
+    "certified": 24,
+    "wage_median": 37003
+   },
+   {
+    "name": "MERRY HEART PERSONNEL CORP.",
+    "certified": 17,
+    "wage_median": 36899
+   },
+   {
+    "name": "MASTER STAFFING INC",
+    "certified": 16,
+    "wage_median": 37000
+   },
+   {
+    "name": "UNIVERSITY VILLAGE RETIREMENT COMMUNITY, LLC.",
+    "certified": 15,
+    "wage_median": 26811
+   },
+   {
+    "name": "OPTIMUS SERVICES CORP",
+    "certified": 14,
+    "wage_median": 39520
+   },
+   {
+    "name": "ACCOLADE HEALTHCARE OF PAXTON SENIOR LIVING",
+    "certified": 14,
+    "wage_median": 34674
+   },
+   {
+    "name": "LIFECARE MEDICAL CENTER",
+    "certified": 13,
+    "wage_median": 33030
+   },
+   {
+    "name": "BRIDGEWAY, INC.",
+    "certified": 13,
+    "wage_median": 36899
+   }
+  ],
+  "top_states": [
+   {
+    "state": "",
+    "certified": 412
+   },
+   {
+    "state": "IL",
+    "certified": 278
+   },
+   {
+    "state": "NJ",
+    "certified": 238
+   },
+   {
+    "state": "OH",
+    "certified": 137
+   },
+   {
+    "state": "CA",
+    "certified": 62
+   },
+   {
+    "state": "GA",
+    "certified": 37
+   }
+  ],
+  "days_median": 497
+ },
+ "47-2111": {
+  "decisions": 43,
+  "certified": 36,
+  "cert_rate": 83.7,
+  "wage_p25": 43722,
+  "wage_median": 55131,
+  "wage_p75": 77418,
+  "top_employers": [
+   {
+    "name": "JOSEPH Q. CHUA",
+    "certified": 4,
+    "wage_median": 43347
+   },
+   {
+    "name": "EXSCAPE DESIGNS, LLC",
+    "certified": 3,
+    "wage_median": 62046
+   },
+   {
+    "name": "JOHNDEL INTERNATIONAL, INC.",
+    "certified": 3,
+    "wage_median": 43722
+   },
+   {
+    "name": "MOREL LANDSCAPING LLC",
+    "certified": 2,
+    "wage_median": 42682
+   },
+   {
+    "name": "BC UNITED CONSTRUCTION INC.",
+    "certified": 1,
+    "wage_median": 117187
+   },
+   {
+    "name": "AUTOSYSTEMS AMERICA INC.",
+    "certified": 1,
+    "wage_median": 78666
+   },
+   {
+    "name": "AMORIM CONSTRUCTION CORP.",
+    "certified": 1,
+    "wage_median": 70678
+   },
+   {
+    "name": "ABC ELECTRIC SERVICE, INC",
+    "certified": 1,
+    "wage_median": 54579
+   },
+   {
+    "name": "KW ELECTRIC, INC.",
+    "certified": 1,
+    "wage_median": 56160
+   },
+   {
+    "name": "PROMINENCE ELECTRIC, LLC",
+    "certified": 1,
+    "wage_median": 41725
+   },
+   {
+    "name": "ENBRIDGE EMPLOYEE SERVICES, INC.",
+    "certified": 1,
+    "wage_median": 109624
+   },
+   {
+    "name": "MACIAK PROPERTY LLC",
+    "certified": 1,
+    "wage_median": 54517
+   },
+   {
+    "name": "CORPORACION ARD, CORP.",
+    "certified": 1,
+    "wage_median": 52700
+   },
+   {
+    "name": "SHACK PLUMBING",
+    "certified": 1,
+    "wage_median": 77002
+   },
+   {
+    "name": "NETWORK ELECTRIC, INC",
+    "certified": 1,
+    "wage_median": 94640
+   }
+  ],
+  "top_states": [
+   {
+    "state": "GU",
+    "certified": 9
+   },
+   {
+    "state": "FL",
+    "certified": 8
+   },
+   {
+    "state": "OH",
+    "certified": 5
+   },
+   {
+    "state": "IL",
+    "certified": 3
+   },
+   {
+    "state": "CA",
+    "certified": 2
+   },
+   {
+    "state": "MI",
+    "certified": 1
+   }
+  ],
+  "days_median": 496
+ },
+ "13-2051": {
+  "decisions": 1154,
+  "certified": 1069,
+  "cert_rate": 92.6,
+  "wage_p25": 100000,
+  "wage_median": 140000,
+  "wage_p75": 176571,
+  "top_employers": [
+   {
+    "name": "GOLDMAN SACHS & CO. LLC",
+    "certified": 42,
+    "wage_median": 173778
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 38,
+    "wage_median": 200000
+   },
+   {
+    "name": "ERNST & YOUNG U.S. LLP",
+    "certified": 27,
+    "wage_median": 170005
+   },
+   {
+    "name": "BOFA SECURITIES, INC.",
+    "certified": 24,
+    "wage_median": 225000
+   },
+   {
+    "name": "CITIBANK, N.A.",
+    "certified": 24,
+    "wage_median": 184700
+   },
+   {
+    "name": "KPMG LLP",
+    "certified": 14,
+    "wage_median": 173555
+   },
+   {
+    "name": "CITADEL AMERICAS SERVICES LLC",
+    "certified": 13,
+    "wage_median": 125000
+   },
+   {
+    "name": "PACIFIC INVESTMENT MANAGEMENT COMPANY LLC",
+    "certified": 11,
+    "wage_median": 160000
+   },
+   {
+    "name": "MORGAN STANLEY & CO. LLC",
+    "certified": 10,
+    "wage_median": 225000
+   },
+   {
+    "name": "BLACKROCK FINANCIAL MANAGEMENT, INC.",
+    "certified": 9,
+    "wage_median": 129000
+   },
+   {
+    "name": "MOODY'S INVESTORS SERVICE, INC.",
+    "certified": 7,
+    "wage_median": 143125
+   },
+   {
+    "name": "CITIGROUP GLOBAL MARKETS INC.",
+    "certified": 7,
+    "wage_median": 250000
+   },
+   {
+    "name": "POINT72 ASSET MANAGEMENT, L.P.",
+    "certified": 7,
+    "wage_median": 200000
+   },
+   {
+    "name": "FMR LLC",
+    "certified": 7,
+    "wage_median": 136427
+   },
+   {
+    "name": "JEFFERIES LLC",
+    "certified": 6,
+    "wage_median": 237500
+   }
+  ],
+  "top_states": [
+   {
+    "state": "NY",
+    "certified": 475
+   },
+   {
+    "state": "CA",
+    "certified": 190
+   },
+   {
+    "state": "TX",
+    "certified": 74
+   },
+   {
+    "state": "FL",
+    "certified": 57
+   },
+   {
+    "state": "MA",
+    "certified": 45
+   },
+   {
+    "state": "IL",
+    "certified": 36
+   }
+  ],
+  "days_median": 488
+ },
+ "35-2014": {
+  "decisions": 1043,
+  "certified": 938,
+  "cert_rate": 89.9,
+  "wage_p25": 32013,
+  "wage_median": 39333,
+  "wage_p75": 42328,
+  "top_employers": [
+   {
+    "name": "ROBISON VENTURE GROUP, LLC",
+    "certified": 53,
+    "wage_median": 23442
+   },
+   {
+    "name": "OMNI HOTELS MANAGEMENT CORP.",
+    "certified": 29,
+    "wage_median": 31200
+   },
+   {
+    "name": "DC ORGANIC FARM LLC",
+    "certified": 16,
+    "wage_median": 41059
+   },
+   {
+    "name": "HUYNH NGUYEN ENTERPRISE, INC.",
+    "certified": 10,
+    "wage_median": 27310
+   },
+   {
+    "name": "Z&B INC.",
+    "certified": 10,
+    "wage_median": 27934
+   },
+   {
+    "name": "TG STEAK LLC",
+    "certified": 8,
+    "wage_median": 35318
+   },
+   {
+    "name": "S-R-A LEON 12 CORPORATION",
+    "certified": 8,
+    "wage_median": 25501
+   },
+   {
+    "name": "SUGARBUSH MOUNTAIN RESORT",
+    "certified": 7,
+    "wage_median": 42328
+   },
+   {
+    "name": "TAMSAM LLC",
+    "certified": 7,
+    "wage_median": 25376
+   },
+   {
+    "name": "LA COSECHA GRIFFIN, LLC",
+    "certified": 6,
+    "wage_median": 22568
+   },
+   {
+    "name": "STRINGS RAMEN INC.",
+    "certified": 6,
+    "wage_median": 39229
+   },
+   {
+    "name": "STRINGS AND KENKEE LLC",
+    "certified": 5,
+    "wage_median": 39229
+   },
+   {
+    "name": "AMY VU, INC",
+    "certified": 5,
+    "wage_median": 41683
+   },
+   {
+    "name": "BV RESTAURANT INC",
+    "certified": 5,
+    "wage_median": 40747
+   },
+   {
+    "name": "CAMILA'S RESTAURANT ORLANDO LLC",
+    "certified": 5,
+    "wage_median": 39333
+   }
+  ],
+  "top_states": [
+   {
+    "state": "GA",
+    "certified": 108
+   },
+   {
+    "state": "OR",
+    "certified": 84
+   },
+   {
+    "state": "CA",
+    "certified": 78
+   },
+   {
+    "state": "CO",
+    "certified": 62
+   },
+   {
+    "state": "VA",
+    "certified": 59
+   },
+   {
+    "state": "WA",
+    "certified": 58
+   }
+  ],
+  "days_median": 494
+ },
+ "49-3023": {
+  "decisions": 92,
+  "certified": 81,
+  "cert_rate": 88,
+  "wage_p25": 45198,
+  "wage_median": 52395,
+  "wage_p75": 57845,
+  "top_employers": [
+   {
+    "name": "COMMERCIAL TIRE SALES & SERVICE LLC",
+    "certified": 4,
+    "wage_median": 37690
+   },
+   {
+    "name": "RETAMAS TIRE & AUTO REPAIR",
+    "certified": 3,
+    "wage_median": 40539
+   },
+   {
+    "name": "3 BROTHERS 1 SISTER INC",
+    "certified": 2,
+    "wage_median": 30368
+   },
+   {
+    "name": "THREE FORKS RANCH CORP",
+    "certified": 2,
+    "wage_median": 54122
+   },
+   {
+    "name": "KCC TX, LLC",
+    "certified": 2,
+    "wage_median": 54974
+   },
+   {
+    "name": "TEXAS AUTO TECHS, INC.",
+    "certified": 2,
+    "wage_median": 52395
+   },
+   {
+    "name": "APAD INC",
+    "certified": 2,
+    "wage_median": 59779
+   },
+   {
+    "name": "PHILLY AUTO, INC.",
+    "certified": 2,
+    "wage_median": 55349
+   },
+   {
+    "name": "TEMIS MOTORSPORTS LLC",
+    "certified": 1,
+    "wage_median": 50000
+   },
+   {
+    "name": "HAWAII TOUR, INC.",
+    "certified": 1,
+    "wage_median": 45198
+   },
+   {
+    "name": "FERNANDES TIRE GROUP, CORP",
+    "certified": 1,
+    "wage_median": 30867
+   },
+   {
+    "name": "INDIGO AUTO GROUP HOLDINGS, LLC",
+    "certified": 1,
+    "wage_median": 85000
+   },
+   {
+    "name": "CHAMPION AUTO CENTER INC",
+    "certified": 1,
+    "wage_median": 55661
+   },
+   {
+    "name": "FMS MOTORSPORT LLC",
+    "certified": 1,
+    "wage_median": 40400
+   },
+   {
+    "name": "ELLINGSON MOTORCARS, LLC",
+    "certified": 1,
+    "wage_median": 54725
+   }
+  ],
+  "top_states": [
+   {
+    "state": "FL",
+    "certified": 15
+   },
+   {
+    "state": "TX",
+    "certified": 12
+   },
+   {
+    "state": "CA",
+    "certified": 8
+   },
+   {
+    "state": "NJ",
+    "certified": 7
+   },
+   {
+    "state": "NC",
+    "certified": 5
+   },
+   {
+    "state": "IL",
+    "certified": 5
+   }
+  ],
+  "days_median": 494
+ },
+ "19-1042": {
+  "decisions": 66,
+  "certified": 62,
+  "cert_rate": 93.9,
+  "wage_p25": 90730,
+  "wage_median": 113630,
+  "wage_p75": 138419,
+  "top_employers": [
+   {
+    "name": "BRISTOL-MYERS SQUIBB COMPANY",
+    "certified": 4,
+    "wage_median": 153709
+   },
+   {
+    "name": "BOSTONGENE CORPORATION",
+    "certified": 4,
+    "wage_median": 130000
+   },
+   {
+    "name": "GILEAD SCIENCES, INC.",
+    "certified": 2,
+    "wage_median": 127109
+   },
+   {
+    "name": "UNIVERSITY OF MICHIGAN",
+    "certified": 2,
+    "wage_median": 69732
+   },
+   {
+    "name": "MODERNATX, INC.",
+    "certified": 2,
+    "wage_median": 152900
+   },
+   {
+    "name": "JANSSEN RESEARCH & DEVELOPMENT, LLC",
+    "certified": 2,
+    "wage_median": 142500
+   },
+   {
+    "name": "ADVENTIST HEALTH BAKERSFIELD",
+    "certified": 2,
+    "wage_median": 121368
+   },
+   {
+    "name": "ADVENTIST HEALTH TEHACHAPI VALLEY",
+    "certified": 2,
+    "wage_median": 108649
+   },
+   {
+    "name": "DUALITYBIO INC.",
+    "certified": 2,
+    "wage_median": 90730
+   },
+   {
+    "name": "RESEARCH INSTITUTE AT NATIONWIDE CHILDREN'S HOSPITAL",
+    "certified": 2,
+    "wage_median": 56300
+   },
+   {
+    "name": "GENENTECH, INC.",
+    "certified": 2,
+    "wage_median": 190860
+   },
+   {
+    "name": "ACCUTAR BIOTECHNOLOGY, INC.",
+    "certified": 1,
+    "wage_median": 140000
+   },
+   {
+    "name": "ACCESS BIO, INC.",
+    "certified": 1,
+    "wage_median": 90730
+   },
+   {
+    "name": "CAPSTONE DEVELOPMENT SERVICES COMPANY, LLC",
+    "certified": 1,
+    "wage_median": 126000
+   },
+   {
+    "name": "DIASYS DIAGNOSTIC SYSTEMS USA LLC",
+    "certified": 1,
+    "wage_median": 108659
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 17
+   },
+   {
+    "state": "MA",
+    "certified": 12
+   },
+   {
+    "state": "NJ",
+    "certified": 10
+   },
+   {
+    "state": "TX",
+    "certified": 4
+   },
+   {
+    "state": "IL",
+    "certified": 3
+   },
+   {
+    "state": "MI",
+    "certified": 3
+   }
+  ],
+  "days_median": 485
+ },
+ "15-1221": {
+  "decisions": 123,
+  "certified": 114,
+  "cert_rate": 92.7,
+  "wage_p25": 148429,
+  "wage_median": 171963,
+  "wage_p75": 198633,
+  "top_employers": [
+   {
+    "name": "META PLATFORMS, INC.",
+    "certified": 7,
+    "wage_median": 198940
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "certified": 7,
+    "wage_median": 171270
+   },
+   {
+    "name": "ADOBE INC.",
+    "certified": 6,
+    "wage_median": 191500
+   },
+   {
+    "name": "NVIDIA CORPORATION",
+    "certified": 4,
+    "wage_median": 239200
+   },
+   {
+    "name": "BYTEDANCE INC.",
+    "certified": 3,
+    "wage_median": 212800
+   },
+   {
+    "name": "C3.AI, INC.",
+    "certified": 3,
+    "wage_median": 150000
+   },
+   {
+    "name": "INTEL CORPORATION",
+    "certified": 3,
+    "wage_median": 166732
+   },
+   {
+    "name": "BOT AUTO TX INC.",
+    "certified": 3,
+    "wage_median": 200000
+   },
+   {
+    "name": "ALPHASENSE, INC.",
+    "certified": 3,
+    "wage_median": 210000
+   },
+   {
+    "name": "BLOOMBERG L.P.",
+    "certified": 3,
+    "wage_median": 185000
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "certified": 2,
+    "wage_median": 200000
+   },
+   {
+    "name": "IBM CORPORATION",
+    "certified": 2,
+    "wage_median": 230096
+   },
+   {
+    "name": "PALO ALTO NETWORKS, INC.",
+    "certified": 2,
+    "wage_median": 126756
+   },
+   {
+    "name": "YAHOO HOLDINGS INC.",
+    "certified": 2,
+    "wage_median": 160125
+   },
+   {
+    "name": "INNOPEAK TECHNOLOGIES, INC.",
+    "certified": 2,
+    "wage_median": 175552
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 54
+   },
+   {
+    "state": "NY",
+    "certified": 16
+   },
+   {
+    "state": "WA",
+    "certified": 13
+   },
+   {
+    "state": "TX",
+    "certified": 7
+   },
+   {
+    "state": "PA",
+    "certified": 5
+   },
+   {
+    "state": "MA",
+    "certified": 4
+   }
+  ],
+  "days_median": 490
+ },
+ "17-2061": {
+  "decisions": 148,
+  "certified": 139,
+  "cert_rate": 93.9,
+  "wage_p25": 133663,
+  "wage_median": 162589,
+  "wage_p75": 201100,
+  "top_employers": [
+   {
+    "name": "MICROSOFT CORPORATION",
+    "certified": 22,
+    "wage_median": 148940
+   },
+   {
+    "name": "NVIDIA CORPORATION",
+    "certified": 10,
+    "wage_median": 215796
+   },
+   {
+    "name": "TESLA, INC.",
+    "certified": 9,
+    "wage_median": 202415
+   },
+   {
+    "name": "INTEL CORPORATION",
+    "certified": 7,
+    "wage_median": 133663
+   },
+   {
+    "name": "ARM, INC.",
+    "certified": 7,
+    "wage_median": 176400
+   },
+   {
+    "name": "ARISTA NETWORKS, INC.",
+    "certified": 4,
+    "wage_median": 142500
+   },
+   {
+    "name": "CISCO SYSTEMS, INC.",
+    "certified": 4,
+    "wage_median": 184662
+   },
+   {
+    "name": "LAM RESEARCH CORPORATION",
+    "certified": 4,
+    "wage_median": 161233
+   },
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "certified": 4,
+    "wage_median": 144861
+   },
+   {
+    "name": "WAYMO LLC",
+    "certified": 3,
+    "wage_median": 215000
+   },
+   {
+    "name": "SAMSUNG AUSTIN SEMICONDUCTOR, L.L.C.",
+    "certified": 2,
+    "wage_median": 176760
+   },
+   {
+    "name": "CELESTIAL AI INC.",
+    "certified": 2,
+    "wage_median": 197891
+   },
+   {
+    "name": "AMPERE COMPUTING LLC",
+    "certified": 2,
+    "wage_median": 143726
+   },
+   {
+    "name": "SAMSUNG SEMICONDUCTOR, INC.",
+    "certified": 2,
+    "wage_median": 215672
+   },
+   {
+    "name": "ADVANCED MICRO DEVICES, INC.",
+    "certified": 2,
+    "wage_median": 138545
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "certified": 69
+   },
+   {
+    "state": "TX",
+    "certified": 17
+   },
+   {
+    "state": "WA",
+    "certified": 14
+   },
+   {
+    "state": "NC",
+    "certified": 8
+   },
+   {
+    "state": "MI",
+    "certified": 5
+   },
+   {
+    "state": "IL",
+    "certified": 4
+   }
+  ],
+  "days_median": 486
+ },
+ "51-3022": {
+  "decisions": 2304,
+  "certified": 2293,
+  "cert_rate": 99.5,
+  "wage_p25": 23920,
+  "wage_median": 26000,
+  "wage_p75": 26500,
+  "top_employers": [
+   {
+    "name": "JCG FOODS OF GEORGIA, LLC",
+    "certified": 772,
+    "wage_median": 26000
+   },
+   {
+    "name": "KOCH FOODS OF GADSDEN, LLC",
+    "certified": 563,
+    "wage_median": 23920
+   },
+   {
+    "name": "CONSOLIDATED CATFISH PRODUCERS, LLC",
+    "certified": 322,
+    "wage_median": 22464
+   },
+   {
+    "name": "CASE FARMS PROCESSING, INC",
+    "certified": 207,
+    "wage_median": 31720
+   },
+   {
+    "name": "ALLEN HARIM FOODS, LLC",
+    "certified": 122,
+    "wage_median": 31200
+   },
+   {
+    "name": "LOUISIANA PRIDE CATFISH, INC.",
+    "certified": 99,
+    "wage_median": 22027
+   },
+   {
+    "name": "PECO FOODS, INC",
+    "certified": 94,
+    "wage_median": 32344
+   },
+   {
+    "name": "FPL FOOD, LLC",
+    "certified": 62,
+    "wage_median": 30202
+   },
+   {
+    "name": "B&G SEAFOOD, INC",
+    "certified": 20,
+    "wage_median": 23920
+   },
+   {
+    "name": "AMERICAN JERKY COMPANY, LLC",
+    "certified": 12,
+    "wage_median": 35500
+   },
+   {
+    "name": "AMERICA'S CATCH, INC.",
+    "certified": 8,
+    "wage_median": 21174
+   },
+   {
+    "name": "BEE BONG, LLC",
+    "certified": 3,
+    "wage_median": 33280
+   },
+   {
+    "name": "RCHPR KMP, INC.",
+    "certified": 2,
+    "wage_median": 25272
+   },
+   {
+    "name": "ULEN LOCKER",
+    "certified": 2,
+    "wage_median": 29266
+   },
+   {
+    "name": "ALPHA TRADING INC.",
+    "certified": 2,
+    "wage_median": 199557
+   }
+  ],
+  "top_states": [
+   {
+    "state": "AL",
+    "certified": 885
+   },
+   {
+    "state": "GA",
+    "certified": 835
+   },
+   {
+    "state": "OH",
+    "certified": 207
+   },
+   {
+    "state": "DE",
+    "certified": 122
+   },
+   {
+    "state": "LA",
+    "certified": 119
+   },
+   {
+    "state": "AR",
+    "certified": 94
+   }
+  ],
+  "days_median": 478
+ },
+ "49-9041": {
+  "decisions": 47,
+  "certified": 45,
+  "cert_rate": 95.7,
+  "wage_p25": 56556,
+  "wage_median": 69451,
+  "wage_p75": 75993,
+  "top_employers": [
+   {
+    "name": "IMA AMERICA CORPORATION",
+    "certified": 12,
+    "wage_median": 69451
+   },
+   {
+    "name": "ALFA LAVAL INC.",
+    "certified": 3,
+    "wage_median": 78582
+   },
+   {
+    "name": "SEWON AMERICA, INC.",
+    "certified": 2,
+    "wage_median": 46738
+   },
+   {
+    "name": "C&C NORTH AMERICA, INC.",
+    "certified": 2,
+    "wage_median": 65967
+   },
+   {
+    "name": "PRECARE CORP",
+    "certified": 2,
+    "wage_median": 47570
+   },
+   {
+    "name": "GRI TOWERS TEXAS, INC.",
+    "certified": 2,
+    "wage_median": 58408
+   },
+   {
+    "name": "R.A JONES",
+    "certified": 2,
+    "wage_median": 80000
+   },
+   {
+    "name": "KP VENTURES WELL DRILLING & PUMP CO., LLC",
+    "certified": 1,
+    "wage_median": 100000
+   },
+   {
+    "name": "SHINHWA AUTO USA CORP.",
+    "certified": 1,
+    "wage_median": 57782
+   },
+   {
+    "name": "MORSE HYDRAULICS USA, LLC",
+    "certified": 1,
+    "wage_median": 53768
+   },
+   {
+    "name": "ITAC ALABAMA LLC",
+    "certified": 1,
+    "wage_median": 50378
+   },
+   {
+    "name": "JOON LLC",
+    "certified": 1,
+    "wage_median": 51210
+   },
+   {
+    "name": "CAJUN SUGAR COMPANY, LLC",
+    "certified": 1,
+    "wage_median": 61963
+   },
+   {
+    "name": "RD FOOD MANUFACTURING INC",
+    "certified": 1,
+    "wage_median": 55000
+   },
+   {
+    "name": "KUMHO TIRE GEORGIA, INC.",
+    "certified": 1,
+    "wage_median": 90000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "NC",
+    "certified": 12
+   },
+   {
+    "state": "TX",
+    "certified": 9
+   },
+   {
+    "state": "AL",
+    "certified": 4
+   },
+   {
+    "state": "GA",
+    "certified": 3
+   },
+   {
+    "state": "VA",
+    "certified": 3
+   },
+   {
+    "state": "LA",
+    "certified": 2
+   }
+  ],
+  "days_median": 480
+ },
+ "51-3021": {
+  "decisions": 77,
+  "certified": 46,
+  "cert_rate": 59.7,
+  "wage_p25": 39692,
+  "wage_median": 45000,
+  "wage_p75": 48235,
+  "top_employers": [
+   {
+    "name": "FITCH RANCH ARTISAN MEAT COMPANY LLC",
+    "certified": 10,
+    "wage_median": 45000
+   },
+   {
+    "name": "LOS CARRILLO II, INC.",
+    "certified": 8,
+    "wage_median": 23171
+   },
+   {
+    "name": "DC ORGANIC FARM LLC",
+    "certified": 7,
+    "wage_median": 49712
+   },
+   {
+    "name": "PALLI SUPERMARKET",
+    "certified": 4,
+    "wage_median": 44741
+   },
+   {
+    "name": "PAPINEAU LOCKER INC.",
+    "certified": 2,
+    "wage_median": 38522
+   },
+   {
+    "name": "ARWI FOOD INC.",
+    "certified": 2,
+    "wage_median": 47216
+   },
+   {
+    "name": "ALLAHI LLC",
+    "certified": 1,
+    "wage_median": 48235
+   },
+   {
+    "name": "PAK FOODS 4 LLC",
+    "certified": 1,
+    "wage_median": 48235
+   },
+   {
+    "name": "SIG MEAT LLC",
+    "certified": 1,
+    "wage_median": 51938
+   },
+   {
+    "name": "ORNNA FOODS CORP",
+    "certified": 1,
+    "wage_median": 43202
+   },
+   {
+    "name": "ROKKA'S LLC",
+    "certified": 1,
+    "wage_median": 37260
+   },
+   {
+    "name": "VITORIA MEAT MARKET, INC.",
+    "certified": 1,
+    "wage_median": 48589
+   },
+   {
+    "name": "MONTAGE DEER VALLEY, LLC",
+    "certified": 1,
+    "wage_median": 50960
+   },
+   {
+    "name": "INTERNATIONAL GROCERY & HALAL MEAT INC",
+    "certified": 1,
+    "wage_median": 47486
+   },
+   {
+    "name": "BRAGGS CORNER MEAT  CORPORATION",
+    "certified": 1,
+    "wage_median": 49733
+   }
+  ],
+  "top_states": [
+   {
+    "state": "MD",
+    "certified": 12
+   },
+   {
+    "state": "CO",
+    "certified": 10
+   },
+   {
+    "state": "GA",
+    "certified": 8
+   },
+   {
+    "state": "NY",
+    "certified": 5
+   },
+   {
+    "state": "IL",
+    "certified": 2
+   },
+   {
+    "state": "FL",
+    "certified": 2
+   }
+  ],
+  "days_median": 493
+ },
+ "47-2061": {
+  "decisions": 271,
+  "certified": 217,
+  "cert_rate": 80.1,
+  "wage_p25": 34445,
+  "wage_median": 37752,
+  "wage_p75": 43430,
+  "top_employers": [
+   {
+    "name": "VILLALOBOS CONCRETE INC.",
+    "certified": 18,
+    "wage_median": 43430
+   },
+   {
+    "name": "AIRCO MECHANICAL, LTD.",
+    "certified": 17,
+    "wage_median": 27498
+   },
+   {
+    "name": "ADCOCK CONCRETE, INC.",
+    "certified": 12,
+    "wage_median": 43659
+   },
+   {
+    "name": "RE-CREATE COMPANIES LLC",
+    "certified": 10,
+    "wage_median": 40976
+   },
+   {
+    "name": "CHESAPEAKE CONTAINMENT SYSTEMS, INC.",
+    "certified": 10,
+    "wage_median": 36421
+   },
+   {
+    "name": "CDC POOLS, INC.",
+    "certified": 10,
+    "wage_median": 34902
+   },
+   {
+    "name": "HIGHWAY 19 CONSTRUCTION LLC",
+    "certified": 10,
+    "wage_median": 34674
+   },
+   {
+    "name": "GRAVES AND GRAVES CONSTRUCTION COMPANY, INC.",
+    "certified": 7,
+    "wage_median": 34216
+   },
+   {
+    "name": "MILLER CONSTRUCTION INC.",
+    "certified": 6,
+    "wage_median": 34445
+   },
+   {
+    "name": "STUCCO COLORS DESIGN LLC",
+    "certified": 6,
+    "wage_median": 57554
+   },
+   {
+    "name": "DAKOTA DIRECTIONAL LLC",
+    "certified": 5,
+    "wage_median": 41475
+   },
+   {
+    "name": "MAKEOVER AND FINISHES GROUP INC.",
+    "certified": 5,
+    "wage_median": 44000
+   },
+   {
+    "name": "MCBRIDECO LLC",
+    "certified": 5,
+    "wage_median": 33259
+   },
+   {
+    "name": "HENDERSON CONCRETE, INC.",
+    "certified": 5,
+    "wage_median": 38854
+   },
+   {
+    "name": "SCHRODER CONCRETE",
+    "certified": 5,
+    "wage_median": 51626
+   }
+  ],
+  "top_states": [
+   {
+    "state": "",
+    "certified": 59
+   },
+   {
+    "state": "TX",
+    "certified": 34
+   },
+   {
+    "state": "UT",
+    "certified": 15
+   },
+   {
+    "state": "FL",
+    "certified": 13
+   },
+   {
+    "state": "MA",
+    "certified": 10
+   },
+   {
+    "state": "NC",
+    "certified": 10
+   }
+  ],
+  "days_median": 494
+ },
+ "47-2152": {
+  "decisions": 61,
+  "certified": 58,
+  "cert_rate": 95.1,
+  "wage_p25": 40414,
+  "wage_median": 63606,
+  "wage_p75": 63606,
+  "top_employers": [
+   {
+    "name": "MOMENTUM MECHANICAL, INC.",
+    "certified": 29,
+    "wage_median": 63606
+   },
+   {
+    "name": "CORE TECH INTERNATIONAL CORPORATION",
+    "certified": 8,
+    "wage_median": 65062
+   },
+   {
+    "name": "SOUTHERN FIRE PROTECTION OF ORLANDO, INC.",
+    "certified": 7,
+    "wage_median": 35963
+   },
+   {
+    "name": "JB PIPE, LLC",
+    "certified": 4,
+    "wage_median": 30514
+   },
+   {
+    "name": "FARGO PACIFIC, INC.",
+    "certified": 3,
+    "wage_median": 40414
+   },
+   {
+    "name": "ALPHA FIRE UNLIMITED",
+    "certified": 1,
+    "wage_median": 59072
+   },
+   {
+    "name": "RADIANCE HEATING AND PLUMBING, INC.",
+    "certified": 1,
+    "wage_median": 51563
+   },
+   {
+    "name": "ABC PSHCE",
+    "certified": 1,
+    "wage_median": 105914
+   },
+   {
+    "name": "ANGELL SERVICES, LLC",
+    "certified": 1,
+    "wage_median": 41621
+   },
+   {
+    "name": "POSH PLUMBING ENTERPRISES LLC",
+    "certified": 1,
+    "wage_median": 53435
+   },
+   {
+    "name": "JP PIPE, LLC",
+    "certified": 1,
+    "wage_median": 30514
+   },
+   {
+    "name": "SCHUBERT PLUMBING OF SW FL, INC",
+    "certified": 1,
+    "wage_median": 38667
+   }
+  ],
+  "top_states": [
+   {
+    "state": "UT",
+    "certified": 29
+   },
+   {
+    "state": "GU",
+    "certified": 11
+   },
+   {
+    "state": "FL",
+    "certified": 9
+   },
+   {
+    "state": "TX",
+    "certified": 6
+   },
+   {
+    "state": "CA",
+    "certified": 1
+   },
+   {
+    "state": "AZ",
+    "certified": 1
+   }
+  ],
+  "days_median": 481
+ },
+ "53-7062": {
+  "decisions": 466,
+  "certified": 461,
+  "cert_rate": 98.9,
+  "wage_p25": 31200,
+  "wage_median": 31200,
+  "wage_p75": 31533,
+  "top_employers": [
+   {
+    "name": "TW SERVICES, INC",
+    "certified": 340,
+    "wage_median": 31200
+   },
+   {
+    "name": "AMERICAN STEEL CARPORTS INC",
+    "certified": 58,
+    "wage_median": 34486
+   },
+   {
+    "name": "MERIT LOGISTICS",
+    "certified": 20,
+    "wage_median": 26083
+   },
+   {
+    "name": "MADISON VENTURES GROUP, INC.",
+    "certified": 15,
+    "wage_median": 28000
+   },
+   {
+    "name": "SPA NAILS SUPPLY INC",
+    "certified": 8,
+    "wage_median": 29806
+   },
+   {
+    "name": "ZJH HOLDINGS LLC",
+    "certified": 6,
+    "wage_median": 30035
+   },
+   {
+    "name": "THREE RIVERS FARM SUPPLY, INC.",
+    "certified": 4,
+    "wage_median": 21445
+   },
+   {
+    "name": "KAST DISTRIBUTORS, INC.",
+    "certified": 2,
+    "wage_median": 39728
+   },
+   {
+    "name": "P&H DESIGN WORKS LLC",
+    "certified": 2,
+    "wage_median": 30472
+   },
+   {
+    "name": "STAMFORD TENT & EQUIPMENT COMPANY",
+    "certified": 2,
+    "wage_median": 32989
+   },
+   {
+    "name": "ONE HUNDRED DELIVERIES & ASSEMBLY, LLC",
+    "certified": 1,
+    "wage_median": 31000
+   },
+   {
+    "name": "ORGIL AUTO TRANSPORT, INC.",
+    "certified": 1,
+    "wage_median": 29120
+   },
+   {
+    "name": "A&E TRANSPORTATION INC.",
+    "certified": 1,
+    "wage_median": 32386
+   },
+   {
+    "name": "NEWLAND TRANSPORT LLC",
+    "certified": 1,
+    "wage_median": 35422
+   }
+  ],
+  "top_states": [
+   {
+    "state": "NV",
+    "certified": 199
+   },
+   {
+    "state": "UT",
+    "certified": 147
+   },
+   {
+    "state": "TX",
+    "certified": 78
+   },
+   {
+    "state": "WY",
+    "certified": 15
+   },
+   {
+    "state": "FL",
+    "certified": 9
+   },
+   {
+    "state": "LA",
+    "certified": 4
+   }
+  ],
+  "days_median": 495
+ },
+ "51-2092": {
+  "decisions": 1424,
+  "certified": 1359,
+  "cert_rate": 95.4,
+  "wage_p25": 36400,
+  "wage_median": 37440,
+  "wage_p75": 37440,
+  "top_employers": [
+   {
+    "name": "STOUGHTON TRAILERS, LLC",
+    "certified": 933,
+    "wage_median": 37440
+   },
+   {
+    "name": "MORGAN TRUCK BODY LLC",
+    "certified": 188,
+    "wage_median": 36400
+   },
+   {
+    "name": "GDI SERVICES INC.",
+    "certified": 104,
+    "wage_median": 34320
+   },
+   {
+    "name": "PRESTIGIOUS PLACEMENT, INC",
+    "certified": 79,
+    "wage_median": 29994
+   },
+   {
+    "name": "JCS SYSTEMS INC.",
+    "certified": 50,
+    "wage_median": 25667
+   },
+   {
+    "name": "FAIRMAN BUILDING COMPONENTS LLC",
+    "certified": 2,
+    "wage_median": 32864
+   },
+   {
+    "name": "DON PACOS CO.",
+    "certified": 1,
+    "wage_median": 32198
+   },
+   {
+    "name": "LA FORGE DE STYLE",
+    "certified": 1,
+    "wage_median": 41683
+   },
+   {
+    "name": "GR TRAILERS LLC",
+    "certified": 1,
+    "wage_median": 27914
+   }
+  ],
+  "top_states": [
+   {
+    "state": "WI",
+    "certified": 973
+   },
+   {
+    "state": "TN",
+    "certified": 183
+   },
+   {
+    "state": "AL",
+    "certified": 50
+   },
+   {
+    "state": "OH",
+    "certified": 40
+   },
+   {
+    "state": "PA",
+    "certified": 30
+   },
+   {
+    "state": "CT",
+    "certified": 30
+   }
+  ],
+  "days_median": 482
+ },
+ "29-1141": {
+  "decisions": 4,
+  "certified": 3,
+  "cert_rate": 75,
+  "wage_p25": 105539,
+  "wage_median": 106051,
+  "wage_p75": 108052,
+  "top_employers": [
+   {
+    "name": "PURDUE UNIVERSITY",
+    "certified": 2,
+    "wage_median": 105539
+   },
+   {
+    "name": "CAREVANA HOME HEALTH INC.",
+    "certified": 1,
+    "wage_median": 110053
+   }
+  ],
+  "top_states": [
+   {
+    "state": "IN",
+    "certified": 2
+   },
+   {
+    "state": "",
+    "certified": 1
+   }
+  ],
+  "days_median": 453
+ },
+ "51-4121": {
+  "decisions": 40,
+  "certified": 30,
+  "cert_rate": 75,
+  "wage_p25": 55046,
+  "wage_median": 56285,
+  "wage_p75": 57408,
+  "top_employers": [
+   {
+    "name": "GRI TOWERS TEXAS, INC.",
+    "certified": 8,
+    "wage_median": 56285
+   },
+   {
+    "name": "CORE TECH INTERNATIONAL CORPORATION",
+    "certified": 4,
+    "wage_median": 57408
+   },
+   {
+    "name": "AG&P AMERICAS, INC.",
+    "certified": 2,
+    "wage_median": 64834
+   },
+   {
+    "name": "INDUSTRIAL MAINTENANCE WELDING & MACHINING CO, INC.",
+    "certified": 2,
+    "wage_median": 56763
+   },
+   {
+    "name": "RIGHT ANGLE STEEL & FAB., INC.",
+    "certified": 2,
+    "wage_median": 50066
+   },
+   {
+    "name": "SUPERIOR HOODS, INC.",
+    "certified": 1,
+    "wage_median": 55000
+   },
+   {
+    "name": "LISTRO LLC",
+    "certified": 1,
+    "wage_median": 56098
+   },
+   {
+    "name": "MECHANICAL TECHNOLOGIES & SOLUTIONS, LLC",
+    "certified": 1,
+    "wage_median": 53000
+   },
+   {
+    "name": "BUILDING ENVELOPE SYSTEMS, LLC",
+    "certified": 1,
+    "wage_median": 72800
+   },
+   {
+    "name": "GRANT WOOLDRIDGE",
+    "certified": 1,
+    "wage_median": 70574
+   },
+   {
+    "name": "WOODARD EUBANKS & SONS LLP",
+    "certified": 1,
+    "wage_median": 44720
+   },
+   {
+    "name": "LINCOLN COUNTY FEEDYARD, LLC",
+    "certified": 1,
+    "wage_median": 52250
+   },
+   {
+    "name": "LIMBO INC.",
+    "certified": 1,
+    "wage_median": 55182
+   },
+   {
+    "name": "TATE ORNAMENTAL, INC.",
+    "certified": 1,
+    "wage_median": 67974
+   },
+   {
+    "name": "MOBINA, INC.",
+    "certified": 1,
+    "wage_median": 64376
+   }
+  ],
+  "top_states": [
+   {
+    "state": "TX",
+    "certified": 11
+   },
+   {
+    "state": "GU",
+    "certified": 5
+   },
+   {
+    "state": "IL",
+    "certified": 2
+   },
+   {
+    "state": "IN",
+    "certified": 2
+   },
+   {
+    "state": "GA",
+    "certified": 1
+   },
+   {
+    "state": "",
+    "certified": 1
+   }
+  ],
+  "days_median": 484
+ }
+}

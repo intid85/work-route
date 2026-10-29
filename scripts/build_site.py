@@ -210,7 +210,9 @@ def main() -> int:
     meta["sample"] = not us_live
     meta["sample_parts"] = [n for n, f in (("US", "perm"), ("Canada", "ca"), ("UK", "uk"), ("Australia", "au"), ("Japan", "jp"))
                             if force_sample or not (live / f"{f}.json").exists()]
-    lca, perm, sc = data("lca", {}), data("perm", {}), data("scorecard", {})
+    lca, perm = data("lca", {}), data("perm", {})
+    # Scorecard earnings: never mix sample earnings into real US pages
+    sc = data("scorecard", {}) if (force_sample or not us_live or (live / "scorecard.json").exists()) else {}
     vb = data("visa_bulletin", {"current": None, "history": []})
     ca = data("ca")
     uk = data("uk")

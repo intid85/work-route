@@ -1,0 +1,1828 @@
+{
+ "15-2051": {
+  "filings": 26194,
+  "wage_p25": 97867,
+  "wage_median": 125549,
+  "wage_p75": 161714,
+  "top_employers": [
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 1573,
+    "wage_median": 141400
+   },
+   {
+    "name": "WAL-MART ASSOCIATES, INC.",
+    "filings": 573,
+    "wage_median": 146348
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "filings": 555,
+    "wage_median": 175829
+   },
+   {
+    "name": "CAPITAL ONE, NATIONAL ASSOCIATION",
+    "filings": 499,
+    "wage_median": 115939
+   },
+   {
+    "name": "GOOGLE LLC",
+    "filings": 422,
+    "wage_median": 196000
+   },
+   {
+    "name": "META PLATFORMS, INC",
+    "filings": 419,
+    "wage_median": 191110
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "filings": 387,
+    "wage_median": 142600
+   },
+   {
+    "name": "CAPITAL ONE SERVICES, LLC",
+    "filings": 351,
+    "wage_median": 115939
+   },
+   {
+    "name": "ADOBE INC.",
+    "filings": 218,
+    "wage_median": 175000
+   },
+   {
+    "name": "LINKEDIN CORPORATION",
+    "filings": 217,
+    "wage_median": 177214
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 4782
+   },
+   {
+    "state": "TX",
+    "filings": 3842
+   },
+   {
+    "state": "NY",
+    "filings": 2732
+   },
+   {
+    "state": "WA",
+    "filings": 2365
+   },
+   {
+    "state": "NJ",
+    "filings": 1415
+   }
+  ]
+ },
+ "15-1252": {
+  "filings": 117746,
+  "wage_p25": 116189,
+  "wage_median": 145000,
+  "wage_p75": 178100,
+  "top_employers": [
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 6391,
+    "wage_median": 165000
+   },
+   {
+    "name": "GOOGLE LLC",
+    "filings": 4918,
+    "wage_median": 193000
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "filings": 3211,
+    "wage_median": 179000
+   },
+   {
+    "name": "META PLATFORMS, INC",
+    "filings": 2732,
+    "wage_median": 216605
+   },
+   {
+    "name": "APPLE INC.",
+    "filings": 2054,
+    "wage_median": 181100
+   },
+   {
+    "name": "FIDELITY TECHNOLOGY GROUP, LLC D/B/A FIDELITY INVESTMENTS",
+    "filings": 1903,
+    "wage_median": 125119
+   },
+   {
+    "name": "AMAZON DEVELOPMENT CENTER U.S., INC.",
+    "filings": 1902,
+    "wage_median": 155000
+   },
+   {
+    "name": "DELOITTE CONSULTING LLP",
+    "filings": 1543,
+    "wage_median": 142800
+   },
+   {
+    "name": "AMAZON WEB SERVICES, INC.",
+    "filings": 1490,
+    "wage_median": 159150
+   },
+   {
+    "name": "WAL-MART ASSOCIATES, INC.",
+    "filings": 1257,
+    "wage_median": 145452
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 25804
+   },
+   {
+    "state": "TX",
+    "filings": 20882
+   },
+   {
+    "state": "WA",
+    "filings": 13399
+   },
+   {
+    "state": "NY",
+    "filings": 6108
+   },
+   {
+    "state": "NC",
+    "filings": 5783
+   }
+  ]
+ },
+ "15-1253": {
+  "filings": 12688,
+  "wage_p25": 91374,
+  "wage_median": 108680,
+  "wage_p75": 129792,
+  "top_employers": [
+   {
+    "name": "COGNIZANT TECHNOLOGY SOLUTIONS US CORP",
+    "filings": 937,
+    "wage_median": 102086
+   },
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 308,
+    "wage_median": 143700
+   },
+   {
+    "name": "CAPGEMINI AMERICA INC",
+    "filings": 230,
+    "wage_median": 120000
+   },
+   {
+    "name": "APPLE INC.",
+    "filings": 188,
+    "wage_median": 162500
+   },
+   {
+    "name": "DELOITTE CONSULTING LLP",
+    "filings": 173,
+    "wage_median": 114600
+   },
+   {
+    "name": "COMPUNNEL SOFTWARE GROUP, INC",
+    "filings": 170,
+    "wage_median": 102750
+   },
+   {
+    "name": "SALESFORCE, INC.",
+    "filings": 162,
+    "wage_median": 146820
+   },
+   {
+    "name": "TATA CONSULTANCY SERVICES LIMITED",
+    "filings": 144,
+    "wage_median": 91374
+   },
+   {
+    "name": "ACCENTURE LLP",
+    "filings": 141,
+    "wage_median": 126300
+   },
+   {
+    "name": "NTT DATA AMERICAS, INC.",
+    "filings": 129,
+    "wage_median": 121332
+   }
+  ],
+  "top_states": [
+   {
+    "state": "TX",
+    "filings": 2276
+   },
+   {
+    "state": "CA",
+    "filings": 2274
+   },
+   {
+    "state": "GA",
+    "filings": 698
+   },
+   {
+    "state": "NC",
+    "filings": 633
+   },
+   {
+    "state": "NJ",
+    "filings": 613
+   }
+  ]
+ },
+ "13-1161": {
+  "filings": 4166,
+  "wage_p25": 72883,
+  "wage_median": 95000,
+  "wage_p75": 130000,
+  "top_employers": [
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 210,
+    "wage_median": 130000
+   },
+   {
+    "name": "TT COMMERCE & GLOBAL SERVICES LLC",
+    "filings": 152,
+    "wage_median": 130000
+   },
+   {
+    "name": "GOOGLE LLC",
+    "filings": 129,
+    "wage_median": 169000
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "filings": 111,
+    "wage_median": 163400
+   },
+   {
+    "name": "ADOBE INC.",
+    "filings": 37,
+    "wage_median": 158674
+   },
+   {
+    "name": "APPLE INC.",
+    "filings": 33,
+    "wage_median": 172100
+   },
+   {
+    "name": "AMAZON WEB SERVICES, INC.",
+    "filings": 28,
+    "wage_median": 143027
+   },
+   {
+    "name": "META PLATFORMS, INC",
+    "filings": 21,
+    "wage_median": 195000
+   },
+   {
+    "name": "AMAZON ADVERTISING LLC",
+    "filings": 21,
+    "wage_median": 133334
+   },
+   {
+    "name": "GROUPM WORLDWIDE, LLC",
+    "filings": 18,
+    "wage_median": 103000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 1172
+   },
+   {
+    "state": "NY",
+    "filings": 763
+   },
+   {
+    "state": "TX",
+    "filings": 392
+   },
+   {
+    "state": "WA",
+    "filings": 362
+   },
+   {
+    "state": "NJ",
+    "filings": 227
+   }
+  ]
+ },
+ "11-3021": {
+  "filings": 8190,
+  "wage_p25": 176904,
+  "wage_median": 208000,
+  "wage_p75": 248643,
+  "top_employers": [
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 891,
+    "wage_median": 201500
+   },
+   {
+    "name": "ERNST & YOUNG U.S. LLP",
+    "filings": 497,
+    "wage_median": 242126
+   },
+   {
+    "name": "DELOITTE CONSULTING LLP",
+    "filings": 271,
+    "wage_median": 210787
+   },
+   {
+    "name": "APPLE INC.",
+    "filings": 219,
+    "wage_median": 224534
+   },
+   {
+    "name": "PRICEWATERHOUSECOOPERS ADVISORY SERVICES LLC",
+    "filings": 178,
+    "wage_median": 198000
+   },
+   {
+    "name": "META PLATFORMS, INC",
+    "filings": 150,
+    "wage_median": 274456
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "filings": 108,
+    "wage_median": 215000
+   },
+   {
+    "name": "AMAZON WEB SERVICES, INC.",
+    "filings": 107,
+    "wage_median": 207100
+   },
+   {
+    "name": "FIDELITY TECHNOLOGY GROUP, LLC D/B/A FIDELITY INVESTMENTS",
+    "filings": 105,
+    "wage_median": 157187
+   },
+   {
+    "name": "AMAZON DEVELOPMENT CENTER U.S., INC.",
+    "filings": 98,
+    "wage_median": 217950
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 2130
+   },
+   {
+    "state": "TX",
+    "filings": 1124
+   },
+   {
+    "state": "WA",
+    "filings": 1057
+   },
+   {
+    "state": "NY",
+    "filings": 534
+   },
+   {
+    "state": "GA",
+    "filings": 346
+   }
+  ]
+ },
+ "15-1211": {
+  "filings": 7726,
+  "wage_p25": 95000,
+  "wage_median": 110000,
+  "wage_p75": 132600,
+  "top_employers": [
+   {
+    "name": "ACCENTURE LLP",
+    "filings": 470,
+    "wage_median": 140500
+   },
+   {
+    "name": "TATA CONSULTANCY SERVICES LIMITED",
+    "filings": 298,
+    "wage_median": 92539
+   },
+   {
+    "name": "SAP AMERICA, INC.",
+    "filings": 276,
+    "wage_median": 160000
+   },
+   {
+    "name": "COMPUNNEL SOFTWARE GROUP, INC",
+    "filings": 252,
+    "wage_median": 104000
+   },
+   {
+    "name": "QUADRANT TECHNOLOGIES LLC",
+    "filings": 177,
+    "wage_median": 106330
+   },
+   {
+    "name": "WIPRO LIMITED",
+    "filings": 155,
+    "wage_median": 105768
+   },
+   {
+    "name": "VIRTUSA CORPORATION",
+    "filings": 151,
+    "wage_median": 127000
+   },
+   {
+    "name": "CAPGEMINI AMERICA INC",
+    "filings": 150,
+    "wage_median": 126595
+   },
+   {
+    "name": "INFOSYS LIMITED",
+    "filings": 112,
+    "wage_median": 93018
+   },
+   {
+    "name": "TECH MAHINDRA (AMERICAS), INC",
+    "filings": 110,
+    "wage_median": 101685
+   }
+  ],
+  "top_states": [
+   {
+    "state": "TX",
+    "filings": 1437
+   },
+   {
+    "state": "CA",
+    "filings": 876
+   },
+   {
+    "state": "NJ",
+    "filings": 558
+   },
+   {
+    "state": "PA",
+    "filings": 473
+   },
+   {
+    "state": "GA",
+    "filings": 420
+   }
+  ]
+ },
+ "17-2071": {
+  "filings": 5099,
+  "wage_p25": 101759,
+  "wage_median": 127379,
+  "wage_p75": 156936,
+  "top_employers": [
+   {
+    "name": "APPLE INC.",
+    "filings": 302,
+    "wage_median": 159890
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "filings": 123,
+    "wage_median": 179700
+   },
+   {
+    "name": "TESLA, INC.",
+    "filings": 99,
+    "wage_median": 180000
+   },
+   {
+    "name": "META PLATFORMS, INC",
+    "filings": 98,
+    "wage_median": 188282
+   },
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "filings": 97,
+    "wage_median": 145602
+   },
+   {
+    "name": "CUMMINS INC.",
+    "filings": 86,
+    "wage_median": 104707
+   },
+   {
+    "name": "TEXAS INSTRUMENTS INCORPORATED",
+    "filings": 75,
+    "wage_median": 117042
+   },
+   {
+    "name": "GENERAL MOTORS",
+    "filings": 63,
+    "wage_median": 139025
+   },
+   {
+    "name": "BURNS & MCDONNELL ENGINEERING COMPANY, INC.",
+    "filings": 54,
+    "wage_median": 125775
+   },
+   {
+    "name": "INFINEON TECHNOLOGIES AMERICAS CORP.",
+    "filings": 53,
+    "wage_median": 149622
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 1281
+   },
+   {
+    "state": "TX",
+    "filings": 763
+   },
+   {
+    "state": "MI",
+    "filings": 364
+   },
+   {
+    "state": "IL",
+    "filings": 219
+   },
+   {
+    "state": "NC",
+    "filings": 176
+   }
+  ]
+ },
+ "13-2011": {
+  "filings": 5845,
+  "wage_p25": 80000,
+  "wage_median": 97406,
+  "wage_p75": 124480,
+  "top_employers": [
+   {
+    "name": "ERNST & YOUNG U.S. LLP",
+    "filings": 1186,
+    "wage_median": 114525
+   },
+   {
+    "name": "DELOITTE TAX LLP",
+    "filings": 531,
+    "wage_median": 95200
+   },
+   {
+    "name": "DELOITTE & TOUCHE LLP",
+    "filings": 401,
+    "wage_median": 88000
+   },
+   {
+    "name": "KPMG LLP",
+    "filings": 120,
+    "wage_median": 119400
+   },
+   {
+    "name": "GOLDMAN SACHS & CO. LLC",
+    "filings": 106,
+    "wage_median": 108600
+   },
+   {
+    "name": "PWC US TAX LLP",
+    "filings": 101,
+    "wage_median": 136000
+   },
+   {
+    "name": "PRICEWATERHOUSECOOPERS LLP",
+    "filings": 78,
+    "wage_median": 119500
+   },
+   {
+    "name": "GRANT THORNTON ADVISORS LLC",
+    "filings": 59,
+    "wage_median": 128800
+   },
+   {
+    "name": "BDO USA, P.C.",
+    "filings": 49,
+    "wage_median": 117000
+   },
+   {
+    "name": "STANDISH MANAGEMENT US, LLC",
+    "filings": 40,
+    "wage_median": 92000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 1257
+   },
+   {
+    "state": "NY",
+    "filings": 837
+   },
+   {
+    "state": "TX",
+    "filings": 691
+   },
+   {
+    "state": "IL",
+    "filings": 346
+   },
+   {
+    "state": "NJ",
+    "filings": 308
+   }
+  ]
+ },
+ "15-2041": {
+  "filings": 2242,
+  "wage_p25": 101097,
+  "wage_median": 128000,
+  "wage_p75": 155200,
+  "top_employers": [
+   {
+    "name": "FEDERAL EXPRESS CORPORATION",
+    "filings": 64,
+    "wage_median": 104232
+   },
+   {
+    "name": "ELI LILLY AND COMPANY",
+    "filings": 56,
+    "wage_median": 138681
+   },
+   {
+    "name": "ERNST & YOUNG U.S. LLP",
+    "filings": 56,
+    "wage_median": 153000
+   },
+   {
+    "name": "INTEL CORPORATION",
+    "filings": 50,
+    "wage_median": 129890
+   },
+   {
+    "name": "REGENERON PHARMACEUTICALS, INC.",
+    "filings": 39,
+    "wage_median": 160000
+   },
+   {
+    "name": "MERCK SHARP & DOHME LLC",
+    "filings": 35,
+    "wage_median": 139600
+   },
+   {
+    "name": "TECHDATA SERVICE COMPANY LLC",
+    "filings": 32,
+    "wage_median": 120000
+   },
+   {
+    "name": "TWO SIGMA INVESTMENTS, LP",
+    "filings": 28,
+    "wage_median": 235000
+   },
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 27,
+    "wage_median": 160000
+   },
+   {
+    "name": "FOOD AND DRUG ADMINISTRATION",
+    "filings": 24,
+    "wage_median": 133964
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 316
+   },
+   {
+    "state": "NY",
+    "filings": 267
+   },
+   {
+    "state": "MA",
+    "filings": 205
+   },
+   {
+    "state": "NJ",
+    "filings": 201
+   },
+   {
+    "state": "TX",
+    "filings": 195
+   }
+  ]
+ },
+ "11-2021": {
+  "filings": 1314,
+  "wage_p25": 142800,
+  "wage_median": 175792,
+  "wage_p75": 219461,
+  "top_employers": [
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 216,
+    "wage_median": 155193
+   },
+   {
+    "name": "TT COMMERCE & GLOBAL SERVICES LLC",
+    "filings": 104,
+    "wage_median": 216040
+   },
+   {
+    "name": "AMAZON WEB SERVICES, INC.",
+    "filings": 32,
+    "wage_median": 152300
+   },
+   {
+    "name": "TIKTOK INC.",
+    "filings": 24,
+    "wage_median": 303500
+   },
+   {
+    "name": "META PLATFORMS, INC",
+    "filings": 16,
+    "wage_median": 233563
+   },
+   {
+    "name": "INTUIT INC.",
+    "filings": 15,
+    "wage_median": 175683
+   },
+   {
+    "name": "BYTEDANCE INC.",
+    "filings": 14,
+    "wage_median": 271500
+   },
+   {
+    "name": "INFINEON TECHNOLOGIES AMERICAS CORP.",
+    "filings": 13,
+    "wage_median": 194961
+   },
+   {
+    "name": "CUMMINS INC.",
+    "filings": 10,
+    "wage_median": 124478
+   },
+   {
+    "name": "GOOGLE LLC",
+    "filings": 9,
+    "wage_median": 232000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 360
+   },
+   {
+    "state": "WA",
+    "filings": 248
+   },
+   {
+    "state": "NY",
+    "filings": 183
+   },
+   {
+    "state": "TX",
+    "filings": 101
+   },
+   {
+    "state": "IL",
+    "filings": 49
+   }
+  ]
+ },
+ "17-2141": {
+  "filings": 7018,
+  "wage_p25": 93642,
+  "wage_median": 111292,
+  "wage_p75": 137369,
+  "top_employers": [
+   {
+    "name": "TESLA, INC.",
+    "filings": 236,
+    "wage_median": 155000
+   },
+   {
+    "name": "CUMMINS INC.",
+    "filings": 220,
+    "wage_median": 99286
+   },
+   {
+    "name": "APPLE INC.",
+    "filings": 173,
+    "wage_median": 158995
+   },
+   {
+    "name": "RIVIAN AUTOMOTIVE, LLC",
+    "filings": 155,
+    "wage_median": 150000
+   },
+   {
+    "name": "FORD MOTOR COMPANY",
+    "filings": 143,
+    "wage_median": 125362
+   },
+   {
+    "name": "GENERAL MOTORS",
+    "filings": 115,
+    "wage_median": 139111
+   },
+   {
+    "name": "LUCID USA, INC.",
+    "filings": 103,
+    "wage_median": 150654
+   },
+   {
+    "name": "L&T TECHNOLOGY SERVICES LIMITED",
+    "filings": 76,
+    "wage_median": 93198
+   },
+   {
+    "name": "ASML US, LLC",
+    "filings": 51,
+    "wage_median": 89814
+   },
+   {
+    "name": "ENGINEERING TECHNOLOGY ASSOCIATES, INC.",
+    "filings": 41,
+    "wage_median": 94000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 1610
+   },
+   {
+    "state": "MI",
+    "filings": 1134
+   },
+   {
+    "state": "TX",
+    "filings": 576
+   },
+   {
+    "state": "IL",
+    "filings": 382
+   },
+   {
+    "state": "IN",
+    "filings": 358
+   }
+  ]
+ },
+ "17-2112": {
+  "filings": 7892,
+  "wage_p25": 95000,
+  "wage_median": 112174,
+  "wage_p75": 135000,
+  "top_employers": [
+   {
+    "name": "TESLA, INC.",
+    "filings": 902,
+    "wage_median": 130000
+   },
+   {
+    "name": "APPLE INC.",
+    "filings": 171,
+    "wage_median": 168742
+   },
+   {
+    "name": "RIVIAN AUTOMOTIVE, LLC",
+    "filings": 132,
+    "wage_median": 123388
+   },
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 119,
+    "wage_median": 140000
+   },
+   {
+    "name": "AMAZON DATA SERVICES, INC",
+    "filings": 104,
+    "wage_median": 132374
+   },
+   {
+    "name": "LUCID USA, INC.",
+    "filings": 83,
+    "wage_median": 123885
+   },
+   {
+    "name": "GOOGLE LLC",
+    "filings": 61,
+    "wage_median": 184000
+   },
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "filings": 60,
+    "wage_median": 115916
+   },
+   {
+    "name": "MEDTRONIC, INC.",
+    "filings": 58,
+    "wage_median": 118435
+   },
+   {
+    "name": "AMAZON DATA SERVICES, INC.",
+    "filings": 58,
+    "wage_median": 144350
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 1767
+   },
+   {
+    "state": "TX",
+    "filings": 978
+   },
+   {
+    "state": "MI",
+    "filings": 452
+   },
+   {
+    "state": "IL",
+    "filings": 369
+   },
+   {
+    "state": "MA",
+    "filings": 341
+   }
+  ]
+ },
+ "19-1042": {
+  "filings": 3228,
+  "wage_p25": 68922,
+  "wage_median": 77030,
+  "wage_p75": 96760,
+  "top_employers": [
+   {
+    "name": "WASHINGTON UNIVERSITY",
+    "filings": 146,
+    "wage_median": 67824
+   },
+   {
+    "name": "MAYO CLINIC",
+    "filings": 95,
+    "wage_median": 75816
+   },
+   {
+    "name": "GENERAL HOSPITAL CORPORATION",
+    "filings": 88,
+    "wage_median": 75000
+   },
+   {
+    "name": "ICAHN SCHOOL OF MEDICINE AT MOUNT SINAI",
+    "filings": 82,
+    "wage_median": 86479
+   },
+   {
+    "name": "MEMORIAL SLOAN KETTERING CANCER CENTER",
+    "filings": 73,
+    "wage_median": 80000
+   },
+   {
+    "name": "TRUSTEES OF THE UNIVERSITY OF PENNSYLVANIA",
+    "filings": 71,
+    "wage_median": 77500
+   },
+   {
+    "name": "NYU GROSSMAN SCHOOL OF MEDICINE",
+    "filings": 67,
+    "wage_median": 79602
+   },
+   {
+    "name": "UNIVERSITY OF MICHIGAN",
+    "filings": 66,
+    "wage_median": 68332
+   },
+   {
+    "name": "UT SOUTHWESTERN MEDICAL CENTER",
+    "filings": 65,
+    "wage_median": 71600
+   },
+   {
+    "name": "NATIONAL INSTITUTES OF HEALTH, HHS",
+    "filings": 61,
+    "wage_median": 112517
+   }
+  ],
+  "top_states": [
+   {
+    "state": "NY",
+    "filings": 514
+   },
+   {
+    "state": "MA",
+    "filings": 363
+   },
+   {
+    "state": "TX",
+    "filings": 277
+   },
+   {
+    "state": "CA",
+    "filings": 261
+   },
+   {
+    "state": "PA",
+    "filings": 199
+   }
+  ]
+ },
+ "17-2051": {
+  "filings": 4703,
+  "wage_p25": 81016,
+  "wage_median": 94144,
+  "wage_p75": 115128,
+  "top_employers": [
+   {
+    "name": "WSP USA INC.",
+    "filings": 110,
+    "wage_median": 99757
+   },
+   {
+    "name": "AMAZON DATA SERVICES, INC",
+    "filings": 95,
+    "wage_median": 136600
+   },
+   {
+    "name": "AECOM TECHNICAL SERVICES, INC.",
+    "filings": 90,
+    "wage_median": 101335
+   },
+   {
+    "name": "JACOBS ENGINEERING GROUP INC.",
+    "filings": 86,
+    "wage_median": 95532
+   },
+   {
+    "name": "HDR ENGINEERING, INC.",
+    "filings": 63,
+    "wage_median": 100000
+   },
+   {
+    "name": "STANTEC CONSULTING SERVICES INC.",
+    "filings": 58,
+    "wage_median": 102846
+   },
+   {
+    "name": "CALIFORNIA DEPARTMENT OF TRANSPORTATION",
+    "filings": 56,
+    "wage_median": 89136
+   },
+   {
+    "name": "LANGAN ENGINEERING AND ENVIRONMENTAL SERVICES, LLC",
+    "filings": 55,
+    "wage_median": 84000
+   },
+   {
+    "name": "CLAYCO, INC.",
+    "filings": 52,
+    "wage_median": 100085
+   },
+   {
+    "name": "STV INCORPORATED",
+    "filings": 52,
+    "wage_median": 98519
+   }
+  ],
+  "top_states": [
+   {
+    "state": "TX",
+    "filings": 805
+   },
+   {
+    "state": "CA",
+    "filings": 546
+   },
+   {
+    "state": "FL",
+    "filings": 347
+   },
+   {
+    "state": "NY",
+    "filings": 346
+   },
+   {
+    "state": "VA",
+    "filings": 249
+   }
+  ]
+ },
+ "17-2072": {
+  "filings": 5886,
+  "wage_p25": 128898,
+  "wage_median": 156853,
+  "wage_p75": 181675,
+  "top_employers": [
+   {
+    "name": "NVIDIA CORPORATION",
+    "filings": 764,
+    "wage_median": 186472
+   },
+   {
+    "name": "APPLE INC.",
+    "filings": 712,
+    "wage_median": 163031
+   },
+   {
+    "name": "INTEL CORPORATION",
+    "filings": 581,
+    "wage_median": 135907
+   },
+   {
+    "name": "QUALCOMM TECHNOLOGIES, INC.",
+    "filings": 464,
+    "wage_median": 154000
+   },
+   {
+    "name": "ADVANCED MICRO DEVICES, INC.",
+    "filings": 314,
+    "wage_median": 148054
+   },
+   {
+    "name": "MARVELL SEMICONDUCTOR, INC.",
+    "filings": 165,
+    "wage_median": 156853
+   },
+   {
+    "name": "ARM, INC.",
+    "filings": 141,
+    "wage_median": 156853
+   },
+   {
+    "name": "CADENCE DESIGN SYSTEMS, INC.",
+    "filings": 99,
+    "wage_median": 135907
+   },
+   {
+    "name": "CISCO SYSTEMS, INC.",
+    "filings": 82,
+    "wage_median": 164686
+   },
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "filings": 80,
+    "wage_median": 126104
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 3311
+   },
+   {
+    "state": "TX",
+    "filings": 1043
+   },
+   {
+    "state": "OR",
+    "filings": 257
+   },
+   {
+    "state": "MA",
+    "filings": 175
+   },
+   {
+    "state": "AZ",
+    "filings": 168
+   }
+  ]
+ },
+ "13-2051": {
+  "filings": 6611,
+  "wage_p25": 111685,
+  "wage_median": 145000,
+  "wage_p75": 185000,
+  "top_employers": [
+   {
+    "name": "ERNST & YOUNG U.S. LLP",
+    "filings": 466,
+    "wage_median": 185000
+   },
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 365,
+    "wage_median": 117499
+   },
+   {
+    "name": "JPMORGAN CHASE & CO.",
+    "filings": 358,
+    "wage_median": 155000
+   },
+   {
+    "name": "BOFA SECURITIES, INC.",
+    "filings": 185,
+    "wage_median": 175000
+   },
+   {
+    "name": "GOLDMAN SACHS & CO. LLC",
+    "filings": 148,
+    "wage_median": 175000
+   },
+   {
+    "name": "MORGAN STANLEY & CO., LLC",
+    "filings": 130,
+    "wage_median": 175000
+   },
+   {
+    "name": "BARCLAYS CAPITAL INC.",
+    "filings": 64,
+    "wage_median": 177500
+   },
+   {
+    "name": "CITIGROUP GLOBAL MARKETS INC.",
+    "filings": 63,
+    "wage_median": 175000
+   },
+   {
+    "name": "BLACKROCK FINANCIAL MANAGEMENT, INC.",
+    "filings": 63,
+    "wage_median": 132700
+   },
+   {
+    "name": "GOOGLE LLC",
+    "filings": 62,
+    "wage_median": 160500
+   }
+  ],
+  "top_states": [
+   {
+    "state": "NY",
+    "filings": 2935
+   },
+   {
+    "state": "CA",
+    "filings": 1080
+   },
+   {
+    "state": "TX",
+    "filings": 487
+   },
+   {
+    "state": "FL",
+    "filings": 279
+   },
+   {
+    "state": "IL",
+    "filings": 271
+   }
+  ]
+ },
+ "17-2061": {
+  "filings": 1122,
+  "wage_p25": 146885,
+  "wage_median": 176400,
+  "wage_p75": 205000,
+  "top_employers": [
+   {
+    "name": "GOOGLE LLC",
+    "filings": 226,
+    "wage_median": 188000
+   },
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 129,
+    "wage_median": 157560
+   },
+   {
+    "name": "META PLATFORMS, INC",
+    "filings": 91,
+    "wage_median": 176696
+   },
+   {
+    "name": "ANNAPURNA LABS (U.S.) INC.",
+    "filings": 49,
+    "wage_median": 196600
+   },
+   {
+    "name": "TESLA, INC.",
+    "filings": 48,
+    "wage_median": 246026
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "filings": 46,
+    "wage_median": 194812
+   },
+   {
+    "name": "APPLE INC.",
+    "filings": 29,
+    "wage_median": 171138
+   },
+   {
+    "name": "INTEL CORPORATION",
+    "filings": 28,
+    "wage_median": 155030
+   },
+   {
+    "name": "TENSTORRENT USA INC.",
+    "filings": 24,
+    "wage_median": 170612
+   },
+   {
+    "name": "AMAZON DATA SERVICES, INC",
+    "filings": 17,
+    "wage_median": 170000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 620
+   },
+   {
+    "state": "TX",
+    "filings": 176
+   },
+   {
+    "state": "WA",
+    "filings": 88
+   },
+   {
+    "state": "MA",
+    "filings": 50
+   },
+   {
+    "state": "NY",
+    "filings": 31
+   }
+  ]
+ },
+ "17-2041": {
+  "filings": 672,
+  "wage_p25": 103080,
+  "wage_median": 124555,
+  "wage_p75": 148727,
+  "top_employers": [
+   {
+    "name": "TESLA, INC.",
+    "filings": 16,
+    "wage_median": 160000
+   },
+   {
+    "name": "APPLIED MATERIALS, INC",
+    "filings": 16,
+    "wage_median": 152277
+   },
+   {
+    "name": "EVONIK CORPORATION",
+    "filings": 16,
+    "wage_median": 118079
+   },
+   {
+    "name": "ELI LILLY AND COMPANY",
+    "filings": 10,
+    "wage_median": 143186
+   },
+   {
+    "name": "MICRON TECHNOLOGY, INC.",
+    "filings": 10,
+    "wage_median": 122894
+   },
+   {
+    "name": "APPLIED MATERIALS, INC.",
+    "filings": 9,
+    "wage_median": 151070
+   },
+   {
+    "name": "AMGEN INC.",
+    "filings": 9,
+    "wage_median": 143021
+   },
+   {
+    "name": "MERCK SHARP & DOHME LLC",
+    "filings": 8,
+    "wage_median": 123594
+   },
+   {
+    "name": "THE DOW CHEMICAL COMPANY",
+    "filings": 7,
+    "wage_median": 117498
+   },
+   {
+    "name": "CUMMINS INC.",
+    "filings": 7,
+    "wage_median": 97600
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 119
+   },
+   {
+    "state": "TX",
+    "filings": 92
+   },
+   {
+    "state": "MA",
+    "filings": 53
+   },
+   {
+    "state": "NJ",
+    "filings": 34
+   },
+   {
+    "state": "IL",
+    "filings": 30
+   }
+  ]
+ },
+ "15-1221": {
+  "filings": 4402,
+  "wage_p25": 165000,
+  "wage_median": 190000,
+  "wage_p75": 220000,
+  "top_employers": [
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 902,
+    "wage_median": 182000
+   },
+   {
+    "name": "META PLATFORMS, INC",
+    "filings": 703,
+    "wage_median": 209722
+   },
+   {
+    "name": "GOOGLE LLC",
+    "filings": 305,
+    "wage_median": 205000
+   },
+   {
+    "name": "AMAZON DEVELOPMENT CENTER U.S., INC.",
+    "filings": 162,
+    "wage_median": 185000
+   },
+   {
+    "name": "NVIDIA CORPORATION",
+    "filings": 121,
+    "wage_median": 169695
+   },
+   {
+    "name": "ADOBE INC.",
+    "filings": 103,
+    "wage_median": 176127
+   },
+   {
+    "name": "BYTEDANCE INC.",
+    "filings": 81,
+    "wage_median": 310000
+   },
+   {
+    "name": "AMAZON WEB SERVICES, INC.",
+    "filings": 78,
+    "wage_median": 177853
+   },
+   {
+    "name": "MICROSOFT CORPORATION",
+    "filings": 76,
+    "wage_median": 196500
+   },
+   {
+    "name": "MISTRAL AI, INC.",
+    "filings": 38,
+    "wage_median": 280000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 2329
+   },
+   {
+    "state": "WA",
+    "filings": 712
+   },
+   {
+    "state": "NY",
+    "filings": 547
+   },
+   {
+    "state": "MA",
+    "filings": 173
+   },
+   {
+    "state": "TX",
+    "filings": 138
+   }
+  ]
+ },
+ "19-1021": {
+  "filings": 1756,
+  "wage_p25": 70304,
+  "wage_median": 80000,
+  "wage_p75": 103926,
+  "top_employers": [
+   {
+    "name": "ST. JUDE CHILDREN'S RESEARCH HOSPITAL",
+    "filings": 114,
+    "wage_median": 72530
+   },
+   {
+    "name": "UNIVERSITY OF CALIFORNIA, SAN FRANCISCO",
+    "filings": 62,
+    "wage_median": 83600
+   },
+   {
+    "name": "REGENERON PHARMACEUTICALS, INC.",
+    "filings": 60,
+    "wage_median": 136337
+   },
+   {
+    "name": "DUKE UNIVERSITY",
+    "filings": 43,
+    "wage_median": 77854
+   },
+   {
+    "name": "THE LELAND STANFORD, JR UNIVERSITY",
+    "filings": 41,
+    "wage_median": 80212
+   },
+   {
+    "name": "HOWARD HUGHES MEDICAL INSTITUTE",
+    "filings": 33,
+    "wage_median": 82500
+   },
+   {
+    "name": "THE UNIVERSITY OF TEXAS M.D. ANDERSON CANCER CENTER",
+    "filings": 32,
+    "wage_median": 75000
+   },
+   {
+    "name": "ALBERT EINSTEIN COLLEGE OF MEDICINE",
+    "filings": 27,
+    "wage_median": 74460
+   },
+   {
+    "name": "UNIVERSITY OF CALIFORNIA, SAN DIEGO",
+    "filings": 27,
+    "wage_median": 82836
+   },
+   {
+    "name": "MASSACHUSETTS INSTITUTE OF TECHNOLOGY",
+    "filings": 22,
+    "wage_median": 80055
+   }
+  ],
+  "top_states": [
+   {
+    "state": "CA",
+    "filings": 382
+   },
+   {
+    "state": "MA",
+    "filings": 266
+   },
+   {
+    "state": "NY",
+    "filings": 155
+   },
+   {
+    "state": "TN",
+    "filings": 143
+   },
+   {
+    "state": "TX",
+    "filings": 103
+   }
+  ]
+ },
+ "19-3011": {
+  "filings": 640,
+  "wage_p25": 117920,
+  "wage_median": 155550,
+  "wage_p75": 190048,
+  "top_employers": [
+   {
+    "name": "AMAZON.COM SERVICES LLC",
+    "filings": 85,
+    "wage_median": 160000
+   },
+   {
+    "name": "ANALYSIS GROUP, INC.",
+    "filings": 57,
+    "wage_median": 180000
+   },
+   {
+    "name": "CORNERSTONE RESEARCH, INC.",
+    "filings": 41,
+    "wage_median": 235000
+   },
+   {
+    "name": "CRA INTERNATIONAL, INC.",
+    "filings": 24,
+    "wage_median": 231750
+   },
+   {
+    "name": "COMPASS LEXECON LLC",
+    "filings": 21,
+    "wage_median": 205000
+   },
+   {
+    "name": "FEDERAL EXPRESS CORPORATION",
+    "filings": 19,
+    "wage_median": 111324
+   },
+   {
+    "name": "NATIONAL ECONOMIC RESEARCH ASSOCIATES, INC.",
+    "filings": 18,
+    "wage_median": 142500
+   },
+   {
+    "name": "THE BRATTLE GROUP",
+    "filings": 15,
+    "wage_median": 127950
+   },
+   {
+    "name": "ECONIC PARTNERS US LLC",
+    "filings": 14,
+    "wage_median": 185000
+   },
+   {
+    "name": "GOLDMAN SACHS & CO. LLC",
+    "filings": 10,
+    "wage_median": 156000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "NY",
+    "filings": 144
+   },
+   {
+    "state": "CA",
+    "filings": 107
+   },
+   {
+    "state": "WA",
+    "filings": 67
+   },
+   {
+    "state": "MA",
+    "filings": 67
+   },
+   {
+    "state": "DC",
+    "filings": 65
+   }
+  ]
+ },
+ "29-1141": {
+  "filings": 807,
+  "wage_p25": 68910,
+  "wage_median": 80142,
+  "wage_p75": 88941,
+  "top_employers": [
+   {
+    "name": "LOUISIANA CHILDREN'S MEDICAL CENTER",
+    "filings": 93,
+    "wage_median": 68432
+   },
+   {
+    "name": "AVANT HEALTHCARE PROFESSIONALS, LLC.",
+    "filings": 34,
+    "wage_median": 76232
+   },
+   {
+    "name": "HUMBOLDT PARK HEALTH",
+    "filings": 32,
+    "wage_median": 83200
+   },
+   {
+    "name": "DUBOIS REGIONAL MEDICAL CENTER",
+    "filings": 24,
+    "wage_median": 66633
+   },
+   {
+    "name": "CONEXUS MEDSTAFF LLC",
+    "filings": 24,
+    "wage_median": 82493
+   },
+   {
+    "name": "KETTERING NETWORK SERVICES",
+    "filings": 22,
+    "wage_median": 79248
+   },
+   {
+    "name": "INSIGHT GLOBAL, LLC",
+    "filings": 22,
+    "wage_median": 86299
+   },
+   {
+    "name": "LIFELINE NURSING SOLUTIONS, LLC",
+    "filings": 18,
+    "wage_median": 84531
+   },
+   {
+    "name": "MANAGEMENT HEALTH SYSTEMS, LLC",
+    "filings": 18,
+    "wage_median": 74734
+   },
+   {
+    "name": "CARNEGIE HEALTH AND LIFE SCIENCES INC.",
+    "filings": 17,
+    "wage_median": 83200
+   }
+  ],
+  "top_states": [
+   {
+    "state": "LA",
+    "filings": 102
+   },
+   {
+    "state": "NY",
+    "filings": 91
+   },
+   {
+    "state": "IL",
+    "filings": 73
+   },
+   {
+    "state": "PA",
+    "filings": 45
+   },
+   {
+    "state": "OH",
+    "filings": 40
+   }
+  ]
+ },
+ "49-3023": {
+  "filings": 2,
+  "wage_p25": 75250,
+  "wage_median": 80500,
+  "wage_p75": 85750,
+  "top_employers": [
+   {
+    "name": "CONQUEST RACING, LLC",
+    "filings": 1,
+    "wage_median": 70000
+   },
+   {
+    "name": "MISTRY'S FOREIGN CAR SERVICE INC.",
+    "filings": 1,
+    "wage_median": 91000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "IN",
+    "filings": 1
+   },
+   {
+    "state": "MD",
+    "filings": 1
+   }
+  ]
+ },
+ "47-2111": {
+  "filings": 1,
+  "wage_p25": 83000,
+  "wage_median": 83000,
+  "wage_p75": 83000,
+  "top_employers": [
+   {
+    "name": "US ELECTRIC LLC",
+    "filings": 1,
+    "wage_median": 83000
+   }
+  ],
+  "top_states": [
+   {
+    "state": "WA",
+    "filings": 1
+   }
+  ]
+ },
+ "51-3023": {
+  "filings": 2,
+  "wage_p25": 40934,
+  "wage_median": 40934,
+  "wage_p75": 40934,
+  "top_employers": [
+   {
+    "name": "SALEM HALAL MEAT PACKAGING LLC",
+    "filings": 2,
+    "wage_median": 40934
+   }
+  ],
+  "top_states": [
+   {
+    "state": "NJ",
+    "filings": 2
+   }
+  ]
+ }
+}
