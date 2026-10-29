@@ -240,7 +240,8 @@ def main() -> int:
     path_ko = {p["code"]: p for p in pathways_ko}
     names_ko = {"US": "미국", "Canada": "캐나다", "UK": "영국", "Australia": "호주", "Japan": "일본"}
     visas_meta = yaml.safe_load((ROOT / "data" / "visas.yaml").read_text(encoding="utf-8"))
-    visas_by = {code: {**v, "code": code} for code, v in visas_meta["countries"].items()}
+    official = yaml.safe_load((ROOT / "data" / "official.yaml").read_text(encoding="utf-8"))
+    visas_by = {code: {**v, "code": code, "official": official.get(code, {})} for code, v in visas_meta["countries"].items()}
 
     majors = [build_major(m, lca, perm, sc) for m in cfg["majors"]]
     jobs = []

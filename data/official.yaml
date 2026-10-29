@@ -1,0 +1,60 @@
+# 각국 이민청 공식 링크. 나라별 대표 기관(authority)과 비자별 공식 안내 페이지(visas: id -> url).
+us:
+  authority: {en: "USCIS (US Citizenship and Immigration Services)", ko: "미국 이민국(USCIS)", url: "https://www.uscis.gov/"}
+  visas:
+    f1: https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html
+    opt: https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students
+    h1b: https://www.uscis.gov/working-in-the-united-states/h-1b-specialty-occupations
+    eb2: https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-second-preference-eb-2
+    eb3s: https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-third-preference-eb-3
+    eb3o: https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-third-preference-eb-3
+ca:
+  authority: {en: "IRCC (Immigration, Refugees and Citizenship Canada)", ko: "캐나다 이민부(IRCC)", url: "https://www.canada.ca/en/immigration-refugees-citizenship.html"}
+  visas:
+    study: https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit.html
+    pgwp: https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation.html
+    lmia: https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit/temporary.html
+    cec: https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html
+    fst: https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html
+    pnp: https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html
+uk:
+  authority: {en: "UK Visas and Immigration (GOV.UK)", ko: "영국 이민청(UKVI, GOV.UK)", url: "https://www.gov.uk/browse/visas-immigration"}
+  visas:
+    student: https://www.gov.uk/student-visa
+    graduate: https://www.gov.uk/graduate-visa
+    skilled: https://www.gov.uk/skilled-worker-visa
+    ilr: https://www.gov.uk/indefinite-leave-to-remain
+au:
+  authority: {en: "Department of Home Affairs", ko: "호주 내무부(이민)", url: "https://immi.homeaffairs.gov.au/"}
+  visas:
+    student: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500
+    grad485: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485
+    sid482: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skills-in-demand-visa-subclass-482
+    ens186: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/employer-nomination-scheme-186
+    sk189: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-independent-189
+kr:
+  authority: {en: "HiKorea (Korea Immigration Service)", ko: "하이코리아(출입국·외국인정책본부)", url: "https://www.hikorea.go.kr/"}
+  visas:
+    d2: https://www.hikorea.go.kr/
+    e9: https://www.eps.go.kr/
+    e7: https://www.hikorea.go.kr/
+    e74: https://www.hikorea.go.kr/
+    f5: https://www.hikorea.go.kr/
+sg:
+  authority: {en: "Ministry of Manpower (work passes) and ICA (residence)", ko: "싱가포르 인력부(MOM)·이민국(ICA)", url: "https://www.mom.gov.sg/passes-and-permits"}
+  visas:
+    student: https://www.ica.gov.sg/reside/STP
+    ep: https://www.mom.gov.sg/passes-and-permits/employment-pass
+    spass: https://www.mom.gov.sg/passes-and-permits/s-pass
+    wp: https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker
+    pr: https://www.ica.gov.sg/reside/PR/apply
+jp:
+  authority: {en: "Immigration Services Agency of Japan", ko: "일본 출입국재류관리청", url: "https://www.moj.go.jp/isa/"}
+  visas:
+    student: https://www.moj.go.jp/isa/applications/procedures/index.html
+    gijinkoku: https://www.moj.go.jp/isa/applications/procedures/index.html
+    hsp: https://www.moj.go.jp/isa/applications/resources/newimmiact_3_index.html
+    ssw1: https://www.moj.go.jp/isa/applications/ssw/index.html
+    ssw2: https://www.moj.go.jp/isa/applications/ssw/index.html
+    ikusei: https://www.moj.go.jp/isa/applications/index_00005.html
+    pr: https://www.moj.go.jp/isa/applications/procedures/16-4.html

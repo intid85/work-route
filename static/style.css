@@ -304,3 +304,12 @@ th.left { text-align: left; }
 .visa-row dd { margin: 2px 0 0; font-size: 15.5px; }
 .visa-row--language dd, .visa-row--education dd, .visa-row--experience dd { font-weight: 600; }
 @media (max-width: 640px) { .visa-req { grid-template-columns: 1fr; } .visas { padding: 18px 16px; } }
+
+/* official immigration links */
+.visa-official{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;margin:0 0 1rem;font-size:.95rem}
+.visa-official span{font-weight:600;color:var(--muted,#555)}
+.visa-official a{font-weight:600}
+.visa-head{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:baseline;justify-content:space-between}
+.visa-head h3{margin-right:auto}
+.visa-link{flex:none;font-size:.9rem;font-weight:600;padding:.3rem .7rem;border:1px solid currentColor;border-radius:999px;text-decoration:none;white-space:nowrap}
+.visa-link:hover{background:rgba(0,0,0,.05)}

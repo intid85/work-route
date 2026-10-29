@@ -2,6 +2,10 @@
 {% set ko = (lang == 'ko') %}
 {% set uid = 'visa-' ~ vc.code %}
 <div class="visas" data-visas>
+  {% set off = vc.official or {} %}
+  {% if off.authority %}
+  <p class="visa-official"><span>{{ '공식 이민청' if ko else 'Official authority' }}</span> <a href="{{ off.authority.url }}" rel="noopener" target="_blank">{{ off.authority[lang] or off.authority.en }} ↗</a></p>
+  {% endif %}
   <div class="visa-picker" role="tablist" aria-label="{{ '비자 종류' if ko else 'Visa types' }}">
     {% for cat in ['study', 'work', 'pr'] %}
     {% set items = vc.visas|selectattr('category', 'equalto', cat)|list %}
@@ -19,7 +23,11 @@
   </div>
   {% for v in vc.visas %}
   <section class="visa-panel" role="tabpanel" id="{{ uid }}-p-{{ v.id }}" aria-labelledby="{{ uid }}-t-{{ v.id }}" {{ '' if loop.first else 'hidden' }}>
-    <h3><span class="visa-code">{{ v.code_ko if ko and v.code_ko else v.code }}</span> {{ v.name[lang] or v.name.en }}</h3>
+    <div class="visa-head">
+      <h3><span class="visa-code">{{ v.code_ko if ko and v.code_ko else v.code }}</span> {{ v.name[lang] or v.name.en }}</h3>
+      {% set vurl = (off.visas or {}).get(v.id) %}
+      {% if vurl %}<a class="visa-link" href="{{ vurl }}" rel="noopener" target="_blank">{{ '이민청 공식 안내' if ko else 'Official page' }} ↗</a>{% endif %}
+    </div>
     <dl class="visa-req">
       {% for f in ['language', 'education', 'experience', 'other', 'stay', 'next'] %}
       <div class="visa-row visa-row--{{ f }}"><dt>{{ visas_meta.fields[f][lang] }}</dt><dd>{{ v[f][lang] or v[f].en }}</dd></div>
