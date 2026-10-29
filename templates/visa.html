@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% set ko = (lang == 'ko') %}
+{% set code = v.code_ko if ko and v.code_ko else v.code %}
+{% set vname = v.name[lang] or v.name.en %}
+{% set cname = cnames[vc.code][0] if ko else cnames[vc.code][1] %}
+{% set cat = visas_meta.categories[v.category][lang] %}
+{% set vurl = ((vc.official or {}).visas or {}).get(v.id) %}
+{% block title %}{% if ko %}{{ cname }} {{ code }} 비자 조건: 어학·학위·경력·체류 기간 | {{ site.name }}{% else %}{{ cname }} {{ v.code }} requirements: language, education, experience and length of stay | {{ site.name }}{% endif %}{% endblock %}
+{% block description %}{% if ko %}{{ cname }} {{ code }}({{ vname }}) 요건 정리. 어학: {{ v.language.ko }}. 학위: {{ v.education.ko }}. 체류: {{ v.stay.ko }}.{% else %}{{ cname }} {{ v.code }} ({{ vname }}) at a glance. Language: {{ v.language.en }}. Education: {{ v.education.en }}. Stay: {{ v.stay.en }}.{% endif %}{% endblock %}
+{% block head %}
+{% set faq = [] %}
+{% for f in ['language', 'education', 'experience', 'other', 'stay', 'next'] %}
+{% set _ = faq.append({"@type": "Question", "name": (cname ~ ' ' ~ code ~ ' ' ~ q_ko[f]) if ko else (cname ~ ' ' ~ v.code ~ ': ' ~ q_en[f]), "acceptedAnswer": {"@type": "Answer", "text": v[f][lang] or v[f].en}}) %}
+{% endfor %}
+<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq}|tojson }}</script>
+{% endblock %}
+{% block main %}
+<nav class="crumbs" aria-label="{{ '위치' if ko else 'Breadcrumb' }}"><a href="{{ rel }}{{ 'ko/' if ko }}{{ cdir }}/index.html">{{ cname }}</a> › <a href="{{ rel }}{{ 'ko/' if ko }}{{ cdir }}/index.html#visas">{{ '비자 종류' if ko else 'Visa types' }}</a> › {{ code }}</nav>
+<section class="hero hero--slim">
+  <p class="visa-cat visa-cat--{{ v.category }}">{{ cat }}</p>
+  <h1>{% if ko %}{{ cname }} {{ code }}: {{ vname }}{% else %}{{ cname }} {{ v.code }}: {{ vname }}{% endif %}</h1>
+  <p class="lede">{% if ko %}{{ vname }}의 어학·학위·경력 요건, 체류 기간, 다음 단계를 정리했습니다.{% else %}Requirements, length of stay and where the {{ vname }} leads.{% endif %}</p>
+  {% if vurl %}<p><a class="visa-link" href="{{ vurl }}" rel="noopener" target="_blank">{{ '이민청 공식 안내' if ko else 'Official page' }} ↗</a></p>{% endif %}
+</section>
+<section aria-labelledby="req-h">
+  <h2 id="req-h">{{ '요건 한눈에 보기' if ko else 'Requirements at a glance' }}</h2>
+  <dl class="visa-req visa-req--page">
+    {% for f in ['language', 'education', 'experience', 'other', 'stay', 'next'] %}
+    <div class="visa-row"><dt>{{ visas_meta.fields[f][lang] }}</dt><dd>{{ v[f][lang] or v[f].en }}</dd></div>
+    {% endfor %}
+  </dl>
+</section>
+<section aria-labelledby="faq-h">
+  <h2 id="faq-h">{{ '자주 묻는 질문' if ko else 'Common questions' }}</h2>
+  {% for f in ['language', 'education', 'experience', 'stay', 'next'] %}
+  <h3 class="faq-q">{% if ko %}{{ code }} {{ q_ko[f] }}{% else %}{{ v.code }}: {{ q_en[f] }}{% endif %}</h3>
+  <p>{{ v[f][lang] or v[f].en }}</p>
+  {% endfor %}
+</section>
+<section aria-labelledby="sib-h">
+  <h2 id="sib-h">{{ cname }} {{ '다른 비자' if ko else 'other visas' }}</h2>
+  <ul class="sib-list">
+  {% for s in vc.visas if s.id != v.id %}<li><a href="../{{ s.id }}/index.html"><b>{{ s.code_ko if ko and s.code_ko else s.code }}</b> {{ s.name[lang] or s.name.en }}</a> <span class="visa-cat visa-cat--{{ s.category }}">{{ visas_meta.categories[s.category][lang] }}</span></li>{% endfor %}
+  </ul>
+  <p><a href="{{ rel }}{{ 'ko/' if ko }}{{ cdir }}/index.html">{{ cname }} {{ '영주권 경로 전체 보기' if ko else 'routes to permanent residence' }} →</a></p>
+</section>
+<p class="path-src">{{ visas_meta.as_of[lang] }} {{ '기준. 출처:' if ko else 'rules. Sources:' }} {% for s in vc.sources %}<a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>{{ ', ' if not loop.last }}{% endfor %}. {{ '신청 전에 각국 이민청 공식 자료로 확인하세요.' if ko else 'Confirm with the official immigration authority before applying.' }}</p>
+{% endblock %}

@@ -21,6 +21,7 @@
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const when = iso => { const d = new Date(iso); const m = (Date.now() - d) / 6e4;
     return m < 1 ? '방금' : m < 60 ? Math.floor(m) + '분 전' : m < 1440 ? Math.floor(m / 60) + '시간 전' : d.toLocaleDateString('ko-KR'); };
+  let HAS_TOPIC = true;   // false until the topics migration (002_topics.sql) has run
   async function get(path) { const r = await fetch(API + path, { headers: H }); if (!r.ok) throw new Error((await r.json()).message || r.status); return r.json(); }
   async function rpc(fn, args) {
     const r = await fetch(API + '/rpc/' + fn, { method: 'POST', headers: H, body: JSON.stringify(args) });
@@ -45,7 +46,7 @@
     const codes = [''].concat(Object.keys(BOARDS));
     return '<div class="cm-tabs" role="tablist">' + codes.map(c =>
       `<button role="tab" data-b="${c}" aria-selected="${c === board}">${c ? esc(BOARDS[c]) : T.all}</button>`).join('') + '</div>' +
-      '<div class="cm-topics">' + [''].concat(Object.keys(TOPICS)).map(t =>
+      (HAS_TOPIC ? '<div class="cm-topics">' : '<div class="cm-topics" hidden>') + [''].concat(Object.keys(TOPICS)).map(t =>
       `<button data-t="${t}" aria-pressed="${t === topic}">${t ? esc(TOPICS[t]) : T.allTopics}</button>`).join('') + '</div>';
   }
   async function showList() {
@@ -57,9 +58,10 @@
   }
   async function loadMore(first) {
     const ul = root.querySelector('.cm-list');
-    let q = `/posts?select=id,board,topic,official,title,nickname,comment_count,created_at&lang=eq.${LANG}&order=created_at.desc&limit=${PAGE}&offset=${offset}`;
+    const cols = HAS_TOPIC ? 'id,board,topic,official,title,nickname,comment_count,created_at' : 'id,board,title,nickname,comment_count,created_at';
+    let q = `/posts?select=${cols}&lang=eq.${LANG}&order=created_at.desc&limit=${PAGE}&offset=${offset}`;
     if (board) q += `&board=eq.${board}`;
-    if (topic) q += `&topic=eq.${topic}`;
+    if (topic && HAS_TOPIC) q += `&topic=eq.${topic}`;
     try {
       const rows = await get(q);
       if (first) ul.innerHTML = '';
@@ -79,7 +81,7 @@
     root.innerHTML = `<form class="cm-form">
       <p class="hint">${T.rule}</p>
       ${p ? '' : `<div class="cm-row"><label>${T.board}<select name="board">${opts}</select></label>
-        <label>${T.topic}<select name="topic" required><option value="">선택하세요</option>${Object.entries(TOPICS).map(([c, n]) => `<option value="${c}" ${c === topic ? 'selected' : ''}>${esc(n)}</option>`).join('')}</select></label></div>`}
+        <label ${HAS_TOPIC ? '' : 'hidden'}>${T.topic}<select name="topic" ${HAS_TOPIC ? 'required' : ''}><option value="">선택하세요</option>${Object.entries(TOPICS).map(([c, n]) => `<option value="${c}" ${c === topic ? 'selected' : ''}>${esc(n)}</option>`).join('')}</select></label></div>`}
       <label>${T.title}<input name="title" maxlength="120" required minlength="2" value="${p ? esc(p.title) : ''}"></label>
       <label>${T.body}<textarea name="body" rows="10" maxlength="8000" required minlength="2">${p ? esc(p.body) : ''}</textarea></label>
       ${p ? '' : `<div class="cm-row"><label>${T.nick}<input name="nick" maxlength="20" required autocomplete="nickname"></label>`}
@@ -101,8 +103,10 @@
           showPost(p.id);
         } else {
           try { localStorage.setItem('cm-nick', f.nick.value); } catch (e) {}
-          const id = await rpc('create_post', { p_lang: LANG, p_board: f.board.value, p_topic: f.topic.value, p_title: f.title.value,
-            p_body: f.body.value, p_nickname: f.nick.value, p_password: f.pw.value });
+          const args = { p_lang: LANG, p_board: f.board.value, p_title: f.title.value,
+            p_body: f.body.value, p_nickname: f.nick.value, p_password: f.pw.value };
+          if (HAS_TOPIC) args.p_topic = f.topic.value;
+          const id = await rpc('create_post', args);
           setUrl('p=' + id); showPost(id);
         }
       } catch (e) { msg.textContent = T.failed + e.message; f.querySelector('[type=submit]').disabled = false; }
@@ -171,5 +175,6 @@
   });
 
   // A static post page ships the post as HTML for search engines; the live view (with comments) replaces it.
-  postId ? showPost(postId) : showList();
+  get('/posts?select=topic&limit=1').catch(() => { HAS_TOPIC = false; })
+    .finally(() => { postId ? showPost(postId) : showList(); });
 })();

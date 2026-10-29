@@ -33,6 +33,7 @@
       <div class="visa-row visa-row--{{ f }}"><dt>{{ visas_meta.fields[f][lang] }}</dt><dd>{{ v[f][lang] or v[f].en }}</dd></div>
       {% endfor %}
     </dl>
+    <p class="visa-more"><a href="visas/{{ v.id }}/index.html">{{ code_more if code_more else '' }}{{ (v.code_ko if ko and v.code_ko else v.code) }} {{ '자세히 보기 →' if ko else 'in detail →' }}</a></p>
   </section>
   {% endfor %}
   <p class="path-src">{{ visas_meta.as_of[lang] }} {{ '기준. 출처:' if ko else 'rules. Sources:' }} {% for s in vc.sources %}<a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>{{ ', ' if not loop.last }}{% endfor %}. {{ '신청 전에 각국 이민청 공식 자료로 확인하세요.' if ko else 'Confirm with the official immigration authority before applying.' }}</p>

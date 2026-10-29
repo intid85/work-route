@@ -410,9 +410,12 @@ def main() -> int:
         try:
             import requests
             hdr = {"apikey": cm["key"]}
-            r = requests.get(f"{cm['url']}/rest/v1/posts", headers=hdr, timeout=30,
-                             params={"select": "id,board,topic,official,title,body,nickname,created_at", "lang": "eq.ko",
-                                     "order": "created_at.desc", "limit": "5000"})
+            def fetch_posts(cols):
+                return requests.get(f"{cm['url']}/rest/v1/posts", headers=hdr, timeout=30,
+                                    params={"select": cols, "lang": "eq.ko", "order": "created_at.desc", "limit": "5000"})
+            r = fetch_posts("id,board,topic,official,title,body,nickname,created_at")
+            if r.status_code == 400:  # topics migration not run yet
+                r = fetch_posts("id,board,title,body,nickname,created_at")
             r.raise_for_status()
             posts = r.json()
             built = dt.datetime.now(dt.timezone.utc).isoformat()
@@ -443,6 +446,28 @@ def main() -> int:
                              "author": {"@type": "Person", "name": c["nickname"]}} for c in p["comments"]]
         render("ko/community/post.html", f"ko/community/post/{p['id']}/index.html", lang="ko", no_alt=True,
                country="community", post=p, cm_base="../../", **cm_ctx)
+
+    # One page per visa type (en for every country, ko except Korea)
+    cdirs = {"kr": "korea"}
+    cnames = {"us": ("미국", "United States"), "ca": ("캐나다", "Canada"), "uk": ("영국", "United Kingdom"),
+              "au": ("호주", "Australia"), "nz": ("뉴질랜드", "New Zealand"), "de": ("독일", "Germany"),
+              "jp": ("일본", "Japan"), "sg": ("싱가포르", "Singapore"), "kr": ("한국", "South Korea")}
+    q_ko = {"language": "비자 어학 기준은?", "education": "비자 학위 조건은?", "experience": "비자 경력 요건은?",
+            "other": "비자 기타 조건은?", "stay": "비자 체류 기간은?", "next": "비자 다음 단계는?"}
+    q_en = {"language": "what language level do you need?", "education": "what education do you need?",
+            "experience": "how much experience do you need?", "other": "what else is required?",
+            "stay": "how long can you stay?", "next": "where does it lead?"}
+    ko_pages.update(f"{cdirs.get(c, c)}/visas/{v['id']}/index.html" for c, vc in visas_by.items() if c != "kr" for v in vc["visas"])
+    for code, vc in visas_by.items():
+        cdir = cdirs.get(code, code)
+        for v in vc["visas"]:
+            common = dict(vc=vc, v=v, cdir=cdir, cnames=cnames, q_ko=q_ko, q_en=q_en,
+                          country=code if code != "kr" else "kr")
+            if code == "kr":
+                render("visa.html", f"{cdir}/visas/{v['id']}/index.html", no_alt=True, **common)
+            else:
+                render("visa.html", f"{cdir}/visas/{v['id']}/index.html", **common)
+                render("visa.html", f"ko/{cdir}/visas/{v['id']}/index.html", lang="ko", **common)
 
     render("about.html", "about/index.html", country=None)
     render("404.html", "404.html", country=None)

@@ -381,3 +381,11 @@ th.left { text-align: left; }
 .cm-topics button[aria-pressed="true"] { background: var(--route-soft); color: var(--route); font-weight: 700; }
 .cm-board small { display: block; font-weight: 500; color: var(--muted); }
 .cm-official { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px; background: var(--route); color: #fff; vertical-align: 1px; }
+.crumbs { font-size: 14px; color: var(--muted); margin-top: 18px; }
+.crumbs a { color: var(--muted); }
+.visa-req--page { margin-block: 8px 24px; }
+.faq-q { font-size: 1.05rem; margin: 20px 0 4px; }
+.sib-list { list-style: none; padding: 0; display: grid; gap: 8px; }
+.sib-list .visa-cat { font-size: 12px; margin-left: 6px; }
+.visa-more { margin: 12px 0 0; font-size: 14px; font-weight: 600; }
+.community [hidden] { display: none !important; }
