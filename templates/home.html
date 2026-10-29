@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Work visas and green cards by job and country | {{ site.name }}{% endblock %}
+{% block head %}
+<script>
+/* Korean visitors land on the Korean edition; ?lang=en or a past choice of English keeps this page. */
+(function(){try{var q=new URLSearchParams(location.search).get('lang');
+if(q==='en'){localStorage.setItem('wr-lang','en');return;}
+var p=localStorage.getItem('wr-lang');
+var ko=(navigator.languages||[navigator.language||'']).some(function(l){return /^ko/i.test(l)});
+if(p==='ko'||(!p&&ko)){location.replace('ko/index.html');}}catch(e){}})();
+</script>
+{% endblock %}
 {% block main %}
 <section class="hero">
   <h1>Which country will sponsor your job?</h1>

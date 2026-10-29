@@ -30,6 +30,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
 {% endif %}
 {% block head %}{% endblock %}
+{% if ko %}<script>try{localStorage.setItem('wr-lang','ko')}catch(e){}</script>{% endif %}
 </head>
 <body>
 {% if sample_parts %}
@@ -52,7 +53,7 @@
     {% if not ko %}<a href="{{ rel }}korea/index.html" {{ 'aria-current="page"'|safe if country == 'kr' }}>South Korea</a>{% endif %}
     <a href="{{ home }}pathways/index.html" {{ 'aria-current="page"'|safe if country == 'paths' }}>{{ '전체 경로' if ko else 'All routes' }}</a>
     {% if ko %}<a href="{{ home }}community/index.html" {{ 'aria-current="page"'|safe if country == 'community' }}>커뮤니티</a>{% endif %}
-    {% if alt_href %}<a class="lang-switch" href="{{ alt_href }}" hreflang="{{ 'en' if ko else 'ko' }}" lang="{{ 'en' if ko else 'ko' }}">{{ 'English' if ko else '한국어' }}</a>{% endif %}
+    {% if alt_href %}<a class="lang-switch" href="{{ alt_href }}{{ '?lang=en' if ko else '' }}" hreflang="{{ 'en' if ko else 'ko' }}" lang="{{ 'en' if ko else 'ko' }}">{{ 'English' if ko else '한국어' }}</a>{% endif %}
   </nav>
 </header>
 {% if country == 'us' %}
