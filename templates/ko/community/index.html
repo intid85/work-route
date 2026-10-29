@@ -8,7 +8,7 @@
 </section>
 <div class="community" data-community data-lang="ko" data-url="{{ community.url }}" data-key="{{ community.key }}"
      data-built="{{ community_built }}" data-base="{{ cm_base }}" data-board="{{ board or '' }}"
-     data-boards='{{ boards_ko|tojson }}'>
+     data-boards='{{ boards_ko.items()|list|tojson }}'>
   <noscript>게시판을 보려면 자바스크립트를 켜 주세요.</noscript>
   {% if recent %}
   <ul class="cm-list">

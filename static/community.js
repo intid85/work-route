@@ -7,7 +7,7 @@
   const LANG = root.dataset.lang || 'ko';
   const BUILT = Date.parse(root.dataset.built || '') || 0;   // posts older than the build have static pages
   const BASE = root.dataset.base;                            // path to community/ from this page
-  const BOARDS = JSON.parse(root.dataset.boards);            // {code: name}
+  const BOARDS = Object.fromEntries(JSON.parse(root.dataset.boards));  // [[code, name], ...] in display order
   const T = {
     all: '전체', empty: '아직 글이 없습니다. 첫 질문을 남겨보세요.', write: '질문하기', more: '더 보기',
     title: '제목', body: '내용', nick: '닉네임', pw: '비밀번호(수정·삭제용, 4자 이상)', board: '나라',
