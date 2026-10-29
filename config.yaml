@@ -2,6 +2,7 @@
 # site.domain: your custom domain (e.g. workroute.com). Leave empty until DNS is set up; a CNAME file is generated when set.
 # site.google_site_verification: the content value of the Google Search Console HTML tag.
 # site.adsense_client: ca-pub-XXXXXXXX once AdSense is approved.
+# jobs[].jp_fields: Japan Specified Skilled Worker fields; jobs[].sg_pass: the Singapore pass this job usually uses.
 # *_ko fields are used by the Korean edition under /ko/.
 # site.consult_url: affiliate link for an immigration lawyer or agency. The consult box is hidden when empty.
 # majors[].soc / jobs[].soc: 2018 SOC codes. jobs[].noc: Canada NOC 2021 code. jobs[].anzsco: Australian ANZSCO unit groups (or exact labels) for the same job.
@@ -220,6 +221,11 @@ jobs:
   ko: 용접공
   group_ko: 제조·생산
   hint_ko: 회사가 2년 이상 경력을 요구하면 숙련공(EB-3 Skilled), 경력 요건이 짧으면 비숙련(EB-3 Other Workers)으로 신청합니다.
+  jp_fields:
+  - 工業製品製造業
+  - 造船・舶用工業
+  - 建設
+  sg_pass: Work Permit
 - slug: assembler
   name: Assembly line worker
   title: Team Assemblers
@@ -232,6 +238,9 @@ jobs:
   ko: 조립 생산직
   group_ko: 제조·생산
   hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
+  jp_fields:
+  - 工業製品製造業
+  sg_pass: Work Permit
 - slug: machinery-mechanic
   name: Industrial machinery mechanic
   title: Industrial Machinery Mechanics
@@ -244,6 +253,9 @@ jobs:
   ko: 산업기계 정비공
   group_ko: 제조·생산
   hint_ko: 경력 2년 이상을 요구하는 경우가 많아 숙련공(EB-3 Skilled) 신청이 흔합니다.
+  jp_fields:
+  - 工業製品製造業
+  sg_pass: S Pass
 - slug: meat-trimmer
   name: Meat and poultry trimmer
   title: Meat, Poultry, and Fish Cutters and Trimmers
@@ -257,6 +269,9 @@ jobs:
   ko: 육가공 작업자
   group_ko: 식품가공·농장
   hint_ko: 한국 이민 수속 업체가 많이 알선하는 직종으로, 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
+  jp_fields:
+  - 飲食料品製造業
+  sg_pass: Work Permit
 - slug: meat-packer
   name: Meat packer
   title: Slaughterers and Meat Packers
@@ -269,6 +284,9 @@ jobs:
   ko: 도축·포장 작업자
   group_ko: 식품가공·농장
   hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
+  jp_fields:
+  - 飲食料品製造業
+  sg_pass: Work Permit
 - slug: butcher
   name: Butcher
   title: Butchers and Meat Cutters
@@ -281,6 +299,9 @@ jobs:
   ko: 정육사
   group_ko: 식품가공·농장
   hint_ko: 회사가 2년 이상 경력을 요구하면 숙련공(EB-3 Skilled), 경력 요건이 짧으면 비숙련(EB-3 Other Workers)으로 신청합니다.
+  jp_fields:
+  - 飲食料品製造業
+  sg_pass: Work Permit
 - slug: farmworker
   name: Livestock and poultry farmworker
   title: Farmworkers, Farm, Ranch, and Aquacultural Animals
@@ -296,6 +317,9 @@ jobs:
   ko: 축산·양계 농장 작업자
   group_ko: 식품가공·농장
   hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
+  jp_fields:
+  - 農業
+  sg_pass: Work Permit
 - slug: electrician
   name: Electrician
   title: Electricians
@@ -308,6 +332,9 @@ jobs:
   ko: 전기 기술자
   group_ko: 건설·정비
   hint_ko: 경력 2년 이상을 요구하는 경우가 많아 숙련공(EB-3 Skilled) 신청이 흔합니다.
+  jp_fields:
+  - 建設
+  sg_pass: S Pass
 - slug: plumber
   name: Plumber
   title: Plumbers, Pipefitters, and Steamfitters
@@ -320,6 +347,9 @@ jobs:
   ko: 배관공
   group_ko: 건설·정비
   hint_ko: 경력 2년 이상을 요구하는 경우가 많아 숙련공(EB-3 Skilled) 신청이 흔합니다.
+  jp_fields:
+  - 建設
+  sg_pass: Work Permit
 - slug: construction-laborer
   name: Construction laborer
   title: Construction Laborers
@@ -334,6 +364,9 @@ jobs:
   ko: 건설 노동자
   group_ko: 건설·정비
   hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
+  jp_fields:
+  - 建設
+  sg_pass: Work Permit
 - slug: auto-mechanic
   name: Auto mechanic
   title: Automotive Service Technicians and Mechanics
@@ -346,6 +379,9 @@ jobs:
   ko: 자동차 정비사
   group_ko: 건설·정비
   hint_ko: 회사가 2년 이상 경력을 요구하면 숙련공(EB-3 Skilled), 경력 요건이 짧으면 비숙련(EB-3 Other Workers)으로 신청합니다.
+  jp_fields:
+  - 自動車整備
+  sg_pass: S Pass
 - slug: cook
   name: Cook
   title: Cooks, Restaurant
@@ -359,6 +395,9 @@ jobs:
   ko: 요리사
   group_ko: 외식·호텔·물류
   hint_ko: 회사가 2년 이상 경력을 요구하면 숙련공(EB-3 Skilled), 경력 요건이 짧으면 비숙련(EB-3 Other Workers)으로 신청합니다.
+  jp_fields:
+  - 外食業
+  sg_pass: Work Permit
 - slug: housekeeper
   name: Hotel housekeeper
   title: Maids and Housekeeping Cleaners
@@ -371,6 +410,10 @@ jobs:
   ko: 호텔 객실 관리
   group_ko: 외식·호텔·물류
   hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
+  jp_fields:
+  - 宿泊
+  - ビルクリーニング
+  sg_pass: Work Permit
 - slug: warehouse
   name: Warehouse worker
   title: Laborers and Freight, Stock, and Material Movers
@@ -383,6 +426,9 @@ jobs:
   ko: 물류 창고 작업자
   group_ko: 외식·호텔·물류
   hint_ko: 대부분 비숙련(EB-3 Other Workers)으로 신청합니다. 경력 요건은 짧지만 대기 기간이 깁니다.
+  jp_fields:
+  - 物流倉庫
+  sg_pass: Work Permit
 - slug: registered-nurse
   name: Registered nurse
   title: Registered Nurses
@@ -395,6 +441,8 @@ jobs:
   ko: 간호사
   group_ko: 돌봄·의료
   hint_ko: 간호사는 노동부 인력 부족 직종(Schedule A)이라 노동허가 절차가 간소화됩니다. 미국 간호사 면허(NCLEX)가 필요합니다.
+  jp_fields: []
+  sg_pass: S Pass
 - slug: nursing-assistant
   name: Nursing assistant
   title: Nursing Assistants
@@ -408,3 +456,6 @@ jobs:
   ko: 요양 보조원
   group_ko: 돌봄·의료
   hint_ko: 주 자격증(CNA)이 필요하며, 대부분 비숙련(EB-3 Other Workers)으로 신청합니다.
+  jp_fields:
+  - 介護
+  sg_pass: Work Permit

@@ -1,0 +1,9 @@
+# Singapore foreign workforce by pass type, from the Ministry of Manpower. Update when MOM publishes a new half-year.
+source: "https://www.mom.gov.sg/documents-and-publications/foreign-workforce-numbers"
+periods: ["Dec 2023", "Dec 2024", "Dec 2025", "Jun 2026"]
+rows:
+  - {key: ep, en: "Employment Pass", ko: "고용 패스(EP)", values: [205400, 202100, 203300, 204300]}
+  - {key: sp, en: "S Pass", ko: "S 패스", values: [178500, 178200, 178900, 177300]}
+  - {key: wp, en: "Work Permit (all)", ko: "워크 퍼밋(전체)", values: [1113000, 1165900, 1222700, 1243600]}
+  - {key: cmp, en: "Work Permit in construction, marine and process", ko: "건설·조선·공정 업종 워크 퍼밋", values: [441100, 456800, 482600, 490700]}
+  - {key: mdw, en: "Migrant domestic workers", ko: "가사 근로자", values: [286300, 301600, 316900, 323800]}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
+{% block title %}Working in Japan: Specified Skilled Worker data, visas and route to PR | {{ site.name }}{% endblock %}
+{% block description %}How many Specified Skilled Workers Japan has in each industry and from which countries, the visa types and their Japanese-language and skills requirements, and the routes to permanent residence, from Immigration Services Agency data.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Japan: Specified Skilled Workers and the route to permanent residence</h1>
+  <p class="lede">Japan's Specified Skilled Worker visa lets people without a degree work in 19 industries after passing a Japanese test and a skills test. {{ jp.total|num }} people held type (i) status at the end of {{ jp.as_of|month_name }}.</p>
+</section>
+<section aria-label="Routes to permanent residence">{{ draw(pw_path) }}</section>
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">Visa types and requirements</h2>
+  <p class="hint">Pick a visa to see its language, education and experience requirements, how long it lasts and where it leads.</p>
+  {{ visa_tabs(visas_by["jp"], "en") }}
+</section>
+
+<section aria-labelledby="fields-h">
+  <h2 id="fields-h">Specified Skilled Workers (i) by industry</h2>
+  <p class="hint">Holders of type (i) status at the end of {{ jp.as_of|month_name }}, with the number from South Korea. Fields with no holders yet are omitted.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">Industry field</th><th scope="col">Workers</th><th scope="col">From South Korea</th></tr></thead>
+    <tbody>
+    {% for f in jp.fields if f.workers %}
+      <tr><th scope="row">{{ f.en }}<span class="en">{{ f.ja }}</span></th><td>{{ f.workers|num }}</td><td>{{ f.korea|num }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <h2>Where the workers come from</h2>
+    <ul class="bars">
+    {% set top = jp.top_nations[0].workers or 1 %}
+    {% for n in jp.top_nations %}<li><span class="label">{{ n.name }}</span><span class="bar" style="--w: {{ (n.workers / top * 100)|round(1) }}%"></span><span class="val">{{ n.workers|num }}</span></li>{% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Which field fits your job</h2>
+    <table class="rank">
+      <thead><tr><th scope="col">Job</th><th scope="col" class="left">SSW field</th></tr></thead>
+      <tbody>
+      {% for j in jobs %}<tr><th scope="row">{{ j.name }}</th><td class="wrap">{% if j.jp_fields %}{% for f in j.jp_fields %}{{ jp_field_name[f].en }}{{ ', ' if not loop.last }}{% endfor %}{% else %}Not covered (needs a Japanese licence){% endif %}</td></tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+<p class="hint">Source: <a href="{{ jp.url }}" rel="noopener">Immigration Services Agency of Japan, SSW (i) residents by nationality and field</a>, preliminary figures.</p>
+{% endblock %}

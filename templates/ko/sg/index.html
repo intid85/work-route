@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
+{% block title %}싱가포르 취업: EP·S Pass·워크 퍼밋 요건과 영주권 | {{ site.name }}{% endblock %}
+{% block description %}싱가포르 취업 패스별 최저 월급, 워크 퍼밋 허용 국가(한국 포함), 패스별 외국인 수, 영주권 경로를 싱가포르 인력부 데이터로 정리했습니다.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>싱가포르: 취업 패스와 영주권까지 가는 길</h1>
+  <p class="lede">싱가포르는 외국인 근로자를 급여에 따라 세 가지 패스로 나눕니다. 전문직은 고용 패스(EP), 중급 기술직은 S Pass, 공장·건설·서비스 현장직은 워크 퍼밋입니다. 영주권은 EP와 S Pass 소지자만 신청할 수 있습니다.</p>
+</section>
+<section aria-label="영주권 경로">{{ draw(pw_path) }}</section>
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">패스 종류와 자격 요건</h2>
+  <p class="hint">패스를 고르면 급여·학위·경력 요건과 체류 기간을 보여드립니다.</p>
+  {{ visa_tabs(visas_by["sg"], "ko") }}
+</section>
+
+<section aria-labelledby="wf-h">
+  <h2 id="wf-h">패스별 외국인 근로자 수</h2>
+  <p class="hint">싱가포르 인력부 집계입니다.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">패스</th>{% for p in sg.periods %}<th scope="col">{{ p }}</th>{% endfor %}</tr></thead>
+    <tbody>
+    {% for r in sg.rows %}<tr><th scope="row">{{ r.ko }}</th>{% for v in r['values'] %}<td>{{ v|num }}</td>{% endfor %}</tr>{% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section aria-labelledby="jobs-h">
+  <h2 id="jobs-h">내 직업은 어떤 패스일까</h2>
+  <p class="hint">직종별로 흔히 받는 패스입니다. 결국 급여가 기준이라, 급여가 높은 기술직은 S Pass가 될 수 있습니다.</p>
+  <div class="table-wrap">
+  <table class="rank">
+    <thead><tr><th scope="col">직종</th><th scope="col" class="left">보통 받는 패스</th><th scope="col" class="left">영주권 가능?</th></tr></thead>
+    <tbody>
+    {% for j in jobs %}<tr><th scope="row">{{ j.ko }}</th><td class="wrap">{{ {'Work Permit': '워크 퍼밋', 'S Pass': 'S Pass', 'Employment Pass': 'EP'}[j.sg_pass] }}</td><td class="wrap">{{ '신청 가능' if j.sg_pass != 'Work Permit' else 'S Pass로 올라간 뒤에만 가능' }}</td></tr>{% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+<p class="hint">출처: <a href="{{ sg.source }}" rel="noopener">싱가포르 인력부 외국인 근로자 통계</a></p>
+{% endblock %}

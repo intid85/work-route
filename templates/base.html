@@ -45,6 +45,8 @@
     {% if ca %}<a href="{{ home }}ca/index.html" {{ 'aria-current="page"'|safe if country == 'ca' }}>{{ '캐나다' if ko else 'Canada' }}</a>{% endif %}
     {% if uk %}<a href="{{ home }}uk/index.html" {{ 'aria-current="page"'|safe if country == 'uk' }}>{{ '영국' if ko else 'United Kingdom' }}</a>{% endif %}
     {% if au %}<a href="{{ home }}au/index.html" {{ 'aria-current="page"'|safe if country == 'au' }}>{{ '호주' if ko else 'Australia' }}</a>{% endif %}
+    <a href="{{ home }}jp/index.html" {{ 'aria-current="page"'|safe if country == 'jp' }}>{{ '일본' if ko else 'Japan' }}</a>
+    <a href="{{ home }}sg/index.html" {{ 'aria-current="page"'|safe if country == 'sg' }}>{{ '싱가포르' if ko else 'Singapore' }}</a>
     {% if not ko %}<a href="{{ rel }}korea/index.html" {{ 'aria-current="page"'|safe if country == 'kr' }}>South Korea</a>{% endif %}
     <a href="{{ home }}pathways/index.html" {{ 'aria-current="page"'|safe if country == 'paths' }}>{{ '전체 경로' if ko else 'All routes' }}</a>
     {% if alt_href %}<a class="lang-switch" href="{{ alt_href }}" hreflang="{{ 'en' if ko else 'ko' }}" lang="{{ 'en' if ko else 'ko' }}">{{ 'English' if ko else '한국어' }}</a>{% endif %}
@@ -69,10 +71,10 @@
 </main>
 <footer class="foot">
   {% if ko %}
-  <p>미국 노동부·국무부·교육부, 캐나다 고용사회개발부·이민부, 영국 내무부, 호주 내무부가 공개한 데이터를 가공했습니다. <a href="{{ rel }}about/index.html">데이터 출처와 계산 방법(영문)</a></p>
+  <p>미국 노동부·국무부·교육부, 캐나다 고용사회개발부·이민부, 영국 내무부, 호주 내무부, 일본 출입국재류관리청, 싱가포르 인력부가 공개한 데이터를 가공했습니다. <a href="{{ rel }}about/index.html">데이터 출처와 계산 방법(영문)</a></p>
   <p>{{ site.name }}은 정부 서비스가 아닌 독립 통계 사이트이며, 이 사이트의 내용은 법률 자문이 아닙니다. 결정 전에 이민 전문 변호사나 행정사와 상담하세요.</p>
   {% else %}
-  <p>Built from public data published by the US Department of Labor, US Department of State, US Department of Education, Employment and Social Development Canada, Immigration, Refugees and Citizenship Canada, the UK Home Office, the Australian Department of Home Affairs and Korean government agencies. <a href="{{ rel }}about/index.html">Sources and methods</a></p>
+  <p>Built from public data published by the US Department of Labor, US Department of State, US Department of Education, Employment and Social Development Canada, Immigration, Refugees and Citizenship Canada, the UK Home Office, the Australian Department of Home Affairs, the Immigration Services Agency of Japan, Singapore's Ministry of Manpower and Korean government agencies. <a href="{{ rel }}about/index.html">Sources and methods</a></p>
   <p>{{ site.name }} is an independent statistics site, not a government service, and nothing here is legal advice. Speak to a licensed immigration lawyer or adviser before making decisions.</p>
   {% endif %}
 </footer>

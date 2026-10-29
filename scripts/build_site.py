@@ -121,6 +121,7 @@ COUNTRIES_KO = {
     "Zimbabwe": "짐바브웨", "New Zealand": "뉴질랜드", "Canada": "캐나다", "France": "프랑스", "Germany": "독일",
     "Honduras": "온두라스", "El Salvador": "엘살바도르", "Jamaica": "자메이카", "Nigeria": "나이지리아",
     "Kenya": "케냐", "Ghana": "가나", "Malaysia": "말레이시아", "Taiwan": "대만", "Myanmar": "미얀마",
+    "Cambodia": "캄보디아", "Mongolia": "몽골", "Laos": "라오스", "Uzbekistan": "우즈베키스탄",
 }
 STREAMS_KO = {"Low Wage": "저임금", "High Wage": "고임금", "Primary Agriculture": "1차 농업",
               "Permanent Resident Only": "영주권 전용", "Global Talent": "글로벌 인재"}
@@ -207,19 +208,23 @@ def main() -> int:
     us_live = not force_sample and (live / "perm.json").exists()
     meta = dict(data("meta") or {})
     meta["sample"] = not us_live
-    meta["sample_parts"] = [n for n, f in (("US", "perm"), ("Canada", "ca"), ("UK", "uk"), ("Australia", "au"))
+    meta["sample_parts"] = [n for n, f in (("US", "perm"), ("Canada", "ca"), ("UK", "uk"), ("Australia", "au"), ("Japan", "jp"))
                             if force_sample or not (live / f"{f}.json").exists()]
     lca, perm, sc = data("lca", {}), data("perm", {}), data("scorecard", {})
     vb = data("visa_bulletin", {"current": None, "history": []})
     ca = data("ca")
     uk = data("uk")
     au = data("au")
+    jp = data("jp")
+    sg = yaml.safe_load((ROOT / "data" / "sg.yaml").read_text(encoding="utf-8"))
     d = live
     korea_e9 = load(ROOT / "data", "korea_e9") or load(sample, "korea_e9")
     korea = yaml.safe_load((ROOT / "data" / "korea.yaml").read_text(encoding="utf-8"))
     pw = yaml.safe_load((ROOT / "data" / "pathways.yaml").read_text(encoding="utf-8"))
     links = {"us": "../us/index.html", "ca": "../ca/index.html", "uk": "../uk/index.html",
-             "au": "../au/index.html", "kr": "../korea/index.html"}
+             "au": "../au/index.html", "jp": "../jp/index.html", "sg": "../sg/index.html", "kr": "../korea/index.html"}
+    order = ["us", "ca", "uk", "au", "jp", "sg", "kr"]
+    pw["countries"].sort(key=lambda p: order.index(p["code"]))
     pathways = []
     for p in pw["countries"]:
         if (p["code"] == "ca" and not ca) or (p["code"] == "uk" and not uk) or (p["code"] == "au" and not au):
@@ -227,10 +232,11 @@ def main() -> int:
         pathways.append({**p, "link": links[p["code"]]})
     path_by = {p["code"]: p for p in pathways}
     pw_ko = yaml.safe_load((ROOT / "data" / "pathways_ko.yaml").read_text(encoding="utf-8"))
+    pw_ko["countries"].sort(key=lambda p: order.index(p["code"]))
     pathways_ko = [{**p, "link": links[p["code"]]} for p in pw_ko["countries"]
                    if not ((p["code"] == "ca" and not ca) or (p["code"] == "uk" and not uk) or (p["code"] == "au" and not au))]
     path_ko = {p["code"]: p for p in pathways_ko}
-    names_ko = {"US": "미국", "Canada": "캐나다", "UK": "영국", "Australia": "호주"}
+    names_ko = {"US": "미국", "Canada": "캐나다", "UK": "영국", "Australia": "호주", "Japan": "일본"}
     visas_meta = yaml.safe_load((ROOT / "data" / "visas.yaml").read_text(encoding="utf-8"))
     visas_by = {code: {**v, "code": code} for code, v in visas_meta["countries"].items()}
 
@@ -269,14 +275,15 @@ def main() -> int:
                        kindustry=lambda s: INDUSTRY_KO.get(s, s))
     env.globals["wait_gap"] = wait_gap
     ctx = {"site": site, "meta": meta, "majors": majors, "jobs": jobs, "groups": groups, "vb": vb,
-           "ca": ca, "uk": uk, "au": au, "groups_ko": groups_ko, "visas_meta": visas_meta, "visas_by": visas_by, "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
+           "ca": ca, "uk": uk, "au": au, "jp": jp, "sg": sg, "groups_ko": groups_ko,
+           "jp_field_name": {f["ja"]: f for f in (jp or {}).get("fields", [])}, "visas_meta": visas_meta, "visas_by": visas_by, "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
 
     if SITE.exists():
         shutil.rmtree(SITE)
     shutil.copytree(ROOT / "static", SITE / "static")
     pages = []
 
-    ko_pages = {"index.html", "pathways/index.html", "us/index.html", "us/employers/index.html",
+    ko_pages = {"index.html", "pathways/index.html", "us/index.html", "us/employers/index.html", "jp/index.html", "sg/index.html",
                 "us/visa-bulletin/index.html", "ca/index.html", "ca/employers/index.html", "uk/index.html", "au/index.html"}
     ko_pages |= {f"us/jobs/{j['slug']}/index.html" for j in jobs} | {f"us/majors/{m['slug']}/index.html" for m in majors}
     ko_pages |= {f"ca/jobs/{j['slug']}/index.html" for j in jobs if j.get("noc") and ca}
@@ -346,6 +353,13 @@ def main() -> int:
         for j in jobs:
             if j["au"]:
                 render("au/job.html", f"au/jobs/{j['slug']}/index.html", country="au", j=j)
+
+    # Japan and Singapore
+    if jp:
+        render("jp/index.html", "jp/index.html", country="jp", pw_path=path_by["jp"])
+        render("ko/jp/index.html", "ko/jp/index.html", lang="ko", country="jp", pw_path=path_ko["jp"])
+    render("sg/index.html", "sg/index.html", country="sg", pw_path=path_by["sg"])
+    render("ko/sg/index.html", "ko/sg/index.html", lang="ko", country="sg", pw_path=path_ko["sg"])
 
     # South Korea
     render("korea/index.html", "korea/index.html", country="kr", pw_path=path_by["kr"])

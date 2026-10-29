@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
+{% block title %}Working in Singapore: EP, S Pass, Work Permit and PR | {{ site.name }}{% endblock %}
+{% block description %}Singapore's work passes compared: Employment Pass and S Pass salary floors, Work Permit source countries, how many foreigners hold each pass, and the route to permanent residence, from Ministry of Manpower data.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Singapore: work passes and the route to permanent residence</h1>
+  <p class="lede">Singapore sorts foreign workers into three main passes by salary: the Employment Pass for professionals, the S Pass for mid-skilled staff and the Work Permit for most factory, construction and service jobs. Only EP and S Pass holders can apply for PR.</p>
+</section>
+<section aria-label="Routes to permanent residence">{{ draw(pw_path) }}</section>
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">Pass types and requirements</h2>
+  <p class="hint">Pick a pass to see its salary, education and experience requirements, how long it lasts and where it leads.</p>
+  {{ visa_tabs(visas_by["sg"], "en") }}
+</section>
+
+<section aria-labelledby="wf-h">
+  <h2 id="wf-h">Foreign workforce by pass</h2>
+  <p class="hint">Number of pass holders, from the Ministry of Manpower.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">Pass</th>{% for p in sg.periods %}<th scope="col">{{ p }}</th>{% endfor %}</tr></thead>
+    <tbody>
+    {% for r in sg.rows %}<tr><th scope="row">{{ r.en }}</th>{% for v in r['values'] %}<td>{{ v|num }}</td>{% endfor %}</tr>{% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section aria-labelledby="jobs-h">
+  <h2 id="jobs-h">Which pass fits your job</h2>
+  <p class="hint">The usual pass for each job. Pay decides it in the end: a well-paid technician can qualify for an S Pass.</p>
+  <div class="table-wrap">
+  <table class="rank">
+    <thead><tr><th scope="col">Job</th><th scope="col" class="left">Usual pass</th><th scope="col" class="left">Can lead to PR?</th></tr></thead>
+    <tbody>
+    {% for j in jobs %}<tr><th scope="row">{{ j.name }}</th><td class="wrap">{{ j.sg_pass }}</td><td class="wrap">{{ 'Yes, by applying to ICA' if j.sg_pass != 'Work Permit' else 'Only after moving to an S Pass' }}</td></tr>{% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+<p class="hint">Source: <a href="{{ sg.source }}" rel="noopener">Ministry of Manpower, foreign workforce numbers</a>.</p>
+{% endblock %}

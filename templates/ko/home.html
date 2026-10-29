@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% block title %}해외 취업이민·영주권 직종별 데이터: 미국·캐나다·영국·호주 | {{ site.name }}{% endblock %}
+{% block title %}해외 취업이민·영주권 직종별 데이터: 미국·캐나다·영국·호주·일본·싱가포르 | {{ site.name }}{% endblock %}
 {% block main %}
 <section class="hero">
   <h1>내 직업으로 영주권까지 갈 수 있는 나라는 어디일까요?</h1>
-  <p class="lede">미국·캐나다·영국·호주 정부가 공개한 데이터로 직종별 비자 발급 건수, 제시 임금, 스폰서 회사, 영주권 대기 기간을 한국어로 보여드립니다. 매달 자동으로 갱신됩니다.</p>
+  <p class="lede">미국·캐나다·영국·호주·일본·싱가포르 정부가 공개한 데이터로 직종별 비자 발급 건수, 제시 임금, 스폰서 회사, 영주권 대기 기간을 한국어로 보여드립니다. 매달 자동으로 갱신됩니다.</p>
 </section>
 
 <section aria-label="나라 선택">
@@ -12,6 +12,8 @@
     {% if ca %}<li><a href="ca/index.html"><span class="c-name">캐나다</span><span class="c-what">외국인 고용 승인(LMIA)을 받은 회사를 직종·주별로, Express Entry 추첨 점수까지.</span><span class="c-tag">회사 이름 공개</span></a></li>{% endif %}
     {% if uk %}<li><a href="uk/index.html"><span class="c-name">영국</span><span class="c-what">취업비자 스폰서 자격이 있는 모든 회사를 이름과 도시로 검색.</span><span class="c-tag">회사 이름 공개</span></a></li>{% endif %}
     {% if au %}<li><a href="au/index.html"><span class="c-name">호주</span><span class="c-what">회사 스폰서 취업비자(482)를 직종·국적·주별로, 2년 뒤 영주권 경로까지.</span><span class="c-tag c-tag--plain">직종별 건수</span></a></li>{% endif %}
+    <li><a href="jp/index.html"><span class="c-name">일본</span><span class="c-what">특정기능 비자 분야별·국적별 인원과 한국인 수, 비자 요건과 영주권 경로.</span><span class="c-tag c-tag--plain">분야별 인원</span></a></li>
+    <li><a href="sg/index.html"><span class="c-name">싱가포르</span><span class="c-what">EP·S Pass·워크 퍼밋 최저 월급과 규정, 영주권 신청 자격.</span><span class="c-tag c-tag--plain">패스 요건·인원</span></a></li>
   </ul>
 </section>
 

@@ -117,3 +117,51 @@ countries:
     sources:
       - {name: "HiKorea", url: "https://www.hikorea.go.kr/"}
       - {name: "SeoulStart E-7-4 guide", url: "https://seoulstart.com/guides/e-7-4-visa-guide"}
+
+  - code: sg
+    name: Singapore
+    pr_name: Permanent residence
+    degree:
+      summary: Graduate, get an Employment Pass or S Pass from an employer, then apply for PR after some years. Singapore has no post-study work visa and PR is discretionary.
+      steps:
+        - {label: "Student's Pass", title: "Singapore degree", note: ""}
+        - {label: "EP / S Pass", title: "Employer-sponsored pass", note: "Must meet the salary floor; EP also needs 40 COMPASS points"}
+        - {label: "Work", title: "Build years in Singapore", note: "Salary, tenure and family ties count"}
+        - {label: "PR application", title: "Apply to ICA", note: "No published points or minimum years"}
+        - {label: "PR", title: "Permanent residence", note: ""}
+    no_degree:
+      summary: Work Permits cover most factory, construction and service jobs, but holders cannot apply for PR. The path runs through an S Pass.
+      steps:
+        - {label: "Work Permit", title: "Employer hires you", note: "Approved source countries only; South Korea is included"}
+        - {label: "Skills", title: "Upgrade and gain experience", note: "Certificates and years raise your value"}
+        - {label: "S Pass", title: "Move up to an S Pass", note: "Salary from S$3,300 a month (S$3,600 from Jan 2027)"}
+        - {label: "PR application", title: "Apply to ICA", note: "Work Permit holders cannot apply"}
+        - {label: "PR", title: "Permanent residence", note: "Discretionary"}
+    sources:
+      - {name: "MOM Employment Pass eligibility", url: "https://www.mom.gov.sg/passes-and-permits/employment-pass/eligibility"}
+      - {name: "MOM S Pass eligibility", url: "https://www.mom.gov.sg/passes-and-permits/s-pass/eligibility"}
+      - {name: "MOM Work Permit services sector rules", url: "https://mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/services-sector-requirements"}
+
+  - code: jp
+    name: Japan
+    pr_name: Permanent residence
+    degree:
+      summary: Study in Japan, work on an Engineer/Specialist in Humanities visa, and apply for PR after 10 years, or after 1 to 3 years as a Highly Skilled Professional.
+      steps:
+        - {label: "Student", title: "Japanese degree or vocational diploma", note: ""}
+        - {label: "Engineer/Humanities", title: "Professional work visa", note: "Job must use your field of study"}
+        - {label: "HSP (optional)", title: "Highly Skilled Professional", note: "70 points or more"}
+        - {label: "Residence", title: "Years in Japan", note: "10 years with 5 on a work visa; HSP 3 years (70 pts) or 1 year (80 pts)"}
+        - {label: "PR", title: "Permanent resident", note: "Taxes, pension and insurance must be paid"}
+    no_degree:
+      summary: Pass a Japanese test and a skills test for Specified Skilled Worker (i), move up to type (ii), then build residence toward PR. Time on type (i) does not count toward the 5 working years.
+      steps:
+        - {label: "Tests", title: "Japanese (N4) and skills test", note: "Taken abroad or in Japan"}
+        - {label: "SSW (i)", title: "Specified Skilled Worker (i)", note: "Up to 5 years; no family"}
+        - {label: "SSW (ii)", title: "Specified Skilled Worker (ii)", note: "Higher skills test; no time limit; family can join"}
+        - {label: "Residence", title: "Years in Japan", note: "10 years, with 5 on a counting work visa"}
+        - {label: "PR", title: "Permanent resident", note: ""}
+    sources:
+      - {name: "Immigration Services Agency SSW statistics", url: "https://www.moj.go.jp/isa/applications/ssw/nyuukokukanri07_00215.html"}
+      - {name: "Office Tree SSW guide (Japanese)", url: "https://office-tree.jp/blog/immigration/tokutei-ginou-guide/"}
+      - {name: "Coto Academy PR guide", url: "https://cotoacademy.com/permanent-resident-visa-japan-apply-guide-explanation-highly-skilled-foreign-professional-point-system/"}

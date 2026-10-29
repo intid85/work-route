@@ -10,7 +10,7 @@
       <span class="visa-cat visa-cat--{{ cat }}">{{ visas_meta.categories[cat][lang] }}</span>
       <div class="visa-btns">
       {% for v in items %}
-        <button role="tab" id="{{ uid }}-t-{{ v.id }}" aria-controls="{{ uid }}-p-{{ v.id }}" aria-selected="{{ 'true' if loop.first and cat == 'study' else 'false' }}" tabindex="{{ '0' if loop.first and cat == 'study' else '-1' }}">{{ v.code }}</button>
+        <button role="tab" id="{{ uid }}-t-{{ v.id }}" aria-controls="{{ uid }}-p-{{ v.id }}" aria-selected="{{ 'true' if loop.first and cat == 'study' else 'false' }}" tabindex="{{ '0' if loop.first and cat == 'study' else '-1' }}">{{ v.code_ko if ko and v.code_ko else v.code }}</button>
       {% endfor %}
       </div>
     </div>
@@ -19,7 +19,7 @@
   </div>
   {% for v in vc.visas %}
   <section class="visa-panel" role="tabpanel" id="{{ uid }}-p-{{ v.id }}" aria-labelledby="{{ uid }}-t-{{ v.id }}" {{ '' if loop.first else 'hidden' }}>
-    <h3><span class="visa-code">{{ v.code }}</span> {{ v.name[lang] or v.name.en }}</h3>
+    <h3><span class="visa-code">{{ v.code_ko if ko and v.code_ko else v.code }}</span> {{ v.name[lang] or v.name.en }}</h3>
     <dl class="visa-req">
       {% for f in ['language', 'education', 'experience', 'other', 'stay', 'next'] %}
       <div class="visa-row visa-row--{{ f }}"><dt>{{ visas_meta.fields[f][lang] }}</dt><dd>{{ v[f][lang] or v[f].en }}</dd></div>

@@ -308,10 +308,91 @@ def fetch_au(cfg: dict) -> dict:
     return {"as_at": as_at, "window": window, "total_grants": total, "by_job": out, "url": url}
 
 
+# ---------------------------------------------------------------- Japan
+JP_PAGE = "https://www.moj.go.jp/isa/applications/ssw/nyuukokukanri07_00215.html"
+JP_FIELDS = {  # Japanese field name -> English, Korean
+    "介護": ("Nursing care", "개호(요양)"), "ビルクリーニング": ("Building cleaning", "빌딩 청소"),
+    "リネンサプライ": ("Linen supply", "리넨 공급"), "工業製品製造業": ("Industrial products manufacturing", "공업제품 제조업"),
+    "建設": ("Construction", "건설"), "造船・舶用工業": ("Shipbuilding and marine industry", "조선·선박 공업"),
+    "自動車整備": ("Automobile maintenance", "자동차 정비"), "航空": ("Aviation", "항공"),
+    "宿泊": ("Accommodation", "숙박"), "自動車運送業": ("Automobile transportation", "자동차 운송업"),
+    "鉄道": ("Railway", "철도"), "物流倉庫": ("Logistics warehousing", "물류 창고"), "農業": ("Agriculture", "농업"),
+    "漁業": ("Fishery", "어업"), "飲食料品製造業": ("Food and beverage manufacturing", "음식료품 제조업"),
+    "外食業": ("Food service", "외식업"), "林業": ("Forestry", "임업"), "木材産業": ("Wood industry", "목재 산업"),
+    "資源循環": ("Resource recycling", "자원 순환"),
+}
+JP_COUNTRIES = {"ベトナム": "Vietnam", "インドネシア": "Indonesia", "ミャンマー": "Myanmar", "フィリピン": "Philippines",
+                "中国": "China", "ネパール": "Nepal", "カンボジア": "Cambodia", "タイ": "Thailand", "スリランカ": "Sri Lanka",
+                "モンゴル": "Mongolia", "韓国": "South Korea", "バングラデシュ": "Bangladesh", "インド": "India",
+                "台湾": "Taiwan", "ラオス": "Laos", "ウズベキスタン": "Uzbekistan"}
+
+
+def _clean_jp(label: str) -> str:
+    """'介護分野カイゴブンヤ' -> '介護' (drop furigana and the word 分野)."""
+    label = re.sub(r"[\u30a0-\u30ff]+$", "", str(label).replace("\n", "")).strip()
+    label = re.sub(r"[\u30a0-\u30ff]{3,}$", "", label)
+    return label.replace("分野", "").strip()
+
+
+def _reiwa(text: str) -> str:
+    m = re.search(r"令和\s*(\d+)\s*年\s*(\d+)\s*月", text)
+    return f"{2018 + int(m.group(1))}-{int(m.group(2)):02d}" if m else ""
+
+
+def fetch_jp(cfg: dict) -> dict:
+    html = get(JP_PAGE).text
+    # Table 4 of the detailed SSW (i) release: nationality x industry field
+    links = re.findall(r'href="([^"]+\.xlsx)"[^>]*>([^<]*)', html)
+    url = None
+    for href, text in links:
+        if "第４表" in text or "第4表" in text:
+            url = href if href.startswith("http") else "https://www.moj.go.jp" + href
+            break
+    if not url:
+        raise RuntimeError("Japan SSW table 4 not found")
+    log(f"  Japan SSW table: {url}")
+    raw = pd.read_excel(io.BytesIO(get(url).content), header=None, dtype=str)
+    as_of = ""
+    for v in (str(x) for x in raw.values.ravel()):
+        if "令和" in v:
+            as_of = _reiwa(v)
+            if as_of:
+                break
+    hdr = next(i for i in range(len(raw))
+               if any(str(x).startswith("国籍") for x in raw.iloc[i].values)
+               and any(str(x).startswith("総数") for x in raw.iloc[i].values))
+    cols = [str(x) for x in raw.iloc[hdr].values]
+    fields = {i: _clean_jp(c) for i, c in enumerate(cols) if "分野" in c}
+    total_col = next(i for i, c in enumerate(cols) if c.startswith("総数"))
+    nat_col = next(i for i, c in enumerate(cols) if c.startswith("国籍"))
+    by_field, nations, korea = {}, [], {}
+    for _, row in raw.iloc[hdr + 1:].iterrows():
+        nat = str(row.iloc[nat_col]).strip()
+        vals = {f: int(float(row.iloc[i])) for i, f in fields.items() if str(row.iloc[i]).replace(".", "").isdigit()}
+        if nat == "総数":
+            by_field = vals
+            total = int(float(row.iloc[total_col]))
+        elif nat in ("小計", "nan", ""):
+            continue
+        else:
+            n = int(float(row.iloc[total_col])) if str(row.iloc[total_col]).replace(".", "").isdigit() else 0
+            nations.append({"name": JP_COUNTRIES.get(nat, nat), "ja": nat, "workers": n})
+            if nat == "韓国":
+                korea = {"total": n, "by_field": vals}
+    nations.sort(key=lambda x: -x["workers"])
+    fields_out = [{"ja": f, "en": JP_FIELDS.get(f, (f, f))[0], "ko": JP_FIELDS.get(f, (f, f))[1],
+                   "workers": by_field.get(f, 0), "korea": korea.get("by_field", {}).get(f, 0)}
+                  for f in fields.values()]
+    fields_out.sort(key=lambda x: -x["workers"])
+    log(f"  Japan: {total} SSW (i) workers as of {as_of}; Korea {korea.get('total', 0)}")
+    return {"as_of": as_of, "url": url, "total": total, "fields": fields_out,
+            "top_nations": nations[:8], "korea_total": korea.get("total", 0)}
+
+
 def main(argv: list[str]) -> int:
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     OUT.mkdir(parents=True, exist_ok=True)
-    want = set(argv) or {"ca", "uk", "au"}
+    want = set(argv) or {"ca", "uk", "au", "jp"}
     ok = True
     if "ca" in want:
         log("캐나다")
@@ -332,6 +413,13 @@ def main(argv: list[str]) -> int:
                                                   encoding="utf-8")
         except Exception as e:  # noqa: BLE001
             log(f"  영국 실패: {e}")
+            ok = False
+    if "jp" in want:
+        log("Japan")
+        try:
+            (OUT / "jp.json").write_text(json.dumps(fetch_jp(cfg), ensure_ascii=False), encoding="utf-8")
+        except Exception as e:  # noqa: BLE001
+            log(f"  Japan failed: {e}")
             ok = False
     if "au" in want:
         log("Australia")
