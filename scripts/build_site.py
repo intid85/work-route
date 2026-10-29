@@ -277,7 +277,9 @@ def main() -> int:
                        kstream=lambda s: STREAMS_KO.get(s, s), kaustream=lambda s: AU_STREAMS_KO.get(s, s),
                        kindustry=lambda s: INDUSTRY_KO.get(s, s))
     env.globals["wait_gap"] = wait_gap
-    ctx = {"site": site, "meta": meta, "majors": majors, "jobs": jobs, "groups": groups, "vb": vb,
+    import hashlib
+    asset_v = hashlib.md5(b"".join(f.read_bytes() for f in sorted((ROOT / "static").glob("*")) if f.is_file())).hexdigest()[:8]
+    ctx = {"asset_v": asset_v, "site": site, "meta": meta, "majors": majors, "jobs": jobs, "groups": groups, "vb": vb,
            "ca": ca, "uk": uk, "au": au, "jp": jp, "sg": sg, "groups_ko": groups_ko,
            "jp_field_name": {f["ja"]: f for f in (jp or {}).get("fields", [])}, "visas_meta": visas_meta, "visas_by": visas_by, "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
 
