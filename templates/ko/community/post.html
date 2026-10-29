@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} - {{ boards_ko[post.board] }} 질문 | {{ site.name }}{% endblock %}
+{% block description %}{{ post.body[:150]|replace('\n', ' ') }}{% endblock %}
+{% block head %}
+<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "QAPage", "mainEntity": {"@type": "Question", "name": post.title, "text": post.body, "dateCreated": post.created_at, "author": {"@type": "Person", "name": post.nickname}, "answerCount": post.comments|length, "suggestedAnswer": post.comments_ld}}|tojson }}</script>
+{% endblock %}
+{% block main %}
+<div class="community" data-community data-lang="ko" data-url="{{ community.url }}" data-key="{{ community.key }}"
+     data-built="{{ community_built }}" data-base="{{ cm_base }}" data-post="{{ post.id }}"
+     data-boards='{{ boards_ko|tojson }}'>
+  <article class="cm-post">
+    <p class="cm-board">{{ boards_ko[post.board] }}</p>
+    <h2>{{ post.title }}</h2>
+    <p class="cm-meta">{{ post.nickname }} · {{ post.created_at[:10] }}</p>
+    <div class="cm-body">{{ post.body }}</div>
+  </article>
+  <section class="cm-comments"><h3>답변 {{ post.comments|length }}</h3>
+    <ul>{% for c in post.comments %}<li><p class="cm-meta">{{ c.nickname }} · {{ c.created_at[:10] }}</p><div class="cm-body">{{ c.body }}</div></li>{% endfor %}</ul>
+  </section>
+  <p><a href="{{ cm_base }}index.html?b={{ post.board }}">{{ boards_ko[post.board] }} 게시판 목록</a></p>
+</div>
+<script src="{{ rel }}static/community.js" defer></script>
+{% endblock %}

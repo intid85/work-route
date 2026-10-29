@@ -51,6 +51,7 @@
     <a href="{{ home }}sg/index.html" {{ 'aria-current="page"'|safe if country == 'sg' }}>{{ '싱가포르' if ko else 'Singapore' }}</a>
     {% if not ko %}<a href="{{ rel }}korea/index.html" {{ 'aria-current="page"'|safe if country == 'kr' }}>South Korea</a>{% endif %}
     <a href="{{ home }}pathways/index.html" {{ 'aria-current="page"'|safe if country == 'paths' }}>{{ '전체 경로' if ko else 'All routes' }}</a>
+    {% if ko %}<a href="{{ home }}community/index.html" {{ 'aria-current="page"'|safe if country == 'community' }}>커뮤니티</a>{% endif %}
     {% if alt_href %}<a class="lang-switch" href="{{ alt_href }}" hreflang="{{ 'en' if ko else 'ko' }}" lang="{{ 'en' if ko else 'ko' }}">{{ 'English' if ko else '한국어' }}</a>{% endif %}
   </nav>
 </header>
@@ -70,6 +71,11 @@
 {% endif %}
 <main>
 {% block main %}{% endblock %}
+{% set cm_names = {'us': '미국', 'ca': '캐나다', 'uk': '영국', 'au': '호주', 'nz': '뉴질랜드', 'de': '독일', 'jp': '일본', 'sg': '싱가포르'} %}
+{% if ko and country in cm_names %}
+<aside class="cm-cta"><p><strong>{{ cm_names[country] }} 비자·워홀, 궁금한 점이 있나요?</strong><br><span class="hint">먼저 다녀온 사람들에게 물어보세요. 가입 없이 쓸 수 있습니다.</span></p>
+<a class="cm-btn cm-btn--primary" href="{{ home }}community/{{ country }}/index.html">{{ cm_names[country] }} 게시판 가기</a></aside>
+{% endif %}
 </main>
 <footer class="foot">
   {% if ko %}

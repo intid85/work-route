@@ -292,7 +292,7 @@ def main() -> int:
     ko_pages |= {f"ca/jobs/{j['slug']}/index.html" for j in jobs if j.get("noc") and ca}
     ko_pages |= {f"au/jobs/{j['slug']}/index.html" for j in jobs if j["au"]}
 
-    def render(tpl: str, path: str, lang: str = "en", **extra):
+    def render(tpl: str, path: str, lang: str = "en", no_alt: bool = False, **extra):
         out = SITE / path
         out.parent.mkdir(parents=True, exist_ok=True)
         rel = "../" * path.count("/")
@@ -305,6 +305,8 @@ def main() -> int:
         elif path in ko_pages:
             alt_path, alt_href = "/ko/" + path.removesuffix("index.html"), rel + "ko/" + path
         else:
+            alt_path = alt_href = None
+        if no_alt:
             alt_path = alt_href = None
         local = {"lang": lang, "page_path": page_path, "alt_path": alt_path, "alt_href": alt_href, "rel": rel,
                  "pathways": pathways_ko if lang == "ko" else pathways,
@@ -393,6 +395,45 @@ def main() -> int:
         for j in jobs:
             if j["au"]:
                 render("ko/au/job.html", f"ko/au/jobs/{j['slug']}/index.html", lang="ko", country="au", j=j)
+
+    # Community (Korean board). Posts are fetched at build time so each question gets a static, indexable page.
+    cm = cfg.get("community") or {}
+    boards_ko = {"general": "자유 질문", "us": "미국", "ca": "캐나다", "uk": "영국", "au": "호주", "nz": "뉴질랜드",
+                 "de": "독일", "jp": "일본", "sg": "싱가포르"}
+    posts, built = [], ""
+    if cm.get("url") and not force_sample:
+        try:
+            import requests
+            hdr = {"apikey": cm["key"]}
+            r = requests.get(f"{cm['url']}/rest/v1/posts", headers=hdr, timeout=30,
+                             params={"select": "id,board,title,body,nickname,created_at", "lang": "eq.ko",
+                                     "order": "created_at.desc", "limit": "5000"})
+            r.raise_for_status()
+            posts = r.json()
+            built = dt.datetime.now(dt.timezone.utc).isoformat()
+            by_id = {p["id"]: {**p, "comments": []} for p in posts}
+            if by_id:
+                rc = requests.get(f"{cm['url']}/rest/v1/comments", headers=hdr, timeout=30,
+                                  params={"select": "post_id,body,nickname,created_at", "order": "created_at", "limit": "20000"})
+                rc.raise_for_status()
+                for c in rc.json():
+                    if c["post_id"] in by_id:
+                        by_id[c["post_id"]]["comments"].append(c)
+            posts = list(by_id.values())
+        except Exception as e:  # board still works client-side; only static pages are skipped
+            print(f"community fetch skipped: {e}")
+            posts, built = [], ""
+    cm_ctx = {"community": cm, "boards_ko": boards_ko, "community_built": built}
+    render("ko/community/index.html", "ko/community/index.html", lang="ko", no_alt=True, country="community",
+           board=None, recent=posts[:50], cm_base="", **cm_ctx)
+    for b in boards_ko:
+        render("ko/community/index.html", f"ko/community/{b}/index.html", lang="ko", no_alt=True, country="community",
+               board=b, recent=[p for p in posts if p["board"] == b][:50], cm_base="../", **cm_ctx)
+    for p in posts:
+        p["comments_ld"] = [{"@type": "Answer", "text": c["body"], "dateCreated": c["created_at"],
+                             "author": {"@type": "Person", "name": c["nickname"]}} for c in p["comments"]]
+        render("ko/community/post.html", f"ko/community/post/{p['id']}/index.html", lang="ko", no_alt=True,
+               country="community", post=p, cm_base="../../", **cm_ctx)
 
     render("about.html", "about/index.html", country=None)
     render("404.html", "404.html", country=None)
