@@ -353,3 +353,26 @@ th.left { text-align: left; }
 .cm-msg { color: #b91c1c; margin: 0; font-size: 14px; }
 .cm-cta { margin-block: 32px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; }
 .cm-cta p { margin: 0; }
+
+/* job finder */
+.finder { margin-top: 24px; max-width: 920px; }
+.finder-label { display: block; font-weight: 700; margin-bottom: 8px; }
+.finder-row { display: flex; gap: 8px; }
+.finder-row input { flex: 1; min-width: 0; font: inherit; font-size: 1.1rem; padding: 12px 14px; border: 2px solid var(--route); border-radius: 10px; background: var(--surface); color: var(--ink); }
+.finder-btn { font: inherit; font-weight: 700; font-size: 1.05rem; padding: 0 22px; border: 0; border-radius: 10px; background: var(--route); color: #fff; cursor: pointer; }
+.finder-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.finder-chips button { font: inherit; font-size: 14px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.finder-out { margin-top: 18px; }
+.finder-res h2 { font-size: 1.3rem; margin: 18px 0 10px; }
+.finder-res h2 span { font-size: .95rem; font-weight: 500; color: var(--muted); }
+.finder-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.finder-grid a { display: grid; gap: 4px; height: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--line); border-left-width: 5px; border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.finder-grid a:hover { border-color: var(--route); }
+.fv-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.fv-badge { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+.fv-route { font-size: 14.5px; }
+.fv-ev { font-size: 13px; color: var(--muted); }
+.fv-yes a { border-left-color: var(--route); } .fv-yes .fv-badge { background: var(--route-soft); color: var(--route); }
+.fv-maybe a { border-left-color: var(--stem); } .fv-maybe .fv-badge { background: var(--stem-soft); color: var(--stem-ink); }
+.fv-hard a { border-left-color: var(--line); opacity: .8; } .fv-hard .fv-badge { background: var(--line); color: var(--muted); }
+@media (max-width: 520px) { .finder-btn { padding: 0 14px; } }
