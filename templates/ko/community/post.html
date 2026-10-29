@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ post.title }} - {{ boards_ko[post.board] }} 질문 | {{ site.name }}{% endblock %}
+{% block title %}{{ post.title }} - {{ boards_ko[post.board] }} {{ topics_ko[post.topic] }} | {{ site.name }}{% endblock %}
 {% block description %}{{ post.body[:150]|replace('\n', ' ') }}{% endblock %}
 {% block head %}
 <script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "QAPage", "mainEntity": {"@type": "Question", "name": post.title, "text": post.body, "dateCreated": post.created_at, "author": {"@type": "Person", "name": post.nickname}, "answerCount": post.comments|length, "suggestedAnswer": post.comments_ld}}|tojson }}</script>
@@ -7,11 +7,11 @@
 {% block main %}
 <div class="community" data-community data-lang="ko" data-url="{{ community.url }}" data-key="{{ community.key }}"
      data-built="{{ community_built }}" data-base="{{ cm_base }}" data-post="{{ post.id }}"
-     data-boards='{{ boards_ko.items()|list|tojson }}'>
+     data-boards='{{ boards_ko.items()|list|tojson }}' data-topics='{{ topics_ko.items()|list|tojson }}'>
   <article class="cm-post">
-    <p class="cm-board">{{ boards_ko[post.board] }}</p>
+    <p class="cm-board">{{ boards_ko[post.board] }}<small>{{ topics_ko[post.topic] }}</small></p>
     <h2>{{ post.title }}</h2>
-    <p class="cm-meta">{{ post.nickname }} · {{ post.created_at[:10] }}</p>
+    <p class="cm-meta">{% if post.official %}<b class="cm-official">운영자</b> {% endif %}{{ post.nickname }} · {{ post.created_at[:10] }}</p>
     <div class="cm-body">{{ post.body }}</div>
   </article>
   <section class="cm-comments"><h3>답변 {{ post.comments|length }}</h3>

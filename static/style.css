@@ -376,3 +376,8 @@ th.left { text-align: left; }
 .fv-maybe a { border-left-color: var(--stem); } .fv-maybe .fv-badge { background: var(--stem-soft); color: var(--stem-ink); }
 .fv-hard a { border-left-color: var(--line); opacity: .8; } .fv-hard .fv-badge { background: var(--line); color: var(--muted); }
 @media (max-width: 520px) { .finder-btn { padding: 0 14px; } }
+.cm-topics { display: flex; flex-wrap: wrap; gap: 6px; margin: -4px 0 12px; }
+.cm-topics button { border: 0; background: none; color: var(--muted); font: inherit; font-size: 14px; padding: 4px 8px; border-radius: 6px; cursor: pointer; }
+.cm-topics button[aria-pressed="true"] { background: var(--route-soft); color: var(--route); font-weight: 700; }
+.cm-board small { display: block; font-weight: 500; color: var(--muted); }
+.cm-official { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px; background: var(--route); color: #fff; vertical-align: 1px; }

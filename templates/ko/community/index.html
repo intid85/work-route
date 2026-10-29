@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% block title %}{{ (boards_ko[board] ~ ' ') if board else '' }}해외 취업이민·워홀 질문 게시판 | {{ site.name }}{% endblock %}
+{% block title %}{{ (boards_ko[board] ~ ' ') if board else '' }}{{ (topics_ko[topic] ~ ' ') if topic else '' }}{{ '질문 게시판' if topic else '해외 취업이민·워홀 질문 게시판' }} | {{ site.name }}{% endblock %}
 {% block description %}{{ (boards_ko[board] ~ ' ') if board else '미국·캐나다·영국·호주·뉴질랜드·독일·일본·싱가포르 ' }}취업비자, 영주권, 워킹홀리데이를 묻고 답하는 커뮤니티입니다. 가입 없이 닉네임과 비밀번호로 글을 쓸 수 있습니다.{% endblock %}
 {% block main %}
 <section class="hero hero--slim">
-  <h1>{{ boards_ko[board] ~ ' ' if board else '' }}질문·답변 커뮤니티</h1>
+  <h1>{{ boards_ko[board] ~ ' ' if board else '' }}{{ topics_ko[topic] ~ ' ' if topic else '' }}질문·답변 커뮤니티</h1>
   <p class="lede">취업비자, 영주권, 워킹홀리데이 경험을 나누세요. 가입 없이 닉네임과 비밀번호만 있으면 글과 답변을 쓸 수 있습니다.</p>
 </section>
 <div class="community" data-community data-lang="ko" data-url="{{ community.url }}" data-key="{{ community.key }}"
-     data-built="{{ community_built }}" data-base="{{ cm_base }}" data-board="{{ board or '' }}"
-     data-boards='{{ boards_ko.items()|list|tojson }}'>
+     data-built="{{ community_built }}" data-base="{{ cm_base }}" data-board="{{ board or '' }}" data-topic="{{ topic or '' }}"
+     data-boards='{{ boards_ko.items()|list|tojson }}' data-topics='{{ topics_ko.items()|list|tojson }}'>
   <noscript>게시판을 보려면 자바스크립트를 켜 주세요.</noscript>
   {% if recent %}
   <ul class="cm-list">
-    {% for p in recent %}<li><a href="{{ cm_base }}post/{{ p.id }}/index.html"><span class="cm-board">{{ boards_ko[p.board] }}</span><span class="cm-title">{{ p.title }}</span><span class="cm-meta">{{ p.nickname }} · {{ p.created_at[:10] }}</span></a></li>{% endfor %}
+    {% for p in recent %}<li><a href="{{ cm_base }}post/{{ p.id }}/index.html"><span class="cm-board">{{ boards_ko[p.board] }}<small>{{ topics_ko[p.topic] }}</small></span><span class="cm-title">{{ p.title }}</span><span class="cm-meta">{% if p.official %}<b class="cm-official">운영자</b> {% endif %}{{ p.nickname }} · {{ p.created_at[:10] }}</span></a></li>{% endfor %}
   </ul>
   {% endif %}
 </div>

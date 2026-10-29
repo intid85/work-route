@@ -404,13 +404,14 @@ def main() -> int:
     cm = cfg.get("community") or {}
     boards_ko = {"general": "자유 질문", "us": "미국", "ca": "캐나다", "uk": "영국", "au": "호주", "nz": "뉴질랜드",
                  "de": "독일", "jp": "일본", "sg": "싱가포르"}
+    topics_ko = {"wh": "워킹홀리데이", "study": "유학·어학연수", "work": "취업·취업비자", "pr": "영주권·이민", "life": "현지 생활·후기"}
     posts, built = [], ""
     if cm.get("url") and not force_sample:
         try:
             import requests
             hdr = {"apikey": cm["key"]}
             r = requests.get(f"{cm['url']}/rest/v1/posts", headers=hdr, timeout=30,
-                             params={"select": "id,board,title,body,nickname,created_at", "lang": "eq.ko",
+                             params={"select": "id,board,topic,official,title,body,nickname,created_at", "lang": "eq.ko",
                                      "order": "created_at.desc", "limit": "5000"})
             r.raise_for_status()
             posts = r.json()
@@ -427,12 +428,16 @@ def main() -> int:
         except Exception as e:  # board still works client-side; only static pages are skipped
             print(f"community fetch skipped: {e}")
             posts, built = [], ""
-    cm_ctx = {"community": cm, "boards_ko": boards_ko, "community_built": built}
+    cm_ctx = {"community": cm, "boards_ko": boards_ko, "topics_ko": topics_ko, "community_built": built}
     render("ko/community/index.html", "ko/community/index.html", lang="ko", no_alt=True, country="community",
-           board=None, recent=posts[:50], cm_base="", **cm_ctx)
+           board=None, topic=None, recent=posts[:50], cm_base="", **cm_ctx)
     for b in boards_ko:
         render("ko/community/index.html", f"ko/community/{b}/index.html", lang="ko", no_alt=True, country="community",
-               board=b, recent=[p for p in posts if p["board"] == b][:50], cm_base="../", **cm_ctx)
+               board=b, topic=None, recent=[p for p in posts if p["board"] == b][:50], cm_base="../", **cm_ctx)
+        for t in topics_ko:
+            render("ko/community/index.html", f"ko/community/{b}/{t}/index.html", lang="ko", no_alt=True, country="community",
+                   board=b, topic=t, recent=[p for p in posts if p["board"] == b and p.get("topic") == t][:50],
+                   cm_base="../../", **cm_ctx)
     for p in posts:
         p["comments_ld"] = [{"@type": "Answer", "text": c["body"], "dateCreated": c["created_at"],
                              "author": {"@type": "Person", "name": c["nickname"]}} for c in p["comments"]]
