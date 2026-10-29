@@ -36,7 +36,9 @@
     <a href="{{ rel }}us/index.html" {{ 'aria-current="page"'|safe if country == 'us' }}>United States</a>
     {% if ca %}<a href="{{ rel }}ca/index.html" {{ 'aria-current="page"'|safe if country == 'ca' }}>Canada</a>{% endif %}
     {% if uk %}<a href="{{ rel }}uk/index.html" {{ 'aria-current="page"'|safe if country == 'uk' }}>United Kingdom</a>{% endif %}
+    {% if au %}<a href="{{ rel }}au/index.html" {{ 'aria-current="page"'|safe if country == 'au' }}>Australia</a>{% endif %}
     <a href="{{ rel }}korea/index.html" {{ 'aria-current="page"'|safe if country == 'kr' }}>South Korea</a>
+    <a href="{{ rel }}pathways/index.html" {{ 'aria-current="page"'|safe if country == 'paths' }}>All routes</a>
   </nav>
 </header>
 {% if country == 'us' %}
@@ -57,7 +59,7 @@
 {% block main %}{% endblock %}
 </main>
 <footer class="foot">
-  <p>Built from public data published by the US Department of Labor, US Department of State, US Department of Education, Employment and Social Development Canada, Immigration, Refugees and Citizenship Canada, the UK Home Office and Korean government agencies. <a href="{{ rel }}about/index.html">Sources and methods</a></p>
+  <p>Built from public data published by the US Department of Labor, US Department of State, US Department of Education, Employment and Social Development Canada, Immigration, Refugees and Citizenship Canada, the UK Home Office, the Australian Department of Home Affairs and Korean government agencies. <a href="{{ rel }}about/index.html">Sources and methods</a></p>
   <p>{{ site.name }} is an independent statistics site, not a government service, and nothing here is legal advice. Speak to a licensed immigration lawyer or adviser before making decisions.</p>
 </footer>
 </body>

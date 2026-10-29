@@ -253,3 +253,27 @@ th.left { text-align: left; }
 .bars .bar--alt { background: var(--stem); }
 .bars li.bars-wide { grid-template-columns: 12em 1fr 4.5em; }
 @media (max-width: 560px) { .bars li, .bars li.bars-wide { grid-template-columns: 1fr 4.5em; } .bars .label { grid-column: 1 / -1; } }
+
+/* Two-line pathways -------------------------------------------------------- */
+.route--n { grid-template-columns: repeat(var(--n, 5), 1fr); }
+.route--n::before { right: calc(100% / var(--n, 5) - 8px); }
+@media (max-width: 720px) { .route--n { grid-template-columns: 1fr; } .route--n::before { right: auto; } }
+.paths { display: grid; gap: 28px; }
+.path { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px 8px; }
+.path-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.path-head h3 { margin: 0; font-size: 1.15rem; font-weight: 750; }
+.path-tag { font-size: 13px; font-weight: 650; padding: 2px 10px; border-radius: 999px; background: var(--route-soft); color: var(--route); }
+.path--trade .path-tag { background: var(--stem-soft); color: var(--stem-ink); }
+.path--trade .route::before { background: var(--stem); }
+.path--trade .route .dot { border-color: var(--stem); }
+.path--trade .route li:last-child .dot { background: var(--stem); }
+.path--trade .route b { color: var(--stem-ink); }
+.path > p { color: var(--muted); margin: 8px 0 0; max-width: 46em; }
+.path .route { margin-block: 22px 12px; }
+.path .route .fig--text { font-size: 1.05rem; margin-top: 4px; }
+.path-src { font-size: 13px; color: var(--muted); }
+.path-src a { color: var(--muted); }
+.country-block { margin-block: 48px; }
+.country-block > h2 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.country-block > h2 a { font-size: 15px; font-weight: 500; }
+.stat-row .fig--small { font-size: 1.3rem; }

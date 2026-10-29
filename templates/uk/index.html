@@ -1,10 +1,15 @@
 {% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
 {% block title %}UK visa sponsor search: licensed Skilled Worker sponsors | {{ site.name }}{% endblock %}
 {% block description %}Search the UK Home Office register of licensed sponsors to check whether a company can sponsor a Skilled Worker or other work visa, with counts by visa route and town.{% endblock %}
 {% block main %}
 <section class="hero">
   <h1>UK visa sponsor search</h1>
   <p class="lede">A UK employer needs a sponsor licence before it can hire someone on a Skilled Worker visa. The Home Office publishes every licensed sponsor. This copy is from {{ uk.date }}.</p>
+</section>
+
+<section aria-label="Routes to permanent residence">
+  {{ draw(pw_path) }}
 </section>
 
 <div class="stat-row">

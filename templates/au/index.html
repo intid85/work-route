@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% block title %}Australia employer-sponsored visas by job: Skills in Demand (482) grants | {{ site.name }}{% endblock %}
+{% block description %}How many employer-sponsored Skills in Demand (subclass 482) visas Australia granted for each job, where the workers come from and which states they work in, from Department of Home Affairs data, plus the route to permanent residence.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Australia: employer-sponsored visas by job</h1>
+  <p class="lede">Australian employers sponsor foreign workers on the Skills in Demand visa (subclass 482), and after three years the same employer can nominate them for permanent residence. Figures are primary applicants granted from {{ au.window }}.</p>
+</section>
+
+<section aria-labelledby="route-h">
+  <h2 id="route-h" class="visually-hidden">Routes to permanent residence</h2>
+  {{ draw(pw_path) }}
+</section>
+
+<section id="jobs" aria-labelledby="jobs-h">
+  <h2 id="jobs-h">Sponsored visas granted by job</h2>
+  <p class="hint">Australia doesn't publish sponsor names, so these pages show volumes, nationalities and locations instead of an employer list. {{ au.total_grants|num }} primary 482 visas were granted across all jobs in this period.</p>
+  {% for g, items in groups.items() %}
+  {% set shown = items|selectattr('au')|list %}
+  {% if shown %}
+  <h3 class="group-h">{{ g }}</h3>
+  <ul class="job-grid">
+    {% for j in shown %}
+    <li>
+      <a href="jobs/{{ j.slug }}/index.html">
+        <span class="job-name">{{ j.name }}</span>
+        <span class="job-stat"><em>{{ j.au.grants|num }}</em> granted</span>
+        <span class="job-stat">{% if j.au.grants_prev %}{% set ch = ((j.au.grants - j.au.grants_prev) / j.au.grants_prev * 100)|round|int %}<em>{{ '+' if ch > 0 }}{{ ch }}%</em> vs year before{% endif %}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endfor %}
+</section>
+{% endblock %}

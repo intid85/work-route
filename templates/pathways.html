@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% block title %}Routes to permanent residence in the US, Canada, UK, Australia and Korea | {{ site.name }}{% endblock %}
+{% block description %}Step-by-step routes to a green card or permanent residence in five countries, side by side: one route for people with a degree from that country and one for skilled and unskilled workers without one.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Routes to permanent residence, side by side</h1>
+  <p class="lede">Each country has two common routes: one that starts with a degree there, and one that starts with a job offer and no degree. Teal is the degree route, amber the route without one.</p>
+</section>
+{% for p in pathways %}
+<section class="country-block" id="{{ p.code }}">
+  <h2>{{ p.name }} {% if p.link %}<a href="{{ p.link }}">See jobs and employers</a>{% endif %}</h2>
+  {{ draw(p) }}
+</section>
+{% endfor %}
+{% endblock %}

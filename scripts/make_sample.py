@@ -117,6 +117,21 @@ def main():
                "r": ["Skilled Worker"] + (["Global Business Mobility: Senior or Specialist Worker"] if i % 5 == 0 else [])}
               for i in range(80)]
 
+    au_states = ["Victoria", "New South Wales", "Queensland", "Western Australia", "South Australia", "Tasmania"]
+    au_jobs = {}
+    for j in cfg["jobs"]:
+        g = rnd.randint(80, 4000)
+        au_jobs[j["slug"]] = {
+            "grants": g, "grants_prev": int(g * rnd.uniform(0.7, 1.3)),
+            "top_countries": [{"name": c, "grants": int(g * w)} for c, w in
+                              zip(rnd.sample(countries, 6), [0.3, 0.18, 0.12, 0.08, 0.05, 0.03])],
+            "top_states": [{"name": s, "grants": int(g * w)} for s, w in
+                           zip(rnd.sample(au_states, 6), [0.3, 0.25, 0.2, 0.1, 0.06, 0.03])],
+            "subtypes": [{"name": "Core Skills", "grants": int(g * 0.7)}, {"name": "Labour Agreement", "grants": int(g * 0.2)}],
+            "industries": [{"name": "Manufacturing", "grants": int(g * 0.4)}, {"name": "Accommodation and Food Services", "grants": int(g * 0.2)}],
+        }
+    au = {"as_at": "sample", "window": "Oct 2025 – Sep 2026", "total_grants": 60000, "by_job": au_jobs}
+
     korea_e9 = {"year": "Sample", "by_nationality": [{"country": c, "workers": n} for c, n in zip(
         ["Nepal", "Cambodia", "Vietnam", "Indonesia", "Myanmar", "Sri Lanka", "Bangladesh", "Philippines", "Thailand", "Uzbekistan"],
         [52000, 45000, 41000, 30000, 28000, 26000, 21000, 19000, 17000, 15000])],
@@ -127,7 +142,7 @@ def main():
     meta = {"sample": True, "generated": "sample", "lca": {"period": "sample"}, "perm": {"period": "sample"}, "scorecard": {}}
     files = {"meta": meta, "lca": lca, "perm": perm, "scorecard": sc, "employers": employers,
              "visa_bulletin": {"current": vb_hist[-1], "history": vb_hist},
-             "ca": ca, "ca_employers": ca_emp, "uk": uk, "uk_sponsors": uk_idx, "korea_e9": korea_e9}
+             "ca": ca, "ca_employers": ca_emp, "uk": uk, "uk_sponsors": uk_idx, "korea_e9": korea_e9, "au": au}
     for name, obj in files.items():
         (OUT / f"{name}.json").write_text(json.dumps(obj, ensure_ascii=False), encoding="utf-8")
     print("Sample data written to", OUT)

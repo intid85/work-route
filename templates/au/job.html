@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}{{ j.name }} visa sponsorship in Australia: 482 grants and route to PR | {{ site.name }}{% endblock %}
+{% block description %}{{ j.au.grants|num }} Skills in Demand (482) visas granted to {{ j.name|lower }}s in Australia from {{ au.window }}: nationalities, states, visa streams and sponsor industries, from Department of Home Affairs data.{% endblock %}
+{% block main %}
+{% set a = j.au %}
+<nav class="crumbs"><a href="../../index.html#jobs">Australia jobs</a> / {{ j.group }}</nav>
+<section class="hero hero--major">
+  <h1>{{ j.name }}: employer-sponsored visas in Australia</h1>
+  <p class="en-title">ANZSCO {{ j.anzsco|join(', ') }} · {{ au.window }}</p>
+</section>
+
+<div class="stat-row">
+  <div><b>482 visas granted</b><strong class="fig">{{ a.grants|num }}</strong></div>
+  <div><b>Year before</b><strong class="fig">{{ a.grants_prev|num }}</strong></div>
+  {% if a.subtypes %}<div><b>Main stream</b><strong class="fig fig--small">{{ a.subtypes[0].name }}</strong></div>{% endif %}
+</div>
+
+<section class="split">
+  <div>
+    <h2>Where the workers come from</h2>
+    <ul class="bars">
+    {% set top = (a.top_countries[0].grants if a.top_countries else 1) or 1 %}
+    {% for c in a.top_countries %}
+      <li><span class="label">{{ c.name }}</span><span class="bar" style="--w: {{ (c.grants / top * 100)|round(1) }}%"></span><span class="val">{{ c.grants|num }}</span></li>
+    {% else %}<li>No data.</li>{% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Where the jobs are</h2>
+    <ul class="bars">
+    {% set top = (a.top_states[0].grants if a.top_states else 1) or 1 %}
+    {% for s in a.top_states %}
+      <li><span class="label">{{ s.name }}</span><span class="bar bar--alt" style="--w: {{ (s.grants / top * 100)|round(1) }}%"></span><span class="val">{{ s.grants|num }}</span></li>
+    {% else %}<li>No data.</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <h2>Visa streams</h2>
+    <ul class="bars">
+    {% set top = (a.subtypes[0].grants if a.subtypes else 1) or 1 %}
+    {% for s in a.subtypes %}
+      <li class="bars-wide"><span class="label">{{ s.name }}</span><span class="bar" style="--w: {{ (s.grants / top * 100)|round(1) }}%"></span><span class="val">{{ s.grants|num }}</span></li>
+    {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Sponsor industries</h2>
+    <ul class="bars">
+    {% set top = (a.industries[0].grants if a.industries else 1) or 1 %}
+    {% for s in a.industries %}
+      <li class="bars-wide"><span class="label">{{ s.name }}</span><span class="bar bar--alt" style="--w: {{ (s.grants / top * 100)|round(1) }}%"></span><span class="val">{{ s.grants|num }}</span></li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<aside class="elsewhere">
+  <h2>Route to permanent residence</h2>
+  <p>On the Core Skills stream, after three years of continuous work for your sponsor, the employer can nominate you for a subclass 186 permanent visa. <a href="../../../pathways/index.html#au">See both Australian routes</a></p>
+</aside>
+
+{% if j.perm or j.ca %}
+<aside class="elsewhere">
+  <h2>{{ j.name }} in other countries</h2>
+  <p>{% if j.perm %}United States: {{ j.perm.certified|num }} green card labor certifications. {% endif %}{% if j.ca %}Canada: {{ j.ca.positions|num }} LMIA positions approved.{% endif %}</p>
+  <a href="../../../us/jobs/{{ j.slug }}/index.html">US sponsors</a>{% if j.ca %} · <a href="../../../ca/jobs/{{ j.slug }}/index.html">Canadian employers</a>{% endif %}
+</aside>
+{% endif %}
+
+<section class="others">
+  <h2>Other jobs in Australia</h2>
+  <ul>
+  {% for o in jobs if o.slug != j.slug and o.au %}
+    <li><a href="../{{ o.slug }}/index.html">{{ o.name }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}

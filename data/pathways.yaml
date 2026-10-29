@@ -1,0 +1,118 @@
+# Routes to permanent residence, two lines per country. Maintained by hand.
+# Each step: label (short name of the stage), title (what happens), note (time or condition).
+# Keep `as_of` and the source links current when rules change.
+as_of: "October 2026"
+
+countries:
+  - code: us
+    name: United States
+    pr_name: Green card
+    degree:
+      summary: Study, work on OPT, get an H-1B, then an employer sponsors the green card.
+      steps:
+        - {label: "F-1 student", title: "US degree", note: "Bachelor's or master's at a US school"}
+        - {label: "OPT", title: "Work after graduation", note: "12 months, or 36 months for STEM majors"}
+        - {label: "H-1B", title: "Specialty work visa", note: "Annual lottery; up to 6 years"}
+        - {label: "PERM + I-140", title: "Employer sponsors you", note: "Labor certification, then immigrant petition"}
+        - {label: "Green card", title: "EB-2 or EB-3", note: "When your priority date is current"}
+    no_degree:
+      summary: A US employer sponsors you directly from abroad; no study or work visa needed first.
+      steps:
+        - {label: "Job offer", title: "US employer hires you", note: "Common in meat processing, farms, hotels, construction"}
+        - {label: "PERM", title: "Labor certification", note: "Employer pays all costs"}
+        - {label: "I-140", title: "Immigrant petition", note: "EB-3 Skilled Worker or Other Workers"}
+        - {label: "Wait", title: "Visa Bulletin line", note: "Often several years for Other Workers"}
+        - {label: "Green card", title: "Enter as a permanent resident", note: "Immigrant visa interview abroad"}
+    sources:
+      - {name: "US Visa Bulletin", url: "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"}
+      - {name: "DOL permanent labor certification", url: "https://www.dol.gov/agencies/eta/foreign-labor/programs/permanent"}
+
+  - code: ca
+    name: Canada
+    pr_name: Permanent residence
+    degree:
+      summary: Graduate in Canada, get a post-graduation work permit, then apply through Express Entry after a year of skilled work.
+      steps:
+        - {label: "Study permit", title: "Canadian degree or diploma", note: "College programs must match a shortage field"}
+        - {label: "PGWP", title: "Post-graduation work permit", note: "Up to 3 years, based on program length"}
+        - {label: "Work", title: "1 year skilled work", note: "TEER 0 to 3 jobs"}
+        - {label: "Express Entry", title: "Canadian Experience Class", note: "Invited by CRS score or category draw"}
+        - {label: "PR", title: "Permanent residence", note: ""}
+    no_degree:
+      summary: Come on an employer's LMIA work permit, then look for a provincial nomination. There is no federal route for most TEER 4 and 5 jobs.
+      steps:
+        - {label: "LMIA", title: "Employer gets approval", note: "Employer may not charge you for it"}
+        - {label: "Work permit", title: "Temporary foreign worker", note: "Tied to that employer"}
+        - {label: "Work", title: "Build Canadian experience", note: "Trades in TEER 2 or 3 can use Express Entry"}
+        - {label: "PNP", title: "Provincial nomination", note: "Regional and in-demand streams vary by province"}
+        - {label: "PR", title: "Permanent residence", note: ""}
+    sources:
+      - {name: "IRCC post-graduation work permit", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation.html"}
+      - {name: "Moving2Canada on the closed TEER 4–5 pathway (Aug 2025)", url: "https://moving2canada.com/news-and-features/news/immigration/canada-closes-teer-4-and-5-permanent-residence-pathway/"}
+
+  - code: uk
+    name: United Kingdom
+    pr_name: Indefinite leave to remain
+    degree:
+      summary: Graduate, use the Graduate visa to find a sponsored job, then qualify for settlement on a Skilled Worker visa.
+      steps:
+        - {label: "Student visa", title: "UK degree", note: ""}
+        - {label: "Graduate visa", title: "Work without a sponsor", note: "2 years (3 for PhD); 18 months for applications from Jan 1, 2027"}
+        - {label: "Skilled Worker", title: "Licensed sponsor hires you", note: "Degree-level job and salary threshold"}
+        - {label: "Qualifying years", title: "Live and work in the UK", note: "5 years today; a 10-year baseline has been proposed"}
+        - {label: "ILR", title: "Settlement", note: "Graduate visa time does not count"}
+    no_degree:
+      summary: Since July 22, 2025 most new Skilled Worker visas need a degree-level job. Only roles on the Temporary Shortage List remain open below that level.
+      steps:
+        - {label: "TSL job", title: "Role on the Temporary Shortage List", note: "Open to new visas until Dec 31, 2026"}
+        - {label: "Skilled Worker", title: "Sponsor licence required", note: "No dependants on these roles"}
+        - {label: "Qualifying years", title: "Live and work in the UK", note: "Settlement rules are under review"}
+        - {label: "ILR", title: "Settlement", note: "Check current rules before relying on this route"}
+    sources:
+      - {name: "Burness Paull on the Temporary Shortage List", url: "https://www.burnesspaull.com/legal-insights-news-events/insights/understanding-the-new-skilled-worker-visa-rules-temporary-shortage-list-tsl-and-immigration-salary-list-isl"}
+      - {name: "Paragon Law, Graduate visa 2026 guide", url: "https://www.paragonlaw.co.uk/resources/uk-graduate-visa-2026-guide"}
+
+  - code: au
+    name: Australia
+    pr_name: Permanent residence
+    degree:
+      summary: Graduate in Australia, work on a graduate visa, then get PR through the points test or an employer.
+      steps:
+        - {label: "Student visa", title: "Australian degree", note: ""}
+        - {label: "Subclass 485", title: "Temporary graduate visa", note: "Work rights after graduation"}
+        - {label: "Skills assessment", title: "Occupation and points", note: "Age, English, experience, study in Australia"}
+        - {label: "189 / 190 / 186", title: "Points-tested or employer PR visa", note: "Invitation through SkillSelect, or employer nomination"}
+        - {label: "PR", title: "Permanent residence", note: ""}
+    no_degree:
+      summary: Trades and many other jobs can be sponsored on the Skills in Demand visa, then the same employer nominates you for PR.
+      steps:
+        - {label: "Experience", title: "Show your trade skills", note: "At least 1 year of relevant experience; some trades need a formal skills assessment"}
+        - {label: "Subclass 482", title: "Skills in Demand, Core Skills stream", note: "Occupation on the Core Skills list; salary at least A$79,423 from Jul 1, 2026"}
+        - {label: "Work", title: "Stay with your sponsor", note: "3 years of continuous employment"}
+        - {label: "Subclass 186", title: "Employer nomination, transition stream", note: "Generally under 45"}
+        - {label: "PR", title: "Permanent residence", note: ""}
+    sources:
+      - {name: "MyVisa, Skills in Demand 2026 guide", url: "https://myvisa.com.au/immigration-guides/skills-in-demand-visa-482-australia-guide-2026"}
+      - {name: "Home Affairs visa listing", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing"}
+
+  - code: kr
+    name: South Korea
+    pr_name: Permanent residence (F-5)
+    degree:
+      summary: Study in Korea, find a professional job on an E-7 visa, then move to points-based residence and permanent residence.
+      steps:
+        - {label: "D-2", title: "Korean degree", note: ""}
+        - {label: "D-10", title: "Job-seeker visa", note: "Time to find work after graduating"}
+        - {label: "E-7", title: "Professional work visa", note: "Job must match an eligible occupation"}
+        - {label: "F-2-7", title: "Points-based residence", note: ""}
+        - {label: "F-5", title: "Permanent residence", note: "Requirements set by the Ministry of Justice"}
+    no_degree:
+      summary: Pass the EPS-TOPIK at home, work on an E-9 permit, then move to the E-7-4 skilled worker visa for long-term stay.
+      steps:
+        - {label: "EPS-TOPIK", title: "Korean test at home", note: "Through your country's official EPS centre"}
+        - {label: "E-9", title: "Work permit", note: "Up to 4 years 10 months"}
+        - {label: "E-7-4", title: "Skilled worker visa", note: "After 4+ years, 200 of 300 points; renewable, family can join"}
+        - {label: "F-2 / F-5", title: "Long-term or permanent residence", note: "Possible later if you meet income and residence requirements"}
+    sources:
+      - {name: "HiKorea", url: "https://www.hikorea.go.kr/"}
+      - {name: "SeoulStart E-7-4 guide", url: "https://seoulstart.com/guides/e-7-4-visa-guide"}

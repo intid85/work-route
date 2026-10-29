@@ -3,7 +3,7 @@
 # site.google_site_verification: the content value of the Google Search Console HTML tag.
 # site.adsense_client: ca-pub-XXXXXXXX once AdSense is approved.
 # site.consult_url: affiliate link for an immigration lawyer or agency. The consult box is hidden when empty.
-# majors[].soc / jobs[].soc: 2018 SOC codes. jobs[].noc: Canada NOC 2021 code for the same job.
+# majors[].soc / jobs[].soc: 2018 SOC codes. jobs[].noc: Canada NOC 2021 code. jobs[].anzsco: Australian ANZSCO unit groups (or exact labels) for the same job.
 site:
   name: Work Route
   tagline: Government data on the jobs, employers and waiting times behind work visas and permanent residence in the US, Canada, the UK and Korea.
@@ -21,6 +21,7 @@ sources:
   ca_ee_rounds: https://www.canada.ca/content/dam/ircc/documents/json/ee_rounds_123_en.json
   uk_sponsor_api: https://www.gov.uk/api/content/government/publications/register-of-licensed-sponsors-workers
   scorecard_fos_zip: https://ed-public-download.scorecard.network/downloads/Most-Recent-Cohorts-Field-of-Study_10152026.zip
+  au_package: https://data.gov.au/data/api/3/action/package_show?id=visa-temporary-work-skilled
 majors:
 - slug: computer-science
   name: Computer Science
@@ -153,6 +154,8 @@ jobs:
   soc: 51-4121
   noc: '72106'
   hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
+  anzsco:
+  - '3223'
 - slug: assembler
   name: Assembly line worker
   title: Team Assemblers
@@ -160,6 +163,8 @@ jobs:
   soc: 51-2092
   noc: '94219'
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+  anzsco:
+  - '8391'
 - slug: machinery-mechanic
   name: Industrial machinery mechanic
   title: Industrial Machinery Mechanics
@@ -167,6 +172,8 @@ jobs:
   soc: 49-9041
   noc: '72400'
   hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
+  anzsco:
+  - '3232'
 - slug: meat-trimmer
   name: Meat and poultry trimmer
   title: Meat, Poultry, and Fish Cutters and Trimmers
@@ -174,6 +181,9 @@ jobs:
   soc: 51-3022
   noc: '94141'
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+  anzsco:
+  - '8312'
+  - Skilled Meat Worker
 - slug: meat-packer
   name: Meat packer
   title: Slaughterers and Meat Packers
@@ -181,6 +191,8 @@ jobs:
   soc: 51-3023
   noc: '95106'
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+  anzsco:
+  - '8313'
 - slug: butcher
   name: Butcher
   title: Butchers and Meat Cutters
@@ -188,6 +200,8 @@ jobs:
   soc: 51-3021
   noc: '63201'
   hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
+  anzsco:
+  - '3512'
 - slug: farmworker
   name: Livestock and poultry farmworker
   title: Farmworkers, Farm, Ranch, and Aquacultural Animals
@@ -195,6 +209,11 @@ jobs:
   soc: 45-2093
   noc: '85100'
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+  anzsco:
+  - '8415'
+  - '8423'
+  - '8416'
+  - '3632'
 - slug: electrician
   name: Electrician
   title: Electricians
@@ -202,6 +221,8 @@ jobs:
   soc: 47-2111
   noc: '72200'
   hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
+  anzsco:
+  - '3411'
 - slug: plumber
   name: Plumber
   title: Plumbers, Pipefitters, and Steamfitters
@@ -209,6 +230,8 @@ jobs:
   soc: 47-2152
   noc: '72300'
   hint: Employers often require two years of experience, so EB-3 Skilled Worker is common.
+  anzsco:
+  - '3341'
 - slug: construction-laborer
   name: Construction laborer
   title: Construction Laborers
@@ -216,6 +239,10 @@ jobs:
   soc: 47-2061
   noc: '75110'
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+  anzsco:
+  - '8211'
+  - '8217'
+  - '8219'
 - slug: auto-mechanic
   name: Auto mechanic
   title: Automotive Service Technicians and Mechanics
@@ -223,6 +250,8 @@ jobs:
   soc: 49-3023
   noc: '72410'
   hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
+  anzsco:
+  - '3212'
 - slug: cook
   name: Cook
   title: Cooks, Restaurant
@@ -230,6 +259,9 @@ jobs:
   soc: 35-2014
   noc: '63200'
   hint: If the employer requires two or more years of experience, the case is usually filed as EB-3 Skilled Worker; shorter requirements fall under EB-3 Other Workers.
+  anzsco:
+  - '3514'
+  - '3513'
 - slug: housekeeper
   name: Hotel housekeeper
   title: Maids and Housekeeping Cleaners
@@ -237,6 +269,8 @@ jobs:
   soc: 37-2012
   noc: '65310'
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+  anzsco:
+  - '8114'
 - slug: warehouse
   name: Warehouse worker
   title: Laborers and Freight, Stock, and Material Movers
@@ -244,6 +278,8 @@ jobs:
   soc: 53-7062
   noc: '75101'
   hint: Most cases are filed as EB-3 Other Workers, which needs less than two years of experience but usually has a longer wait.
+  anzsco:
+  - '7411'
 - slug: registered-nurse
   name: Registered nurse
   title: Registered Nurses
@@ -251,6 +287,8 @@ jobs:
   soc: 29-1141
   noc: '31301'
   hint: Registered nurses are a Schedule A shortage occupation, so the labor certification step is simplified. A U.S. nursing license (NCLEX) is required.
+  anzsco:
+  - '2544'
 - slug: nursing-assistant
   name: Nursing assistant
   title: Nursing Assistants
@@ -258,3 +296,6 @@ jobs:
   soc: 31-1131
   noc: '33102'
   hint: A state nurse aide certification (CNA) is required. Most cases are filed as EB-3 Other Workers.
+  anzsco:
+  - '4233'
+  - '4231'

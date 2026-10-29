@@ -1,10 +1,15 @@
 {% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
 {% block title %}Canada work permits and PR by job: LMIA employers and Express Entry | {{ site.name }}{% endblock %}
 {% block description %}Which Canadian employers are approved to hire foreign workers in each job (LMIA), how many positions support permanent residence, and recent Express Entry draw scores, from Government of Canada open data.{% endblock %}
 {% block main %}
 <section class="hero">
   <h1>Canada: jobs employers are approved to fill with foreign workers</h1>
   <p class="lede">Before most employers in Canada can hire a foreign worker, they need a positive Labour Market Impact Assessment (LMIA). The government publishes every approved employer each quarter. Figures here are for {{ ca.period }}.</p>
+</section>
+
+<section aria-label="Routes to permanent residence">
+  {{ draw(pw_path) }}
 </section>
 
 <section id="jobs" aria-labelledby="jobs-h">

@@ -125,21 +125,32 @@ def main() -> int:
     us_live = not force_sample and (live / "perm.json").exists()
     meta = dict(data("meta") or {})
     meta["sample"] = not us_live
-    meta["sample_parts"] = [n for n, f in (("US", "perm"), ("Canada", "ca"), ("UK", "uk"))
+    meta["sample_parts"] = [n for n, f in (("US", "perm"), ("Canada", "ca"), ("UK", "uk"), ("Australia", "au"))
                             if force_sample or not (live / f"{f}.json").exists()]
     lca, perm, sc = data("lca", {}), data("perm", {}), data("scorecard", {})
     vb = data("visa_bulletin", {"current": None, "history": []})
     ca = data("ca")
     uk = data("uk")
+    au = data("au")
     d = live
     korea_e9 = load(ROOT / "data", "korea_e9") or load(sample, "korea_e9")
     korea = yaml.safe_load((ROOT / "data" / "korea.yaml").read_text(encoding="utf-8"))
+    pw = yaml.safe_load((ROOT / "data" / "pathways.yaml").read_text(encoding="utf-8"))
+    links = {"us": "../us/index.html", "ca": "../ca/index.html", "uk": "../uk/index.html",
+             "au": "../au/index.html", "kr": "../korea/index.html"}
+    pathways = []
+    for p in pw["countries"]:
+        if (p["code"] == "ca" and not ca) or (p["code"] == "uk" and not uk) or (p["code"] == "au" and not au):
+            continue
+        pathways.append({**p, "link": links[p["code"]]})
+    path_by = {p["code"]: p for p in pathways}
 
     majors = [build_major(m, lca, perm, sc) for m in cfg["majors"]]
     jobs = []
     for j in cfg["jobs"]:
         jobs.append({**j, "perm": perm.get(j["soc"], {}),
-                     "ca": (ca or {}).get("by_noc", {}).get(j.get("noc") or "", {})})
+                     "ca": (ca or {}).get("by_noc", {}).get(j.get("noc") or "", {}),
+                     "au": (au or {}).get("by_job", {}).get(j["slug"], {})})
     groups: dict[str, list] = {}
     for j in jobs:
         groups.setdefault(j["group"], []).append(j)
@@ -161,7 +172,7 @@ def main() -> int:
                        state=lambda s: STATES.get(s, s))
     env.globals["wait_gap"] = wait_gap
     ctx = {"site": site, "meta": meta, "majors": majors, "jobs": jobs, "groups": groups, "vb": vb,
-           "ca": ca, "uk": uk, "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
+           "ca": ca, "uk": uk, "au": au, "pathways": pathways, "pathways_as_of": pw["as_of"], "korea": korea, "korea_e9": korea_e9, "build_date": dt.date.today().isoformat()}
 
     if SITE.exists():
         shutil.rmtree(SITE)
@@ -185,7 +196,8 @@ def main() -> int:
     render("home.html", "index.html", country=None)
 
     # United States
-    render("us/index.html", "us/index.html", country="us")
+    render("pathways.html", "pathways/index.html", country="paths")
+    render("us/index.html", "us/index.html", country="us", pw_path=path_by["us"])
     for j in jobs:
         render("us/job.html", f"us/jobs/{j['slug']}/index.html", country="us", j=j)
     for m in majors:
@@ -198,7 +210,7 @@ def main() -> int:
 
     # Canada
     if ca:
-        render("ca/index.html", "ca/index.html", country="ca")
+        render("ca/index.html", "ca/index.html", country="ca", pw_path=path_by["ca"])
         for j in jobs:
             if j.get("noc"):
                 render("ca/job.html", f"ca/jobs/{j['slug']}/index.html", country="ca", j=j)
@@ -209,13 +221,20 @@ def main() -> int:
 
     # United Kingdom
     if uk:
-        render("uk/index.html", "uk/index.html", country="uk")
+        render("uk/index.html", "uk/index.html", country="uk", pw_path=path_by["uk"])
         uk_idx = data("uk_sponsors")
         if uk_idx:
             write_json("static/uk-sponsors.json", {"rows": uk_idx})
 
+    # Australia
+    if au:
+        render("au/index.html", "au/index.html", country="au", pw_path=path_by["au"])
+        for j in jobs:
+            if j["au"]:
+                render("au/job.html", f"au/jobs/{j['slug']}/index.html", country="au", j=j)
+
     # South Korea
-    render("korea/index.html", "korea/index.html", country="kr")
+    render("korea/index.html", "korea/index.html", country="kr", pw_path=path_by["kr"])
 
     render("about.html", "about/index.html", country=None)
     render("404.html", "404.html", country=None)

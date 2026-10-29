@@ -192,10 +192,124 @@ def fetch_uk(cfg: dict):
     return summary, index
 
 
+# ---------------------------------------------------------------- Australia
+QUARTER_MONTHS = {"Q1": ("Jul", "Sep", 0), "Q2": ("Oct", "Dec", 0), "Q3": ("Jan", "Mar", 1), "Q4": ("Apr", "Jun", 1)}
+
+
+def au_grants_url(package_api: str) -> tuple[str, str]:
+    res = get(package_api).json()["result"]["resources"]
+    for r in res:
+        name = (r.get("name") or "").lower()
+        if "granted" in name and r.get("url", "").lower().endswith(".xlsx"):
+            m = re.search(r"(20\d\d-\d\d-\d\d)", r["name"] + r["url"])
+            return r["url"], m.group(1) if m else ""
+    raise RuntimeError("Australian visa grants file not found")
+
+
+def read_pivot_cache(path: Path):
+    """Yield dict rows from the pivot cache inside a Home Affairs pivot-table workbook."""
+    import xml.etree.ElementTree as ET
+    import zipfile
+    ns = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
+    with zipfile.ZipFile(path) as z:
+        defn = next(n for n in z.namelist() if n.startswith("xl/pivotCache/pivotCacheDefinition"))
+        recs = defn.replace("Definition", "Records")
+        root = ET.fromstring(z.read(defn))
+        fields = []
+        for f in root.iter(ns + "cacheField"):
+            si = f.find(ns + "sharedItems")
+            items = [c.get("v") for c in si] if si is not None else []
+            fields.append((f.get("name"), items))
+        with z.open(recs) as fh:
+            for _, el in ET.iterparse(fh):
+                if el.tag != ns + "r":
+                    continue
+                row = {}
+                for (name, items), c in zip(fields, el):
+                    v = c.get("v")
+                    if c.tag == ns + "x":
+                        row[name] = items[int(v)] if items else v
+                    elif c.tag == ns + "n":
+                        row[name] = float(v)
+                    else:
+                        row[name] = v
+                yield row
+                el.clear()
+
+
+def fetch_au(cfg: dict) -> dict:
+    url, as_at = au_grants_url(cfg["sources"]["au_package"])
+    log(f"  Australia grants file ({as_at}): {url}")
+    path = RAW / Path(url).name
+    RAW.mkdir(exist_ok=True)
+    if not path.exists():
+        path.write_bytes(get(url).content)
+
+    jobs = {j["slug"]: j.get("anzsco") or [] for j in cfg.get("jobs", [])}
+
+    def job_of(unit):
+        unit = unit or ""
+        for slug, codes in jobs.items():
+            if any(unit == c or unit.startswith(c + " ") for c in codes):
+                return slug
+        return None
+
+    by_period = Counter()
+    agg = defaultdict(lambda: defaultdict(Counter))
+    for r in read_pivot_cache(path):
+        if r.get("Applicant Type") != "Primary":
+            continue
+        n = r.get("Total", 1) or 0
+        period = (r.get("Financial Year of Visa Grant"), (r.get("Financial Year Quarter") or "")[:2])
+        by_period[period] += n
+        slug = job_of(r.get("Nominated Occupation (Unit Group)"))
+        if slug:
+            a = agg[slug]
+            a["period"][period] += n
+            a["country"][(period, r.get("Citizenship Country"))] += n
+            a["state"][(period, r.get("Nominated Position Location (State)"))] += n
+            a["subtype"][(period, r.get("Visa Sub-type"))] += n
+            a["industry"][(period, r.get("Sponsor Industry"))] += n
+
+    periods = sorted(p for p in by_period if p[0] and p[1])
+    last4, prev4 = set(periods[-4:]), set(periods[-8:-4])
+
+    def label(p):
+        fy, q = p
+        start, end, add = QUARTER_MONTHS[q]
+        year = int(fy[:4]) + add
+        return start, end, year
+
+    s0, _, y0 = label(periods[-4])
+    _, e1, y1 = label(periods[-1])
+    window = f"{s0} {y0} – {e1} {y1}"
+
+    def top(counter, k):
+        c = Counter()
+        for (p, name), n in counter.items():
+            if p in last4 and name and name != "Not Specified":
+                c[name] += n
+        return [{"name": name, "grants": int(n)} for name, n in c.most_common(k)]
+
+    out = {}
+    for slug, a in agg.items():
+        out[slug] = {
+            "grants": int(sum(n for p, n in a["period"].items() if p in last4)),
+            "grants_prev": int(sum(n for p, n in a["period"].items() if p in prev4)),
+            "top_countries": top(a["country"], 6),
+            "top_states": top(a["state"], 6),
+            "subtypes": top(a["subtype"], 5),
+            "industries": top(a["industry"], 3),
+        }
+    total = int(sum(n for p, n in by_period.items() if p in last4))
+    log(f"  Australia: {total} primary grants in {window}, {len(out)} jobs matched")
+    return {"as_at": as_at, "window": window, "total_grants": total, "by_job": out, "url": url}
+
+
 def main(argv: list[str]) -> int:
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     OUT.mkdir(parents=True, exist_ok=True)
-    want = set(argv) or {"ca", "uk"}
+    want = set(argv) or {"ca", "uk", "au"}
     ok = True
     if "ca" in want:
         log("캐나다")
@@ -216,6 +330,14 @@ def main(argv: list[str]) -> int:
                                                   encoding="utf-8")
         except Exception as e:  # noqa: BLE001
             log(f"  영국 실패: {e}")
+            ok = False
+    if "au" in want:
+        log("Australia")
+        try:
+            au = fetch_au(cfg)
+            (OUT / "au.json").write_text(json.dumps(au, ensure_ascii=False), encoding="utf-8")
+        except Exception as e:  # noqa: BLE001
+            log(f"  Australia failed: {e}")
             ok = False
     return 0 if ok else 1
 

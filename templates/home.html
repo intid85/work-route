@@ -3,7 +3,7 @@
 {% block main %}
 <section class="hero">
   <h1>Which country will sponsor your job?</h1>
-  <p class="lede">Employer records, offered wages and waiting times for work-based immigration, taken from government data in the United States, Canada, the United Kingdom and South Korea. Updated every month.</p>
+  <p class="lede">Employer records, offered wages and waiting times for work-based immigration, taken from government data in the United States, Canada, the United Kingdom, Australia and South Korea. Updated every month.</p>
 </section>
 
 <section aria-labelledby="c-h">
@@ -34,6 +34,15 @@
       </a>
     </li>
     {% endif %}
+    {% if au %}
+    <li>
+      <a href="au/index.html">
+        <span class="c-name">Australia</span>
+        <span class="c-what">Employer-sponsored Skills in Demand visas by job, nationality and state, and the three-year path to PR.</span>
+        <span class="c-tag c-tag--plain">Volumes by job</span>
+      </a>
+    </li>
+    {% endif %}
     <li>
       <a href="korea/index.html">
         <span class="c-name">South Korea</span>
@@ -44,9 +53,26 @@
   </ul>
 </section>
 
+<section aria-labelledby="routes-h">
+  <h2 id="routes-h">Two routes in every country</h2>
+  <p class="hint">Most people reach permanent residence either through a degree earned in the country or through a job offer without one. <a href="pathways/index.html">Compare all routes step by step</a></p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th scope="col">Country</th><th scope="col" class="left">With a degree</th><th scope="col" class="left">Without a degree</th></tr></thead>
+    <tbody>
+    {% for p in pathways %}
+      <tr><th scope="row"><a href="pathways/index.html#{{ p.code }}">{{ p.name }}</a></th>
+      <td class="wrap">{{ p.degree.steps|map(attribute='label')|join(' → ') }}</td>
+      <td class="wrap">{{ p.no_degree.steps|map(attribute='label')|join(' → ') }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
 <section aria-labelledby="cmp-h">
   <h2 id="cmp-h">Compare by job</h2>
-  <p class="hint">US figures are certified green card labor certifications (PERM). Canada figures are positions approved through LMIAs, which are work permits; the permanent residence column counts LMIAs issued only to support a PR application.</p>
+  <p class="hint">US figures are certified green card labor certifications (PERM). Canada figures are positions approved through LMIAs, which are work permits; the permanent residence column counts LMIAs issued only to support a PR application. Australia figures are employer-sponsored Skills in Demand visas granted to main applicants.</p>
   <div class="table-wrap">
   <table class="compare" id="compare">
     <thead><tr>
@@ -55,6 +81,7 @@
       <th scope="col" data-sort="num">US offered wage</th>
       {% if ca %}<th scope="col" data-sort="num">Canada positions approved</th>
       <th scope="col" data-sort="num">Canada for permanent residence</th>{% endif %}
+      {% if au %}<th scope="col" data-sort="num">Australia 482 visas granted</th>{% endif %}
     </tr></thead>
     <tbody>
     {% for j in jobs %}
@@ -64,6 +91,7 @@
       <td data-v="{{ j.perm.wage_median or 0 }}">{{ j.perm.wage_median|hourly }}/hr</td>
       {% if ca %}<td data-v="{{ j.ca.positions or 0 }}">{% if j.ca %}<a href="ca/jobs/{{ j.slug }}/index.html">{{ j.ca.positions|num }}</a>{% else %}–{% endif %}</td>
       <td data-v="{{ j.ca.pr_positions or 0 }}">{{ j.ca.pr_positions|num }}</td>{% endif %}
+      {% if au %}<td data-v="{{ j.au.grants or 0 }}">{% if j.au %}<a href="au/jobs/{{ j.slug }}/index.html">{{ j.au.grants|num }}</a>{% else %}–{% endif %}</td>{% endif %}
     </tr>
     {% endfor %}
     </tbody>

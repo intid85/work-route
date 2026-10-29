@@ -1,10 +1,15 @@
 {% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
 {% block title %}US green card sponsorship by job: employers, wages and wait times | {{ site.name }}{% endblock %}
 {% block description %}How many US green cards each job gets through employer sponsorship (PERM), what employers offer to pay, which companies sponsor, and the current EB-3 wait, from US Department of Labor and State Department data.{% endblock %}
 {% block main %}
 <section class="hero">
   <h1>US green cards through an employer, by job</h1>
   <p class="lede">A US employer can sponsor a foreign worker for permanent residence through the PERM labor certification. These pages show how often that happens in each job, what the employer offered to pay, and who the sponsors are.</p>
+</section>
+
+<section aria-label="Routes to permanent residence">
+  {{ draw(pw_path) }}
 </section>
 
 {% if vb.current %}
