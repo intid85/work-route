@@ -422,3 +422,12 @@ th.left { text-align: left; }
 /* country list as gate signs */
 .brand svg { fill: var(--ink); stroke: var(--ink); }
 .brand svg circle:last-child { fill: var(--sign); stroke: var(--ink); }
+
+/* related blog posts */
+.blog-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+.blog-list li { border-bottom: 1px solid var(--line); }
+.blog-list a { display: grid; gap: 2px; padding: 12px 2px; color: var(--ink); text-decoration: none; }
+.blog-list a:hover .bl-title { text-decoration: underline; }
+.bl-title { font-weight: 650; }
+.bl-desc { font-size: 14.5px; color: var(--muted); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+.bl-meta { font-size: 13px; color: var(--muted); }

@@ -24,6 +24,8 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v4
 
@@ -67,6 +69,10 @@ jobs:
       - name: 수집 실패 알림
         if: (steps.fetch.outcome == 'failure' || steps.fetch_world.outcome == 'failure')
         run: echo "::warning::일부 데이터 수집에 실패해 이전 데이터로 빌드합니다. 로그를 확인하세요."
+
+      - name: 네이버 블로그 후기 수집
+        continue-on-error: true
+        run: python scripts/fetch_blogs.py
 
       - name: 사이트 빌드
         run: python scripts/build_site.py

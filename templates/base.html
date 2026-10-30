@@ -72,6 +72,15 @@
 {% endif %}
 <main>
 {% block main %}{% endblock %}
+{% if ko and blog_items %}
+<section class="blogs" aria-labelledby="blogs-h">
+  <h2 id="blogs-h">관련 블로그 후기</h2>
+  <p class="hint">네이버 블로그 검색 결과를 매일 자동으로 모았습니다{% if blogs_updated %} ({{ blogs_updated }} 갱신){% endif %}. 개인 경험담이라 정확하지 않거나 광고가 섞여 있을 수 있습니다.</p>
+  <ul class="blog-list">
+  {% for b in blog_items %}<li><a href="{{ b.u }}" rel="nofollow noopener" target="_blank"><span class="bl-title">{{ b.t }}</span><span class="bl-desc">{{ b.d }}</span><span class="bl-meta">{{ b.b }} · {{ b.dt[:4] }}.{{ b.dt[4:6] }}.{{ b.dt[6:] }}</span></a></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
 {% set cm_names = {'us': '미국', 'ca': '캐나다', 'uk': '영국', 'au': '호주', 'nz': '뉴질랜드', 'de': '독일', 'jp': '일본', 'sg': '싱가포르'} %}
 {% if ko and country in cm_names %}
 <aside class="cm-cta"><p><strong>{{ cm_names[country] }} 비자·워홀, 궁금한 점이 있나요?</strong><br><span class="hint">먼저 다녀온 사람들에게 물어보세요. 가입 없이 쓸 수 있습니다.</span></p>

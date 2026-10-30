@@ -278,7 +278,9 @@ def main() -> int:
                        kindustry=lambda s: INDUSTRY_KO.get(s, s))
     env.globals["wait_gap"] = wait_gap
     import hashlib
+    import re
     import finder
+    blogs = load(live, "blogs", {}) if not force_sample else {}
     finder_data = finder.build(jobs, cfg["majors"], jp, lca, perm)
     asset_v = hashlib.md5(b"".join(f.read_bytes() for f in sorted((ROOT / "static").glob("*")) if f.is_file())).hexdigest()[:8]
     ctx = {"finder_data": finder_data, "finder_names": finder.NAMES, "asset_v": asset_v, "site": site, "meta": meta, "majors": majors, "jobs": jobs, "groups": groups, "vb": vb,
@@ -312,7 +314,11 @@ def main() -> int:
             alt_path = alt_href = None
         if no_alt:
             alt_path = alt_href = None
-        local = {"lang": lang, "page_path": page_path, "alt_path": alt_path, "alt_href": alt_href, "rel": rel,
+        bk = extra.pop("blog_key", None)
+        if bk is None and lang == "ko":
+            m = re.fullmatch(r"ko/([a-z]{2})/index\.html", path)
+            bk = f"country:{m.group(1)}" if m else None
+        local = {"blog_items": blogs.get(bk, []) if bk else [], "blogs_updated": blogs.get("updated"), "lang": lang, "page_path": page_path, "alt_path": alt_path, "alt_href": alt_href, "rel": rel,
                  "pathways": pathways_ko if lang == "ko" else pathways,
                  "pathways_as_of": pw_ko["as_of"] if lang == "ko" else pw["as_of"],
                  "sample_parts": [names_ko[n] for n in meta["sample_parts"]] if lang == "ko" else meta["sample_parts"]}
@@ -463,11 +469,12 @@ def main() -> int:
         for v in vc["visas"]:
             common = dict(vc=vc, v=v, cdir=cdir, cnames=cnames, q_ko=q_ko, q_en=q_en,
                           country=code if code != "kr" else "kr")
+            ko_common = dict(common, blog_key=f"visa:{code}:{v['id']}")
             if code == "kr":
                 render("visa.html", f"{cdir}/visas/{v['id']}/index.html", no_alt=True, **common)
             else:
                 render("visa.html", f"{cdir}/visas/{v['id']}/index.html", **common)
-                render("visa.html", f"ko/{cdir}/visas/{v['id']}/index.html", lang="ko", **common)
+                render("visa.html", f"ko/{cdir}/visas/{v['id']}/index.html", lang="ko", **ko_common)
 
     render("about.html", "about/index.html", country=None)
     render("404.html", "404.html", country=None)
