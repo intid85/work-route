@@ -1,12 +1,14 @@
 {% set ko = (lang == 'ko') %}
-<form class="finder" data-finder role="search" onsubmit="return false">
-  <label for="finder-q" class="finder-label">{{ '내 직업을 입력하세요' if ko else 'Enter your job' }}</label>
-  <div class="finder-row">
-    <input id="finder-q" type="search" list="finder-list" autocomplete="off" placeholder="{{ '예: 용접공, 요리사, 간호사, 개발자' if ko else 'e.g. welder, cook, nurse, software developer' }}">
-    <button type="submit" class="finder-btn">{{ '검색' if ko else 'Search' }}</button>
+<form class="finder" data-finder role="search">
+  <div class="finder-sign">
+    <label for="finder-q" class="finder-label"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ '내 직업으로 갈 수 있는 나라 찾기' if ko else 'Find where your job can take you' }}</label>
+    <div class="finder-row">
+      <input id="finder-q" type="search" list="finder-list" autocomplete="off" enterkeyhint="search" placeholder="{{ '용접공, 요리사, 간호사, 개발자…' if ko else 'Welder, cook, nurse, developer…' }}">
+      <button type="submit" class="finder-btn">{{ '검색' if ko else 'Search' }}</button>
+    </div>
+    <datalist id="finder-list">{% for e in finder_data %}<option value="{{ e.ko if ko else e.en }}">{% endfor %}</datalist>
+    <div class="finder-chips">{% for id in ['welder', 'cook', 'registered-nurse', 'electrician', 'nursing-assistant', 'auto-mechanic', '15-1252'] %}{% for e in finder_data if e.id == id %}<button type="button" data-pick="{{ e.id }}">{{ e.ko if ko else e.en }}</button>{% endfor %}{% endfor %}</div>
   </div>
-  <datalist id="finder-list">{% for e in finder_data %}<option value="{{ e.ko if ko else e.en }}">{% endfor %}</datalist>
-  <div class="finder-chips">{% for id in ['welder', 'cook', 'registered-nurse', 'electrician', 'nursing-assistant', 'auto-mechanic', '15-1252'] %}{% for e in finder_data if e.id == id %}<button type="button" data-pick="{{ e.id }}">{{ e.ko if ko else e.en }}</button>{% endfor %}{% endfor %}</div>
   <div class="finder-out" aria-live="polite"></div>
   <script type="application/json" class="finder-data">{{ {"entries": finder_data, "names": finder_names}|tojson }}</script>
 </form>
