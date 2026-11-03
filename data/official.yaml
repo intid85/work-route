@@ -75,3 +75,11 @@ de:
     skilled: https://www.make-it-in-germany.com/en/visa-recognition/visa-types
     ausbildung: https://www.make-it-in-germany.com/en/visa-recognition/visa-types
     settle: https://www.make-it-in-germany.com/en/visa-recognition/visa-types
+my:
+  authority: {en: "Immigration Department of Malaysia", ko: "말레이시아 이민청", url: "https://www.imi.gov.my/"}
+  visas:
+    student: https://www.imi.gov.my/index.php/en/main-services/pass/long-term-social-visit-pass/student-pass/
+    ep: https://esd.imi.gov.my/
+    rpt: https://www.talentcorp.com.my/
+    derantau: https://mdec.my/derantau
+    mm2h: https://www.mm2h.gov.my/

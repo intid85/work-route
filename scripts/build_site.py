@@ -224,8 +224,8 @@ def main() -> int:
     korea = yaml.safe_load((ROOT / "data" / "korea.yaml").read_text(encoding="utf-8"))
     pw = yaml.safe_load((ROOT / "data" / "pathways.yaml").read_text(encoding="utf-8"))
     links = {"us": "../us/index.html", "ca": "../ca/index.html", "uk": "../uk/index.html",
-             "au": "../au/index.html", "jp": "../jp/index.html", "sg": "../sg/index.html", "nz": "../nz/index.html", "de": "../de/index.html", "kr": "../korea/index.html"}
-    order = ["us", "ca", "uk", "au", "nz", "de", "jp", "sg", "kr"]
+             "au": "../au/index.html", "jp": "../jp/index.html", "sg": "../sg/index.html", "nz": "../nz/index.html", "de": "../de/index.html", "my": "../my/index.html", "kr": "../korea/index.html"}
+    order = ["us", "ca", "uk", "au", "nz", "de", "jp", "sg", "my", "kr"]
     pw["countries"].sort(key=lambda p: order.index(p["code"]))
     pathways = []
     for p in pw["countries"]:
@@ -292,7 +292,7 @@ def main() -> int:
     shutil.copytree(ROOT / "static", SITE / "static")
     pages = []
 
-    ko_pages = {"index.html", "pathways/index.html", "us/index.html", "us/employers/index.html", "jp/index.html", "sg/index.html", "nz/index.html", "de/index.html",
+    ko_pages = {"index.html", "pathways/index.html", "us/index.html", "us/employers/index.html", "jp/index.html", "sg/index.html", "nz/index.html", "de/index.html", "my/index.html",
                 "us/visa-bulletin/index.html", "ca/index.html", "ca/employers/index.html", "uk/index.html", "au/index.html"}
     ko_pages |= {f"us/jobs/{j['slug']}/index.html" for j in jobs} | {f"us/majors/{m['slug']}/index.html" for m in majors}
     ko_pages |= {f"ca/jobs/{j['slug']}/index.html" for j in jobs if j.get("noc") and ca}
@@ -375,7 +375,7 @@ def main() -> int:
         render("ko/jp/index.html", "ko/jp/index.html", lang="ko", country="jp", pw_path=path_ko["jp"])
     render("sg/index.html", "sg/index.html", country="sg", pw_path=path_by["sg"])
     render("ko/sg/index.html", "ko/sg/index.html", lang="ko", country="sg", pw_path=path_ko["sg"])
-    for c in ("nz", "de"):
+    for c in ("nz", "de", "my"):
         render(f"{c}/index.html", f"{c}/index.html", country=c, pw_path=path_by[c])
         render(f"ko/{c}/index.html", f"ko/{c}/index.html", lang="ko", country=c, pw_path=path_ko[c])
 
@@ -457,7 +457,8 @@ def main() -> int:
     cdirs = {"kr": "korea"}
     cnames = {"us": ("미국", "United States"), "ca": ("캐나다", "Canada"), "uk": ("영국", "United Kingdom"),
               "au": ("호주", "Australia"), "nz": ("뉴질랜드", "New Zealand"), "de": ("독일", "Germany"),
-              "jp": ("일본", "Japan"), "sg": ("싱가포르", "Singapore"), "kr": ("한국", "South Korea")}
+              "jp": ("일본", "Japan"), "sg": ("싱가포르", "Singapore"), "my": ("말레이시아", "Malaysia"),
+              "kr": ("한국", "South Korea")}
     q_ko = {"language": "비자 어학 기준은?", "education": "비자 학위 조건은?", "experience": "비자 경력 요건은?",
             "other": "비자 기타 조건은?", "stay": "비자 체류 기간은?", "next": "비자 다음 단계는?"}
     q_en = {"language": "what language level do you need?", "education": "what education do you need?",

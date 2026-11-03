@@ -21,8 +21,10 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "live" / "blogs.json"
 API = "https://openapi.naver.com/v1/search/blog.json"
 
-NAMES = {"us": "미국", "ca": "캐나다", "uk": "영국", "au": "호주", "nz": "뉴질랜드", "de": "독일", "jp": "일본", "sg": "싱가포르"}
+NAMES = {"us": "미국", "ca": "캐나다", "uk": "영국", "au": "호주", "nz": "뉴질랜드", "de": "독일", "jp": "일본", "sg": "싱가포르", "my": "말레이시아"}
 COUNTRY_QUERIES = ["{n} 워킹홀리데이 후기", "{n} 취업비자 후기", "{n} 영주권 후기"]
+QUERIES_BY_COUNTRY = {"my": ["말레이시아 국제학교 유학 후기", "말레이시아 MM2H 후기", "말레이시아 한달살기 후기"],
+                      "sg": ["싱가포르 취업 후기", "싱가포르 EP 후기", "싱가포르 영주권 후기"]}
 # skip obvious promotion: agency sales posts and sponsored reviews
 AD_WORDS = ["상담", "문의", "카톡", "오픈채팅", "이벤트", "협찬", "원고료", "제공받", "할인", "수수료 무료", "전문 유학원", "이주공사 추천"]
 KEEP_PER_PAGE = 5
@@ -78,7 +80,8 @@ def main() -> int:
     visas = yaml.safe_load((ROOT / "data" / "visas.yaml").read_text(encoding="utf-8"))["countries"]
     out: dict = {}
     for c, n in NAMES.items():
-        out[f"country:{c}"] = pick([q.format(n=n) for q in COUNTRY_QUERIES], cid, secret)
+        qs = QUERIES_BY_COUNTRY.get(c) or [q.format(n=n) for q in COUNTRY_QUERIES]
+        out[f"country:{c}"] = pick(qs, cid, secret)
         for v in visas.get(c, {}).get("visas", []):
             code = v.get("code_ko") or v["code"]
             out[f"visa:{c}:{v['id']}"] = pick([f"{n} {code} 비자 후기", f"{n} {code} 비자"], cid, secret)

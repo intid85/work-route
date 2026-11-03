@@ -318,3 +318,39 @@ countries:
     sources:
       - {name: "Make it in Germany(독일 연방정부)", url: "https://www.make-it-in-germany.com/en/"}
       - {name: "The Local, 2026 블루카드 연봉", url: "https://www.thelocal.de/20251217/the-salary-you-need-in-germany-in-2026-to-get-an-eu-blue-card"}
+
+  - code: my
+    name: 말레이시아
+    pr_name: 장기 체류
+    degree:
+      tag: 취업 라인
+      summary: 말레이시아 회사가 고용 패스(취업비자)를 스폰서합니다. 2026년 6월부터 월급 기준이 두 배로 올랐습니다. 경력이 쌓이면 10년짜리 고급 인재 패스로 갈 수 있지만, 영주권은 재량 심사라 거의 나오지 않습니다.
+      steps:
+        - {label: "채용", title: "말레이시아 회사 취업", note: "직무에 맞는 학위·경력"}
+        - {label: "고용 패스", title: "월급 등급별 취업비자", note: "III등급 월 RM5,000 이상"}
+        - {label: "근무", title: "현지 경력 쌓기", note: "최대 10년, 연장 보장 없음"}
+        - {label: "RP-T", title: "고급 인재 거주 패스", note: "최대 10년, 이직 자유"}
+        - {label: "장기 체류", title: "갱신 또는 영주권 신청", note: "영주권은 개별 심사, 사례 드묾"}
+    no_degree:
+      tag: 은퇴·장기 거주 라인
+      summary: MM2H는 정기예금과 부동산 구매로 5~20년 거주 자격을 줍니다. 학위·취업·어학 시험이 필요 없어 은퇴 이주와 자녀 교육 이주로 한국인이 많이 씁니다.
+      steps:
+        - {label: "자금", title: "정기예금 준비", note: "Silver US$15만 ~ Platinum US$100만"}
+        - {label: "MM2H", title: "공인 대행사 통해 신청", note: "만 25세 이상"}
+        - {label: "부동산", title: "주택 구매", note: "RM60만 이상, 주별 외국인 최저가 별도"}
+        - {label: "거주", title: "5년 · 15년 · 20년", note: "50세 미만은 연 90일 이상 체류"}
+        - {label: "갱신", title: "패스 갱신", note: "자녀 동반·통학 가능"}
+    wh:
+      tag: 자녀 유학 라인
+      title: 자녀 국제학교 유학
+      summary: 한국과 워킹홀리데이 협정은 없지만, 영어 국제학교 조기유학지로 인기가 높습니다. 자녀가 학생 패스를 받으면 부모 1명이 보호자 패스로 함께 머물 수 있습니다.
+      steps:
+        - {label: "입학", title: "국제학교 입학 허가", note: "쿠알라룸푸르·조호르·페낭에 많음"}
+        - {label: "추천서", title: "학교가 교육부 추천서 신청", note: "보통 학교·대행사가 진행"}
+        - {label: "학생 패스", title: "자녀 학생 패스", note: "보통 1년 단위 갱신"}
+        - {label: "보호자 패스", title: "부모 1명 동반 체류", note: "원칙적으로 취업 불가"}
+        - {label: "졸업", title: "졸업 후 진학", note: "현지 대학·해외 대학"}
+    sources:
+      - {name: "Rödl & Partner, 2026년 6월 고용 패스 개편", url: "https://www.roedl.com/en/insights/malaysia-new-employment-pass-requirements/"}
+      - {name: "Alestria, MM2H 2026 요건", url: "https://alestriaproperty.com/blog/mm2h-malaysia-2026-requirements-tiers-amp-property-rules-explained"}
+      - {name: "말레이시아 이민청 학생 패스", url: "https://www.imi.gov.my/index.php/en/main-services/pass/long-term-social-visit-pass/student-pass/"}

@@ -7,7 +7,7 @@
   {% set line = p[key] %}
   <div class="path {{ cls }}">
     <div class="path-head">
-      <span class="path-tag">{{ tag }}</span>
+      <span class="path-tag">{{ line.tag or tag }}</span>
       <h{{ heading_level }}>{% if key == 'wh' and line.title %}{{ p.name }} {{ line.title }}{% elif key == 'wh' and not line.steps %}{{ p.name }} 워킹홀리데이{% elif ko %}{{ p.name }} {{ p.pr_name }}까지{% else %}{{ p.name }}: route to {{ 'a green card' if p.pr_name == 'Green card' else (p.pr_name[0]|lower ~ p.pr_name[1:]) }}{% endif %}</h{{ heading_level }}>
     </div>
     <p>{{ line.summary }}</p>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
+{% block title %}Living and working in Malaysia: Employment Pass, MM2H and DE Rantau | {{ site.name }}{% endblock %}
+{% block description %}Malaysia's 2026 Employment Pass salary categories, the MM2H long-stay programme, the DE Rantau nomad pass and the student pass, with what each requires.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>Malaysia: work passes and long-term stay</h1>
+  <p class="lede">Malaysia works more as a long-stay country than an immigration one. Professionals come on an Employment Pass, retirees and families on MM2H, remote workers on DE Rantau. Permanent residence exists but is granted case by case and rarely.</p>
+</section>
+<section aria-label="Routes">{{ draw(pw_path) }}</section>
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">Pass types and requirements</h2>
+  <p class="hint">Pick a pass to see what it needs, how long it lasts and where it leads.</p>
+  {{ visa_tabs(visas_by["my"], "en") }}
+</section>
+{% endblock %}

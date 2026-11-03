@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "_pathway.html" import pathways as draw with context %}
+{% from "_visas.html" import visa_tabs with context %}
+{% block title %}말레이시아 이민·장기 체류: 고용 패스·MM2H·국제학교 유학·디지털 노마드 | {{ site.name }}{% endblock %}
+{% block description %}2026년 바뀐 말레이시아 고용 패스 월급 기준, MM2H 은퇴·장기 거주 요건(예치금·부동산), 자녀 국제학교 유학과 보호자 패스, 디지털 노마드 패스를 정리했습니다.{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>말레이시아: 취업, 은퇴, 자녀 유학으로 가는 길</h1>
+  <p class="lede">말레이시아는 영주권보다 <b>오래 머무는 나라</b>에 가깝습니다. 전문직은 고용 패스, 은퇴·가족 이주는 MM2H, 원격 근무자는 디지털 노마드 패스를 씁니다. 영어 국제학교가 많고 학비가 싸서 자녀 조기유학지로도 한국인에게 인기가 높습니다.</p>
+</section>
+<section aria-label="말레이시아 경로">{{ draw(pw_path) }}</section>
+<section id="visas" aria-labelledby="visas-h">
+  <h2 id="visas-h">패스 종류와 자격 요건</h2>
+  <p class="hint">패스를 고르면 필요한 조건과 체류 기간, 다음 단계를 보여드립니다.</p>
+  {{ visa_tabs(visas_by["my"], "ko") }}
+</section>
+<section aria-labelledby="kr-h">
+  <h2 id="kr-h">한국인이 많이 묻는 것</h2>
+  <h3 class="faq-q">말레이시아 영주권은 받을 수 있나요?</h3>
+  <p>공개된 점수제나 정해진 연수가 없는 재량 심사라 받기 매우 어렵습니다. 대부분 고용 패스·MM2H·고급 인재 패스를 갱신하며 장기 거주합니다.</p>
+  <h3 class="faq-q">워킹홀리데이가 있나요?</h3>
+  <p>한국과 말레이시아는 워킹홀리데이 협정이 없습니다. 짧게 살아보려면 무비자 90일 체류(관광)나, 원격 근무자라면 디지털 노마드 패스(DE Rantau)를 씁니다.</p>
+  <h3 class="faq-q">아이 국제학교 보내면 엄마(아빠)도 같이 살 수 있나요?</h3>
+  <p>네. 자녀가 학생 패스를 받으면 학생 1명당 보호자 1명이 보호자 패스로 함께 머물 수 있습니다. 보호자는 원칙적으로 취업할 수 없으니, 일을 하려면 별도 패스가 필요합니다. 세부 조건은 학교와 이민청에 확인하세요.</p>
+  <h3 class="faq-q">MM2H로 일할 수 있나요?</h3>
+  <p>Platinum 등급만 취업·사업이 가능합니다. Silver·Gold는 거주만 되고, 일을 하려면 고용 패스를 따로 받아야 합니다.</p>
+</section>
+{% endblock %}

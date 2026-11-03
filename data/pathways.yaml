@@ -212,3 +212,28 @@ countries:
     sources:
       - {name: "Make it in Germany (federal government)", url: "https://www.make-it-in-germany.com/en/"}
       - {name: "The Local on 2026 Blue Card salaries", url: "https://www.thelocal.de/20251217/the-salary-you-need-in-germany-in-2026-to-get-an-eu-blue-card"}
+
+  - code: my
+    name: Malaysia
+    pr_name: Long-term stay
+    degree:
+      tag: Work
+      summary: An employer sponsors an Employment Pass, with salary floors that doubled in June 2026. Senior professionals can move to a 10-year Residence Pass-Talent. Permanent residence is discretionary and rare.
+      steps:
+        - {label: "Job offer", title: "Malaysian employer hires you", note: "Degree or experience matching the role"}
+        - {label: "Employment Pass", title: "Work pass by salary category", note: "From RM5,000 a month (Category III)"}
+        - {label: "Work", title: "Build years in Malaysia", note: "Up to 10 years, no guaranteed renewal"}
+        - {label: "RP-T", title: "Residence Pass-Talent", note: "Up to 10 years, not tied to one employer"}
+        - {label: "Long stay", title: "Renew or apply for PR", note: "PR is case by case and rare"}
+    no_degree:
+      tag: Retire or live long-term
+      summary: MM2H gives 5 to 20 years of residence for a fixed deposit and a property purchase. No degree, job or language test is needed, but only the top tier may work.
+      steps:
+        - {label: "Funds", title: "Prepare the deposit", note: "USD 150,000 (Silver) to 1,000,000 (Platinum)"}
+        - {label: "MM2H", title: "Apply through a licensed agent", note: "Age 25 or over"}
+        - {label: "Property", title: "Buy a home", note: "From RM600,000, state minimums apply"}
+        - {label: "Stay", title: "5, 15 or 20 years", note: "90 days a year under age 50"}
+        - {label: "Renew", title: "Renew the pass", note: "Children can join and attend school"}
+    sources:
+      - {name: "Rödl & Partner on the June 2026 Employment Pass rules", url: "https://www.roedl.com/en/insights/malaysia-new-employment-pass-requirements/"}
+      - {name: "Alestria on MM2H 2026", url: "https://alestriaproperty.com/blog/mm2h-malaysia-2026-requirements-tiers-amp-property-rules-explained"}
